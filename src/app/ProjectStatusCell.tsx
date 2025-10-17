@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { TableCell } from "@/components/ui/table";
 
 const ProjectStatusCell = ({ project }) => {
   const getStatusStyle = (status) => {
