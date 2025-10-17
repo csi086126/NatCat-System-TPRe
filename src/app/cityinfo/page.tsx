@@ -2,12 +2,14 @@
 
 // 1. 导入必要的 React Hooks 和组件
 import { useState, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Home, MapPin, AlertTriangle, Map, Building2, Activity, Puzzle, User, LogOut } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import "leaflet/dist/leaflet.css";
 
@@ -17,7 +19,7 @@ const TileLayer = dynamic(() => import('react-leaflet').then(mod => mod.TileLaye
 const WMSTileLayer = dynamic(() => import('react-leaflet').then(mod => mod.WMSTileLayer), { ssr: false });
 
 // 3. Header 组件
-const Header = () => {
+const Header = ({ onLogout, activePage }: { onLogout: () => void; activePage?: string }) => {
   return (
     <header className="bg-white shadow-md z-20">
       <div className="mx-auto px-4 py-2 flex justify-between items-center ml-2">
@@ -30,17 +32,21 @@ const Header = () => {
           />
           <span className="ml-2 text-xl font-semibold"></span>
         </div>
-        <nav className="flex-grow flex justify-end">
+        <nav className="flex-grow flex justify-end items-center">
           <ul className="flex space-x-4">
           
-            <li><Link href="/cityinfo"><Button variant="ghost">Urban Spatial Elements</Button></Link></li>
-            <li className="ml-auto"><Link href="/disasterinfo"><Button variant="ghost">Disaster event repository</Button></Link></li>
-            <li className="ml-auto"><Link href="/riskmap"><Button variant="ghost">Risk map</Button></Link></li>
-            <li className="ml-auto"><Link href="/asset"><Button variant="ghost">Asset management</Button></Link></li>
-            <li className="ml-auto"><Link href="/model"><Button variant="ghost">Catastrophe model</Button></Link></li>
-            <li className="ml-auto"><Link href="/fuzhu"><Button variant="ghost">Accessibility</Button></Link></li>
-            <li><Link href="/usercenter"><Button variant="ghost">User centre</Button></Link></li>
+            <li><Link href="/cityinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'cityinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><MapPin size={18} />Urban Spatial Elements</Button></Link></li>
+            <li className="ml-auto"><Link href="/disasterinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'disasterinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><AlertTriangle size={18} />Disaster repository</Button></Link></li>
+            <li className="ml-auto"><Link href="/asset"><Button variant="ghost" className={`gap-2 ${activePage === 'asset' ? 'text-blue-900 font-bold text-lg' : ''}`}><Building2 size={18} />Asset management</Button></Link></li>
+            <li className="ml-auto"><Link href="/riskmap"><Button variant="ghost" className={`gap-2 ${activePage === 'riskmap' ? 'text-blue-900 font-bold text-lg' : ''}`}><Map size={18} />Risk map</Button></Link></li>
+            <li className="ml-auto"><Link href="/model"><Button variant="ghost" className={`gap-2 ${activePage === 'model' ? 'text-blue-900 font-bold text-lg' : ''}`}><Activity size={18} />Catastrophe model</Button></Link></li>
+            <li className="ml-auto"><Link href="/fuzhu"><Button variant="ghost" className={`gap-2 ${activePage === 'fuzhu' ? 'text-blue-900 font-bold text-lg' : ''}`}><Puzzle size={18} />Accessibility</Button></Link></li>
+            <li><Link href="/usercenter"><Button variant="ghost" className={`gap-2 ${activePage === 'usercenter' ? 'text-blue-900 font-bold text-lg' : ''}`}><User size={18} />User centre</Button></Link></li>
           </ul>
+          <Button variant="outline" onClick={onLogout} className="ml-4 gap-2">
+            <LogOut size={18} />
+            退出登录
+          </Button>
         </nav>
       </div>
     </header>
@@ -49,7 +55,15 @@ const Header = () => {
 
 // 4. 主组件
 export default function Component() {
+  const router = useRouter();
   const mapRef = useRef(null);
+  
+  // 退出登录处理
+  const handleLogout = () => {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('username');
+    router.push('/');
+  };
   
   // 城市空间元素的状态管理 (已整合新的图层)
   const [urbanElements, setUrbanElements] = useState({
@@ -57,12 +71,11 @@ export default function Component() {
     geomorphology: false,
     riverNetwork: false, 
     boundary: false,
-    annualrainfall: false,
     landCover: false, // 新增: 土地覆盖
     buildingRisk: false,
     roadsAndStreets: false, 
     landUse: false,
-    drainageConduits: true, 
+    drainageConduits: false, 
     drainageJunctions: false,
     drainageOutfalls: false,
     reservoirRegulation: false,
@@ -73,6 +86,10 @@ export default function Component() {
     industrialCommercial: false,
     nighttimeLightIndex: false,
     poi: false,
+    // Weather and Climate 相关
+    annualRainfall: false,
+    annualTemperature: false,
+    earthMapIntegration: false,
   });
 
   const [selectedCity, setSelectedCity] = useState('');
@@ -87,13 +104,12 @@ export default function Component() {
 
   return (
     <div className="flex flex-col h-screen bg-gray-100">
-      <Header />
+      <Header onLogout={handleLogout} activePage="cityinfo" />
 
       <div className="flex flex-1 overflow-hidden">
         
         {/* 左侧边栏 */}
-        <aside className="w-80 flex-shrink-0 border-r bg-white p-4 overflow-y-auto space-y-4">
-          <h2 className="text-xl font-bold text-red-700 mb-2 pl-2">1. Urban Spatial Elements</h2>
+        <aside className="w-80 flex-shrink-0 border-r bg-white pl-8 pr-8 py-4 overflow-y-auto space-y-1">
 
           <Card>
             <CardHeader>
@@ -137,14 +153,30 @@ export default function Component() {
                 <Checkbox id="boundary" checked={urbanElements.boundary} onCheckedChange={() => handleElementToggle('boundary')} />
                 <Label htmlFor="boundary" className="font-normal">Administrative boundary</Label>
               </div>
-              <div className="flex items-center space-x-2">
-                <Checkbox id="annualrainfall" checked={urbanElements.annualrainfall} onCheckedChange={() => handleElementToggle('annualrainfall')} />
-                <Label htmlFor="annualrainfall" className="font-normal">Annual rainfall</Label>
-              </div>
               {/* --- 新增的复选框 --- */}
               <div className="flex items-center space-x-2">
                 <Checkbox id="landCover" checked={urbanElements.landCover} onCheckedChange={() => handleElementToggle('landCover')} />
                 <Label htmlFor="landCover" className="font-normal">Land Cover (2019)</Label>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-base">Weather and Climate</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <div className="flex items-center space-x-2">
+                <Checkbox id="annualRainfall" checked={urbanElements.annualRainfall} onCheckedChange={() => handleElementToggle('annualRainfall')} />
+                <Label htmlFor="annualRainfall" className="font-normal">Annual Rainfall</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Checkbox id="annualTemperature" checked={urbanElements.annualTemperature} onCheckedChange={() => handleElementToggle('annualTemperature')} />
+                <Label htmlFor="annualTemperature" className="font-normal">Annual Temperature</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Checkbox id="earthMapIntegration" checked={urbanElements.earthMapIntegration} onCheckedChange={() => handleElementToggle('earthMapIntegration')} />
+                <Label htmlFor="earthMapIntegration" className="font-normal">Earth-map Integration</Label>
               </div>
             </CardContent>
           </Card>
@@ -225,6 +257,24 @@ export default function Component() {
 
         {/* 中间地图区域 */}
         <main className="flex-1 relative">
+          {urbanElements.earthMapIntegration && (
+            <div className="absolute inset-0 z-50 bg-white">
+              <div className="absolute top-4 right-4 z-50">
+                <Button 
+                  onClick={() => handleElementToggle('earthMapIntegration')}
+                  variant="default"
+                  className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg"
+                >
+                  ← Return to Map
+                </Button>
+              </div>
+              <iframe
+                src="https://earth.nullschool.net/#current/wind/isobaric/850hPa/orthographic"
+                style={{ width: "100%", height: "100%", border: "none" }}
+                title="Earth Wind Map"
+              />
+            </div>
+          )}
           <MapContainer
             ref={mapRef}
             center={[22.3193, 114.1694]}
@@ -233,8 +283,8 @@ export default function Component() {
             className="z-10"
           >
             <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+              url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
             />
             
             {urbanElements.buildingRisk && (
@@ -253,9 +303,9 @@ export default function Component() {
                 attribution="GeoServer Data"
               />
             )}
-            {urbanElements.annualrainfall && (
+            {urbanElements.annualRainfall && (
               <WMSTileLayer
-                key="annualrainfall"
+                key="annualRainfall"
                 url="http://143.89.22.7:8090/geoserver/wms"
                 params={{ layers: 'COP:taiping_Annual_rainfall', format: 'image/png', transparent: true, version: '1.1.0' }}
                 attribution="GeoServer Data"
@@ -349,65 +399,6 @@ export default function Component() {
 
           </MapContainer>
         </main>
-
-        {/* 右侧边栏 */}
-        <aside className="w-80 flex-shrink-0 border-l bg-white p-4 overflow-y-auto space-y-4">
-          
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-lg">Details</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-gray-500 mb-4">Initial details for a sample element.</p>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span className="font-semibold">ID:</span>
-                  <span>HK-BLD-00781</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="font-semibold">Type:</span>
-                  <span>Commercial Building</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="font-semibold">Risk Level:</span>
-                  <span className="text-red-600 font-bold bg-red-100 px-2 py-1 rounded">High</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="font-semibold">Estimated Loss:</span>
-                  <span className="font-mono">$ 3,500,000</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-lg">Analysis Chart</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="h-48 flex flex-col">
-                <p className="text-center text-sm font-medium text-gray-600">Risk Distribution by Asset Type</p>
-                
-                <div className="flex-grow flex items-end justify-around px-2 pt-2 pb-1">
-                  <div className="w-8 bg-blue-400 rounded-t-sm" style={{ height: '60%' }} title="Residential: 60%"></div>
-                  <div className="w-8 bg-red-400 rounded-t-sm" style={{ height: '85%' }} title="Commercial: 85%"></div>
-                  <div className="w-8 bg-yellow-400 rounded-t-sm" style={{ height: '40%' }} title="Industrial: 40%"></div>
-                  <div className="w-8 bg-green-400 rounded-t-sm" style={{ height: '70%' }} title="Infrastructure: 70%"></div>
-                </div>
-
-                <div className="border-t border-gray-300 mx-2"></div>
-
-                <div className="flex justify-around pt-1">
-                  <span className="text-xs w-10 text-center">Res.</span>
-                  <span className="text-xs w-10 text-center">Com.</span>
-                  <span className="text-xs w-10 text-center">Ind.</span>
-                  <span className="text-xs w-10 text-center">Infra.</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-        </aside>
 
       </div>
     </div>

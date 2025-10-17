@@ -2,6 +2,7 @@
 
 // 1. Import necessary React Hooks and components
 import { useState, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
@@ -10,6 +11,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Home, MapPin, AlertTriangle, Map, Building2, Activity, Puzzle, User, LogOut } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import "leaflet/dist/leaflet.css";
 
@@ -50,7 +52,7 @@ const mockAsset = {
 
 
 // 5. Header Component
-const Header = () => {
+const Header = ({ onLogout, activePage }: { onLogout: () => void; activePage?: string }) => {
   return (
     <header className="bg-white shadow-md z-20">
       <div className="mx-auto px-4 py-2 flex justify-between items-center ml-2">
@@ -63,17 +65,21 @@ const Header = () => {
           />
           <span className="ml-2 text-xl font-semibold"></span>
         </div>
-        <nav className="flex-grow flex justify-end">
+        <nav className="flex-grow flex justify-end items-center">
           <ul className="flex space-x-4">
           
-            <li><Link href="/cityinfo"><Button variant="ghost">Urban Spatial Elements</Button></Link></li>
-            <li className="ml-auto"><Link href="/disasterinfo"><Button variant="ghost">Disaster event repository</Button></Link></li>
-            <li className="ml-auto"><Link href="/riskmap"><Button variant="ghost">Risk map</Button></Link></li>
-            <li className="ml-auto"><Link href="/asset"><Button variant="ghost">Asset management</Button></Link></li>
-            <li className="ml-auto"><Link href="/model"><Button variant="ghost">Catastrophe model</Button></Link></li>
-            <li className="ml-auto"><Link href="/fuzhu"><Button variant="ghost">Accessibility</Button></Link></li>
-            <li><Link href="/usercenter"><Button variant="ghost">User centre</Button></Link></li>
+            <li><Link href="/cityinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'cityinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><MapPin size={18} />Urban Spatial Elements</Button></Link></li>
+            <li className="ml-auto"><Link href="/disasterinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'disasterinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><AlertTriangle size={18} />Disaster repository</Button></Link></li>
+            <li className="ml-auto"><Link href="/asset"><Button variant="ghost" className={`gap-2 ${activePage === 'asset' ? 'text-blue-900 font-bold text-lg' : ''}`}><Building2 size={18} />Asset management</Button></Link></li>
+            <li className="ml-auto"><Link href="/riskmap"><Button variant="ghost" className={`gap-2 ${activePage === 'riskmap' ? 'text-blue-900 font-bold text-lg' : ''}`}><Map size={18} />Risk map</Button></Link></li>
+            <li className="ml-auto"><Link href="/model"><Button variant="ghost" className={`gap-2 ${activePage === 'model' ? 'text-blue-900 font-bold text-lg' : ''}`}><Activity size={18} />Catastrophe model</Button></Link></li>
+            <li className="ml-auto"><Link href="/fuzhu"><Button variant="ghost" className={`gap-2 ${activePage === 'fuzhu' ? 'text-blue-900 font-bold text-lg' : ''}`}><Puzzle size={18} />Accessibility</Button></Link></li>
+            <li><Link href="/usercenter"><Button variant="ghost" className={`gap-2 ${activePage === 'usercenter' ? 'text-blue-900 font-bold text-lg' : ''}`}><User size={18} />User centre</Button></Link></li>
           </ul>
+          <Button variant="outline" onClick={onLogout} className="ml-4 gap-2">
+            <LogOut size={18} />
+            退出登录
+          </Button>
         </nav>
       </div>
     </header>
@@ -82,7 +88,15 @@ const Header = () => {
 
 // 6. Main Component
 export default function Component() {
+  const router = useRouter();
   const mapRef = useRef(null);
+  
+  // 退出登录处理
+  const handleLogout = () => {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('username');
+    router.push('/');
+  };
   
   const [visibleLayers, setVisibleLayers] = useState({
     flood500yr: false,
@@ -107,13 +121,12 @@ export default function Component() {
   
   return (
     <div className="flex flex-col h-screen bg-gray-100">
-      <Header />
+      <Header onLogout={handleLogout} activePage="asset" />
 
       <div className="flex flex-1 overflow-hidden">
         
         {/* Left Sidebar */}
-        <aside className="w-80 flex-shrink-0 border-r bg-white p-4 overflow-y-auto space-y-4">
-          <h2 className="text-xl font-bold text-red-700 mb-2 pl-2">4. Asset Management</h2>
+        <aside className="w-80 flex-shrink-0 border-r bg-white pl-8 pr-8 py-4 overflow-y-auto space-y-1">
 
           <Card>
             <CardContent className="pt-4 space-y-2">
@@ -174,7 +187,7 @@ export default function Component() {
         {/* Central Map Area */}
         <main className="flex-1 relative">
           <MapContainer ref={mapRef} center={[22.3193, 114.1694]} zoom={11} style={{ height: "100%", width: "100%" }} className="z-10">
-            <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+            <TileLayer attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community' url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" />
             {Object.entries(visibleLayers).map(([key, isVisible]) => 
               isVisible && wmsLayersConfig[key] && (
                 <WMSTileLayer key={key} url="http://143.89.22.7:8090/geoserver/wms" params={{ layers: wmsLayersConfig[key].layer, format: 'image/png', transparent: true, version: '1.1.0' }} attribution="GeoServer Data" />
@@ -184,7 +197,7 @@ export default function Component() {
         </main>
 
         {/* --- MODIFIED: Right Sidebar for Asset Details --- */}
-        <aside className="w-96 flex-shrink-0 border-l bg-white p-4 overflow-y-auto space-y-4">
+        <aside className="w-96 flex-shrink-0 border-l bg-white p-4 overflow-y-auto space-y-1">
           <h2 className="text-xl font-bold mb-2 pl-2">Asset Details</h2>
           
           {selectedAsset ? (

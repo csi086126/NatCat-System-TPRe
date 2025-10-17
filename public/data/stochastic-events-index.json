@@ -1,0 +1,28 @@
+{
+  "description": "随机事件集索引 - 几万个事件通过 GeoServer WMS 图层展示",
+  "totalCount": 50000,
+  "returnPeriod": 10000,
+  "categories": {
+    "typhoon": {
+      "count": 15000,
+      "geoserverLayer": "COP:stochastic_typhoon_10000yr",
+      "idRange": ["TY-10K-00001", "TY-10K-15000"]
+    },
+    "rainstorm": {
+      "count": 18000,
+      "geoserverLayer": "COP:stochastic_rainstorm_10000yr",
+      "idRange": ["RS-10K-00001", "RS-10K-18000"]
+    },
+    "flood": {
+      "count": 12000,
+      "geoserverLayer": "COP:stochastic_flood_10000yr",
+      "idRange": ["FL-10K-00001", "FL-10K-12000"]
+    },
+    "stormSurge": {
+      "count": 5000,
+      "geoserverLayer": "COP:stochastic_stormsurge_10000yr",
+      "idRange": ["SS-10K-00001", "SS-10K-05000"]
+    }
+  },
+  "note": "随机事件数据量大，不在前端加载全部数据，而是通过 GeoServer WMS 图层按需展示"
+}

@@ -8,9 +8,10 @@ import Link from 'next/link';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { MapPin, AlertTriangle, Map, Building2, Activity, Puzzle, User, LogOut } from 'lucide-react';
 
 // 2. Header 组件 (保持不变，供登录后使用)
-const Header = () => {
+const Header = ({ onLogout, activePage }: { onLogout: () => void; activePage?: string }) => {
   return (
     <header className="bg-white shadow-md z-20">
       <div className="mx-auto px-4 py-2 flex justify-between items-center ml-2">
@@ -23,17 +24,21 @@ const Header = () => {
           />
           <span className="ml-2 text-xl font-semibold">Flood Catastrophe Insurance System</span>
         </div>
-        <nav className="flex-grow flex justify-end">
+        <nav className="flex-grow flex justify-end items-center">
           <ul className="flex space-x-4">
             
-            <li><Link href="/cityinfo"><Button variant="ghost">Urban Spatial Elements</Button></Link></li>
-            <li className="ml-auto"><Link href="/disasterinfo"><Button variant="ghost">Disaster event repository</Button></Link></li>
-            <li className="ml-auto"><Link href="/riskmap"><Button variant="ghost">Risk map</Button></Link></li>
-            <li className="ml-auto"><Link href="/asset"><Button variant="ghost">Asset management</Button></Link></li>
-            <li className="ml-auto"><Link href="/model"><Button variant="ghost">Catastrophe model</Button></Link></li>
-            <li className="ml-auto"><Link href="/fuzhu"><Button variant="ghost">Accessibility</Button></Link></li>
-            <li><Link href="/usercenter"><Button variant="ghost">User centre</Button></Link></li>
+            <li><Link href="/cityinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'cityinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><MapPin size={18} />Urban Spatial Elements</Button></Link></li>
+            <li className="ml-auto"><Link href="/disasterinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'disasterinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><AlertTriangle size={18} />Disaster repository</Button></Link></li>
+            <li className="ml-auto"><Link href="/asset"><Button variant="ghost" className={`gap-2 ${activePage === 'asset' ? 'text-blue-900 font-bold text-lg' : ''}`}><Building2 size={18} />Asset management</Button></Link></li>
+            <li className="ml-auto"><Link href="/riskmap"><Button variant="ghost" className={`gap-2 ${activePage === 'riskmap' ? 'text-blue-900 font-bold text-lg' : ''}`}><Map size={18} />Risk map</Button></Link></li>
+            <li className="ml-auto"><Link href="/model"><Button variant="ghost" className={`gap-2 ${activePage === 'model' ? 'text-blue-900 font-bold text-lg' : ''}`}><Activity size={18} />Catastrophe model</Button></Link></li>
+            <li className="ml-auto"><Link href="/fuzhu"><Button variant="ghost" className={`gap-2 ${activePage === 'fuzhu' ? 'text-blue-900 font-bold text-lg' : ''}`}><Puzzle size={18} />Accessibility</Button></Link></li>
+            <li><Link href="/usercenter"><Button variant="ghost" className={`gap-2 ${activePage === 'usercenter' ? 'text-blue-900 font-bold text-lg' : ''}`}><User size={18} />User centre</Button></Link></li>
           </ul>
+          <Button variant="outline" onClick={onLogout} className="ml-4 gap-2">
+            <LogOut size={18} />
+            退出登录
+          </Button>
         </nav>
       </div>
     </header>
@@ -130,9 +135,21 @@ const Login = () => {
 
 // 4. 主组件，渲染登录页面
 export default function Component() {
+  const router = useRouter();
+  
+  // 退出登录处理
+  const handleLogout = () => {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('username');
+    router.push('/');
+  };
+  
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-      <Login />
+    <div className="flex flex-col h-screen bg-gray-100">
+      <Header onLogout={handleLogout} activePage="model" />
+      <div className="flex flex-1 items-center justify-center">
+        <Login />
+      </div>
     </div>
   );
 }

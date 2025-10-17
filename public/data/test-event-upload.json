@@ -1,0 +1,26 @@
+{
+  "id": "R-2024-5",
+  "name": "Test Rainstorm Event",
+  "type": "Rainstorm",
+  "date": "2024-10-15",
+  "year": 2024,
+  "impactArea": {
+    "level1": "Hong Kong",
+    "level2": "Kowloon",
+    "level3": "Yau Tsim Mong"
+  },
+  "maxWindSpeed": "120 km/h",
+  "totalRainfall": "450 mm",
+  "estimatedLoss": "$2.8 Billion",
+  "affectedPopulation": "1.5 Million",
+  "affectedAreas": [
+    "Tsim Sha Tsui",
+    "Jordan",
+    "Mong Kok"
+  ],
+  "geometry": {
+    "type": "Point",
+    "coordinates": [114.1722, 22.3088]
+  },
+  "category": "historical"
+}

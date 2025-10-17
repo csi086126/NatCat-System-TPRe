@@ -1,0 +1,50 @@
+[
+  {
+    "id": "TY2023-001",
+    "name": "Typhoon Mangkhut",
+    "type": "Typhoon",
+    "date": "2023-09-16",
+    "region": "Hong Kong",
+    "maxWindSpeed": "285 km/h",
+    "totalRainfall": "350 mm",
+    "estimatedLoss": "$6.27 Billion",
+    "affectedPopulation": "3.6 Million",
+    "affectedAreas": ["Hong Kong", "Guangdong", "Macau"],
+    "geometry": {
+      "type": "Point",
+      "coordinates": [114.1694, 22.3193]
+    }
+  },
+  {
+    "id": "RS2022-045",
+    "name": "June 2022 Rainstorm",
+    "type": "Rainstorm",
+    "date": "2022-06-08",
+    "region": "Shenzhen",
+    "maxWindSpeed": "N/A",
+    "totalRainfall": "520 mm",
+    "estimatedLoss": "$2.1 Billion",
+    "affectedPopulation": "1.2 Million",
+    "affectedAreas": ["Shenzhen", "Dongguan"],
+    "geometry": {
+      "type": "Point",
+      "coordinates": [114.0579, 22.5431]
+    }
+  },
+  {
+    "id": "FL2021-012",
+    "name": "July 2021 Flash Flood",
+    "type": "Flood",
+    "date": "2021-07-20",
+    "region": "Hong Kong",
+    "maxWindSpeed": "N/A",
+    "totalRainfall": "410 mm",
+    "estimatedLoss": "$850 Million",
+    "affectedPopulation": "500,000",
+    "affectedAreas": ["New Territories", "Kowloon"],
+    "geometry": {
+      "type": "Point",
+      "coordinates": [114.1095, 22.3964]
+    }
+  }
+]

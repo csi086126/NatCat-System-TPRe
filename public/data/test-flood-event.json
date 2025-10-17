@@ -1,0 +1,32 @@
+{
+  "id": "F-2024-8",
+  "name": "Urban Flood Event Hong Kong",
+  "type": "Flood",
+  "date": "2024-09-20",
+  "year": 2024,
+  "impactArea": {
+    "level1": "Hong Kong",
+    "level2": "New Territories",
+    "level3": "Sha Tin"
+  },
+  "maxWindSpeed": "80 km/h",
+  "totalRainfall": "550 mm",
+  "estimatedLoss": "$1.8 Billion",
+  "affectedPopulation": "800,000",
+  "affectedAreas": [
+    "Sha Tin",
+    "Tai Wai",
+    "Fo Tan"
+  ],
+  "geometry": {
+    "type": "Point",
+    "coordinates": [114.1952, 22.3793]
+  },
+  "category": "historical",
+  "floodDepthMap": {
+    "available": true,
+    "format": "TIFF",
+    "fileName": "flood_depth_shatin_2024.tif",
+    "description": "Maximum flood depth during the event"
+  }
+}
