@@ -53,10 +53,10 @@ export default function LoginPage() {
             />
           </div>
           <CardTitle className="text-2xl font-bold text-center text-gray-800">
-            洪水灾害保险系统
+            Natural Catastrophe Risk Platform
           </CardTitle>
           <p className="text-center text-sm text-gray-600">
-            Flood Catastrophe Insurance System
+            自然灾害风险管理平台
           </p>
         </CardHeader>
 
