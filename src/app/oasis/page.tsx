@@ -63,7 +63,7 @@ const Header = () => {
             {/* 假设主页路由是 "/" */}
             
             {/* 假设风险分析页路由是 "/risk-analysis" */}
-            <li><Link href="/cityinfo"><Button variant="ghost">Urban Spatial Elements</Button></Link></li>
+            <li><Link href="/cityinfo"><Button variant="ghost">Geospatial Data Hub</Button></Link></li>
             {/* 假设风险统计页路由是 "/risk-statistics" */}
             <li className="ml-auto"><Link href="/disasterinfo"><Button variant="ghost">Disaster event repository</Button></Link></li>
             {/* 假设您想跳转到的地图页面的路由是 "/map" */}

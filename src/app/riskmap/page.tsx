@@ -1,7 +1,7 @@
 "use client"
 
 // 1. Import necessary React Hooks and components
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,8 +14,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Separator } from "@/components/ui/separator";
 import { 
   Home, MapPin, AlertTriangle, Map, Building2, Activity, Puzzle, User, LogOut,
-  Target, Search, FileText, Download, ChevronDown, ChevronUp, Layers, Settings
+  Target, Search, FileText, Download, ChevronDown, ChevronUp, Layers, Settings, Globe
 } from 'lucide-react';
+import { RegionSelector } from '@/components/RegionSelector';
+import { useRegion } from '@/contexts/RegionContext';
 import dynamic from 'next/dynamic';
 import "leaflet/dist/leaflet.css";
 
@@ -25,6 +27,7 @@ const TileLayer = dynamic(() => import('react-leaflet').then(mod => mod.TileLaye
 const WMSTileLayer = dynamic(() => import('react-leaflet').then(mod => mod.WMSTileLayer), { ssr: false });
 const Marker = dynamic(() => import('react-leaflet').then(mod => mod.Marker), { ssr: false });
 const Popup = dynamic(() => import('react-leaflet').then(mod => mod.Popup), { ssr: false });
+const MapCoordinateDisplay = dynamic(() => import('@/components/MapCoordinateDisplay').then(mod => mod.MapCoordinateDisplay), { ssr: false });
 
 // 3. WMS Layer Configuration (Composite + Detailed layers)
 const wmsLayersConfig = {
@@ -75,20 +78,23 @@ const legendData = [
 // 5. Header Component
 const Header = ({ onLogout, activePage }: { onLogout: () => void; activePage?: string }) => {
   return (
-    <header className="bg-white shadow-md z-20">
+    <header className="bg-white shadow-md z-[9000] relative">
       <div className="mx-auto px-4 py-2 flex justify-between items-center ml-2">
-        <div className="flex items-center">
+        <div className="flex items-center gap-4">
           <Image
             src="/taipinglogo.png"
             alt="China Taiping Logo"
             width={360}
             height={40}
           />
-          <span className="ml-2 text-xl font-semibold"></span>
+          {/* 地区选择器 - 最左侧 */}
+          <div className="border-l border-gray-300 pl-4">
+            <RegionSelector />
+          </div>
         </div>
         <nav className="flex-grow flex justify-end items-center">
           <ul className="flex space-x-4">
-            <li><Link href="/cityinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'cityinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><MapPin size={18} />Urban Spatial Elements</Button></Link></li>
+            <li><Link href="/cityinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'cityinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><Globe size={18} />Geospatial Data Hub</Button></Link></li>
             <li className="ml-auto"><Link href="/disasterinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'disasterinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><AlertTriangle size={18} />Disaster repository</Button></Link></li>
             <li className="ml-auto"><Link href="/asset"><Button variant="ghost" className={`gap-2 ${activePage === 'asset' ? 'text-blue-900 font-bold text-lg' : ''}`}><Building2 size={18} />Asset management</Button></Link></li>
             <li className="ml-auto"><Link href="/riskmap"><Button variant="ghost" className={`gap-2 ${activePage === 'riskmap' ? 'text-blue-900 font-bold text-lg' : ''}`}><Map size={18} />Risk map</Button></Link></li>
@@ -98,7 +104,7 @@ const Header = ({ onLogout, activePage }: { onLogout: () => void; activePage?: s
           </ul>
           <Button variant="outline" onClick={onLogout} className="ml-4 gap-2">
             <LogOut size={18} />
-            退出登录
+            Logout
           </Button>
         </nav>
       </div>
@@ -167,6 +173,11 @@ const createCustomIcon = () => {
 export default function RiskMapPage() {
   const router = useRouter();
   const mapRef = useRef(null);
+  const { regionConfig, currentRegion } = useRegion();
+  
+  // 地图中心和缩放状态
+  const [mapCenter, setMapCenter] = useState<[number, number]>([22.3193, 114.1694]);
+  const [mapZoom, setMapZoom] = useState(11);
   
   // Handle logout
   const handleLogout = () => {
@@ -174,6 +185,38 @@ export default function RiskMapPage() {
     localStorage.removeItem('username');
     router.push('/');
   };
+  
+  // 监听地区切换，更新地图中心
+  useEffect(() => {
+    if (regionConfig && regionConfig.coordinates.center) {
+      const newCenter: [number, number] = [
+        regionConfig.coordinates.center[0],
+        regionConfig.coordinates.center[1]
+      ];
+      setMapCenter(newCenter);
+      
+      // 根据地区调整缩放级别
+      const zoomLevels: { [key: string]: number } = {
+        'worldwide': 3,
+        'hk': 11,
+        'mo': 12,
+        'gba': 9,
+        'th': 6,
+        'vn': 6,
+        'my': 6
+      };
+      setMapZoom(zoomLevels[currentRegion] || 10);
+      
+      // 如果地图已经初始化，飞到新位置
+      if (mapRef.current) {
+        mapRef.current.flyTo(newCenter, zoomLevels[currentRegion] || 10, {
+          duration: 1.5
+        });
+      }
+      
+      console.log(`✈️ Map center updated to ${regionConfig.nameEn}:`, newCenter);
+    }
+  }, [regionConfig, currentRegion]);
   
   // ========== Core States ==========
   
@@ -535,7 +578,7 @@ export default function RiskMapPage() {
                   className="mt-1"
                 />
                 <p className="text-xs text-gray-500 mt-1">
-                  💡 Tip: Enter city name, address, or coordinates (format: lat,lon)
+                  💡 Enter city name, address, or coordinates (lat,lon)
                 </p>
               </div>
               
@@ -898,8 +941,8 @@ export default function RiskMapPage() {
         {/* Right Map Area */}
         <div className="flex-1 relative">
           <MapContainer
-            center={[22.3193, 114.1694]}
-            zoom={11}
+            center={mapCenter}
+            zoom={mapZoom}
             ref={mapRef}
             style={{ height: '100%', width: '100%' }}
             zoomControl={true}
@@ -958,6 +1001,10 @@ export default function RiskMapPage() {
                 </Popup>
               </Marker>
             )}
+
+            {/* Coordinate Display */}
+            <MapCoordinateDisplay />
+
           </MapContainer>
           
           {/* Legend (conditional) */}

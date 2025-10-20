@@ -1,7 +1,7 @@
 "use client"
 
 // 1. 导入必要的 React Hooks 和组件
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,7 +9,9 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Home, MapPin, AlertTriangle, Map, Building2, Activity, Puzzle, User, LogOut } from 'lucide-react';
+import { Home, MapPin, AlertTriangle, Map, Building2, Activity, Puzzle, User, LogOut, Globe } from 'lucide-react';
+import { RegionSelector } from '@/components/RegionSelector';
+import { useRegion } from '@/contexts/RegionContext';
 import dynamic from 'next/dynamic';
 import "leaflet/dist/leaflet.css";
 
@@ -17,25 +19,29 @@ import "leaflet/dist/leaflet.css";
 const MapContainer = dynamic(() => import('react-leaflet').then(mod => mod.MapContainer), { ssr: false });
 const TileLayer = dynamic(() => import('react-leaflet').then(mod => mod.TileLayer), { ssr: false });
 const WMSTileLayer = dynamic(() => import('react-leaflet').then(mod => mod.WMSTileLayer), { ssr: false });
+const MapCoordinateDisplay = dynamic(() => import('@/components/MapCoordinateDisplay').then(mod => mod.MapCoordinateDisplay), { ssr: false });
 
 // 3. Header 组件
 const Header = ({ onLogout, activePage }: { onLogout: () => void; activePage?: string }) => {
   return (
-    <header className="bg-white shadow-md z-20">
+    <header className="bg-white shadow-md z-[9000] relative">
       <div className="mx-auto px-4 py-2 flex justify-between items-center ml-2">
-        <div className="flex items-center">
+        <div className="flex items-center gap-4">
           <Image
             src="/taipinglogo.png"
             alt="China Taiping Logo"
             width={360}
             height={40}
           />
-          <span className="ml-2 text-xl font-semibold"></span>
+          {/* 地区选择器 - 最左侧 */}
+          <div className="border-l border-gray-300 pl-4">
+            <RegionSelector />
+          </div>
         </div>
         <nav className="flex-grow flex justify-end items-center">
           <ul className="flex space-x-4">
           
-            <li><Link href="/cityinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'cityinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><MapPin size={18} />Urban Spatial Elements</Button></Link></li>
+            <li><Link href="/cityinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'cityinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><Globe size={18} />Geospatial Data Hub</Button></Link></li>
             <li className="ml-auto"><Link href="/disasterinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'disasterinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><AlertTriangle size={18} />Disaster repository</Button></Link></li>
             <li className="ml-auto"><Link href="/asset"><Button variant="ghost" className={`gap-2 ${activePage === 'asset' ? 'text-blue-900 font-bold text-lg' : ''}`}><Building2 size={18} />Asset management</Button></Link></li>
             <li className="ml-auto"><Link href="/riskmap"><Button variant="ghost" className={`gap-2 ${activePage === 'riskmap' ? 'text-blue-900 font-bold text-lg' : ''}`}><Map size={18} />Risk map</Button></Link></li>
@@ -45,7 +51,7 @@ const Header = ({ onLogout, activePage }: { onLogout: () => void; activePage?: s
           </ul>
           <Button variant="outline" onClick={onLogout} className="ml-4 gap-2">
             <LogOut size={18} />
-            退出登录
+            Logout
           </Button>
         </nav>
       </div>
@@ -57,6 +63,11 @@ const Header = ({ onLogout, activePage }: { onLogout: () => void; activePage?: s
 export default function Component() {
   const router = useRouter();
   const mapRef = useRef(null);
+  const { regionConfig, currentRegion } = useRegion();
+  
+  // 地图中心和缩放状态
+  const [mapCenter, setMapCenter] = useState<[number, number]>([22.3193, 114.1694]);
+  const [mapZoom, setMapZoom] = useState(11);
   
   // 退出登录处理
   const handleLogout = () => {
@@ -64,6 +75,38 @@ export default function Component() {
     localStorage.removeItem('username');
     router.push('/');
   };
+  
+  // 监听地区切换，更新地图中心
+  useEffect(() => {
+    if (regionConfig && regionConfig.coordinates.center) {
+      const newCenter: [number, number] = [
+        regionConfig.coordinates.center[0],
+        regionConfig.coordinates.center[1]
+      ];
+      setMapCenter(newCenter);
+      
+      // 根据地区调整缩放级别
+      const zoomLevels: { [key: string]: number } = {
+        'worldwide': 3,
+        'hk': 11,
+        'mo': 12,
+        'gba': 9,
+        'th': 6,
+        'vn': 6,
+        'my': 6
+      };
+      setMapZoom(zoomLevels[currentRegion] || 10);
+      
+      // 如果地图已经初始化，飞到新位置
+      if (mapRef.current) {
+        mapRef.current.flyTo(newCenter, zoomLevels[currentRegion] || 10, {
+          duration: 1.5
+        });
+      }
+      
+      console.log(`✈️ Map center updated to ${regionConfig.nameEn}:`, newCenter);
+    }
+  }, [regionConfig, currentRegion]);
   
   // 城市空间元素的状态管理 (已整合新的图层)
   const [urbanElements, setUrbanElements] = useState({
@@ -86,13 +129,10 @@ export default function Component() {
     industrialCommercial: false,
     nighttimeLightIndex: false,
     poi: false,
-    // Weather and Climate 相关
     annualRainfall: false,
     annualTemperature: false,
     earthMapIntegration: false,
   });
-
-  const [selectedCity, setSelectedCity] = useState('');
 
   // 处理左侧复选框的点击事件
   const handleElementToggle = (elementKey: keyof typeof urbanElements) => {
@@ -110,27 +150,6 @@ export default function Component() {
         
         {/* 左侧边栏 */}
         <aside className="w-80 flex-shrink-0 border-r bg-white pl-8 pr-8 py-4 overflow-y-auto space-y-1">
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-base">Region Selection</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <select 
-                id="city-select" 
-                value={selectedCity}
-                onChange={(e) => setSelectedCity(e.target.value)}
-                className="w-full p-2 border rounded-md text-sm"
-              >
-                <option value="">Please select a city</option>
-                <option value="hongkong">Hong Kong</option>
-                <option value="shenzhen">Shenzhen</option>
-                <option value="guangzhou">Guangzhou</option>
-                <option value="beijing">Beijing</option>
-                <option value="shanghai">Shanghai</option>
-              </select>
-            </CardContent>
-          </Card>
 
           <Card>
             <CardHeader>
@@ -277,8 +296,8 @@ export default function Component() {
           )}
           <MapContainer
             ref={mapRef}
-            center={[22.3193, 114.1694]}
-            zoom={11}
+            center={mapCenter}
+            zoom={mapZoom}
             style={{ height: "100%", width: "100%" }}
             className="z-10"
           >
@@ -396,6 +415,9 @@ export default function Component() {
                 attribution="GeoServer Data"
               />
             )}
+
+            {/* Coordinate Display */}
+            <MapCoordinateDisplay />
 
           </MapContainer>
         </main>
