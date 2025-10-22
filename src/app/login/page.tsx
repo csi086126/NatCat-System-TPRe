@@ -26,9 +26,9 @@ export default function LoginPage() {
       localStorage.setItem('isLoggedIn', 'true');
       localStorage.setItem('username', username);
       
-      // 跳转到城市空间元素页面
+      // 跳转到主页
       setTimeout(() => {
-        router.push('/cityinfo');
+        router.push('/');
       }, 500);
     } else {
       // 登录失败
@@ -38,10 +38,9 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-blue-50">
-      <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100">
       
-      <Card className="w-full max-w-md mx-4 shadow-2xl z-10">
+      <Card className="w-full max-w-md mx-4 shadow-2xl">
         <CardHeader className="space-y-4 pb-6">
           <div className="flex justify-center">
             <Image

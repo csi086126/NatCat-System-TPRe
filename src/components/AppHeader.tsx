@@ -18,8 +18,8 @@ export default function AppHeader({ onLogout }: AppHeaderProps) {
           <Image
             src="/taipinglogo.png"
             alt="China Taiping Logo"
-            width={360}
-            height={40}
+            width={280}
+            height={31}
           />
           {/* 地区选择器 - 最左侧 */}
           <div className="border-l border-gray-300 pl-4">
@@ -28,14 +28,14 @@ export default function AppHeader({ onLogout }: AppHeaderProps) {
         </div>
         <nav className="flex-grow flex justify-end items-center">
           <ul className="flex space-x-4">
-            <li><Link href="/dashboard"><Button variant="ghost" className="gap-2"><Home size={18} />Dashboard</Button></Link></li>
+            <li><Link href="/"><Button variant="ghost" className="gap-2"><Home size={18} />Home</Button></Link></li>
             <li><Link href="/cityinfo"><Button variant="ghost" className="gap-2"><MapPin size={18} />Geospatial Data Hub</Button></Link></li>
             <li className="ml-auto"><Link href="/disasterinfo"><Button variant="ghost" className="gap-2"><AlertTriangle size={18} />Disaster repository</Button></Link></li>
             <li className="ml-auto"><Link href="/asset"><Button variant="ghost" className="gap-2"><Building2 size={18} />Asset management</Button></Link></li>
             <li className="ml-auto"><Link href="/riskmap"><Button variant="ghost" className="gap-2"><Map size={18} />Risk map</Button></Link></li>
             <li className="ml-auto"><Link href="/model"><Button variant="ghost" className="gap-2"><Activity size={18} />Catastrophe model</Button></Link></li>
             <li className="ml-auto"><Link href="/fuzhu"><Button variant="ghost" className="gap-2"><Puzzle size={18} />Accessibility</Button></Link></li>
-            <li><Link href="/usercenter"><Button variant="ghost" className="gap-2"><User size={18} />User centre</Button></Link></li>
+            <li><Link href="/usercenter"><Button variant="ghost" className="gap-2"><User size={18} />User</Button></Link></li>
           </ul>
           <Button variant="outline" onClick={onLogout} className="ml-4 gap-2">
             <LogOut size={18} />

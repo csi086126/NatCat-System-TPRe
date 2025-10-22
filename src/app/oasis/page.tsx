@@ -3,6 +3,7 @@
 "use client"
 
 import { useState, useEffect, use,useRef } from 'react'
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -13,7 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox"
 import { Calendar } from "@/components/ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { CalendarIcon, Search, Upload, ChevronLeft, ChevronRight } from 'lucide-react'
+import { CalendarIcon, Search, Upload, ChevronLeft, ChevronRight, Home, Globe, AlertTriangle, Building2, Map, Activity, Puzzle, User, LogOut } from 'lucide-react'
 import { format } from "date-fns"
 import { cn } from "@/lib/utils"
 import axios from 'axios'
@@ -45,38 +46,33 @@ var tempuserName = "none";
 var tempprojectName = "none";
 
 
-const Header = () => {
+const Header = ({ activePage, onLogout }: { activePage?: string; onLogout: () => void }) => {
   return (
     <header className="bg-white shadow-md">
-      <div className=" mx-auto px-4 py-2 flex justify-between items-center ml-2">
+      <div className="mx-auto px-4 py-2 flex justify-between items-center ml-2">
         <div className="flex items-center">
           <Image
             src="/taipinglogo.png"
             alt="China Taiping Logo"
-            width={360}
-            height={40}
+            width={280}
+            height={31}
           />
-          <span className="ml-2 text-xl font-semibold"></span>
         </div>
-        <nav className="flex-grow flex justify-end">
+        <nav className="flex-grow flex justify-end items-center">
           <ul className="flex space-x-4">
-            {/* 假设主页路由是 "/" */}
-            
-            {/* 假设风险分析页路由是 "/risk-analysis" */}
-            <li><Link href="/cityinfo"><Button variant="ghost">Geospatial Data Hub</Button></Link></li>
-            {/* 假设风险统计页路由是 "/risk-statistics" */}
-            <li className="ml-auto"><Link href="/disasterinfo"><Button variant="ghost">Disaster event repository</Button></Link></li>
-            {/* 假设您想跳转到的地图页面的路由是 "/map" */}
-            <li className="ml-auto"><Link href="/riskmap"><Button variant="ghost">Risk map</Button></Link></li>
-            {/* 假设您想跳转到的地图页面的路由是 "/map" */}
-            <li className="ml-auto"><Link href="/asset"><Button variant="ghost">Asset management</Button></Link></li>
-            {/* 假设您想跳转到的地图页面的路由是 "/map" */}
-            <li className="ml-auto"><Link href="/model"><Button variant="ghost">Catastrophe model</Button></Link></li>
-            {/* 假设您想跳转到的地图页面的路由是 "/map" */}
-            <li className="ml-auto"><Link href="/fuzhu"><Button variant="ghost">Accessibility</Button></Link></li>
-            {/* 假设您想跳转到的地图页面的路由是 "/map" */}
-            <li><Link href="/usercenter"><Button variant="ghost">User centre</Button></Link></li>
+            <li><Link href="/"><Button variant="ghost" className={`gap-2 ${activePage === 'home' ? 'text-blue-900 font-bold text-lg' : ''}`}><Home size={18} />Home</Button></Link></li>
+            <li><Link href="/cityinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'cityinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><Globe size={18} />Geospatial Data Hub</Button></Link></li>
+            <li className="ml-auto"><Link href="/disasterinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'disasterinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><AlertTriangle size={18} />Disaster repository</Button></Link></li>
+            <li className="ml-auto"><Link href="/asset"><Button variant="ghost" className={`gap-2 ${activePage === 'asset' ? 'text-blue-900 font-bold text-lg' : ''}`}><Building2 size={18} />Asset management</Button></Link></li>
+            <li className="ml-auto"><Link href="/riskmap"><Button variant="ghost" className={`gap-2 ${activePage === 'riskmap' ? 'text-blue-900 font-bold text-lg' : ''}`}><Map size={18} />Risk map</Button></Link></li>
+            <li className="ml-auto"><Link href="/model"><Button variant="ghost" className={`gap-2 ${activePage === 'model' ? 'text-blue-900 font-bold text-lg' : ''}`}><Activity size={18} />Catastrophe model</Button></Link></li>
+            <li className="ml-auto"><Link href="/fuzhu"><Button variant="ghost" className={`gap-2 ${activePage === 'fuzhu' ? 'text-blue-900 font-bold text-lg' : ''}`}><Puzzle size={18} />Accessibility</Button></Link></li>
+            <li><Link href="/usercenter"><Button variant="ghost" className={`gap-2 ${activePage === 'usercenter' ? 'text-blue-900 font-bold text-lg' : ''}`}><User size={18} />User</Button></Link></li>
           </ul>
+          <Button variant="outline" onClick={onLogout} className="ml-4 gap-2">
+            <LogOut size={18} />
+            Logout
+          </Button>
         </nav>
       </div>
     </header>
@@ -84,6 +80,7 @@ const Header = () => {
 }
 
 export default function Component() {
+  const router = useRouter()
   const [projectName, setProjectName] = useState("")
   const [userName, setUserName] = useState("")
   const [randomYears, setRandomYears] = useState("1")
@@ -361,11 +358,15 @@ export default function Component() {
     }
   };
 
-
+  const handleLogout = () => {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('username');
+    router.push('/login');
+  };
 
   return (
     <div className="flex flex-col h-screen">
-      <Header />
+      <Header activePage="model" onLogout={handleLogout} />
       <div className="flex flex-1 overflow-hidden">
         <div className="w-1/4 p-4 bg-gray-100 overflow-auto flex flex-col">
           <div className="space-y-4 flex-grow">

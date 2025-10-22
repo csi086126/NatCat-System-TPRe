@@ -44,6 +44,13 @@ const wmsLayersConfig = {
   flood100yr: { name: 'Flood depth (100-year return)', layer: 'COP:Flood_Depth _Return_Period_100yr' },
   flood50yr: { name: 'Flood depth (50-year return)', layer: 'COP:Flood_Depth _Return_Period_50yr' },
   flood20yr: { name: 'Flood depth (20-year return)', layer: 'COP:Flood_Depth _Return_Period_20yr' },
+  
+  // Flood layers without drainage (for comparison)
+  floodNoDrainage500yr: { name: 'Flood depth without drainage (500-year return)', layer: 'COP:Flood_No_Drainage_500yr' },
+  floodNoDrainage200yr: { name: 'Flood depth without drainage (200-year return)', layer: 'COP:Flood_No_Drainage_200yr' },
+  floodNoDrainage100yr: { name: 'Flood depth without drainage (100-year return)', layer: 'COP:Flood_No_Drainage_100yr' },
+  floodNoDrainage50yr: { name: 'Flood depth without drainage (50-year return)', layer: 'COP:Flood_No_Drainage_50yr' },
+  floodNoDrainage20yr: { name: 'Flood depth without drainage (20-year return)', layer: 'COP:Flood_No_Drainage_20yr' },
   rainstorm500yr: { name: 'Rainstorm intensity (500-year return)', layer: 'COP:Rainstorm_Intensity_500yr' },
   rainstorm200yr: { name: 'Rainstorm intensity (200-year return)', layer: 'COP:Rainstorm_Intensity_200yr' },
   rainstorm100yr: { name: 'Rainstorm intensity (100-year return)', layer: 'COP:Rainstorm_Intensity_100yr' },
@@ -84,8 +91,8 @@ const Header = ({ onLogout, activePage }: { onLogout: () => void; activePage?: s
           <Image
             src="/taipinglogo.png"
             alt="China Taiping Logo"
-            width={360}
-            height={40}
+            width={280}
+            height={31}
           />
           {/* 地区选择器 - 最左侧 */}
           <div className="border-l border-gray-300 pl-4">
@@ -94,13 +101,14 @@ const Header = ({ onLogout, activePage }: { onLogout: () => void; activePage?: s
         </div>
         <nav className="flex-grow flex justify-end items-center">
           <ul className="flex space-x-4">
+            <li><Link href="/"><Button variant="ghost" className={`gap-2 ${activePage === 'home' ? 'text-blue-900 font-bold text-lg' : ''}`}><Home size={18} />Home</Button></Link></li>
             <li><Link href="/cityinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'cityinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><Globe size={18} />Geospatial Data Hub</Button></Link></li>
             <li className="ml-auto"><Link href="/disasterinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'disasterinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><AlertTriangle size={18} />Disaster repository</Button></Link></li>
             <li className="ml-auto"><Link href="/asset"><Button variant="ghost" className={`gap-2 ${activePage === 'asset' ? 'text-blue-900 font-bold text-lg' : ''}`}><Building2 size={18} />Asset management</Button></Link></li>
             <li className="ml-auto"><Link href="/riskmap"><Button variant="ghost" className={`gap-2 ${activePage === 'riskmap' ? 'text-blue-900 font-bold text-lg' : ''}`}><Map size={18} />Risk map</Button></Link></li>
             <li className="ml-auto"><Link href="/model"><Button variant="ghost" className={`gap-2 ${activePage === 'model' ? 'text-blue-900 font-bold text-lg' : ''}`}><Activity size={18} />Catastrophe model</Button></Link></li>
             <li className="ml-auto"><Link href="/fuzhu"><Button variant="ghost" className={`gap-2 ${activePage === 'fuzhu' ? 'text-blue-900 font-bold text-lg' : ''}`}><Puzzle size={18} />Accessibility</Button></Link></li>
-            <li><Link href="/usercenter"><Button variant="ghost" className={`gap-2 ${activePage === 'usercenter' ? 'text-blue-900 font-bold text-lg' : ''}`}><User size={18} />User centre</Button></Link></li>
+            <li><Link href="/usercenter"><Button variant="ghost" className={`gap-2 ${activePage === 'usercenter' ? 'text-blue-900 font-bold text-lg' : ''}`}><User size={18} />User</Button></Link></li>
           </ul>
           <Button variant="outline" onClick={onLogout} className="ml-4 gap-2">
             <LogOut size={18} />
@@ -259,6 +267,11 @@ export default function RiskMapPage() {
     flood100yr: false,
     flood50yr: false,
     flood20yr: false,
+    floodNoDrainage500yr: false,
+    floodNoDrainage200yr: false,
+    floodNoDrainage100yr: false,
+    floodNoDrainage50yr: false,
+    floodNoDrainage20yr: false,
     rainstorm500yr: false,
     rainstorm200yr: false,
     rainstorm100yr: false,
@@ -278,7 +291,111 @@ export default function RiskMapPage() {
   
   // ========== Helper Functions ==========
   
-  // Real geocoding (address → lat/lon)
+  // Detect if query contains Chinese characters
+  const containsChinese = (text: string) => {
+    return /[\u4e00-\u9fa5]/.test(text);
+  };
+  
+  // Try Amap (高德地图) Geocoding - Best for Chinese addresses
+  const geocodeWithAmap = async (query: string) => {
+    try {
+      // Amap Web Service API Key (you need to register at https://lbs.amap.com/)
+      // For demo, using a test key - replace with your own key in production
+      const AMAP_KEY = 'YOUR_AMAP_KEY_HERE'; // TODO: Replace with your Amap API key
+      
+      const url = `https://restapi.amap.com/v3/geocode/geo?key=${AMAP_KEY}&address=${encodeURIComponent(query)}`;
+      const response = await fetch(url);
+      
+      if (!response.ok) {
+        throw new Error('Amap API unavailable');
+      }
+      
+      const data = await response.json();
+      
+      if (data.status === '1' && data.geocodes && data.geocodes.length > 0) {
+        const result = data.geocodes[0];
+        const [lon, lat] = result.location.split(',').map(parseFloat);
+        
+        return {
+          address: result.formatted_address,
+          latitude: lat,
+          longitude: lon,
+          source: 'Amap (高德地图)',
+        };
+      }
+      
+      throw new Error('No results from Amap');
+    } catch (error) {
+      console.warn('Amap geocoding failed:', error);
+      throw error;
+    }
+  };
+  
+  // Try Baidu Maps Geocoding - Alternative for Chinese addresses
+  const geocodeWithBaidu = async (query: string) => {
+    try {
+      // Baidu Maps API Key (register at https://lbsyun.baidu.com/)
+      const BAIDU_KEY = 'YOUR_BAIDU_KEY_HERE'; // TODO: Replace with your Baidu API key
+      
+      const url = `https://api.map.baidu.com/geocoding/v3/?address=${encodeURIComponent(query)}&output=json&ak=${BAIDU_KEY}`;
+      const response = await fetch(url);
+      
+      if (!response.ok) {
+        throw new Error('Baidu API unavailable');
+      }
+      
+      const data = await response.json();
+      
+      if (data.status === 0 && data.result && data.result.location) {
+        return {
+          address: query,
+          latitude: data.result.location.lat,
+          longitude: data.result.location.lng,
+          source: 'Baidu Maps (百度地图)',
+        };
+      }
+      
+      throw new Error('No results from Baidu');
+    } catch (error) {
+      console.warn('Baidu geocoding failed:', error);
+      throw error;
+    }
+  };
+  
+  // Try Nominatim (OpenStreetMap) - Good for international addresses
+  const geocodeWithNominatim = async (query: string) => {
+    try {
+      const searchUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=1&addressdetails=1`;
+      const response = await fetch(searchUrl, {
+        headers: {
+          'User-Agent': 'NatCatRiskPlatform/1.0'
+        }
+      });
+      
+      if (!response.ok) {
+        throw new Error('Nominatim service unavailable');
+      }
+      
+      const data = await response.json();
+      
+      if (!data || data.length === 0) {
+        throw new Error('No results from Nominatim');
+      }
+      
+      const result = data[0];
+      return {
+        address: result.display_name,
+        latitude: parseFloat(result.lat),
+        longitude: parseFloat(result.lon),
+        source: 'OpenStreetMap Nominatim',
+      };
+    } catch (error) {
+      console.warn('Nominatim geocoding failed:', error);
+      throw error;
+    }
+  };
+  
+  // Main geocoding function with fallback strategy
   const geocodeAddress = async (query: string) => {
     try {
       // Check if input is already coordinates (format: lat,lon or lat, lon)
@@ -299,7 +416,7 @@ export default function RiskMapPage() {
         const reverseUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`;
         const reverseResponse = await fetch(reverseUrl, {
           headers: {
-            'User-Agent': 'FloodInsuranceSystem/1.0'
+            'User-Agent': 'NatCatRiskPlatform/1.0'
           }
         });
         
@@ -308,6 +425,7 @@ export default function RiskMapPage() {
             address: `${latitude.toFixed(5)}, ${longitude.toFixed(5)}`,
             latitude,
             longitude,
+            source: 'Direct Coordinates',
           };
         }
         
@@ -316,33 +434,58 @@ export default function RiskMapPage() {
           address: reverseData.display_name || `${latitude.toFixed(5)}, ${longitude.toFixed(5)}`,
           latitude,
           longitude,
+          source: 'Direct Coordinates',
         };
       }
       
-      // Address search using Nominatim
-      const searchUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=1&addressdetails=1`;
-      const response = await fetch(searchUrl, {
-        headers: {
-          'User-Agent': 'FloodInsuranceSystem/1.0'
+      // For address queries, use intelligent fallback strategy
+      const isChinese = containsChinese(query);
+      
+      if (isChinese) {
+        // Chinese address: Try Amap first, then Baidu, finally Nominatim
+        console.log('🇨🇳 Detected Chinese address, using China-optimized geocoding...');
+        
+        // Try Amap (高德) first
+        try {
+          console.log('Trying Amap (高德地图)...');
+          const result = await geocodeWithAmap(query);
+          console.log('✅ Success with Amap:', result);
+          return result;
+        } catch (error) {
+          console.log('❌ Amap failed, trying Baidu...');
         }
-      });
-      
-      if (!response.ok) {
-        throw new Error('Geocoding service unavailable');
+        
+        // Try Baidu second
+        try {
+          console.log('Trying Baidu Maps (百度地图)...');
+          const result = await geocodeWithBaidu(query);
+          console.log('✅ Success with Baidu:', result);
+          return result;
+        } catch (error) {
+          console.log('❌ Baidu failed, trying Nominatim...');
+        }
+        
+        // Try Nominatim last (often less accurate for Chinese addresses)
+        try {
+          console.log('Trying Nominatim (OpenStreetMap)...');
+          const result = await geocodeWithNominatim(query);
+          console.log('⚠️ Using Nominatim (may be less accurate for Chinese addresses):', result);
+          return result;
+        } catch (error) {
+          throw new Error('❌ All geocoding services failed. Please try:\n1. Using English address\n2. Adding more specific details (city, district)\n3. Using coordinates (format: lat,lon)');
+        }
+      } else {
+        // International address: Try Nominatim first (best for non-Chinese)
+        console.log('🌍 Detected international address, using Nominatim...');
+        
+        try {
+          const result = await geocodeWithNominatim(query);
+          console.log('✅ Success with Nominatim:', result);
+          return result;
+        } catch (error) {
+          throw new Error('Location not found. Please try:\n1. More specific address\n2. Different language\n3. Coordinates (format: lat,lon)');
+        }
       }
-      
-      const data = await response.json();
-      
-      if (!data || data.length === 0) {
-        throw new Error('Location not found. Please try a different address or use coordinates (format: lat,lon)');
-      }
-      
-      const result = data[0];
-      return {
-        address: result.display_name,
-        latitude: parseFloat(result.lat),
-        longitude: parseFloat(result.lon),
-      };
     } catch (error) {
       console.error('Geocoding error:', error);
       throw error;
@@ -488,6 +631,7 @@ export default function RiskMapPage() {
       // Step 4: Query asset info
       const asset = await queryAssetInfo(location.latitude, location.longitude);
       asset.address = location.address;
+      (asset as any).geocodingSource = location.source; // Store which service was used
       setAssetInfo(asset);
       
       // Step 5: Query hazards
@@ -570,7 +714,7 @@ export default function RiskMapPage() {
                 <Input
                   id="search-address"
                   type="text"
-                  placeholder="e.g. 中国太平金融中心香港 or Lat: 22.28868, Lon: 114.19135"
+                  placeholder="e.g. 上海法国学校 / China Taiping Tower / 22.28868, 114.19135"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && !isLoading && handleSearchAndCalculate()}
@@ -578,7 +722,7 @@ export default function RiskMapPage() {
                   className="mt-1"
                 />
                 <p className="text-xs text-gray-500 mt-1">
-                  💡 Enter city name, address, or coordinates (lat,lon)
+                  🇨🇳 Supports Chinese addresses (高德/百度地图) | 🌍 International addresses (OSM) | 📍 Coordinates (lat,lon)
                 </p>
               </div>
               
@@ -614,6 +758,11 @@ export default function RiskMapPage() {
                       <p className="text-xs text-gray-600">
                         Lat: {assetInfo.latitude.toFixed(5)}, Lon: {assetInfo.longitude.toFixed(5)}
                       </p>
+                      {(assetInfo as any).geocodingSource && (
+                        <p className="text-xs text-blue-600 mt-1">
+                          📍 Located via {(assetInfo as any).geocodingSource}
+                        </p>
+                      )}
                     </div>
                     <Button
                       variant="outline"
@@ -846,7 +995,7 @@ export default function RiskMapPage() {
                   
                   {/* Flood Layers */}
                   <div className="mb-3">
-                    <p className="text-xs font-semibold text-blue-700 mb-1">Flood (River/Coastal)</p>
+                    <p className="text-xs font-semibold text-blue-700 mb-1">🌊 Flood (River/Coastal) - With Drainage System</p>
                     <div className="space-y-1 pl-2">
                       {['flood500yr', 'flood200yr', 'flood100yr', 'flood50yr', 'flood20yr'].map(layer => (
                         <div key={layer} className="flex items-center">
@@ -856,6 +1005,31 @@ export default function RiskMapPage() {
                             onCheckedChange={(checked) => setVisibleLayers(prev => ({ ...prev, [layer]: !!checked }))}
                           />
                           <Label htmlFor={layer} className="ml-2 text-xs cursor-pointer">
+                            {wmsLayersConfig[layer].name}
+                          </Label>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* Flood Layers Without Drainage (for comparison) */}
+                  <div className="mb-3 p-2 bg-amber-50 rounded border border-amber-200">
+                    <p className="text-xs font-semibold text-amber-700 mb-1">
+                      🚫 Flood Without Drainage (Comparison Baseline)
+                    </p>
+                    <p className="text-xs text-amber-600 mb-2 italic">
+                      Shows flood depth without underground drainage infrastructure. 
+                      Compare with "With Drainage" layers above to see the effectiveness of HK/Macau drainage systems.
+                    </p>
+                    <div className="space-y-1 pl-2">
+                      {['floodNoDrainage500yr', 'floodNoDrainage200yr', 'floodNoDrainage100yr', 'floodNoDrainage50yr', 'floodNoDrainage20yr'].map(layer => (
+                        <div key={layer} className="flex items-center">
+                          <Checkbox
+                            id={layer}
+                            checked={visibleLayers[layer]}
+                            onCheckedChange={(checked) => setVisibleLayers(prev => ({ ...prev, [layer]: !!checked }))}
+                          />
+                          <Label htmlFor={layer} className="ml-2 text-xs cursor-pointer text-amber-800">
                             {wmsLayersConfig[layer].name}
                           </Label>
                         </div>

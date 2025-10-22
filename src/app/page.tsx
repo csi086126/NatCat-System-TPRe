@@ -1,27 +1,260 @@
 "use client"
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { 
+  Globe, AlertTriangle, Building2, Map, Activity, Puzzle, User, LogOut,
+  TrendingUp, Shield, BarChart3, MapPin, ChevronDown, ChevronUp
+} from 'lucide-react';
 
 export default function HomePage() {
   const router = useRouter();
+  const [username, setUsername] = useState('');
+  const [showStats, setShowStats] = useState(false); // 控制统计信息的显示/隐藏
 
   useEffect(() => {
     // 检查是否已登录
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     
-    if (isLoggedIn === 'true') {
-      // 已登录，跳转到城市空间元素页面
-      router.push('/cityinfo');
-    } else {
+    if (isLoggedIn !== 'true') {
       // 未登录，跳转到登录页
       router.push('/login');
+    } else {
+      // 获取用户名
+      setUsername(localStorage.getItem('username') || 'User');
     }
   }, [router]);
 
+  const handleLogout = () => {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('username');
+    router.push('/login');
+  };
+
+  const modules = [
+    {
+      title: 'Risk Map',
+      description: 'Interactive risk assessment, multi-hazard mapping, and location intelligence',
+      icon: Map,
+      href: '/riskmap',
+      color: 'from-slate-600 to-slate-700',
+      bgColor: 'bg-slate-50',
+      iconColor: 'text-slate-600'
+    },
+    {
+      title: 'Catastrophe Model',
+      description: 'Run catastrophe models, scenario analysis, and loss estimation',
+      icon: Activity,
+      href: '/model',
+      color: 'from-slate-600 to-slate-700',
+      bgColor: 'bg-slate-50',
+      iconColor: 'text-slate-600'
+    },
+    {
+      title: 'Geospatial Data Hub',
+      description: 'Access urban spatial elements, building footprints, and geographic data layers',
+      icon: Globe,
+      href: '/cityinfo',
+      color: 'from-slate-600 to-slate-700',
+      bgColor: 'bg-slate-50',
+      iconColor: 'text-slate-600'
+    },
+    {
+      title: 'Disaster Repository',
+      description: 'Browse historical disaster events, typhoon tracks, and catastrophe records',
+      icon: AlertTriangle,
+      href: '/disasterinfo',
+      color: 'from-slate-600 to-slate-700',
+      bgColor: 'bg-slate-50',
+      iconColor: 'text-slate-600'
+    },
+    {
+      title: 'Asset Management',
+      description: 'Manage insured assets, portfolio analysis, and exposure data',
+      icon: Building2,
+      href: '/asset',
+      color: 'from-slate-600 to-slate-700',
+      bgColor: 'bg-slate-50',
+      iconColor: 'text-slate-600'
+    },
+    {
+      title: 'Accessibility',
+      description: 'Auxiliary tools, data import/export, and system utilities',
+      icon: Puzzle,
+      href: '/fuzhu',
+      color: 'from-slate-600 to-slate-700',
+      bgColor: 'bg-slate-50',
+      iconColor: 'text-slate-600'
+    }
+  ];
+
   return (
-    <div className="flex items-center justify-center h-screen">
-      <p className="text-lg">正在跳转...</p>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 relative">
+      {/* Background Map Image - World view centered on Hong Kong */}
+      <div 
+        className="absolute inset-0 opacity-30 pointer-events-none"
+        style={{
+          backgroundImage: 'url("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/2/1/3")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
+      
+      {/* Content overlay */}
+      <div className="relative z-10">
+      {/* Header */}
+      <header className="bg-white shadow-md">
+        <div className="mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="flex items-center">
+            <Image
+              src="/taipinglogo.png"
+              alt="China Taiping Logo"
+              width={280}
+              height={31}
+            />
+          </div>
+          <div className="flex items-center gap-4">
+            <Link href="/usercenter">
+              <Button variant="ghost" className="gap-2">
+                <User size={18} />
+                User
+              </Button>
+            </Link>
+            <Button variant="outline" onClick={handleLogout} className="gap-2">
+              <LogOut size={18} />
+              Logout
+            </Button>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="mx-auto max-w-7xl px-6 py-12">
+        {/* Welcome Section */}
+        <div className="mb-12">
+          <h1 className="text-4xl font-bold text-gray-900 mb-3">
+            Welcome to Natural Catastrophe Risk Platform <span className="text-lg text-gray-600 font-normal">- Powered by Taiping Reinsurance CO.,LTD</span>
+          </h1>
+        </div>
+
+        {/* Modules Grid */}
+        <div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Platform Modules</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {modules.map((module) => (
+              <Link key={module.href} href={module.href}>
+                <Card className={`h-full transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer border-2 hover:border-gray-300 ${module.bgColor}`}>
+                  <CardHeader>
+                    <div className="flex items-center gap-4 mb-3">
+                      <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${module.color} flex items-center justify-center flex-shrink-0`}>
+                        <module.icon className="w-7 h-7 text-white" />
+                      </div>
+                      <CardTitle className="text-xl">{module.title}</CardTitle>
+                    </div>
+                    <CardDescription className="text-sm text-gray-600">
+                      {module.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Button variant="ghost" className={`w-full ${module.iconColor}`}>
+                      Enter Module →
+                    </Button>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Quick Stats - Moved to bottom - Collapsible */}
+        <div className="mt-16 mb-8">
+          <div 
+            className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
+            onClick={() => setShowStats(!showStats)}
+          >
+            <div className="flex items-center gap-3">
+              <h2 className="text-2xl font-bold text-gray-900">Platform Statistics</h2>
+              <Button variant="outline" size="sm" className="gap-2">
+                {showStats ? (
+                  <>
+                    Hide
+                    <ChevronUp className="w-4 h-4" />
+                  </>
+                ) : (
+                  <>
+                    Show
+                    <ChevronDown className="w-4 h-4" />
+                  </>
+                )}
+              </Button>
+            </div>
+          </div>
+          
+          {showStats && (
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-6 animate-in fade-in slide-in-from-top-2 duration-300">
+              <Card className="border-l-4 border-l-blue-500">
+                <CardContent className="pt-6">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm text-gray-600">Total Regions</p>
+                      <p className="text-3xl font-bold text-gray-900">7</p>
+                    </div>
+                    <MapPin className="w-12 h-12 text-blue-500 opacity-20" />
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <Card className="border-l-4 border-l-orange-500">
+                <CardContent className="pt-6">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm text-gray-600">Disaster Events</p>
+                      <p className="text-3xl font-bold text-gray-900">1,247</p>
+                    </div>
+                    <AlertTriangle className="w-12 h-12 text-orange-500 opacity-20" />
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <Card className="border-l-4 border-l-green-500">
+                <CardContent className="pt-6">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm text-gray-600">Risk Layers</p>
+                      <p className="text-3xl font-bold text-gray-900">35</p>
+                    </div>
+                    <BarChart3 className="w-12 h-12 text-green-500 opacity-20" />
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <Card className="border-l-4 border-l-purple-500">
+                <CardContent className="pt-6">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm text-gray-600">Active Models</p>
+                      <p className="text-3xl font-bold text-gray-900">12</p>
+                    </div>
+                    <Shield className="w-12 h-12 text-purple-500 opacity-20" />
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          )}
+        </div>
+
+        {/* Footer Info */}
+        <div className="mt-16 text-center text-sm text-gray-500">
+          <p>© 2025 China Taiping Reinsurance Co., Ltd. All rights reserved.</p>
+          <p className="mt-2">Natural Catastrophe Risk Platform v2.0 - Last updated: October 22, 2025</p>
+        </div>
+      </main>
+      </div>
     </div>
   );
 }
