@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Button } from "@/components/ui/button"; // 假设这是来自 shadcn/ui 的按钮
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { MapPin, AlertTriangle, Map, Building2, Activity, Puzzle, User, LogOut } from 'lucide-react';
+import { MapPin, AlertTriangle, Map, Building2, Activity, Puzzle, User, LogOut, Home, Globe } from 'lucide-react';
 
 // 2. Header 组件 (保持不变)
 const Header = ({ onLogout, activePage }: { onLogout: () => void; activePage?: string }) => {
