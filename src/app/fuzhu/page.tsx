@@ -6,6 +6,7 @@ import AppHeader from '@/components/AppHeader';
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 // 2. MOCK DATA FOR A SELECTED WARNING MESSAGE
 // - This data populates the right sidebar with warning details.
@@ -27,6 +28,9 @@ export default function Component() {
   // State to hold the currently selected warning for the right detail view sidebar.
   const [selectedWarning, setSelectedWarning] = useState(mockWarning);
   
+  // State for selected extension module
+  const [selectedModule, setSelectedModule] = useState<string>('earth-nullschool');
+  
   return (
     <div className="flex flex-col h-screen bg-gray-100">
       <AppHeader />
@@ -39,39 +43,185 @@ export default function Component() {
           <Card>
             <CardContent className="pt-6 space-y-4">
               <div className="flex items-center space-x-3">
-                <Input type="checkbox" id="warnings" className="h-4 w-4" />
+                <Input 
+                  type="checkbox" 
+                  id="warnings" 
+                  className="h-4 w-4"
+                  checked={selectedModule === 'warnings'}
+                  onChange={() => setSelectedModule('warnings')}
+                />
                 <Label htmlFor="warnings" className="text-base">Warning Push / Message Center</Label>
               </div>
               <div className="flex items-center space-x-3">
-                <Input type="checkbox" id="help-center" className="h-4 w-4" />
+                <Input 
+                  type="checkbox" 
+                  id="help-center" 
+                  className="h-4 w-4"
+                  checked={selectedModule === 'help-center'}
+                  onChange={() => setSelectedModule('help-center')}
+                />
                 <Label htmlFor="help-center" className="text-base">Help Center / Documentation</Label>
               </div>
               <div className="flex items-center space-x-3">
-                <Input type="checkbox" id="user-permissions" className="h-4 w-4" defaultChecked />
+                <Input 
+                  type="checkbox" 
+                  id="user-permissions" 
+                  className="h-4 w-4"
+                  checked={selectedModule === 'user-permissions'}
+                  onChange={() => setSelectedModule('user-permissions')}
+                />
                 <Label htmlFor="user-permissions" className="text-base">User Permissions & Logs</Label>
               </div>
               <div className="flex items-center space-x-3">
-                <Input type="checkbox" id="system-settings" className="h-4 w-4" />
+                <Input 
+                  type="checkbox" 
+                  id="system-settings" 
+                  className="h-4 w-4"
+                  checked={selectedModule === 'system-settings'}
+                  onChange={() => setSelectedModule('system-settings')}
+                />
                 <Label htmlFor="system-settings" className="text-base">System Settings</Label>
               </div>
+              <div className="flex items-center space-x-3">
+                <Input 
+                  type="checkbox" 
+                  id="earth-nullschool" 
+                  className="h-4 w-4"
+                  checked={selectedModule === 'earth-nullschool'}
+                  onChange={() => setSelectedModule('earth-nullschool')}
+                />
+                <Label htmlFor="earth-nullschool" className="text-base">Earth Nullschool (Weather)</Label>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* HKUST Catastrophe Model Card */}
+          <Card className="border-2 border-blue-400 bg-gradient-to-br from-blue-50 to-indigo-50">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-lg text-blue-800">🎓 HKUST Catastrophe Model</CardTitle>
+              <p className="text-sm text-gray-600 mt-1">Original implementation from HKUST research</p>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <Input 
+                  type="checkbox" 
+                  id="hkust-catastrophe" 
+                  className="h-4 w-4"
+                  checked={selectedModule === 'hkust-catastrophe'}
+                  onChange={() => setSelectedModule('hkust-catastrophe')}
+                />
+                <Label htmlFor="hkust-catastrophe" className="text-base font-semibold text-blue-700">
+                  HKUST Catastrophe Model
+                </Label>
+              </div>
+              
+              <div className="p-3 bg-white rounded border border-blue-200 text-xs text-gray-700">
+                <p className="font-semibold text-blue-700 mb-1">Features:</p>
+                <ul className="list-disc list-inside space-y-0.5 ml-2">
+                  <li>Stochastic event simulation</li>
+                  <li>Portfolio loss analysis</li>
+                  <li>Monte Carlo simulation</li>
+                  <li>Shapefile visualization</li>
+                </ul>
+              </div>
+              
+              <Button 
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                onClick={() => window.open('/oasis', '_blank')}
+                size="sm"
+              >
+                Open in New Tab
+              </Button>
             </CardContent>
           </Card>
         </aside>
 
-        {/* Central Area - Unchanged */}
+        {/* Central Area - Dynamic content based on selection */}
         <main className="flex-1 relative bg-black">
-          <iframe
-            src="https://earth.nullschool.net/"
-            title="Earth Nullschool"
-            className="w-full h-full border-0"
-          ></iframe>
+          {selectedModule === 'earth-nullschool' && (
+            <iframe
+              src="https://earth.nullschool.net/"
+              title="Earth Nullschool"
+              className="w-full h-full border-0"
+            ></iframe>
+          )}
+          
+          {selectedModule === 'hkust-catastrophe' && (
+            <div className="w-full h-full bg-white overflow-auto">
+              <iframe
+                src="/oasis"
+                title="HKUST Catastrophe Model"
+                className="w-full h-full border-0"
+              ></iframe>
+            </div>
+          )}
+          
+          {selectedModule !== 'earth-nullschool' && selectedModule !== 'hkust-catastrophe' && (
+            <div className="flex items-center justify-center h-full">
+              <Card className="bg-white p-8">
+                <CardContent>
+                  <p className="text-lg text-gray-600">
+                    Module "{selectedModule}" is under development.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          )}
         </main>
 
-        {/* Right Sidebar for Warning Message Details - MODIFIED */}
+        {/* Right Sidebar - Dynamic content based on selected module */}
         <aside className="w-96 flex-shrink-0 border-l bg-white p-4 overflow-y-auto space-y-1">
-          <h2 className="text-xl font-bold mb-2 pl-2">Warning Message Details</h2>
+          <h2 className="text-xl font-bold mb-2 pl-2">
+            {selectedModule === 'hkust-catastrophe' ? 'HKUST Model Info' : 'Warning Message Details'}
+          </h2>
           
-          {selectedWarning ? (
+          {selectedModule === 'hkust-catastrophe' ? (
+            <div className="space-y-4">
+              <Card className="border-blue-200 bg-blue-50">
+                <CardHeader>
+                  <CardTitle className="text-lg text-blue-800">🎓 HKUST Catastrophe Model</CardTitle>
+                  <p className="text-sm text-gray-600 pt-1">Research-based catastrophe modeling platform</p>
+                </CardHeader>
+                <CardContent className="space-y-3 text-sm">
+                  <div className="bg-white p-3 rounded border border-blue-200">
+                    <h4 className="font-semibold text-blue-700 mb-2">About</h4>
+                    <p className="text-gray-700">
+                      This is the original catastrophe modeling system developed at HKUST. 
+                      It provides comprehensive tools for stochastic event simulation and portfolio risk analysis.
+                    </p>
+                  </div>
+                  
+                  <div className="bg-white p-3 rounded border border-blue-200">
+                    <h4 className="font-semibold text-blue-700 mb-2">Key Features</h4>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1">
+                      <li>10,000-year stochastic event catalog</li>
+                      <li>Monte Carlo loss simulation</li>
+                      <li>Portfolio exposure management</li>
+                      <li>Geographic visualization (Leaflet + Shapefile)</li>
+                      <li>Statistical analysis & reporting</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-white p-3 rounded border border-blue-200">
+                    <h4 className="font-semibold text-blue-700 mb-2">Usage</h4>
+                    <p className="text-gray-700 text-xs">
+                      1. Upload property portfolio (CSV)<br/>
+                      2. Configure simulation parameters<br/>
+                      3. Run stochastic analysis<br/>
+                      4. View results on map & download reports
+                    </p>
+                  </div>
+                  
+                  <Button 
+                    className="w-full mt-4 bg-blue-600 hover:bg-blue-700"
+                    onClick={() => window.open('/oasis', '_blank')}
+                  >
+                    Open in New Tab
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          ) : selectedWarning ? (
             <div className="space-y-4">
               <Card>
                 <CardHeader>

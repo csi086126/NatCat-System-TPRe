@@ -116,6 +116,80 @@ const mockHistoricalEvents = [
   },
 ];
 
+// Stochastic Events Mock Data (10,000-year synthetic catalog)
+const mockStochasticEvents = [
+  {
+    id: 'T-00156',
+    name: 'Stochastic Typhoon Event 156',
+    type: 'Typhoon',
+    year: 156,
+    maxWindSpeed: '265 km/h',
+    totalRainfall: '320 mm',
+    estimatedLoss: '$5.2 Billion',
+    affectedPopulation: '2.8 Million',
+    geometry: {
+      type: 'Point',
+      coordinates: [114.1577, 22.2855]
+    }
+  },
+  {
+    id: 'R-01234',
+    name: 'Stochastic Rainstorm Event 1234',
+    type: 'Rainstorm',
+    year: 1234,
+    maxWindSpeed: 'N/A',
+    totalRainfall: '550 mm in 24h',
+    estimatedLoss: '$280 Million',
+    affectedPopulation: '5.1 Million',
+    geometry: {
+      type: 'Point',
+      coordinates: [114.1722, 22.3193]
+    }
+  },
+  {
+    id: 'F-05678',
+    name: 'Stochastic Flood Event 5678',
+    type: 'Flood',
+    year: 5678,
+    maxWindSpeed: 'N/A',
+    totalRainfall: '450 mm',
+    estimatedLoss: '$180 Million',
+    affectedPopulation: '450,000',
+    geometry: {
+      type: 'Point',
+      coordinates: [113.5439, 22.1987]
+    }
+  },
+  {
+    id: 'S-02468',
+    name: 'Stochastic Storm Surge Event 2468',
+    type: 'Storm Surge',
+    year: 2468,
+    maxWindSpeed: 'N/A',
+    totalRainfall: '180 mm',
+    estimatedLoss: '$420 Million',
+    affectedPopulation: '1.2 Million',
+    geometry: {
+      type: 'Point',
+      coordinates: [114.2058, 22.3364]
+    }
+  },
+  {
+    id: 'T-03579',
+    name: 'Stochastic Typhoon Event 3579',
+    type: 'Typhoon',
+    year: 3579,
+    maxWindSpeed: '295 km/h',
+    totalRainfall: '400 mm',
+    estimatedLoss: '$7.8 Billion',
+    affectedPopulation: '4.2 Million',
+    geometry: {
+      type: 'Point',
+      coordinates: [114.0947, 22.2569]
+    }
+  },
+];
+
 // 5. Legend Data
 const legendData = [
     { color: "#f0f8ff", label: "0.0 - 0.2" },
@@ -545,6 +619,15 @@ export default function RiskMapPage() {
   
   // ========== Historical Disaster Repository States ==========
   
+  // Layer category toggle (which layer group to show, null = none selected)
+  const [activeLayerCategory, setActiveLayerCategory] = useState<'geography' | 'infrastructure' | 'socioeconomic' | 'weather' | null>(null);
+  
+  // Event Repository toggle (which dataset to show, null = none selected)
+  const [activeEventDataset, setActiveEventDataset] = useState<'historical' | 'stochastic' | null>(null);
+  
+  // Flood Without Drainage selector
+  const [selectedFloodNoDrainage, setSelectedFloodNoDrainage] = useState<string>('none');
+  
   // Historical Disaster Repository toggle
   const [historicalDisasterOpen, setHistoricalDisasterOpen] = useState(false);
   
@@ -580,6 +663,41 @@ export default function RiskMapPage() {
     
     setFilteredHistoricalEvents(filtered);
   }, [eventTypeFilter, eventYearFrom, eventYearTo, historicalEvents]);
+  
+  // ========== Stochastic Events Repository States ==========
+  
+  // Stochastic Events data and filtering
+  const [stochasticEvents] = useState(mockStochasticEvents);
+  const [filteredStochasticEvents, setFilteredStochasticEvents] = useState(mockStochasticEvents);
+  const [showStochasticEvents, setShowStochasticEvents] = useState(false);
+  
+  // Stochastic event filter states
+  const [stochasticEventType, setStochasticEventType] = useState('all');
+  const [stochasticYearFrom, setStochasticYearFrom] = useState('');
+  const [stochasticYearTo, setStochasticYearTo] = useState('');
+  
+  // Selected stochastic event for details
+  const [selectedStochasticEvent, setSelectedStochasticEvent] = useState<any>(null);
+  
+  // Filter stochastic events
+  useEffect(() => {
+    let filtered = stochasticEvents;
+    
+    // Filter by event type
+    if (stochasticEventType !== 'all') {
+      filtered = filtered.filter(event => event.type === stochasticEventType);
+    }
+    
+    // Filter by simulation year range
+    if (stochasticYearFrom) {
+      filtered = filtered.filter(event => event.year >= parseInt(stochasticYearFrom));
+    }
+    if (stochasticYearTo) {
+      filtered = filtered.filter(event => event.year <= parseInt(stochasticYearTo));
+    }
+    
+    setFilteredStochasticEvents(filtered);
+  }, [stochasticEventType, stochasticYearFrom, stochasticYearTo, stochasticEvents]);
   
   // Calculate vulnerability based on structure type
   const getVulnerability = () => {
@@ -847,51 +965,39 @@ export default function RiskMapPage() {
       // For address queries, use intelligent fallback strategy
       const isChinese = containsChinese(query);
       
+      // 优先使用Nominatim（免费，无需API密钥，支持全球地址）
+      console.log('� Trying Nominatim (OpenStreetMap) geocoding...');
+      try {
+        const result = await geocodeWithNominatim(query);
+        console.log('✅ Geocoding success with Nominatim:', result);
+        return result;
+      } catch (nominatimError) {
+        console.warn('Nominatim geocoding failed, trying alternatives...', nominatimError);
+      }
+      
+      // 如果Nominatim失败，且是中文地址，尝试国内服务（需要API密钥）
       if (isChinese) {
-        // Chinese address: Try Amap first, then Baidu, finally Nominatim
-        console.log('🇨🇳 Detected Chinese address, using China-optimized geocoding...');
+        console.log('🇨🇳 Detected Chinese address, trying China-specific services...');
         
-        // Try Amap (高德) first
+        // Try Amap (高德) - 需要API密钥
         try {
-          console.log('Trying Amap (高德地图)...');
           const result = await geocodeWithAmap(query);
-          console.log('✅ Success with Amap:', result);
           return result;
         } catch (error) {
-          console.log('❌ Amap failed, trying Baidu...');
+          console.warn('Amap geocoding failed');
         }
         
-        // Try Baidu second
+        // Try Baidu - 需要API密钥
         try {
-          console.log('Trying Baidu Maps (百度地图)...');
           const result = await geocodeWithBaidu(query);
-          console.log('✅ Success with Baidu:', result);
           return result;
         } catch (error) {
-          console.log('❌ Baidu failed, trying Nominatim...');
-        }
-        
-        // Try Nominatim last (often less accurate for Chinese addresses)
-        try {
-          console.log('Trying Nominatim (OpenStreetMap)...');
-          const result = await geocodeWithNominatim(query);
-          console.log('⚠️ Using Nominatim (may be less accurate for Chinese addresses):', result);
-          return result;
-        } catch (error) {
-          throw new Error('❌ All geocoding services failed. Please try:\n1. Using English address\n2. Adding more specific details (city, district)\n3. Using coordinates (format: lat,lon)');
-        }
-      } else {
-        // International address: Try Nominatim first (best for non-Chinese)
-        console.log('🌍 Detected international address, using Nominatim...');
-        
-        try {
-          const result = await geocodeWithNominatim(query);
-          console.log('✅ Success with Nominatim:', result);
-          return result;
-        } catch (error) {
-          throw new Error('Location not found. Please try:\n1. More specific address\n2. Different language\n3. Coordinates (format: lat,lon)');
+          console.warn('Baidu geocoding failed');
         }
       }
+      
+      // 所有服务都失败
+      throw new Error('❌ All geocoding services failed. Please try:\n1. Using English address\n2. Adding more specific details (city, district)\n3. Using coordinates (format: lat,lon)');
     } catch (error) {
       console.error('Geocoding error:', error);
       throw error;
@@ -1270,17 +1376,17 @@ export default function RiskMapPage() {
   
   return (
     <div className="flex flex-col h-screen bg-gray-100">
-  <AppHeader />
+      <AppHeader />
       <div className="flex flex-1 overflow-hidden">
-      {/* Left Sidebar */}
-      <div className="w-96 bg-white shadow-lg overflow-y-auto p-4">
+        {/* Left Sidebar */}
+        <div className="w-96 bg-white shadow-lg overflow-y-auto p-4">
           
           {/* ========== Main Query Module ========== */}
           <Card className="mb-6 border shadow-md">
-            <CardHeader className="bg-gray-50 pb-3">
+            <CardHeader className="bg-gradient-to-r from-blue-50 to-teal-50 pb-3">
               <div className="flex items-center justify-between">
-                <CardTitle className="text-lg flex items-center gap-2">
-                  <Target className="w-5 h-5 text-slate-600" />
+                <CardTitle className="text-lg flex items-center gap-2 bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent font-bold">
+                  <Target className="w-5 h-5 text-teal-600" />
                   Risk Query
                 </CardTitle>
                 <button
@@ -1330,7 +1436,7 @@ export default function RiskMapPage() {
                 <Button 
                   onClick={handleSearchAndCalculate}
                   disabled={isLoading || batchQueryMode}
-                  className="flex-1 bg-slate-600 hover:bg-slate-700 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 text-white disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Search className="w-4 h-4 mr-2" />
                   {isLoading ? 'Searching...' : 'Search Location & Calculate Risk'}
@@ -1388,7 +1494,7 @@ export default function RiskMapPage() {
                   <label htmlFor="portfolio-upload" className="flex-1">
                     <Button
                       disabled={isLoading}
-                      className="w-full bg-slate-600 hover:bg-slate-700 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 text-white disabled:opacity-50 disabled:cursor-not-allowed"
                       asChild
                     >
                       <span className="flex items-center justify-center">
@@ -1457,16 +1563,16 @@ export default function RiskMapPage() {
           <div className="mb-6">
             <button
               onClick={() => setAdvancedOptionsOpen(!advancedOptionsOpen)}
-              className="w-full flex items-center justify-between p-3 bg-gradient-to-r from-gray-50 to-slate-50 hover:from-gray-100 hover:to-slate-100 rounded-lg border-2 border-gray-300 transition-colors"
+              className="w-full flex items-center justify-between p-3 bg-gradient-to-r from-blue-50 to-teal-50 hover:from-blue-100 hover:to-teal-100 rounded-lg border-2 border-teal-300 transition-colors"
             >
               <div className="flex items-center gap-2">
-                <Layers className="w-5 h-5 text-slate-600" />
-                <span className="text-sm font-bold text-gray-800">Detailed Hazard Layers</span>
+                <Layers className="w-5 h-5 text-teal-600" />
+                <span className="text-sm font-bold bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">Detailed Hazard Layers</span>
               </div>
               {advancedOptionsOpen ? (
-                <ChevronUp className="w-5 h-5 text-slate-600" />
+                <ChevronUp className="w-5 h-5 text-teal-600" />
               ) : (
-                <ChevronDown className="w-5 h-5 text-slate-600" />
+                <ChevronDown className="w-5 h-5 text-teal-600" />
               )}
             </button>
             
@@ -1498,24 +1604,40 @@ export default function RiskMapPage() {
                   </div>
                   
                   {/* Flood Layers Without Drainage (for comparison) */}
-                  <div className="mb-3 p-2 bg-amber-50 rounded border border-amber-200">
-                    <p className="text-xs font-semibold text-amber-700 mb-1">
-                      🚫 Flood Without Drainage (Comparison Baseline)
-                    </p>
-                    <div className="space-y-1 pl-2">
-                      {['floodNoDrainage500yr', 'floodNoDrainage200yr', 'floodNoDrainage100yr', 'floodNoDrainage50yr', 'floodNoDrainage20yr'].map(layer => (
-                        <div key={layer} className="flex items-center">
-                          <Checkbox
-                            id={layer}
-                            checked={visibleLayers[layer]}
-                            onCheckedChange={(checked) => setVisibleLayers(prev => ({ ...prev, [layer]: !!checked }))}
-                          />
-                          <Label htmlFor={layer} className="ml-2 text-xs cursor-pointer text-amber-800">
-                            {wmsLayersConfig[layer].name}
-                          </Label>
-                        </div>
-                      ))}
-                    </div>
+                  <div className="mb-3">
+                    <Select 
+                      value={selectedFloodNoDrainage} 
+                      onValueChange={(value) => {
+                        // Clear all flood no drainage layers first
+                        setVisibleLayers(prev => ({
+                          ...prev,
+                          floodNoDrainage500yr: false,
+                          floodNoDrainage200yr: false,
+                          floodNoDrainage100yr: false,
+                          floodNoDrainage50yr: false,
+                          floodNoDrainage20yr: false
+                        }));
+                        
+                        // Set selected layer if not 'none'
+                        if (value !== 'none') {
+                          setVisibleLayers(prev => ({ ...prev, [value]: true }));
+                        }
+                        
+                        setSelectedFloodNoDrainage(value);
+                      }}
+                    >
+                      <SelectTrigger className="w-full h-7 text-xs">
+                        <SelectValue placeholder="Select return period" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="none" className="text-xs">🌊 Flood Without Drainage (Comparison Baseline)</SelectItem>
+                        <SelectItem value="floodNoDrainage500yr" className="text-xs">500-year Return Period</SelectItem>
+                        <SelectItem value="floodNoDrainage200yr" className="text-xs">200-year Return Period</SelectItem>
+                        <SelectItem value="floodNoDrainage100yr" className="text-xs">100-year Return Period</SelectItem>
+                        <SelectItem value="floodNoDrainage50yr" className="text-xs">50-year Return Period</SelectItem>
+                        <SelectItem value="floodNoDrainage20yr" className="text-xs">20-year Return Period</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                   
                   {/* Rainstorm Layers */}
@@ -1585,16 +1707,16 @@ export default function RiskMapPage() {
           <div className="mb-6">
             <button
               onClick={() => setAssetAttributesOpen(!assetAttributesOpen)}
-              className="w-full flex items-center justify-between p-3 bg-gradient-to-r from-gray-50 to-slate-50 hover:from-gray-100 hover:to-slate-100 rounded-lg border-2 border-gray-300 transition-colors"
+              className="w-full flex items-center justify-between p-3 bg-gradient-to-r from-blue-50 to-teal-50 hover:from-blue-100 hover:to-teal-100 rounded-lg border-2 border-teal-300 transition-colors"
             >
               <div className="flex items-center gap-2">
-                <Building2 className="w-5 h-5 text-slate-600" />
-                <span className="text-sm font-bold text-gray-800">Asset Vulnerability Curves</span>
+                <Building2 className="w-5 h-5 text-teal-600" />
+                <span className="text-sm font-bold bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">Asset Vulnerability Curves</span>
               </div>
               {assetAttributesOpen ? (
-                <ChevronUp className="w-5 h-5 text-slate-600" />
+                <ChevronUp className="w-5 h-5 text-teal-600" />
               ) : (
-                <ChevronDown className="w-5 h-5 text-slate-600" />
+                <ChevronDown className="w-5 h-5 text-teal-600" />
               )}
             </button>
             
@@ -1680,261 +1802,477 @@ export default function RiskMapPage() {
           <div className="mb-6">
             <button
               onClick={() => setGeospatialDataOpen(!geospatialDataOpen)}
-              className="w-full flex items-center justify-between p-3 bg-gradient-to-r from-gray-50 to-slate-50 hover:from-gray-100 hover:to-slate-100 rounded-lg border-2 border-gray-300 transition-colors"
+              className="w-full flex items-center justify-between p-3 bg-gradient-to-r from-blue-50 to-teal-50 hover:from-blue-100 hover:to-teal-100 rounded-lg border-2 border-teal-300 transition-colors"
             >
               <div className="flex items-center gap-2">
-                <Globe className="w-5 h-5 text-slate-600" />
-                <span className="text-sm font-bold text-gray-800">Geospatial Data Hub</span>
+                <Globe className="w-5 h-5 text-teal-600" />
+                <span className="text-sm font-bold bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">Geospatial & Disaster Data Hub</span>
               </div>
               {geospatialDataOpen ? (
-                <ChevronUp className="w-5 h-5 text-slate-600" />
+                <ChevronUp className="w-5 h-5 text-teal-600" />
               ) : (
-                <ChevronDown className="w-5 h-5 text-slate-600" />
+                <ChevronDown className="w-5 h-5 text-teal-600" />
               )}
             </button>
             
             {geospatialDataOpen && (
-              <div className="mt-3 p-4 bg-white border-2 border-gray-200 rounded-lg space-y-3">
+              <div className="mt-3 p-4 bg-white border-2 border-gray-200 rounded-lg space-y-4">
                 
-                {/* Basic Geography */}
+                {/* Geospatial Layers Section */}
                 <div>
-                  <Label className="text-xs font-bold text-gray-800 mb-2 block">Basic Geography</Label>
-                  <div className="space-y-1.5 pl-2">
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="topography" checked={urbanElements.topography} onCheckedChange={() => handleUrbanElementToggle('topography')} />
-                      <Label htmlFor="topography" className="text-xs cursor-pointer font-normal">Topography</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="geomorphology" checked={urbanElements.geomorphology} onCheckedChange={() => handleUrbanElementToggle('geomorphology')} />
-                      <Label htmlFor="geomorphology" className="text-xs cursor-pointer font-normal">Geomorphology</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="riverNetwork" checked={urbanElements.riverNetwork} onCheckedChange={() => handleUrbanElementToggle('riverNetwork')} />
-                      <Label htmlFor="riverNetwork" className="text-xs cursor-pointer font-normal">River Network</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="boundary" checked={urbanElements.boundary} onCheckedChange={() => handleUrbanElementToggle('boundary')} />
-                      <Label htmlFor="boundary" className="text-xs cursor-pointer font-normal">Administrative Boundary</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="landCover" checked={urbanElements.landCover} onCheckedChange={() => handleUrbanElementToggle('landCover')} />
-                      <Label htmlFor="landCover" className="text-xs cursor-pointer font-normal">Land Cover (2019)</Label>
-                    </div>
-                  </div>
-                </div>
-                
-                <Separator />
-                
-                {/* Infrastructure */}
-                <div>
-                  <Label className="text-xs font-bold text-gray-800 mb-2 block">Infrastructure</Label>
-                  <div className="space-y-1.5 pl-2">
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="buildingRisk" checked={urbanElements.buildingRisk} onCheckedChange={() => handleUrbanElementToggle('buildingRisk')} />
-                      <Label htmlFor="buildingRisk" className="text-xs cursor-pointer font-normal">Building</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="roadsAndStreets" checked={urbanElements.roadsAndStreets} onCheckedChange={() => handleUrbanElementToggle('roadsAndStreets')} />
-                      <Label htmlFor="roadsAndStreets" className="text-xs cursor-pointer font-normal">Roads & Streets</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="landUse" checked={urbanElements.landUse} onCheckedChange={() => handleUrbanElementToggle('landUse')} />
-                      <Label htmlFor="landUse" className="text-xs cursor-pointer font-normal">Land Use</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="drainageConduits" checked={urbanElements.drainageConduits} onCheckedChange={() => handleUrbanElementToggle('drainageConduits')} />
-                      <Label htmlFor="drainageConduits" className="text-xs cursor-pointer font-normal">Drainage Conduits</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="drainageJunctions" checked={urbanElements.drainageJunctions} onCheckedChange={() => handleUrbanElementToggle('drainageJunctions')} />
-                      <Label htmlFor="drainageJunctions" className="text-xs cursor-pointer font-normal">Drainage Junctions</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="drainageOutfalls" checked={urbanElements.drainageOutfalls} onCheckedChange={() => handleUrbanElementToggle('drainageOutfalls')} />
-                      <Label htmlFor="drainageOutfalls" className="text-xs cursor-pointer font-normal">Drainage Outfalls</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="defensiveEmbankments" checked={urbanElements.defensiveEmbankments} onCheckedChange={() => handleUrbanElementToggle('defensiveEmbankments')} />
-                      <Label htmlFor="defensiveEmbankments" className="text-xs cursor-pointer font-normal">Defensive Embankments</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="serviceReservoirs" checked={urbanElements.serviceReservoirs} onCheckedChange={() => handleUrbanElementToggle('serviceReservoirs')} />
-                      <Label htmlFor="serviceReservoirs" className="text-xs cursor-pointer font-normal">Service Reservoirs</Label>
-                    </div>
-                  </div>
-                </div>
-                
-                <Separator />
-                
-                {/* Socioeconomic */}
-                <div>
-                  <Label className="text-xs font-bold text-gray-800 mb-2 block">Socioeconomic</Label>
-                  <div className="space-y-1.5 pl-2">
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="populationDensity" checked={urbanElements.populationDensity} onCheckedChange={() => handleUrbanElementToggle('populationDensity')} />
-                      <Label htmlFor="populationDensity" className="text-xs cursor-pointer font-normal">Population Density</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="economicData" checked={urbanElements.economicData} onCheckedChange={() => handleUrbanElementToggle('economicData')} />
-                      <Label htmlFor="economicData" className="text-xs cursor-pointer font-normal">Economic Data</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="industrialCommercial" checked={urbanElements.industrialCommercial} onCheckedChange={() => handleUrbanElementToggle('industrialCommercial')} />
-                      <Label htmlFor="industrialCommercial" className="text-xs cursor-pointer font-normal">Industrial & Commercial</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="nighttimeLightIndex" checked={urbanElements.nighttimeLightIndex} onCheckedChange={() => handleUrbanElementToggle('nighttimeLightIndex')} />
-                      <Label htmlFor="nighttimeLightIndex" className="text-xs cursor-pointer font-normal">Nighttime Light Index</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="poi" checked={urbanElements.poi} onCheckedChange={() => handleUrbanElementToggle('poi')} />
-                      <Label htmlFor="poi" className="text-xs cursor-pointer font-normal">Points of Interest (POI)</Label>
-                    </div>
-                  </div>
-                </div>
-                
-                <Separator />
-                
-                {/* Weather and Climate */}
-                <div>
-                  <Label className="text-xs font-bold text-gray-800 mb-2 block">Weather and Climate</Label>
-                  <div className="space-y-1.5 pl-2">
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="annualRainfall" checked={urbanElements.annualRainfall} onCheckedChange={() => handleUrbanElementToggle('annualRainfall')} />
-                      <Label htmlFor="annualRainfall" className="text-xs cursor-pointer font-normal">Annual Rainfall</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="annualTemperature" checked={urbanElements.annualTemperature} onCheckedChange={() => handleUrbanElementToggle('annualTemperature')} />
-                      <Label htmlFor="annualTemperature" className="text-xs cursor-pointer font-normal">Annual Temperature</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="earthMapIntegration" checked={urbanElements.earthMapIntegration} onCheckedChange={() => handleUrbanElementToggle('earthMapIntegration')} />
-                      <Label htmlFor="earthMapIntegration" className="text-xs cursor-pointer font-normal">Earth Map Integration</Label>
-                    </div>
-                  </div>
-                </div>
-                
-                <Separator />
-                
-                {/* Historical Disaster Events */}
-                <div>
-                  <Label className="text-xs font-bold text-gray-800 mb-2 block">Historical Disaster Events</Label>
+                  <Label className="text-xs font-bold text-gray-700 mb-2 block">📍 Geospatial Layers</Label>
                   
-                  {/* Event Type Filter */}
-                  <div className="mb-3">
-                    <Label className="text-xs font-semibold mb-1.5 block text-gray-700">Event Type</Label>
-                    <Select value={eventTypeFilter} onValueChange={setEventTypeFilter}>
-                      <SelectTrigger className="w-full">
-                        <SelectValue placeholder="Select event type" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="all">All Types</SelectItem>
-                        <SelectItem value="Typhoon">Typhoon</SelectItem>
-                        <SelectItem value="Rainstorm">Rainstorm</SelectItem>
-                        <SelectItem value="Flood">Flood</SelectItem>
-                        <SelectItem value="Storm Surge">Storm Surge</SelectItem>
-                        <SelectItem value="Landslide">Landslide</SelectItem>
-                      </SelectContent>
-                    </Select>
+                  {/* Layer Category Selection Buttons */}
+                  <div className="grid grid-cols-2 gap-2">
+                    <button
+                      onClick={() => setActiveLayerCategory(activeLayerCategory === 'geography' ? null : 'geography')}
+                      className={`px-3 py-2 rounded-lg text-xs font-semibold transition-all ${
+                        activeLayerCategory === 'geography'
+                          ? 'bg-gradient-to-r from-green-100 to-emerald-100 border-2 border-green-400 text-green-900'
+                          : 'bg-gray-100 border border-gray-300 text-gray-600 hover:bg-gray-200'
+                      }`}
+                    >
+                      🗺️ Geography
+                    </button>
+                    <button
+                      onClick={() => setActiveLayerCategory(activeLayerCategory === 'infrastructure' ? null : 'infrastructure')}
+                      className={`px-3 py-2 rounded-lg text-xs font-semibold transition-all ${
+                        activeLayerCategory === 'infrastructure'
+                          ? 'bg-gradient-to-r from-blue-100 to-cyan-100 border-2 border-blue-400 text-blue-900'
+                          : 'bg-gray-100 border border-gray-300 text-gray-600 hover:bg-gray-200'
+                      }`}
+                    >
+                      🏗️ Infrastructure
+                    </button>
+                    <button
+                      onClick={() => setActiveLayerCategory(activeLayerCategory === 'socioeconomic' ? null : 'socioeconomic')}
+                      className={`px-3 py-2 rounded-lg text-xs font-semibold transition-all ${
+                        activeLayerCategory === 'socioeconomic'
+                          ? 'bg-gradient-to-r from-amber-100 to-yellow-100 border-2 border-amber-400 text-amber-900'
+                          : 'bg-gray-100 border border-gray-300 text-gray-600 hover:bg-gray-200'
+                      }`}
+                    >
+                      👥 Socioeconomic
+                    </button>
+                    <button
+                      onClick={() => setActiveLayerCategory(activeLayerCategory === 'weather' ? null : 'weather')}
+                      className={`px-3 py-2 rounded-lg text-xs font-semibold transition-all ${
+                        activeLayerCategory === 'weather'
+                          ? 'bg-gradient-to-r from-sky-100 to-indigo-100 border-2 border-sky-400 text-sky-900'
+                          : 'bg-gray-100 border border-gray-300 text-gray-600 hover:bg-gray-200'
+                      }`}
+                    >
+                      🌤️ Weather
+                    </button>
                   </div>
                   
-                  {/* Year Range Filter */}
-                  <div className="mb-3">
-                    <Label className="text-xs font-semibold mb-1.5 block text-gray-700">Year Range</Label>
-                    <div className="flex gap-2 items-center">
-                      <Input
-                        type="number"
-                        placeholder="From"
-                        value={eventYearFrom}
-                        onChange={(e) => setEventYearFrom(e.target.value)}
-                        className="flex-1 text-xs"
-                      />
-                      <span className="text-xs text-gray-500">-</span>
-                      <Input
-                        type="number"
-                        placeholder="To"
-                        value={eventYearTo}
-                        onChange={(e) => setEventYearTo(e.target.value)}
-                        className="flex-1 text-xs"
-                      />
-                    </div>
-                  </div>
-                  
-                  {/* Show/Hide Events Toggle */}
-                  <div className="flex items-center justify-between mb-3">
-                    <Label className="text-xs font-semibold">Display on Map</Label>
-                    <Checkbox
-                      checked={showHistoricalEvents}
-                      onCheckedChange={(checked) => setShowHistoricalEvents(!!checked)}
-                    />
-                  </div>
-                  
-                  {/* Event List */}
-                  <div>
-                    <Label className="text-xs font-semibold mb-1.5 block text-gray-700">
-                      Events Found: {filteredHistoricalEvents.length}
-                    </Label>
-                    <div className="space-y-1.5 max-h-48 overflow-y-auto">
-                      {filteredHistoricalEvents.map(event => (
-                        <div
-                          key={event.id}
-                          className={`p-2 border rounded-lg cursor-pointer transition-colors ${
-                            selectedEvent?.id === event.id
-                              ? 'bg-orange-100 border-orange-400'
-                              : 'bg-gray-50 border-gray-200 hover:bg-gray-100'
-                          }`}
-                          onClick={() => {
-                            setSelectedEvent(event);
-                            if (mapRef.current && event.geometry?.coordinates) {
-                              mapRef.current.flyTo(
-                                [event.geometry.coordinates[1], event.geometry.coordinates[0]],
-                                12,
-                                { duration: 1.5 }
-                              );
-                            }
-                          }}
-                        >
-                          <div className="flex items-start justify-between">
-                            <div className="flex-1">
-                              <p className="text-xs font-bold text-gray-900">{event.name}</p>
-                              <p className="text-xs text-gray-600 mt-0.5">
-                                {event.type} • {event.date}
-                              </p>
-                            </div>
-                            <span className="text-xs px-1.5 py-0.5 rounded-full bg-orange-200 text-orange-800 font-semibold">
-                              {event.type}
-                            </span>
+                  {/* Layer Content - Only show when a category is selected */}
+                  {activeLayerCategory && (
+                    <div className="mt-3">
+                      {/* Basic Geography */}
+                      {activeLayerCategory === 'geography' && (
+                        <div>
+                          <div className="p-2 bg-green-50 rounded border border-green-200 mb-3">
+                            <p className="text-xs text-green-700">
+                              Fundamental geographic features and terrain information
+                            </p>
                           </div>
-                          
-                          {selectedEvent?.id === event.id && (
-                            <div className="mt-1.5 pt-1.5 border-t border-gray-300 space-y-0.5">
-                              <p className="text-xs"><span className="font-semibold">Max Wind:</span> {event.maxWindSpeed}</p>
-                              <p className="text-xs"><span className="font-semibold">Rainfall:</span> {event.totalRainfall}</p>
-                              <p className="text-xs"><span className="font-semibold">Loss:</span> {event.estimatedLoss}</p>
-                              <p className="text-xs"><span className="font-semibold">Population:</span> {event.affectedPopulation}</p>
+                          <div className="space-y-1.5 pl-2">
+                            <div className="flex items-center space-x-2">
+                              <Checkbox id="topography" checked={urbanElements.topography} onCheckedChange={() => handleUrbanElementToggle('topography')} />
+                              <Label htmlFor="topography" className="text-xs cursor-pointer font-normal">Topography</Label>
                             </div>
-                          )}
+                            <div className="flex items-center space-x-2">
+                              <Checkbox id="geomorphology" checked={urbanElements.geomorphology} onCheckedChange={() => handleUrbanElementToggle('geomorphology')} />
+                              <Label htmlFor="geomorphology" className="text-xs cursor-pointer font-normal">Geomorphology</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <Checkbox id="riverNetwork" checked={urbanElements.riverNetwork} onCheckedChange={() => handleUrbanElementToggle('riverNetwork')} />
+                              <Label htmlFor="riverNetwork" className="text-xs cursor-pointer font-normal">River Network</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <Checkbox id="boundary" checked={urbanElements.boundary} onCheckedChange={() => handleUrbanElementToggle('boundary')} />
+                              <Label htmlFor="boundary" className="text-xs cursor-pointer font-normal">Administrative Boundary</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <Checkbox id="landCover" checked={urbanElements.landCover} onCheckedChange={() => handleUrbanElementToggle('landCover')} />
+                              <Label htmlFor="landCover" className="text-xs cursor-pointer font-normal">Land Cover (2019)</Label>
+                            </div>
+                          </div>
                         </div>
-                      ))}
+                      )}
+                      
+                      {/* Infrastructure */}
+                      {activeLayerCategory === 'infrastructure' && (
+                        <div>
+                          <div className="p-2 bg-blue-50 rounded border border-blue-200 mb-3">
+                            <p className="text-xs text-blue-700">
+                              Built environment including buildings, roads, and drainage systems
+                            </p>
+                          </div>
+                          <div className="space-y-1.5 pl-2">
+                            <div className="flex items-center space-x-2">
+                              <Checkbox id="buildingRisk" checked={urbanElements.buildingRisk} onCheckedChange={() => handleUrbanElementToggle('buildingRisk')} />
+                              <Label htmlFor="buildingRisk" className="text-xs cursor-pointer font-normal">Building</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <Checkbox id="roadsAndStreets" checked={urbanElements.roadsAndStreets} onCheckedChange={() => handleUrbanElementToggle('roadsAndStreets')} />
+                              <Label htmlFor="roadsAndStreets" className="text-xs cursor-pointer font-normal">Roads & Streets</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <Checkbox id="landUse" checked={urbanElements.landUse} onCheckedChange={() => handleUrbanElementToggle('landUse')} />
+                              <Label htmlFor="landUse" className="text-xs cursor-pointer font-normal">Land Use</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <Checkbox id="drainageConduits" checked={urbanElements.drainageConduits} onCheckedChange={() => handleUrbanElementToggle('drainageConduits')} />
+                              <Label htmlFor="drainageConduits" className="text-xs cursor-pointer font-normal">Drainage Conduits</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <Checkbox id="drainageJunctions" checked={urbanElements.drainageJunctions} onCheckedChange={() => handleUrbanElementToggle('drainageJunctions')} />
+                              <Label htmlFor="drainageJunctions" className="text-xs cursor-pointer font-normal">Drainage Junctions</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <Checkbox id="drainageOutfalls" checked={urbanElements.drainageOutfalls} onCheckedChange={() => handleUrbanElementToggle('drainageOutfalls')} />
+                              <Label htmlFor="drainageOutfalls" className="text-xs cursor-pointer font-normal">Drainage Outfalls</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <Checkbox id="defensiveEmbankments" checked={urbanElements.defensiveEmbankments} onCheckedChange={() => handleUrbanElementToggle('defensiveEmbankments')} />
+                              <Label htmlFor="defensiveEmbankments" className="text-xs cursor-pointer font-normal">Defensive Embankments</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <Checkbox id="serviceReservoirs" checked={urbanElements.serviceReservoirs} onCheckedChange={() => handleUrbanElementToggle('serviceReservoirs')} />
+                              <Label htmlFor="serviceReservoirs" className="text-xs cursor-pointer font-normal">Service Reservoirs</Label>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                      
+                      {/* Socioeconomic */}
+                      {activeLayerCategory === 'socioeconomic' && (
+                        <div>
+                          <div className="p-2 bg-amber-50 rounded border border-amber-200 mb-3">
+                            <p className="text-xs text-amber-700">
+                              Population, economic activity, and social indicators
+                            </p>
+                          </div>
+                          <div className="space-y-1.5 pl-2">
+                            <div className="flex items-center space-x-2">
+                              <Checkbox id="populationDensity" checked={urbanElements.populationDensity} onCheckedChange={() => handleUrbanElementToggle('populationDensity')} />
+                              <Label htmlFor="populationDensity" className="text-xs cursor-pointer font-normal">Population Density</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <Checkbox id="economicData" checked={urbanElements.economicData} onCheckedChange={() => handleUrbanElementToggle('economicData')} />
+                              <Label htmlFor="economicData" className="text-xs cursor-pointer font-normal">Economic Data</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <Checkbox id="industrialCommercial" checked={urbanElements.industrialCommercial} onCheckedChange={() => handleUrbanElementToggle('industrialCommercial')} />
+                              <Label htmlFor="industrialCommercial" className="text-xs cursor-pointer font-normal">Industrial & Commercial</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <Checkbox id="nighttimeLightIndex" checked={urbanElements.nighttimeLightIndex} onCheckedChange={() => handleUrbanElementToggle('nighttimeLightIndex')} />
+                              <Label htmlFor="nighttimeLightIndex" className="text-xs cursor-pointer font-normal">Nighttime Light Index</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <Checkbox id="poi" checked={urbanElements.poi} onCheckedChange={() => handleUrbanElementToggle('poi')} />
+                              <Label htmlFor="poi" className="text-xs cursor-pointer font-normal">Points of Interest (POI)</Label>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                      
+                      {/* Weather and Climate */}
+                      {activeLayerCategory === 'weather' && (
+                        <div>
+                          <div className="p-2 bg-sky-50 rounded border border-sky-200 mb-3">
+                            <p className="text-xs text-sky-700">
+                              Climate patterns, rainfall, temperature, and atmospheric data
+                            </p>
+                          </div>
+                          <div className="space-y-1.5 pl-2">
+                            <div className="flex items-center space-x-2">
+                              <Checkbox id="annualRainfall" checked={urbanElements.annualRainfall} onCheckedChange={() => handleUrbanElementToggle('annualRainfall')} />
+                              <Label htmlFor="annualRainfall" className="text-xs cursor-pointer font-normal">Annual Rainfall</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <Checkbox id="annualTemperature" checked={urbanElements.annualTemperature} onCheckedChange={() => handleUrbanElementToggle('annualTemperature')} />
+                              <Label htmlFor="annualTemperature" className="text-xs cursor-pointer font-normal">Annual Temperature</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <Checkbox id="earthMapIntegration" checked={urbanElements.earthMapIntegration} onCheckedChange={() => handleUrbanElementToggle('earthMapIntegration')} />
+                              <Label htmlFor="earthMapIntegration" className="text-xs cursor-pointer font-normal">Earth Map Integration</Label>
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
-                    
-                    {filteredHistoricalEvents.length === 0 && (
-                      <div className="text-center py-3">
-                        <p className="text-xs text-gray-500">No events matching filters</p>
-                      </div>
-                    )}
-                  </div>
+                  )}
                 </div>
                 
                 <Separator />
                 
-                {/* Info box */}
-                <div className="p-3 bg-gray-50 rounded-lg border border-gray-200">
-                  <p className="text-xs font-bold text-gray-800 mb-1">ℹ️ Geospatial Data Layers</p>
-                  <p className="text-xs text-gray-700">
-                    Toggle layers to view infrastructure, socioeconomic, and environmental data on the map. 
-                    These layers provide context for risk assessment and urban planning.
-                  </p>
+                {/* Disaster Events Section */}
+                <div>
+                  <Label className="text-xs font-bold text-gray-700 mb-2 block">⚡ Disaster Events</Label>
+                  
+                  {/* Dataset Selection Buttons */}
+                  <div className="grid grid-cols-2 gap-2">
+                    <button
+                      onClick={() => setActiveEventDataset(activeEventDataset === 'historical' ? null : 'historical')}
+                      className={`px-3 py-2 rounded-lg text-xs font-semibold transition-all ${
+                        activeEventDataset === 'historical'
+                          ? 'bg-gradient-to-r from-orange-100 to-red-100 border-2 border-orange-400 text-orange-900'
+                          : 'bg-gray-100 border border-gray-300 text-gray-600 hover:bg-gray-200'
+                      }`}
+                    >
+                      📅 Historical Events
+                    </button>
+                    <button
+                      onClick={() => setActiveEventDataset(activeEventDataset === 'stochastic' ? null : 'stochastic')}
+                      className={`px-3 py-2 rounded-lg text-xs font-semibold transition-all ${
+                        activeEventDataset === 'stochastic'
+                          ? 'bg-gradient-to-r from-purple-100 to-indigo-100 border-2 border-purple-400 text-purple-900'
+                          : 'bg-gray-100 border border-gray-300 text-gray-600 hover:bg-gray-200'
+                      }`}
+                    >
+                      🔮 Stochastic Events
+                    </button>
+                  </div>
+                  
+                  {/* Event Content - Only show when a dataset is selected */}
+                  {activeEventDataset && (
+                    <div className="mt-3">
+                      {/* Historical Events Content */}
+                      {activeEventDataset === 'historical' && (
+                        <div className="space-y-3">
+                      <div className="p-2 bg-orange-50 rounded border border-orange-200">
+                        <p className="text-xs text-orange-700">
+                          Real historical disaster events with documented impacts
+                        </p>
+                      </div>
+                      
+                      {/* Event Type Filter */}
+                      <div>
+                        <Label className="text-xs font-semibold mb-1.5 block text-gray-700">Event Type</Label>
+                        <Select value={eventTypeFilter} onValueChange={setEventTypeFilter}>
+                          <SelectTrigger className="w-full">
+                            <SelectValue placeholder="Select event type" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="all">All Types</SelectItem>
+                            <SelectItem value="Typhoon">Typhoon</SelectItem>
+                            <SelectItem value="Rainstorm">Rainstorm</SelectItem>
+                            <SelectItem value="Flood">Flood</SelectItem>
+                            <SelectItem value="Storm Surge">Storm Surge</SelectItem>
+                            <SelectItem value="Landslide">Landslide</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      
+                      {/* Year Range Filter */}
+                      <div>
+                        <Label className="text-xs font-semibold mb-1.5 block text-gray-700">Year Range</Label>
+                        <div className="flex gap-2 items-center">
+                          <Input
+                            type="number"
+                            placeholder="From"
+                            value={eventYearFrom}
+                            onChange={(e) => setEventYearFrom(e.target.value)}
+                            className="flex-1 text-xs"
+                          />
+                          <span className="text-xs text-gray-500">-</span>
+                          <Input
+                            type="number"
+                            placeholder="To"
+                            value={eventYearTo}
+                            onChange={(e) => setEventYearTo(e.target.value)}
+                            className="flex-1 text-xs"
+                          />
+                        </div>
+                      </div>
+                      
+                      {/* Show/Hide Events Toggle */}
+                      <div className="flex items-center justify-between">
+                        <Label className="text-xs font-semibold">Display on Map</Label>
+                        <Checkbox
+                          checked={showHistoricalEvents}
+                          onCheckedChange={(checked) => setShowHistoricalEvents(!!checked)}
+                        />
+                      </div>
+                      
+                      {/* Event List */}
+                      <div>
+                        <Label className="text-xs font-semibold mb-1.5 block text-gray-700">
+                          Events Found: {filteredHistoricalEvents.length}
+                        </Label>
+                        <div className="space-y-1.5 max-h-48 overflow-y-auto">
+                          {filteredHistoricalEvents.map(event => (
+                            <div
+                              key={event.id}
+                              className={`p-2 border rounded-lg cursor-pointer transition-colors ${
+                                selectedEvent?.id === event.id
+                                  ? 'bg-orange-100 border-orange-400'
+                                  : 'bg-gray-50 border-gray-200 hover:bg-gray-100'
+                              }`}
+                              onClick={() => {
+                                setSelectedEvent(event);
+                                if (mapRef.current && event.geometry?.coordinates) {
+                                  mapRef.current.flyTo(
+                                    [event.geometry.coordinates[1], event.geometry.coordinates[0]],
+                                    12,
+                                    { duration: 1.5 }
+                                  );
+                                }
+                              }}
+                            >
+                              <div className="flex items-start justify-between">
+                                <div className="flex-1">
+                                  <p className="text-xs font-bold text-gray-900">{event.name}</p>
+                                  <p className="text-xs text-gray-600 mt-0.5">
+                                    {event.type} • {event.date}
+                                  </p>
+                                </div>
+                                <span className="text-xs px-1.5 py-0.5 rounded-full bg-orange-200 text-orange-800 font-semibold">
+                                  {event.type}
+                                </span>
+                              </div>
+                              
+                              {selectedEvent?.id === event.id && (
+                                <div className="mt-1.5 pt-1.5 border-t border-gray-300 space-y-0.5">
+                                  <p className="text-xs"><span className="font-semibold">Max Wind:</span> {event.maxWindSpeed}</p>
+                                  <p className="text-xs"><span className="font-semibold">Rainfall:</span> {event.totalRainfall}</p>
+                                  <p className="text-xs"><span className="font-semibold">Loss:</span> {event.estimatedLoss}</p>
+                                  <p className="text-xs"><span className="font-semibold">Population:</span> {event.affectedPopulation}</p>
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                        
+                        {filteredHistoricalEvents.length === 0 && (
+                          <div className="text-center py-3">
+                            <p className="text-xs text-gray-500">No events matching filters</p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                      )}
+                  
+                      {/* Stochastic Events Content */}
+                      {activeEventDataset === 'stochastic' && (
+                        <div className="space-y-3">
+                      <div className="p-2 bg-purple-50 rounded border border-purple-200">
+                        <p className="text-xs text-purple-700">
+                          Synthetic disaster scenarios from 10,000-year probabilistic catalog
+                        </p>
+                      </div>
+                      
+                      {/* Event Type Filter */}
+                      <div>
+                        <Label className="text-xs font-semibold mb-1.5 block text-gray-700">Event Type</Label>
+                        <Select value={stochasticEventType} onValueChange={setStochasticEventType}>
+                          <SelectTrigger className="w-full">
+                            <SelectValue placeholder="Select event type" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="all">All Types</SelectItem>
+                            <SelectItem value="Typhoon">Typhoon</SelectItem>
+                            <SelectItem value="Rainstorm">Rainstorm</SelectItem>
+                            <SelectItem value="Flood">Flood</SelectItem>
+                            <SelectItem value="Storm Surge">Storm Surge</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      
+                      {/* Year Range Filter (Simulation Year) */}
+                      <div>
+                        <Label className="text-xs font-semibold mb-1.5 block text-gray-700">Simulation Year Range</Label>
+                        <div className="flex gap-2 items-center">
+                          <Input
+                            type="number"
+                            placeholder="From"
+                            value={stochasticYearFrom}
+                            onChange={(e) => setStochasticYearFrom(e.target.value)}
+                            className="flex-1 text-xs"
+                          />
+                          <span className="text-xs text-gray-500">-</span>
+                          <Input
+                            type="number"
+                            placeholder="To"
+                            value={stochasticYearTo}
+                            onChange={(e) => setStochasticYearTo(e.target.value)}
+                            className="flex-1 text-xs"
+                          />
+                        </div>
+                      </div>
+                      
+                      {/* Show/Hide Events Toggle */}
+                      <div className="flex items-center justify-between">
+                        <Label className="text-xs font-semibold">Display on Map</Label>
+                        <Checkbox
+                          checked={showStochasticEvents}
+                          onCheckedChange={(checked) => setShowStochasticEvents(!!checked)}
+                        />
+                      </div>
+                      
+                      {/* Event List */}
+                      <div>
+                        <Label className="text-xs font-semibold mb-1.5 block text-gray-700">
+                          Events Found: {filteredStochasticEvents.length}
+                        </Label>
+                        <div className="space-y-1.5 max-h-48 overflow-y-auto">
+                          {filteredStochasticEvents.map(event => (
+                            <div
+                              key={event.id}
+                              className={`p-2 border rounded-lg cursor-pointer transition-colors ${
+                                selectedStochasticEvent?.id === event.id
+                                  ? 'bg-purple-100 border-purple-400'
+                                  : 'bg-gray-50 border-gray-200 hover:bg-gray-100'
+                              }`}
+                              onClick={() => {
+                                setSelectedStochasticEvent(event);
+                                if (mapRef.current && event.geometry?.coordinates) {
+                                  mapRef.current.flyTo(
+                                    [event.geometry.coordinates[1], event.geometry.coordinates[0]],
+                                    12,
+                                    { duration: 1.5 }
+                                  );
+                                }
+                              }}
+                            >
+                              <div className="flex items-start justify-between">
+                                <div className="flex-1">
+                                  <p className="text-xs font-bold text-gray-900">{event.name}</p>
+                                  <p className="text-xs text-gray-600 mt-0.5">
+                                    {event.type} • Year {event.year}
+                                  </p>
+                                </div>
+                                <span className="text-xs px-1.5 py-0.5 rounded-full bg-purple-200 text-purple-800 font-semibold">
+                                  {event.type}
+                                </span>
+                              </div>
+                              
+                              {selectedStochasticEvent?.id === event.id && (
+                                <div className="mt-1.5 pt-1.5 border-t border-gray-300 space-y-0.5">
+                                  <p className="text-xs"><span className="font-semibold">Max Wind:</span> {event.maxWindSpeed}</p>
+                                  <p className="text-xs"><span className="font-semibold">Rainfall:</span> {event.totalRainfall}</p>
+                                  <p className="text-xs"><span className="font-semibold">Loss:</span> {event.estimatedLoss}</p>
+                                  <p className="text-xs"><span className="font-semibold">Population:</span> {event.affectedPopulation}</p>
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                        
+                        {filteredStochasticEvents.length === 0 && (
+                          <div className="text-center py-3">
+                            <p className="text-xs text-gray-500">No events matching filters</p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             )}
@@ -2220,6 +2558,53 @@ export default function RiskMapPage() {
               );
             })}
 
+            {/* Stochastic Event Markers */}
+            {showStochasticEvents && filteredStochasticEvents.map(event => {
+              if (!event.geometry?.coordinates) return null;
+              
+              const position: [number, number] = [
+                event.geometry.coordinates[1],
+                event.geometry.coordinates[0]
+              ];
+              
+              return (
+                <Marker
+                  key={event.id}
+                  position={position}
+                  icon={createEventIcon(event.type)}
+                >
+                  <Popup>
+                    <div className="text-sm max-w-xs">
+                      <div className="flex items-center justify-between mb-2">
+                        <p className="font-bold text-gray-900">{event.name}</p>
+                        <span className={`text-xs px-2 py-0.5 rounded-full font-semibold ${
+                          event.type === 'Typhoon' ? 'bg-purple-100 text-purple-800' :
+                          event.type === 'Rainstorm' ? 'bg-indigo-100 text-indigo-800' :
+                          event.type === 'Flood' ? 'bg-teal-100 text-teal-800' :
+                          event.type === 'Storm Surge' ? 'bg-violet-100 text-violet-800' :
+                          'bg-fuchsia-100 text-fuchsia-800'
+                        }`}>
+                          {event.type}
+                        </span>
+                      </div>
+                      <p className="text-xs text-purple-600 mb-2">🔮 Synthetic Event • Year {event.year}</p>
+                      <div className="space-y-1 text-xs">
+                        <p><span className="font-semibold">Max Wind Speed:</span> {event.maxWindSpeed}</p>
+                        <p><span className="font-semibold">Total Rainfall:</span> {event.totalRainfall}</p>
+                        <p><span className="font-semibold">Estimated Loss:</span> <span className="text-red-600 font-bold">{event.estimatedLoss}</span></p>
+                        <p><span className="font-semibold">Affected Population:</span> {event.affectedPopulation}</p>
+                      </div>
+                      <div className="mt-2 pt-2 border-t border-gray-200">
+                        <p className="text-xs text-gray-500 italic">
+                          Part of 10,000-year stochastic catalog for probabilistic modeling
+                        </p>
+                      </div>
+                    </div>
+                  </Popup>
+                </Marker>
+              );
+            })}
+
             {/* Batch Portfolio Location Markers */}
             {batchQueryMode && portfolioLocations.map((location, idx) => {
               if (!location.latitude || !location.longitude || location.status === 'error') return null;
@@ -2362,7 +2747,7 @@ export default function RiskMapPage() {
                   
                   {/* Asset Info */}
                   <div className="mb-4">
-                    <p className="text-sm font-bold text-gray-800 mb-2">📍 Asset Information</p>
+                    <p className="text-sm font-bold bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent mb-2">📍 Asset Information</p>
                     <div className="grid grid-cols-2 gap-2 text-xs">
                       <div className="p-2 bg-gray-50 rounded">
                         <span className="text-gray-600 block">Elevation</span>
@@ -2417,7 +2802,7 @@ export default function RiskMapPage() {
                   
                   {/* Individual Hazards */}
                   <div className="space-y-2">
-                    <p className="text-sm font-bold text-gray-800 mb-2">🌍 Multi-Peril Breakdown</p>
+                    <p className="text-sm font-bold bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent mb-2">🌍 Multi-Peril Breakdown</p>
                     
                     {/* Flood */}
                     <div className="flex items-center justify-between p-3 bg-blue-50 rounded border border-blue-200">

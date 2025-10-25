@@ -14,7 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox"
 import { Calendar } from "@/components/ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { CalendarIcon, Search, Upload, ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Download, Activity } from 'lucide-react'
+import { CalendarIcon, Search, Upload, ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Download } from 'lucide-react'
 import { format } from "date-fns"
 import { cn } from "@/lib/utils"
 import { Separator } from "@/components/ui/separator"
@@ -43,66 +43,6 @@ const Popup = dynamic(() => import('react-leaflet').then(mod => mod.Popup), { ss
 
 var tempuserName = "none";
 var tempprojectName = "none";
-
-// Stochastic Events Mock Data
-const mockStochasticEvents = [
-  {
-    id: 'T-00156',
-    name: 'Stochastic Typhoon Event 156',
-    type: 'Typhoon',
-    year: 156,
-    maxWindSpeed: '265 km/h',
-    totalRainfall: '320 mm',
-    estimatedLoss: '$5.2 Billion',
-    affectedPopulation: '2.8 Million',
-    geometry: {
-      type: 'Point',
-      coordinates: [114.1577, 22.2855]
-    }
-  },
-  {
-    id: 'R-01234',
-    name: 'Stochastic Rainstorm Event 1234',
-    type: 'Rainstorm',
-    year: 1234,
-    maxWindSpeed: 'N/A',
-    totalRainfall: '550 mm in 24h',
-    estimatedLoss: '$280 Million',
-    affectedPopulation: '5.1 Million',
-    geometry: {
-      type: 'Point',
-      coordinates: [114.1722, 22.3193]
-    }
-  },
-  {
-    id: 'F-05678',
-    name: 'Stochastic Flood Event 5678',
-    type: 'Flood',
-    year: 5678,
-    maxWindSpeed: 'N/A',
-    totalRainfall: '450 mm',
-    estimatedLoss: '$180 Million',
-    affectedPopulation: '450,000',
-    geometry: {
-      type: 'Point',
-      coordinates: [113.5439, 22.1987]
-    }
-  },
-  {
-    id: 'S-02468',
-    name: 'Stochastic Storm Surge Event 2468',
-    type: 'Storm Surge',
-    year: 2468,
-    maxWindSpeed: 'N/A',
-    totalRainfall: '180 mm',
-    estimatedLoss: '$420 Million',
-    affectedPopulation: '1.2 Million',
-    geometry: {
-      type: 'Point',
-      coordinates: [114.2029, 22.2855]
-    }
-  },
-];
 
 export default function Component() {
   const router = useRouter()
@@ -142,33 +82,6 @@ export default function Component() {
   }
   
   const [projectData, setProjectData] = useState<Project[]>([]);
-
-  // Stochastic Events States
-  const [stochasticOpen, setStochasticOpen] = useState(false);
-  const [stochasticEvents] = useState(mockStochasticEvents);
-  const [filteredStochasticEvents, setFilteredStochasticEvents] = useState(mockStochasticEvents);
-  const [stochasticEventType, setStochasticEventType] = useState('all');
-  const [stochasticYearFrom, setStochasticYearFrom] = useState('');
-  const [stochasticYearTo, setStochasticYearTo] = useState('');
-  const [selectedStochasticEvent, setSelectedStochasticEvent] = useState<any>(null);
-
-  // Filter stochastic events
-  useEffect(() => {
-    let filtered = stochasticEvents;
-    
-    if (stochasticEventType !== 'all') {
-      filtered = filtered.filter(event => event.type === stochasticEventType);
-    }
-    
-    if (stochasticYearFrom) {
-      filtered = filtered.filter(event => event.year >= parseInt(stochasticYearFrom));
-    }
-    if (stochasticYearTo) {
-      filtered = filtered.filter(event => event.year <= parseInt(stochasticYearTo));
-    }
-    
-    setFilteredStochasticEvents(filtered);
-  }, [stochasticEventType, stochasticYearFrom, stochasticYearTo, stochasticEvents]);
 
   useEffect(() => {
     const timer = setInterval(() => setCurrentTime(new Date()), 1000)
@@ -512,123 +425,6 @@ export default function Component() {
 
           <Separator className="my-6" />
 
-          {/* ========== Stochastic Events ========== */}
-          <div className="mb-4">
-            <button
-              onClick={() => setStochasticOpen(!stochasticOpen)}
-              className="w-full flex items-center justify-between p-3 bg-gradient-to-r from-purple-50 to-indigo-50 hover:from-purple-100 hover:to-indigo-100 rounded-lg border-2 border-purple-300 transition-colors"
-            >
-              <div className="flex items-center gap-2">
-                <Activity className="w-5 h-5 text-purple-700" />
-                <span className="text-sm font-bold text-purple-800">Stochastic Events</span>
-              </div>
-              {stochasticOpen ? (
-                <ChevronUp className="w-5 h-5 text-purple-700" />
-              ) : (
-                <ChevronDown className="w-5 h-5 text-purple-700" />
-              )}
-            </button>
-            
-            {stochasticOpen && (
-              <div className="mt-3 p-4 bg-white border-2 border-purple-200 rounded-lg space-y-4">
-                
-                {/* Info Box */}
-                <div className="p-2 bg-purple-50 rounded border border-purple-200">
-                  <p className="text-xs text-purple-700">
-                    Browse synthetic disaster scenarios (10,000-year catalog) for catastrophe modeling
-                  </p>
-                </div>
-                
-                {/* Event Type Filter */}
-                <div>
-                  <Label className="text-xs font-semibold mb-2 block">Event Type</Label>
-                  <Select value={stochasticEventType} onValueChange={setStochasticEventType}>
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Select event type" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="all">All Types</SelectItem>
-                      <SelectItem value="Typhoon">Typhoon</SelectItem>
-                      <SelectItem value="Rainstorm">Rainstorm</SelectItem>
-                      <SelectItem value="Flood">Flood</SelectItem>
-                      <SelectItem value="Storm Surge">Storm Surge</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                
-                {/* Year Range Filter */}
-                <div>
-                  <Label className="text-xs font-semibold mb-2 block">Simulation Year Range</Label>
-                  <div className="flex gap-2 items-center">
-                    <Input
-                      type="number"
-                      placeholder="From"
-                      value={stochasticYearFrom}
-                      onChange={(e) => setStochasticYearFrom(e.target.value)}
-                      className="flex-1 text-xs"
-                    />
-                    <span className="text-xs text-gray-500">-</span>
-                    <Input
-                      type="number"
-                      placeholder="To"
-                      value={stochasticYearTo}
-                      onChange={(e) => setStochasticYearTo(e.target.value)}
-                      className="flex-1 text-xs"
-                    />
-                  </div>
-                </div>
-                
-                <Separator />
-                
-                {/* Event List */}
-                <div>
-                  <Label className="text-xs font-semibold mb-2 block">
-                    Events Found: {filteredStochasticEvents.length}
-                  </Label>
-                  <div className="space-y-2 max-h-64 overflow-y-auto">
-                    {filteredStochasticEvents.map(event => (
-                      <div
-                        key={event.id}
-                        className={`p-2 border rounded-lg cursor-pointer transition-colors ${
-                          selectedStochasticEvent?.id === event.id
-                            ? 'bg-purple-100 border-purple-400'
-                            : 'bg-gray-50 border-gray-200 hover:bg-gray-100'
-                        }`}
-                        onClick={() => setSelectedStochasticEvent(event)}
-                      >
-                        <div className="flex items-start justify-between">
-                          <div className="flex-1">
-                            <p className="text-xs font-bold text-gray-900">{event.name}</p>
-                            <p className="text-xs text-gray-600 mt-0.5">
-                              {event.type} • Year {event.year}
-                            </p>
-                          </div>
-                          <span className="text-xs px-2 py-0.5 rounded-full bg-purple-200 text-purple-800 font-semibold">
-                            {event.type}
-                          </span>
-                        </div>
-                        
-                        {selectedStochasticEvent?.id === event.id && (
-                          <div className="mt-2 pt-2 border-t border-gray-300 space-y-1">
-                            <p className="text-xs"><span className="font-semibold">Max Wind Speed:</span> {event.maxWindSpeed}</p>
-                            <p className="text-xs"><span className="font-semibold">Total Rainfall:</span> {event.totalRainfall}</p>
-                            <p className="text-xs"><span className="font-semibold">Estimated Loss:</span> {event.estimatedLoss}</p>
-                            <p className="text-xs"><span className="font-semibold">Affected Population:</span> {event.affectedPopulation}</p>
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                
-                {filteredStochasticEvents.length === 0 && (
-                  <div className="text-center py-4">
-                    <p className="text-xs text-gray-500">No events found matching the filters</p>
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
         </div>
         <div className="w-3/4 p-4 space-y-8 overflow-auto">
           <Card>
