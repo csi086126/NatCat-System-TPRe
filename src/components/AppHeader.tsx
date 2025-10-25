@@ -49,7 +49,7 @@ export default function AppHeader() {
                 variant="ghost"
                 className={`gap-2 ${
                   pathname === nav.href || 
-                  (nav.href === "/model" && pathname === "/oasis") // Cat Model redirects to /oasis
+                  (nav.href === "/model" && (pathname === "/oasis" || pathname === "/oasislmf")) // Cat Model includes both models
                     ? "text-lg font-bold" 
                     : ""
                 }`}
