@@ -2,6 +2,7 @@
 
 // 1. 导入所需的 Hooks 和组件
 import Image from 'next/image';
+import AppHeader from '@/components/AppHeader';
 import Link from 'next/link';
 import { Button } from "@/components/ui/button"; // 假设这是来自 shadcn/ui 的按钮
 import { useState } from 'react';
@@ -25,12 +26,11 @@ const Header = ({ onLogout, activePage }: { onLogout: () => void; activePage?: s
         <nav className="flex-grow flex justify-end items-center">
           <ul className="flex space-x-4">
             <li><Link href="/"><Button variant="ghost" className={`gap-2 ${activePage === 'home' ? 'text-blue-900 font-bold text-lg' : ''}`}><Home size={18} />Home</Button></Link></li>
-            <li><Link href="/cityinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'cityinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><MapPin size={18} />Geospatial Data Hub</Button></Link></li>
-            <li><Link href="/disasterinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'disasterinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><AlertTriangle size={18} />Disaster repository</Button></Link></li>
-            <li><Link href="/asset"><Button variant="ghost" className={`gap-2 ${activePage === 'asset' ? 'text-blue-900 font-bold text-lg' : ''}`}><Building2 size={18} />Asset management</Button></Link></li>
-            <li><Link href="/riskmap"><Button variant="ghost" className={`gap-2 ${activePage === 'riskmap' ? 'text-blue-900 font-bold text-lg' : ''}`}><Map size={18} />Risk map</Button></Link></li>
+            {/* <li className="ml-auto"><Link href="/disasterinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'disasterinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><AlertTriangle size={18} />Disaster repository</Button></Link></li> */}
+            <li className="ml-auto"><Link href="/riskmap"><Button variant="ghost" className={`gap-2 ${activePage === 'riskmap' ? 'text-blue-900 font-bold text-lg' : ''}`}><Map size={18} />Risk map</Button></Link></li>
             <li><Link href="/model"><Button variant="ghost" className={`gap-2 ${activePage === 'model' ? 'text-blue-900 font-bold text-lg' : ''}`}><Activity size={18} />Catastrophe model</Button></Link></li>
-            <li><Link href="/fuzhu"><Button variant="ghost" className={`gap-2 ${activePage === 'fuzhu' ? 'text-blue-900 font-bold text-lg' : ''}`}><Puzzle size={18} />Accessibility</Button></Link></li>
+            <li className="ml-auto"><Link href="/asset"><Button variant="ghost" className={`gap-2 ${activePage === 'asset' ? 'text-blue-900 font-bold text-lg' : ''}`}><Building2 size={18} />Portfolio management</Button></Link></li>
+            <li><Link href="/fuzhu"><Button variant="ghost" className={`gap-2 ${activePage === 'fuzhu' ? 'text-blue-900 font-bold text-lg' : ''}`}><Puzzle size={18} />Extensions</Button></Link></li>
             <li><Link href="/usercenter"><Button variant="ghost" className={`gap-2 ${activePage === 'usercenter' ? 'text-blue-900 font-bold text-lg' : ''}`}><User size={18} />User</Button></Link></li>
           </ul>
           <Button variant="outline" onClick={onLogout} className="ml-4 gap-2">
@@ -316,7 +316,7 @@ export default function Component() {
   
   return (
     <div className="flex flex-col h-screen">
-      <Header onLogout={handleLogout} activePage="usercenter" />
+      <AppHeader onLogout={handleLogout} activePage="usercenter" />
       <UserCenterPage />
     </div>
   );

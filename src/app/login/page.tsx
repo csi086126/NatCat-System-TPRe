@@ -26,6 +26,9 @@ export default function LoginPage() {
       localStorage.setItem('isLoggedIn', 'true');
       localStorage.setItem('username', username);
       
+      // 清除之前保存的地区选择，确保每次登录都从全球视角开始
+      localStorage.removeItem('selectedRegion');
+      
       // 跳转到主页
       setTimeout(() => {
         router.push('/');

@@ -310,8 +310,8 @@ interface RegionProviderProps {
 }
 
 export function RegionProvider({ children }: RegionProviderProps) {
-  const [currentRegion, setCurrentRegion] = useState<string>(''); // 默认为空，显示 placeholder
-  const [regionConfig, setRegionConfig] = useState<RegionConfig | null>(null);
+  const [currentRegion, setCurrentRegion] = useState<string>('worldwide'); // 默认为 worldwide
+  const [regionConfig, setRegionConfig] = useState<RegionConfig | null>(REGIONS['worldwide']); // 默认配置为 worldwide
   const [isLoading, setIsLoading] = useState(false);
 
   // 获取所有可用地区（只显示 active 和 development 状态的）
@@ -319,12 +319,15 @@ export function RegionProvider({ children }: RegionProviderProps) {
     region => region.status === 'active' || region.status === 'development'
   );
 
-  // 从 localStorage 加载用户上次选择的地区
+  // 从 localStorage 加载用户上次选择的地区（如果存在）
   useEffect(() => {
     const savedRegion = localStorage.getItem('selectedRegion');
     if (savedRegion && REGIONS[savedRegion]) {
       setCurrentRegion(savedRegion);
       setRegionConfig(REGIONS[savedRegion]);
+    } else {
+      // 如果没有保存的地区，保存默认的 worldwide
+      localStorage.setItem('selectedRegion', 'worldwide');
     }
   }, []);
 

@@ -3,8 +3,7 @@
 // 1. Import necessary React Hooks and components
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
-import Link from 'next/link';
+import AppHeader from '@/components/AppHeader';
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -54,44 +53,6 @@ const mockAsset = {
 };
 
 
-// 5. Header Component
-const Header = ({ onLogout, activePage }: { onLogout: () => void; activePage?: string }) => {
-  return (
-    <header className="bg-white shadow-md z-[9000] relative">
-      <div className="mx-auto px-4 py-2 flex justify-between items-center ml-2">
-        <div className="flex items-center gap-4">
-          <Image
-            src="/taipinglogo.png"
-            alt="China Taiping Logo"
-            width={280}
-            height={31}
-          />
-          {/* 地区选择器 - 最左侧 */}
-          <div className="border-l border-gray-300 pl-4">
-            <RegionSelector />
-          </div>
-        </div>
-        <nav className="flex-grow flex justify-end items-center">
-          <ul className="flex space-x-4">
-            <li><Link href="/"><Button variant="ghost" className={`gap-2 ${activePage === 'home' ? 'text-blue-900 font-bold text-lg' : ''}`}><Home size={18} />Home</Button></Link></li>
-            <li><Link href="/cityinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'cityinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><Globe size={18} />Geospatial Data Hub</Button></Link></li>
-            <li className="ml-auto"><Link href="/disasterinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'disasterinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><AlertTriangle size={18} />Disaster repository</Button></Link></li>
-            <li className="ml-auto"><Link href="/asset"><Button variant="ghost" className={`gap-2 ${activePage === 'asset' ? 'text-blue-900 font-bold text-lg' : ''}`}><Building2 size={18} />Asset management</Button></Link></li>
-            <li className="ml-auto"><Link href="/riskmap"><Button variant="ghost" className={`gap-2 ${activePage === 'riskmap' ? 'text-blue-900 font-bold text-lg' : ''}`}><Map size={18} />Risk map</Button></Link></li>
-            <li className="ml-auto"><Link href="/model"><Button variant="ghost" className={`gap-2 ${activePage === 'model' ? 'text-blue-900 font-bold text-lg' : ''}`}><Activity size={18} />Catastrophe model</Button></Link></li>
-            <li className="ml-auto"><Link href="/fuzhu"><Button variant="ghost" className={`gap-2 ${activePage === 'fuzhu' ? 'text-blue-900 font-bold text-lg' : ''}`}><Puzzle size={18} />Accessibility</Button></Link></li>
-            <li><Link href="/usercenter"><Button variant="ghost" className={`gap-2 ${activePage === 'usercenter' ? 'text-blue-900 font-bold text-lg' : ''}`}><User size={18} />User</Button></Link></li>
-          </ul>
-          <Button variant="outline" onClick={onLogout} className="ml-4 gap-2">
-            <LogOut size={18} />
-            Logout
-          </Button>
-        </nav>
-      </div>
-    </header>
-  );
-}
-
 // 6. Main Component
 export default function Component() {
   const router = useRouter();
@@ -99,8 +60,8 @@ export default function Component() {
   
   // Region management
   const { regionConfig, currentRegion } = useRegion();
-  const [mapCenter, setMapCenter] = useState<[number, number]>([22.3193, 114.1694]);
-  const [mapZoom, setMapZoom] = useState(11);
+  const [mapCenter, setMapCenter] = useState<[number, number]>([22.3193, 114.1694]); // worldwide center
+  const [mapZoom, setMapZoom] = useState(3); // worldwide zoom level
   
   // Update map center when region changes
   useEffect(() => {
@@ -160,14 +121,13 @@ export default function Component() {
     }));
   };
   
+  
   return (
     <div className="flex flex-col h-screen bg-gray-100">
-      <Header onLogout={handleLogout} activePage="asset" />
-
+  <AppHeader />
       <div className="flex flex-1 overflow-hidden">
-        
-        {/* Left Sidebar */}
-        <aside className="w-80 flex-shrink-0 border-r bg-white pl-8 pr-8 py-4 overflow-y-auto space-y-1">
+      {/* Left Sidebar */}
+      <aside className="w-80 flex-shrink-0 border-r bg-white pl-8 pr-8 py-4 overflow-y-auto space-y-1">
 
           <Card>
             <CardContent className="pt-4 space-y-2">
@@ -301,7 +261,6 @@ export default function Component() {
             </div>
           )}
         </aside> */}
-
       </div>
     </div>
   );

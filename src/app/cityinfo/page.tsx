@@ -3,8 +3,8 @@
 // 1. 导入必要的 React Hooks 和组件
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
 import Link from 'next/link';
+import AppHeader from '@/components/AppHeader';
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -21,53 +21,15 @@ const TileLayer = dynamic(() => import('react-leaflet').then(mod => mod.TileLaye
 const WMSTileLayer = dynamic(() => import('react-leaflet').then(mod => mod.WMSTileLayer), { ssr: false });
 const MapCoordinateDisplay = dynamic(() => import('@/components/MapCoordinateDisplay').then(mod => mod.MapCoordinateDisplay), { ssr: false });
 
-// 3. Header 组件
-const Header = ({ onLogout, activePage }: { onLogout: () => void; activePage?: string }) => {
-  return (
-    <header className="bg-white shadow-md z-[9000] relative">
-      <div className="mx-auto px-4 py-2 flex justify-between items-center ml-2">
-        <div className="flex items-center gap-4">
-          <Image
-            src="/taipinglogo.png"
-            alt="China Taiping Logo"
-            width={280}
-            height={31}
-          />
-          {/* 地区选择器 - 最左侧 */}
-          <div className="border-l border-gray-300 pl-4">
-            <RegionSelector />
-          </div>
-        </div>
-        <nav className="flex-grow flex justify-end items-center">
-          <ul className="flex space-x-4">
-            <li><Link href="/"><Button variant="ghost" className={`gap-2 ${activePage === 'home' ? 'text-blue-900 font-bold text-lg' : ''}`}><Home size={18} />Home</Button></Link></li>
-            <li><Link href="/cityinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'cityinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><Globe size={18} />Geospatial Data Hub</Button></Link></li>
-            <li className="ml-auto"><Link href="/disasterinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'disasterinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><AlertTriangle size={18} />Disaster repository</Button></Link></li>
-            <li className="ml-auto"><Link href="/asset"><Button variant="ghost" className={`gap-2 ${activePage === 'asset' ? 'text-blue-900 font-bold text-lg' : ''}`}><Building2 size={18} />Asset management</Button></Link></li>
-            <li className="ml-auto"><Link href="/riskmap"><Button variant="ghost" className={`gap-2 ${activePage === 'riskmap' ? 'text-blue-900 font-bold text-lg' : ''}`}><Map size={18} />Risk map</Button></Link></li>
-            <li className="ml-auto"><Link href="/model"><Button variant="ghost" className={`gap-2 ${activePage === 'model' ? 'text-blue-900 font-bold text-lg' : ''}`}><Activity size={18} />Catastrophe model</Button></Link></li>
-            <li className="ml-auto"><Link href="/fuzhu"><Button variant="ghost" className={`gap-2 ${activePage === 'fuzhu' ? 'text-blue-900 font-bold text-lg' : ''}`}><Puzzle size={18} />Accessibility</Button></Link></li>
-            <li><Link href="/usercenter"><Button variant="ghost" className={`gap-2 ${activePage === 'usercenter' ? 'text-blue-900 font-bold text-lg' : ''}`}><User size={18} />User</Button></Link></li>
-          </ul>
-          <Button variant="outline" onClick={onLogout} className="ml-4 gap-2">
-            <LogOut size={18} />
-            Logout
-          </Button>
-        </nav>
-      </div>
-    </header>
-  );
-}
-
 // 4. 主组件
 export default function Component() {
   const router = useRouter();
   const mapRef = useRef(null);
   const { regionConfig, currentRegion } = useRegion();
   
-  // 地图中心和缩放状态
-  const [mapCenter, setMapCenter] = useState<[number, number]>([22.3193, 114.1694]);
-  const [mapZoom, setMapZoom] = useState(11);
+  // 地图中心和缩放状态 - 默认使用 worldwide 视图
+  const [mapCenter, setMapCenter] = useState<[number, number]>([22.3193, 114.1694]); // worldwide center
+  const [mapZoom, setMapZoom] = useState(3); // worldwide zoom level
   
   // 退出登录处理
   const handleLogout = () => {
@@ -142,14 +104,65 @@ export default function Component() {
     }));
   };
 
+  // Header Component
+  const Header = () => (
+    <header className="bg-white shadow-sm border-b border-gray-200">
+      <div className="flex items-center justify-between px-6 py-3">
+        {/* Logo */}
+        <div className="flex items-center">
+          <Image src="/images/logo.png" alt="Logo" width={40} height={40} className="rounded" />
+        </div>
+        
+        {/* Quick Navigation */}
+        <nav className="flex items-center gap-4">
+          <Link href="/">
+            <Button variant="outline" size="sm" className="gap-2">
+              <Home size={16} />
+              Home
+            </Button>
+          </Link>
+          <Link href="/riskmap">
+            <Button variant="ghost" size="sm" className="gap-2">
+              <MapPin size={16} />
+              Risk Map
+            </Button>
+          </Link>
+          <Link href="/model">
+            <Button variant="ghost" size="sm" className="gap-2">
+              <AlertTriangle size={16} />
+              Catastrophe Model
+            </Button>
+          </Link>
+          <Link href="/asset">
+            <Button variant="ghost" size="sm" className="gap-2">
+              <Building2 size={16} />
+              Portfolio Management
+            </Button>
+          </Link>
+          <Link href="/fuzhu">
+            <Button variant="ghost" size="sm" className="gap-2">
+              <Puzzle size={16} />
+              Extensions
+            </Button>
+          </Link>
+          <RegionSelector />
+          <Button variant="outline" size="sm" onClick={handleLogout} className="gap-2">
+            <LogOut size={16} />
+            Logout
+          </Button>
+        </nav>
+      </div>
+    </header>
+  );
+
   return (
     <div className="flex flex-col h-screen bg-gray-100">
-      <Header onLogout={handleLogout} activePage="cityinfo" />
-
+      <AppHeader />
       <div className="flex flex-1 overflow-hidden">
-        
-        {/* 左侧边栏 */}
-        <aside className="w-80 flex-shrink-0 border-r bg-white pl-8 pr-8 py-4 overflow-y-auto space-y-1">
+      {/* 左侧边栏 */}
+      <aside className="w-80 flex-shrink-0 border-r bg-white pl-8 pr-8 py-4 overflow-y-auto space-y-1">
+          
+          <h1 className="text-2xl font-bold mb-4 text-gray-800">Geospatial Data Hub</h1>
 
           <Card>
             <CardHeader>
@@ -421,7 +434,6 @@ export default function Component() {
 
           </MapContainer>
         </main>
-
       </div>
     </div>
   );

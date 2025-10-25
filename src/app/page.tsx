@@ -54,27 +54,18 @@ export default function HomePage() {
       bgColor: 'bg-slate-50',
       iconColor: 'text-slate-600'
     },
+    // {
+    //   title: 'Disaster Repository',
+    //   description: 'Browse historical disaster events, typhoon tracks, and catastrophe records',
+    //   icon: AlertTriangle,
+    //   href: '/disasterinfo',
+    //   color: 'from-slate-600 to-slate-700',
+    //   bgColor: 'bg-slate-50',
+    //   iconColor: 'text-slate-600'
+    // },
     {
-      title: 'Geospatial Data Hub',
-      description: 'Access urban spatial elements, building footprints, and geographic data layers',
-      icon: Globe,
-      href: '/cityinfo',
-      color: 'from-slate-600 to-slate-700',
-      bgColor: 'bg-slate-50',
-      iconColor: 'text-slate-600'
-    },
-    {
-      title: 'Disaster Repository',
-      description: 'Browse historical disaster events, typhoon tracks, and catastrophe records',
-      icon: AlertTriangle,
-      href: '/disasterinfo',
-      color: 'from-slate-600 to-slate-700',
-      bgColor: 'bg-slate-50',
-      iconColor: 'text-slate-600'
-    },
-    {
-      title: 'Asset Management',
-      description: 'Manage insured assets, portfolio analysis, and exposure data',
+      title: 'Portfolio Management',
+      description: 'Manage insured portfolio, exposure analysis, and business distribution',
       icon: Building2,
       href: '/asset',
       color: 'from-slate-600 to-slate-700',
@@ -82,8 +73,8 @@ export default function HomePage() {
       iconColor: 'text-slate-600'
     },
     {
-      title: 'Accessibility',
-      description: 'Auxiliary tools, data import/export, and system utilities',
+      title: 'Extensions',
+      description: 'Advanced tools, disaster early warning, real-time simulation, and future modules',
       icon: Puzzle,
       href: '/fuzhu',
       color: 'from-slate-600 to-slate-700',
@@ -138,14 +129,14 @@ export default function HomePage() {
         {/* Welcome Section */}
         <div className="mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-3">
-            Welcome to Natural Catastrophe Risk Platform <span className="text-lg text-gray-600 font-normal">- Powered by Taiping Reinsurance CO.,LTD</span>
+            Welcome to Natural Catastrophe Risk Platform
           </h1>
         </div>
 
-        {/* Modules Grid */}
-        <div>
+        {/* Modules Grid - 2x2 Layout */}
+        <div className="mt-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Platform Modules</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 gap-8 max-w-4xl mx-auto">
             {modules.map((module) => (
               <Link key={module.href} href={module.href}>
                 <Card className={`h-full transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer border-2 hover:border-gray-300 ${module.bgColor}`}>
@@ -172,7 +163,7 @@ export default function HomePage() {
         </div>
 
         {/* Quick Stats - Moved to bottom - Collapsible */}
-        <div className="mt-16 mb-8">
+        <div className="mt-24 mb-8">
           <div 
             className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
             onClick={() => setShowStats(!showStats)}
@@ -250,7 +241,7 @@ export default function HomePage() {
 
         {/* Footer Info */}
         <div className="mt-16 text-center text-sm text-gray-500">
-          <p>© 2025 China Taiping Reinsurance Co., Ltd. All rights reserved.</p>
+          <p>© 2025 Taiping Reinsurance Co., Ltd. All rights reserved.</p>
           <p className="mt-2">Natural Catastrophe Risk Platform v2.0 - Last updated: October 22, 2025</p>
         </div>
       </main>
