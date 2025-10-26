@@ -1383,10 +1383,10 @@ export default function RiskMapPage() {
           
           {/* ========== Main Query Module ========== */}
           <Card className="mb-6 border shadow-md">
-            <CardHeader className="bg-gradient-to-r from-blue-50 to-teal-50 pb-3">
+            <CardHeader className="bg-gradient-to-r from-slate-50 to-gray-100 pb-3">
               <div className="flex items-center justify-between">
-                <CardTitle className="text-lg flex items-center gap-2 bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent font-bold">
-                  <Target className="w-5 h-5 text-teal-600" />
+                <CardTitle className="text-lg flex items-center gap-2 text-gray-800 font-bold">
+                  <Target className="w-5 h-5 text-gray-700" />
                   Risk Query
                 </CardTitle>
                 <button
@@ -1404,8 +1404,8 @@ export default function RiskMapPage() {
               
               {/* Methodology Info - Collapsible */}
               {methodologyOpen && (
-                <div className="mt-3 p-3 bg-blue-50 rounded-lg border border-blue-200">
-                  <p className="text-xs font-bold text-blue-900 mb-2">ℹ️ Calculation Methodology</p>
+                <div className="mt-3 p-3 bg-gray-50 rounded-lg border border-gray-300">
+                  <p className="text-xs font-bold text-gray-800 mb-2">ℹ️ Calculation Methodology</p>
                   <div className="text-xs text-gray-700 space-y-1">
                     <p><span className="font-semibold">Hazard Source:</span> WMS composite layers (max risk across return periods)</p>
                     <p><span className="font-semibold">Exposure:</span> Auto-queried from elevation, population, building density</p>
@@ -1436,7 +1436,7 @@ export default function RiskMapPage() {
                 <Button 
                   onClick={handleSearchAndCalculate}
                   disabled={isLoading || batchQueryMode}
-                  className="flex-1 bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 bg-gray-700 hover:bg-gray-800 text-white disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Search className="w-4 h-4 mr-2" />
                   {isLoading ? 'Searching...' : 'Search Location & Calculate Risk'}
@@ -1494,7 +1494,7 @@ export default function RiskMapPage() {
                   <label htmlFor="portfolio-upload" className="flex-1">
                     <Button
                       disabled={isLoading}
-                      className="w-full bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full bg-gray-700 hover:bg-gray-800 text-white disabled:opacity-50 disabled:cursor-not-allowed"
                       asChild
                     >
                       <span className="flex items-center justify-center">
@@ -1517,14 +1517,14 @@ export default function RiskMapPage() {
                 
                 {/* Batch Progress */}
                 {isLoading && batchProgress.total > 0 && (
-                  <div className="mt-3 p-3 bg-blue-50 rounded-lg border border-blue-200">
-                    <div className="flex items-center justify-between text-sm text-blue-800 mb-2">
+                  <div className="mt-3 p-3 bg-gray-50 rounded-lg border border-gray-300">
+                    <div className="flex items-center justify-between text-sm text-gray-700 mb-2">
                       <span>Processing locations...</span>
                       <span className="font-semibold">{batchProgress.current}/{batchProgress.total}</span>
                     </div>
-                    <div className="w-full bg-blue-200 rounded-full h-2">
+                    <div className="w-full bg-gray-300 rounded-full h-2">
                       <div
-                        className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                        className="bg-gray-700 h-2 rounded-full transition-all duration-300"
                         style={{ width: `${(batchProgress.current / batchProgress.total) * 100}%` }}
                       ></div>
                     </div>
@@ -1563,16 +1563,16 @@ export default function RiskMapPage() {
           <div className="mb-6">
             <button
               onClick={() => setAdvancedOptionsOpen(!advancedOptionsOpen)}
-              className="w-full flex items-center justify-between p-3 bg-gradient-to-r from-blue-50 to-teal-50 hover:from-blue-100 hover:to-teal-100 rounded-lg border-2 border-teal-300 transition-colors"
+              className="w-full flex items-center justify-between p-3 bg-gradient-to-r from-slate-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 rounded-lg border-2 border-gray-300 transition-colors"
             >
               <div className="flex items-center gap-2">
-                <Layers className="w-5 h-5 text-teal-600" />
-                <span className="text-sm font-bold bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">Detailed Hazard Layers</span>
+                <Layers className="w-5 h-5 text-gray-700" />
+                <span className="text-sm font-bold text-gray-800">Detailed Hazard Layers</span>
               </div>
               {advancedOptionsOpen ? (
-                <ChevronUp className="w-5 h-5 text-teal-600" />
+                <ChevronUp className="w-5 h-5 text-gray-700" />
               ) : (
-                <ChevronDown className="w-5 h-5 text-teal-600" />
+                <ChevronDown className="w-5 h-5 text-gray-700" />
               )}
             </button>
             
@@ -1707,16 +1707,16 @@ export default function RiskMapPage() {
           <div className="mb-6">
             <button
               onClick={() => setAssetAttributesOpen(!assetAttributesOpen)}
-              className="w-full flex items-center justify-between p-3 bg-gradient-to-r from-blue-50 to-teal-50 hover:from-blue-100 hover:to-teal-100 rounded-lg border-2 border-teal-300 transition-colors"
+              className="w-full flex items-center justify-between p-3 bg-gradient-to-r from-slate-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 rounded-lg border-2 border-gray-300 transition-colors"
             >
               <div className="flex items-center gap-2">
-                <Building2 className="w-5 h-5 text-teal-600" />
-                <span className="text-sm font-bold bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">Asset Vulnerability Curves</span>
+                <Building2 className="w-5 h-5 text-gray-700" />
+                <span className="text-sm font-bold text-gray-800">Asset Vulnerability Curves</span>
               </div>
               {assetAttributesOpen ? (
-                <ChevronUp className="w-5 h-5 text-teal-600" />
+                <ChevronUp className="w-5 h-5 text-gray-700" />
               ) : (
-                <ChevronDown className="w-5 h-5 text-teal-600" />
+                <ChevronDown className="w-5 h-5 text-gray-700" />
               )}
             </button>
             
@@ -1786,7 +1786,7 @@ export default function RiskMapPage() {
                 {/* Visualization Button */}
                 <Button 
                   onClick={() => setVulnerabilityCurveChartOpen(true)}
-                  className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white"
+                  className="w-full bg-gray-600 hover:bg-gray-700 text-white"
                 >
                   <Activity className="w-4 h-4 mr-2" />
                   Show Vulnerability Curve Visualization
@@ -1802,16 +1802,16 @@ export default function RiskMapPage() {
           <div className="mb-6">
             <button
               onClick={() => setGeospatialDataOpen(!geospatialDataOpen)}
-              className="w-full flex items-center justify-between p-3 bg-gradient-to-r from-blue-50 to-teal-50 hover:from-blue-100 hover:to-teal-100 rounded-lg border-2 border-teal-300 transition-colors"
+              className="w-full flex items-center justify-between p-3 bg-gradient-to-r from-slate-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 rounded-lg border-2 border-gray-300 transition-colors"
             >
               <div className="flex items-center gap-2">
-                <Globe className="w-5 h-5 text-teal-600" />
-                <span className="text-sm font-bold bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">Geospatial & Disaster Data Hub</span>
+                <Globe className="w-5 h-5 text-gray-700" />
+                <span className="text-sm font-bold text-gray-800">Geospatial & Disaster Data Hub</span>
               </div>
               {geospatialDataOpen ? (
-                <ChevronUp className="w-5 h-5 text-teal-600" />
+                <ChevronUp className="w-5 h-5 text-gray-700" />
               ) : (
-                <ChevronDown className="w-5 h-5 text-teal-600" />
+                <ChevronDown className="w-5 h-5 text-gray-700" />
               )}
             </button>
             
@@ -1905,8 +1905,8 @@ export default function RiskMapPage() {
                       {/* Infrastructure */}
                       {activeLayerCategory === 'infrastructure' && (
                         <div>
-                          <div className="p-2 bg-blue-50 rounded border border-blue-200 mb-3">
-                            <p className="text-xs text-blue-700">
+                          <div className="p-2 bg-gray-50 rounded border border-gray-300 mb-3">
+                            <p className="text-xs text-gray-700">
                               Built environment including buildings, roads, and drainage systems
                             </p>
                           </div>
@@ -2680,16 +2680,16 @@ export default function RiskMapPage() {
           {/* Floating Vulnerability Curve Chart */}
           {vulnerabilityCurveChartOpen && (
             <div className="absolute top-4 left-4 z-[1000] w-96 max-h-[calc(100vh-8rem)] overflow-y-auto">
-              <Card className="shadow-2xl border-2 border-blue-300">
-                <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50 border-b-2 border-blue-200">
+              <Card className="shadow-2xl border-2 border-gray-300">
+                <CardHeader className="bg-gradient-to-r from-slate-50 to-gray-100 border-b-2 border-gray-300">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <Activity className="w-5 h-5 text-blue-600" />
+                      <Activity className="w-5 h-5 text-gray-700" />
                       <CardTitle className="text-sm">Vulnerability Curve Visualization</CardTitle>
                     </div>
                     <button
                       onClick={() => setVulnerabilityCurveChartOpen(false)}
-                      className="p-1 hover:bg-blue-100 rounded transition-colors"
+                      className="p-1 hover:bg-gray-200 rounded transition-colors"
                       title="Close"
                     >
                       <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
