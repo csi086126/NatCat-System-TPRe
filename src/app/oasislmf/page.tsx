@@ -6,7 +6,7 @@ import AppHeader from '@/components/AppHeader'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { InfoIcon, AlertCircle, ExternalLink, Activity, RefreshCw, Palette } from 'lucide-react'
+import { InfoIcon, AlertCircle, ExternalLink, Activity, RefreshCw } from 'lucide-react'
 import { Separator } from "@/components/ui/separator"
 
 export default function OasisLMFPage() {
@@ -14,7 +14,7 @@ export default function OasisLMFPage() {
   const [oasisUrl, setOasisUrl] = useState<string>('')
   const [isOasisRunning, setIsOasisRunning] = useState<boolean>(false)
   const [checkingStatus, setCheckingStatus] = useState<boolean>(false)
-  const [useProxy, setUseProxy] = useState<boolean>(true) // Use proxy by default for Taiping theme
+  const [useProxy, setUseProxy] = useState<boolean>(false) // Use direct connection by default (theme already applied in Docker)
 
   // Check if OasisLMF is running
   const checkOasisStatus = async () => {
@@ -111,45 +111,6 @@ export default function OasisLMFPage() {
             </CardContent>
           </Card>
           
-          {/* Taiping Theme Toggle Card */}
-          {isOasisRunning && (
-            <Card className="border-teal-200 bg-gradient-to-br from-blue-50 to-teal-50">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-base text-teal-800">
-                  <Palette className="w-5 h-5" />
-                  Taiping Theme
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex items-center justify-between p-3 bg-white rounded-lg">
-                  <span className="text-sm text-gray-700">Theme Status:</span>
-                  <span className={`text-sm font-semibold ${useProxy ? 'text-teal-600' : 'text-gray-600'}`}>
-                    {useProxy ? '🎨 Active' : '⚪ Inactive'}
-                  </span>
-                </div>
-                
-                <Button 
-                  onClick={() => {
-                    setUseProxy(!useProxy)
-                    // Page will reload iframe with new URL
-                  }}
-                  className={`w-full ${useProxy 
-                    ? 'bg-gray-600 hover:bg-gray-700' 
-                    : 'bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600'
-                  }`}
-                >
-                  {useProxy ? 'Disable Taiping Theme' : 'Enable Taiping Theme'}
-                </Button>
-                
-                <p className="text-xs text-gray-600 mt-2">
-                  {useProxy 
-                    ? 'Blue-teal color scheme applied to OasisUI'
-                    : 'Original OasisUI red theme'}
-                </p>
-              </CardContent>
-            </Card>
-          )}
-          
           {/* Quick Actions Card */}
           <Card>
             <CardHeader>
@@ -216,7 +177,8 @@ export default function OasisLMFPage() {
                 src={getIframeUrl()}
                 title="OasisLMF Platform"
                 className="w-full h-full border-0"
-                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
+                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals allow-top-navigation allow-storage-access-by-user-activation"
+                allow="fullscreen"
                 key={useProxy ? 'with-taiping-theme' : 'original-theme'} // Force reload when theme changes
               ></iframe>
             </div>

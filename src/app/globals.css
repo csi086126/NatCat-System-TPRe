@@ -71,3 +71,26 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Custom Leaflet marker styles */
+.custom-treaty-marker {
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.custom-treaty-marker:hover {
+  transform: scale(1.1);
+  z-index: 1000 !important;
+}
+
+/* Enhanced popup styles */
+.leaflet-popup-content-wrapper {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.leaflet-popup-content {
+  margin: 12px;
+}

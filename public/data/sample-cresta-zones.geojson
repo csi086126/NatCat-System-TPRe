@@ -1,0 +1,131 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "ZONE_CODE": "HKG-001",
+        "ZONE_NAME": "Hong Kong",
+        "COUNTRY": "China",
+        "REGION": "Hong Kong SAR"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [114.1094, 22.1533],
+            [114.3340, 22.1533],
+            [114.3340, 22.5607],
+            [114.1094, 22.5607],
+            [114.1094, 22.1533]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ZONE_CODE": "MAC-001",
+        "ZONE_NAME": "Macau",
+        "COUNTRY": "China",
+        "REGION": "Macau SAR"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [113.5239, 22.1087],
+            [113.5939, 22.1087],
+            [113.5939, 22.2187],
+            [113.5239, 22.2187],
+            [113.5239, 22.1087]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ZONE_CODE": "GBA-001",
+        "ZONE_NAME": "GBA",
+        "COUNTRY": "China",
+        "REGION": "Guangdong-Hong Kong-Macao Greater Bay Area"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [112.9, 22.5],
+            [114.5, 22.5],
+            [114.5, 23.8],
+            [112.9, 23.8],
+            [112.9, 22.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ZONE_CODE": "THA-001",
+        "ZONE_NAME": "Thailand",
+        "COUNTRY": "Thailand",
+        "REGION": "Southeast Asia"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [97.3, 5.6],
+            [105.6, 5.6],
+            [105.6, 20.5],
+            [97.3, 20.5],
+            [97.3, 5.6]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ZONE_CODE": "SGP-001",
+        "ZONE_NAME": "Singapore",
+        "COUNTRY": "Singapore",
+        "REGION": "Southeast Asia"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [103.6, 1.15],
+            [104.1, 1.15],
+            [104.1, 1.47],
+            [103.6, 1.47],
+            [103.6, 1.15]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ZONE_CODE": "ASEAN-001",
+        "ZONE_NAME": "ASEAN",
+        "COUNTRY": "ASEAN Region",
+        "REGION": "Southeast Asia"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [92.0, -11.0],
+            [141.0, -11.0],
+            [141.0, 28.0],
+            [92.0, 28.0],
+            [92.0, -11.0]
+          ]
+        ]
+      }
+    }
+  ]
+}

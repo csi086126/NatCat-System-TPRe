@@ -7,14 +7,31 @@ export async function GET(request: NextRequest) {
     
     // Fetch from OasisUI
     const oasisUrl = `http://localhost:8080${path}`
+    console.log(`[Proxy] Fetching: ${oasisUrl}`)
+    
     const response = await fetch(oasisUrl, {
       headers: {
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'User-Agent': request.headers.get('user-agent') || '',
       },
     })
 
-    let content = await response.text()
     const contentType = response.headers.get('content-type') || ''
+    
+    // For non-HTML resources (CSS, JS, images), just proxy them directly
+    if (!contentType.includes('text/html')) {
+      const buffer = await response.arrayBuffer()
+      return new NextResponse(buffer, {
+        status: response.status,
+        headers: {
+          'Content-Type': contentType,
+          'Cache-Control': 'public, max-age=3600',
+        },
+      })
+    }
+
+    // For HTML, apply theme modifications
+    let content = await response.text()
 
     // Only inject CSS for HTML responses
     if (contentType.includes('text/html')) {
