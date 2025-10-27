@@ -20,15 +20,18 @@ export default function OasisLMFPage() {
   const checkOasisStatus = async () => {
     setCheckingStatus(true)
     try {
-      // Try common OasisLMF ports
-      const ports = [8080, 8000, 8888, 3000]
+      // Get the current host (either localhost or the actual IP address like 10.253.22.15)
+      const currentHost = typeof window !== 'undefined' ? window.location.hostname : 'localhost'
+      
+      // Try common OasisLMF ports (8088 is the current OasisUI port)
+      const ports = [8088, 8080, 8000, 8888, 3000]
       for (const port of ports) {
         try {
-          const response = await fetch(`http://localhost:${port}`, { 
+          const response = await fetch(`http://${currentHost}:${port}`, { 
             mode: 'no-cors'
           })
           // If we get here without error, the port is accessible
-          setOasisUrl(`http://localhost:${port}`)
+          setOasisUrl(`http://${currentHost}:${port}`)
           setIsOasisRunning(true)
           setCheckingStatus(false)
           return
@@ -247,9 +250,10 @@ export default function OasisLMFPage() {
                         All services should show status "Up". The web UI is typically available at:
                       </p>
                       <ul className="ml-12 text-sm text-gray-600 list-disc">
-                        <li>http://localhost:8080 (common)</li>
-                        <li>http://localhost:8000 (alternative)</li>
-                        <li>Check your docker-compose.yml for the correct port</li>
+                        <li>http://localhost:8088 (OasisUI - current)</li>
+                        <li>http://localhost:8080 (GeoServer)</li>
+                        <li>http://localhost:8000 (OasisLMF API)</li>
+                        <li>Check your docker-compose.yml for other ports</li>
                       </ul>
                     </div>
                     

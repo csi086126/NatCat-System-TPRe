@@ -19,6 +19,7 @@ import { RegionSelector } from '@/components/RegionSelector';
 import { useRegion } from '@/contexts/RegionContext';
 import dynamic from 'next/dynamic';
 import "leaflet/dist/leaflet.css";
+import "leaflet-draw/dist/leaflet.draw.css";
 
 // 2. Dynamically import Leaflet map components
 const MapContainer = dynamic(() => import('react-leaflet').then(mod => mod.MapContainer), { ssr: false });
@@ -26,7 +27,15 @@ const TileLayer = dynamic(() => import('react-leaflet').then(mod => mod.TileLaye
 const WMSTileLayer = dynamic(() => import('react-leaflet').then(mod => mod.WMSTileLayer), { ssr: false });
 const Marker = dynamic(() => import('react-leaflet').then(mod => mod.Marker), { ssr: false });
 const Popup = dynamic(() => import('react-leaflet').then(mod => mod.Popup), { ssr: false });
+const FeatureGroup = dynamic(() => import('react-leaflet').then(mod => mod.FeatureGroup), { ssr: false });
 const MapCoordinateDisplay = dynamic(() => import('@/components/MapCoordinateDisplay').then(mod => mod.MapCoordinateDisplay), { ssr: false });
+const DrawControl = dynamic(() => import('@/components/DrawControl'), { ssr: false });
+
+// Import Leaflet for type definitions
+let L: any;
+if (typeof window !== 'undefined') {
+  L = require('leaflet');
+}
 
 // 3. WMS Layer Configuration (Composite + Detailed layers)
 const wmsLayersConfig = {
@@ -636,6 +645,14 @@ export default function RiskMapPage() {
   const [filteredHistoricalEvents, setFilteredHistoricalEvents] = useState(mockHistoricalEvents);
   const [showHistoricalEvents, setShowHistoricalEvents] = useState(false);
   
+  // ========== Area Risk Assessment States ==========
+  const [drawMode, setDrawMode] = useState(false); // Toggle drawing mode
+  const [drawnShape, setDrawnShape] = useState<any>(null); // Store the drawn shape
+  const [areaRiskData, setAreaRiskData] = useState<any>(null); // Store area risk results
+  const [isCalculatingArea, setIsCalculatingArea] = useState(false); // Loading state for area calculation
+  const [areaCalculationProgress, setAreaCalculationProgress] = useState({ current: 0, total: 0 }); // Progress tracker
+  const [areaRiskFloatingOpen, setAreaRiskFloatingOpen] = useState(false); // Toggle floating card display
+  
   // Event filter states
   const [eventTypeFilter, setEventTypeFilter] = useState('all');
   const [eventYearFrom, setEventYearFrom] = useState('');
@@ -1115,6 +1132,218 @@ export default function RiskMapPage() {
     return 'text-green-700 bg-green-100 border-green-300';
   };
   
+  // ========== Area Risk Assessment Functions ==========
+  
+  // Generate sampling points within a shape
+  const generateSamplingPoints = (layer: any, type: string, count: number = 100): [number, number][] => {
+    const points: [number, number][] = [];
+    
+    if (type === 'circle') {
+      const center = layer.getLatLng();
+      const radius = layer.getRadius(); // in meters
+      
+      // Generate points in a grid pattern within the circle
+      const gridSize = Math.ceil(Math.sqrt(count));
+      const latStep = (radius / 111320) * 2 / gridSize; // roughly 111320 meters per degree latitude
+      const lngStep = (radius / (111320 * Math.cos(center.lat * Math.PI / 180))) * 2 / gridSize;
+      
+      for (let i = 0; i < gridSize; i++) {
+        for (let j = 0; j < gridSize; j++) {
+          const lat = center.lat - (radius / 111320) + (i * latStep);
+          const lng = center.lng - (radius / (111320 * Math.cos(center.lat * Math.PI / 180))) + (j * lngStep);
+          
+          // Check if point is within circle
+          const distance = center.distanceTo(L.latLng(lat, lng));
+          if (distance <= radius) {
+            points.push([lat, lng]);
+          }
+        }
+      }
+    } else if (type === 'rectangle' || type === 'polygon') {
+      const bounds = layer.getBounds();
+      const north = bounds.getNorth();
+      const south = bounds.getSouth();
+      const east = bounds.getEast();
+      const west = bounds.getWest();
+      
+      // Generate grid points
+      const gridSize = Math.ceil(Math.sqrt(count));
+      const latStep = (north - south) / gridSize;
+      const lngStep = (east - west) / gridSize;
+      
+      for (let i = 0; i <= gridSize; i++) {
+        for (let j = 0; j <= gridSize; j++) {
+          const lat = south + (i * latStep);
+          const lng = west + (j * lngStep);
+          
+          // For polygon, check if point is inside
+          if (type === 'polygon') {
+            const point = L.latLng(lat, lng);
+            // Simple point-in-polygon check using Leaflet
+            const latlngs = layer.getLatLngs()[0];
+            if (isPointInPolygon(point, latlngs)) {
+              points.push([lat, lng]);
+            }
+          } else {
+            points.push([lat, lng]);
+          }
+        }
+      }
+    }
+    
+    return points.slice(0, count); // Limit to requested count
+  };
+  
+  // Simple point-in-polygon algorithm
+  const isPointInPolygon = (point: L.LatLng, polygon: L.LatLng[]): boolean => {
+    let inside = false;
+    for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+      const xi = polygon[i].lat, yi = polygon[i].lng;
+      const xj = polygon[j].lat, yj = polygon[j].lng;
+      
+      const intersect = ((yi > point.lng) !== (yj > point.lng))
+          && (point.lat < (xj - xi) * (point.lng - yi) / (yj - yi) + xi);
+      if (intersect) inside = !inside;
+    }
+    return inside;
+  };
+  
+  // Calculate area risk by sampling points
+  const calculateAreaRisk = async (layer: any, type: string) => {
+    setIsCalculatingArea(true);
+    setAreaRiskData(null);
+    
+    try {
+      // Generate sampling points
+      const samplingPoints = generateSamplingPoints(layer, type, 100);
+      setAreaCalculationProgress({ current: 0, total: samplingPoints.length });
+      
+      console.log(`🔍 Analyzing ${samplingPoints.length} sampling points in ${type}...`);
+      
+      const riskResults: any[] = [];
+      
+      // Query each sampling point
+      for (let i = 0; i < samplingPoints.length; i++) {
+        const [lat, lng] = samplingPoints[i];
+        
+        try {
+          // Query asset info and hazards
+          const asset = await queryAssetInfo(lat, lng);
+          const hazards = await queryHazards(lat, lng);
+          const scores = calculateRiskScores(hazards, asset, getVulnerability());
+          
+          riskResults.push({
+            lat,
+            lng,
+            scores,
+            asset,
+            hazards
+          });
+        } catch (error) {
+          console.warn(`Failed to query point [${lat}, ${lng}]:`, error);
+        }
+        
+        // Update progress
+        setAreaCalculationProgress({ current: i + 1, total: samplingPoints.length });
+        
+        // Small delay to prevent overwhelming the server
+        if (i % 10 === 0) {
+          await new Promise(resolve => setTimeout(resolve, 50));
+        }
+      }
+      
+      // Calculate statistics
+      const validResults = riskResults.filter(r => r.scores);
+      
+      if (validResults.length === 0) {
+        throw new Error('No valid data points found in the selected area');
+      }
+      
+      // Calculate average, max, min scores
+      const overallScores = validResults.map(r => r.scores.overall.score);
+      const floodScores = validResults.map(r => r.scores.flood.score);
+      const typhoonScores = validResults.map(r => r.scores.typhoon.score);
+      const rainstormScores = validResults.map(r => r.scores.rainstorm.score);
+      
+      const stats = {
+        overall: {
+          avg: (overallScores.reduce((a, b) => a + b, 0) / overallScores.length).toFixed(2),
+          max: Math.max(...overallScores).toFixed(2),
+          min: Math.min(...overallScores).toFixed(2),
+          maxPoint: validResults[overallScores.indexOf(Math.max(...overallScores))],
+          minPoint: validResults[overallScores.indexOf(Math.min(...overallScores))]
+        },
+        flood: {
+          avg: (floodScores.reduce((a, b) => a + b, 0) / floodScores.length).toFixed(2),
+          max: Math.max(...floodScores).toFixed(2),
+          min: Math.min(...floodScores).toFixed(2)
+        },
+        typhoon: {
+          avg: (typhoonScores.reduce((a, b) => a + b, 0) / typhoonScores.length).toFixed(2),
+          max: Math.max(...typhoonScores).toFixed(2),
+          min: Math.min(...typhoonScores).toFixed(2)
+        },
+        rainstorm: {
+          avg: (rainstormScores.reduce((a, b) => a + b, 0) / rainstormScores.length).toFixed(2),
+          max: Math.max(...rainstormScores).toFixed(2),
+          min: Math.min(...rainstormScores).toFixed(2)
+        }
+      };
+      
+      // Calculate risk level distribution
+      const distribution = {
+        extreme: validResults.filter(r => r.scores.overall.level === 'Extreme').length,
+        high: validResults.filter(r => r.scores.overall.level === 'High').length,
+        medium: validResults.filter(r => r.scores.overall.level === 'Medium').length,
+        low: validResults.filter(r => r.scores.overall.level === 'Low').length
+      };
+      
+      const areaData = {
+        type,
+        sampledPoints: validResults.length,
+        totalPoints: samplingPoints.length,
+        stats,
+        distribution,
+        bounds: layer.getBounds(),
+        area: type === 'circle' ? 
+          (Math.PI * Math.pow(layer.getRadius(), 2) / 1000000).toFixed(2) + ' km²' :
+          'N/A' // TODO: Calculate polygon area
+      };
+      
+      setAreaRiskData(areaData);
+      setAreaRiskFloatingOpen(true); // Auto-open floating card
+      console.log('✅ Area risk calculation complete:', areaData);
+      
+    } catch (error: any) {
+      console.error('Area risk calculation failed:', error);
+      alert(error.message || 'Failed to calculate area risk');
+    } finally {
+      setIsCalculatingArea(false);
+      setAreaCalculationProgress({ current: 0, total: 0 });
+    }
+  };
+  
+  // Handle shape drawn event
+  const handleShapeDrawn = (layer: L.Layer, type: string, bounds: L.LatLngBounds) => {
+    console.log(`🎨 Shape drawn: ${type}`, bounds);
+    setDrawnShape({ layer, type, bounds });
+    
+    // Auto-calculate area risk
+    calculateAreaRisk(layer, type);
+  };
+  
+  // Toggle draw mode
+  const toggleDrawMode = () => {
+    setDrawMode(!drawMode);
+    if (drawMode) {
+      // Clear drawn shape when exiting draw mode
+      setDrawnShape(null);
+      setAreaRiskData(null);
+    }
+  };
+  
+  // ========== End of Area Risk Assessment Functions ==========
+  
   // Main query handler
   const handleSearchAndCalculate = async () => {
     if (!searchQuery.trim()) {
@@ -1436,7 +1665,7 @@ export default function RiskMapPage() {
                 <Button 
                   onClick={handleSearchAndCalculate}
                   disabled={isLoading || batchQueryMode}
-                  className="flex-1 bg-gray-700 hover:bg-gray-800 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 bg-gray-600 hover:bg-gray-700 text-white disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Search className="w-4 h-4 mr-2" />
                   {isLoading ? 'Searching...' : 'Search Location & Calculate Risk'}
@@ -1466,6 +1695,102 @@ export default function RiskMapPage() {
                 </Button>
               </div>
               
+              {/* Area Risk Assessment Toggle */}
+              <div className="mt-3">
+                <Separator className="my-3" />
+                <div className="flex gap-2">
+                  <Button
+                    onClick={toggleDrawMode}
+                    className="flex-1 bg-gray-600 hover:bg-gray-700 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled={isLoading || isCalculatingArea}
+                  >
+                    <Layers className="w-4 h-4 mr-2" />
+                    {drawMode ? '✓ Drawing Mode Active' : 'Area Delineate & Calculate Risk'}
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    disabled={!areaRiskData}
+                    onClick={() => {
+                      const exportData = {
+                        analysisType: 'area-risk-assessment',
+                        timestamp: new Date().toISOString(),
+                        areaInfo: {
+                          type: areaRiskData.type,
+                          area: areaRiskData.area,
+                          sampledPoints: areaRiskData.sampledPoints,
+                          bounds: areaRiskData.bounds
+                        },
+                        statistics: areaRiskData.stats,
+                        distribution: areaRiskData.distribution
+                      };
+                      const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+                      const url = URL.createObjectURL(blob);
+                      const a = document.createElement('a');
+                      a.href = url;
+                      a.download = `area-risk-assessment-${areaRiskData.type}-${new Date().toISOString().slice(0,10)}.json`;
+                      a.click();
+                      URL.revokeObjectURL(url);
+                    }}
+                    className="px-3"
+                    title="Export Area Risk Results"
+                  >
+                    <Download className="w-4 h-4" />
+                  </Button>
+                </div>
+                {drawMode && (
+                  <div className="mt-2 p-2 bg-blue-50 border border-blue-200 rounded text-xs text-blue-800">
+                    <p className="font-semibold">📍 Draw on the map:</p>
+                    <ul className="mt-1 ml-4 list-disc space-y-0.5">
+                      <li>Circle: Click the circle icon, then click center & drag</li>
+                      <li>Rectangle: Click rectangle icon, then drag</li>
+                      <li>Polygon: Click polygon icon, click points, double-click to finish</li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+              
+              {/* Area Calculation Progress */}
+              {isCalculatingArea && areaCalculationProgress.total > 0 && (
+                <div className="mt-3 p-3 bg-gray-50 rounded-lg border border-gray-300">
+                  <div className="flex items-center justify-between text-sm text-gray-700 mb-2">
+                    <span>Analyzing area...</span>
+                    <span className="font-semibold">{areaCalculationProgress.current}/{areaCalculationProgress.total}</span>
+                  </div>
+                  <div className="w-full bg-gray-300 rounded-full h-2">
+                    <div
+                      className="bg-gray-700 h-2 rounded-full transition-all duration-300"
+                      style={{ width: `${(areaCalculationProgress.current / areaCalculationProgress.total) * 100}%` }}
+                    ></div>
+                  </div>
+                  <p className="text-xs text-gray-600 mt-2">
+                    Sampling {areaCalculationProgress.total} points in the selected area...
+                  </p>
+                </div>
+              )}
+              
+              {/* Area Risk Results Summary (Simple notification) */}
+              {areaRiskData && !isCalculatingArea && (
+                <div className="mt-3 p-3 bg-green-50 border border-green-300 rounded-lg">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h4 className="text-sm font-bold text-green-800">✓ Area Analysis Complete</h4>
+                      <p className="text-xs text-gray-600 mt-1">
+                        {areaRiskData.sampledPoints} points analyzed → View results on map
+                      </p>
+                    </div>
+                    <Button
+                      onClick={() => setAreaRiskFloatingOpen(true)}
+                      size="sm"
+                      className="bg-green-600 hover:bg-green-700 text-white"
+                    >
+                      <Eye className="w-4 h-4 mr-1" />
+                      View
+                    </Button>
+                  </div>
+                </div>
+              )}
+              
               {/* Batch Upload Section */}
               <div className="mt-3">
                 <Separator className="my-3" />
@@ -1494,7 +1819,7 @@ export default function RiskMapPage() {
                   <label htmlFor="portfolio-upload" className="flex-1">
                     <Button
                       disabled={isLoading}
-                      className="w-full bg-gray-700 hover:bg-gray-800 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full bg-gray-600 hover:bg-gray-700 text-white disabled:opacity-50 disabled:cursor-not-allowed"
                       asChild
                     >
                       <span className="flex items-center justify-center">
@@ -2516,6 +2841,18 @@ export default function RiskMapPage() {
               </Marker>
             )}
 
+            {/* Drawing Control for Area Risk Assessment */}
+            {typeof window !== 'undefined' && DrawControl && (
+              <DrawControl 
+                onShapeDrawn={handleShapeDrawn}
+                onDrawStart={() => {
+                  setAreaRiskData(null);
+                  setDrawnShape(null);
+                }}
+                enabled={drawMode}
+              />
+            )}
+
             {/* Historical Event Markers */}
             {showHistoricalEvents && filteredHistoricalEvents.map(event => {
               if (!event.geometry?.coordinates) return null;
@@ -2871,6 +3208,190 @@ export default function RiskMapPage() {
                           {riskScores.landslide.level}
                         </span>
                         <p className="text-sm font-bold mt-1">Zone {riskScores.landslide.zone}</p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          )}
+          
+          {/* Floating Area Risk Assessment Results */}
+          {areaRiskFloatingOpen && areaRiskData && (
+            <div className="absolute top-4 right-4 z-[1000] w-[420px] max-h-[calc(100vh-8rem)] overflow-y-auto">
+              <Card className="shadow-2xl border-2 border-blue-300">
+                <CardHeader className="bg-gradient-to-r from-slate-50 to-gray-100 border-b-2 border-gray-300">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Layers className="w-5 h-5 text-gray-700" />
+                      <CardTitle className="text-sm text-gray-800">Area Risk Assessment</CardTitle>
+                    </div>
+                    <button
+                      onClick={() => setAreaRiskFloatingOpen(false)}
+                      className="p-1 hover:bg-gray-200 rounded transition-colors"
+                      title="Close"
+                    >
+                      <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+                </CardHeader>
+                <CardContent className="p-4">
+                  {/* Area Coverage Info */}
+                  <div className="mb-4 pb-3 border-b border-gray-200">
+                    <p className="text-sm font-bold text-gray-800 mb-2">📐 Coverage Area</p>
+                    <div className="grid grid-cols-2 gap-2 text-xs">
+                      <div className="p-2 bg-gray-50 rounded">
+                        <span className="text-gray-600 block">Shape Type</span>
+                        <span className="font-semibold capitalize">{areaRiskData.type}</span>
+                      </div>
+                      <div className="p-2 bg-gray-50 rounded">
+                        <span className="text-gray-600 block">Area</span>
+                        <span className="font-semibold">{areaRiskData.area}</span>
+                      </div>
+                      <div className="col-span-2 p-2 bg-gray-50 rounded">
+                        <span className="text-gray-600 block">Sampled Points</span>
+                        <span className="font-semibold">{areaRiskData.sampledPoints} of {areaRiskData.totalPoints}</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Overall Risk Statistics */}
+                  <div className="mb-4">
+                    <p className="text-sm font-bold text-gray-800 mb-2">📊 Overall Risk Statistics</p>
+                    <div className="space-y-2">
+                      <div className="p-3 bg-blue-50 rounded border border-blue-200">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-xs font-semibold text-gray-700">Average Risk</span>
+                          <span className="text-lg font-bold text-blue-600">{areaRiskData.stats.overall.avg}/10</span>
+                        </div>
+                        <div className="h-2 bg-blue-200 rounded-full overflow-hidden">
+                          <div 
+                            className="h-full bg-blue-600"
+                            style={{ width: `${(parseFloat(areaRiskData.stats.overall.avg) / 10) * 100}%` }}
+                          ></div>
+                        </div>
+                      </div>
+                      
+                      <div className="grid grid-cols-2 gap-2">
+                        <div className="p-2 bg-red-50 rounded border border-red-200">
+                          <span className="text-xs text-gray-600 block">Maximum</span>
+                          <span className="text-lg font-bold text-red-600">{areaRiskData.stats.overall.max}/10</span>
+                        </div>
+                        <div className="p-2 bg-green-50 rounded border border-green-200">
+                          <span className="text-xs text-gray-600 block">Minimum</span>
+                          <span className="text-lg font-bold text-green-600">{areaRiskData.stats.overall.min}/10</span>
+                        </div>
+                      </div>
+                      
+                      {areaRiskData.stats.overall.maxPoint && (
+                        <div className="p-2 bg-amber-50 rounded border border-amber-200 text-xs">
+                          <p className="font-semibold text-amber-800">⚠️ Highest Risk Location:</p>
+                          <p className="text-gray-600 mt-1">
+                            📍 {areaRiskData.stats.overall.maxPoint.lat.toFixed(5)}, {areaRiskData.stats.overall.maxPoint.lng.toFixed(5)}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  
+                  {/* Risk Distribution */}
+                  <div className="mb-4">
+                    <p className="text-sm font-bold text-gray-800 mb-2">📈 Risk Level Distribution</p>
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between p-2 bg-red-50 rounded border border-red-200">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-red-600 rounded-full"></div>
+                          <span className="text-xs font-semibold text-gray-700">Extreme</span>
+                        </div>
+                        <div className="text-right">
+                          <span className="text-sm font-bold text-red-700">{areaRiskData.distribution.extreme}</span>
+                          <span className="text-xs text-gray-600 ml-1">
+                            ({((areaRiskData.distribution.extreme/areaRiskData.sampledPoints)*100).toFixed(1)}%)
+                          </span>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center justify-between p-2 bg-orange-50 rounded border border-orange-200">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-orange-600 rounded-full"></div>
+                          <span className="text-xs font-semibold text-gray-700">High</span>
+                        </div>
+                        <div className="text-right">
+                          <span className="text-sm font-bold text-orange-700">{areaRiskData.distribution.high}</span>
+                          <span className="text-xs text-gray-600 ml-1">
+                            ({((areaRiskData.distribution.high/areaRiskData.sampledPoints)*100).toFixed(1)}%)
+                          </span>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center justify-between p-2 bg-yellow-50 rounded border border-yellow-200">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-yellow-600 rounded-full"></div>
+                          <span className="text-xs font-semibold text-gray-700">Medium</span>
+                        </div>
+                        <div className="text-right">
+                          <span className="text-sm font-bold text-yellow-700">{areaRiskData.distribution.medium}</span>
+                          <span className="text-xs text-gray-600 ml-1">
+                            ({((areaRiskData.distribution.medium/areaRiskData.sampledPoints)*100).toFixed(1)}%)
+                          </span>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center justify-between p-2 bg-green-50 rounded border border-green-200">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-green-600 rounded-full"></div>
+                          <span className="text-xs font-semibold text-gray-700">Low</span>
+                        </div>
+                        <div className="text-right">
+                          <span className="text-sm font-bold text-green-700">{areaRiskData.distribution.low}</span>
+                          <span className="text-xs text-gray-600 ml-1">
+                            ({((areaRiskData.distribution.low/areaRiskData.sampledPoints)*100).toFixed(1)}%)
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Hazard Breakdown */}
+                  <div className="mb-4">
+                    <p className="text-sm font-bold text-gray-800 mb-2">🌍 Hazard Breakdown (Average Scores)</p>
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between p-3 bg-blue-50 rounded border border-blue-200">
+                        <div>
+                          <p className="text-xs font-semibold text-gray-800">🌊 Flood</p>
+                          <div className="flex gap-3 text-xs text-gray-600 mt-1">
+                            <span>Avg: {areaRiskData.stats.flood.avg}</span>
+                            <span>Max: {areaRiskData.stats.flood.max}</span>
+                            <span>Min: {areaRiskData.stats.flood.min}</span>
+                          </div>
+                        </div>
+                        <span className="text-lg font-bold text-blue-600">{areaRiskData.stats.flood.avg}/10</span>
+                      </div>
+                      
+                      <div className="flex items-center justify-between p-3 bg-purple-50 rounded border border-purple-200">
+                        <div>
+                          <p className="text-xs font-semibold text-gray-800">🌀 Typhoon</p>
+                          <div className="flex gap-3 text-xs text-gray-600 mt-1">
+                            <span>Avg: {areaRiskData.stats.typhoon.avg}</span>
+                            <span>Max: {areaRiskData.stats.typhoon.max}</span>
+                            <span>Min: {areaRiskData.stats.typhoon.min}</span>
+                          </div>
+                        </div>
+                        <span className="text-lg font-bold text-purple-600">{areaRiskData.stats.typhoon.avg}/10</span>
+                      </div>
+                      
+                      <div className="flex items-center justify-between p-3 bg-indigo-50 rounded border border-indigo-200">
+                        <div>
+                          <p className="text-xs font-semibold text-gray-800">⛈️ Rainstorm</p>
+                          <div className="flex gap-3 text-xs text-gray-600 mt-1">
+                            <span>Avg: {areaRiskData.stats.rainstorm.avg}</span>
+                            <span>Max: {areaRiskData.stats.rainstorm.max}</span>
+                            <span>Min: {areaRiskData.stats.rainstorm.min}</span>
+                          </div>
+                        </div>
+                        <span className="text-lg font-bold text-indigo-600">{areaRiskData.stats.rainstorm.avg}/10</span>
                       </div>
                     </div>
                   </div>
