@@ -15,6 +15,19 @@ export default function OasisLMFPage() {
   const [isOasisRunning, setIsOasisRunning] = useState<boolean>(false)
   const [checkingStatus, setCheckingStatus] = useState<boolean>(false)
   const [useProxy, setUseProxy] = useState<boolean>(false) // Use direct connection by default (theme already applied in Docker)
+  const [iframeLoaded, setIframeLoaded] = useState<boolean>(false)
+  
+  // Handle iframe load event
+  const handleIframeLoad = () => {
+    setIframeLoaded(true)
+    console.log('✅ OasisLMF iframe loaded successfully')
+  }
+  
+  // Handle iframe error
+  const handleIframeError = () => {
+    console.error('❌ OasisLMF iframe failed to load')
+    setIframeLoaded(false)
+  }
 
   // Check if OasisLMF is running
   const checkOasisStatus = async () => {
@@ -180,10 +193,55 @@ export default function OasisLMFPage() {
                 src={getIframeUrl()}
                 title="OasisLMF Platform"
                 className="w-full h-full border-0"
-                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals allow-top-navigation allow-storage-access-by-user-activation"
-                allow="fullscreen"
+                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-modals allow-top-navigation allow-top-navigation-by-user-activation allow-downloads allow-storage-access-by-user-activation"
+                allow="fullscreen; clipboard-read; clipboard-write"
                 key={useProxy ? 'with-taiping-theme' : 'original-theme'} // Force reload when theme changes
+                loading="eager"
+                onLoad={handleIframeLoad}
+                onError={handleIframeError}
               ></iframe>
+              
+              {/* Loading Overlay - shows when iframe is loading */}
+              {!iframeLoaded && (
+                <div className="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center z-10">
+                  <div className="text-center">
+                    <RefreshCw className="w-8 h-8 animate-spin text-blue-600 mx-auto mb-3" />
+                    <p className="text-sm text-gray-600">Loading OasisLMF Platform...</p>
+                    <p className="text-xs text-gray-500 mt-2">This may take a few moments</p>
+                  </div>
+                </div>
+              )}
+              
+              {/* Info Banner */}
+              <div className="absolute top-0 left-0 right-0 bg-blue-600 text-white px-4 py-2 text-sm flex items-center justify-between z-20">
+                <div className="flex items-center gap-2">
+                  <InfoIcon className="w-4 h-4" />
+                  <span>OasisLMF Platform Embedded - If interface appears gray or frozen, try opening in a new window</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Button 
+                    size="sm" 
+                    variant="ghost" 
+                    className="text-white hover:bg-blue-700"
+                    onClick={() => window.open(oasisUrl, '_blank')}
+                  >
+                    <ExternalLink className="w-4 h-4 mr-1" />
+                    Open in New Window
+                  </Button>
+                  <Button 
+                    size="sm" 
+                    variant="ghost" 
+                    className="text-white hover:bg-blue-700"
+                    onClick={() => {
+                      setIframeLoaded(false)
+                      window.location.reload()
+                    }}
+                  >
+                    <RefreshCw className="w-4 h-4 mr-1" />
+                    Refresh
+                  </Button>
+                </div>
+              </div>
             </div>
           ) : (
             // Setup instructions when service is not running

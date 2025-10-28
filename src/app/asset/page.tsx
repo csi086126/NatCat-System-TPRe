@@ -22,7 +22,9 @@ import {
   Download,
   Upload,
   Filter,
-  Search
+  Search,
+  Trash2,
+  X
 } from 'lucide-react';
 import { RegionSelector } from '@/components/RegionSelector';
 import { useRegion } from '@/contexts/RegionContext';
@@ -295,9 +297,33 @@ export default function TreatyPortfolioManagement() {
   // Regional aggregation data
   const [regionAggregations, setRegionAggregations] = useState<RegionAggregation[]>([]);
   
-  // Cresta Zone shapefile data
-  const [crestaZones, setCrestaZones] = useState<any>(null);
+  // Portfolio CSV data mapped to Cresta Zones
+  const [portfolioData, setPortfolioData] = useState<{[zoneCode: string]: {
+    zoneCode: string;
+    zoneName?: string;
+    tsi: number;
+    eventLimit?: number;
+    policyCount: number;
+    customData?: {[key: string]: number}; // 存储所有数值列
+    exposures: any[];
+  }}>({}); 
+  const [isLoadingPortfolio, setIsLoadingPortfolio] = useState(false);
+  
+  // Field mapping configuration
+  const [csvHeaders, setCsvHeaders] = useState<string[]>([]); // CSV 所有列名
+  const [shapefileFields, setShapefileFields] = useState<string[]>([]); // Shapefile 所有字段
+  const [matchFieldShapefile, setMatchFieldShapefile] = useState<string>(''); // Shapefile 匹配字段
+  const [matchFieldCSV, setMatchFieldCSV] = useState<string>(''); // CSV 匹配字段
+  const [displayField, setDisplayField] = useState<string>(''); // 要显示的数值列
+  const [csvData, setCsvData] = useState<any[]>([]); // 临时存储 CSV 数据
+  
+  // Cresta Zone shapefile data - support multiple files
+  const [uploadedShapefiles, setUploadedShapefiles] = useState<{id: string, name: string, data: any}[]>([]);
+  const [selectedShapefileId, setSelectedShapefileId] = useState<string>('none');
   const [isLoadingShapefile, setIsLoadingShapefile] = useState(false);
+  
+  // Get currently active shapefile
+  const activeShapefile = uploadedShapefiles.find(sf => sf.id === selectedShapefileId)?.data || null;
   
   // Statistics
   const [stats, setStats] = useState({
@@ -317,17 +343,222 @@ export default function TreatyPortfolioManagement() {
     try {
       const { loadShapefileFromFile } = await import('@/lib/shapefileLoader');
       const geojson = await loadShapefileFromFile(file);
-      setCrestaZones(geojson);
-      console.log('Loaded Cresta Zones:', geojson.features.length, 'zones');
+      
+      // Extract available fields from the first feature
+      if (geojson.features && geojson.features.length > 0) {
+        const fields = Object.keys(geojson.features[0].properties || {});
+        setShapefileFields(fields);
+        console.log('📋 Shapefile fields detected:', fields);
+        
+        // Auto-select common matching fields
+        const commonFields = ['ADM1_PCODE', 'ZONE_CODE', 'CRESTA', 'CODE', 'ID', 'ADM1_EN', 'NAME'];
+        const foundField = commonFields.find(f => fields.includes(f));
+        if (foundField && !matchFieldShapefile) {
+          setMatchFieldShapefile(foundField);
+          console.log('🎯 Auto-selected shapefile field:', foundField);
+        }
+      }
+      
+      // Create unique ID and add to uploaded files
+      const fileId = `sf-${Date.now()}`;
+      const newShapefile = {
+        id: fileId,
+        name: file.name,
+        data: geojson
+      };
+      
+      setUploadedShapefiles(prev => [...prev, newShapefile]);
+      // Don't auto-select, let user choose manually
+      // setSelectedShapefileId(fileId);
+      
+      console.log('✅ Shapefile loaded:', file.name, geojson);
     } catch (error) {
-      console.error('Failed to load shapefile:', error);
-      alert('加载 Shapefile 失败: ' + (error as Error).message);
+      console.error('❌ Failed to load shapefile:', error);
+      alert('Failed to load shapefile. Please check the file format.');
     } finally {
       setIsLoadingShapefile(false);
     }
   };
   
-  // Get style for each GeoJSON zone based on treaty aggregation
+  // Clear shapefile
+  const handleClearShapefile = () => {
+    setSelectedShapefileId('none');
+    console.log('🗑️ Shapefile display cleared');
+  };
+  
+  // Delete a specific shapefile from the list
+  const handleDeleteShapefile = (fileId: string) => {
+    setUploadedShapefiles(prev => prev.filter(sf => sf.id !== fileId));
+    if (selectedShapefileId === fileId) {
+      setSelectedShapefileId('none');
+    }
+    console.log('🗑️ Shapefile deleted:', fileId);
+  };
+  
+  // Handle Portfolio CSV upload
+  const handlePortfolioUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    
+    setIsLoadingPortfolio(true);
+    try {
+      const text = await file.text();
+      const lines = text.split('\n').filter(line => line.trim());
+      const headers = lines[0].split(',').map(h => h.trim());
+      
+      console.log('📋 CSV Headers:', headers);
+      
+      // Store headers for field selection
+      setCsvHeaders(headers);
+      
+      // Auto-detect common matching fields
+      const commonMatchFields = ['ADM1_PCODE', 'zone_code', 'cresta', 'province', 'ADM1_EN', 'region'];
+      const foundMatchField = headers.find(h => 
+        commonMatchFields.some(f => h.toLowerCase().includes(f.toLowerCase()))
+      );
+      
+      if (foundMatchField && !matchFieldCSV) {
+        setMatchFieldCSV(foundMatchField);
+        console.log('🎯 Auto-selected CSV match field:', foundMatchField);
+      }
+      
+      // Auto-detect numeric fields for display
+      const numericFields = headers.filter(h => {
+        // Check if the field contains numeric data
+        const sampleValue = lines[1]?.split(',')[headers.indexOf(h)];
+        return sampleValue && !isNaN(parseFloat(sampleValue));
+      });
+      
+      console.log('🔢 Numeric fields detected:', numericFields);
+      
+      // Parse all data
+      const parsedData: any[] = [];
+      for (let i = 1; i < lines.length; i++) {
+        const values = lines[i].split(',').map(v => v.trim());
+        const row: any = {};
+        headers.forEach((header, idx) => {
+          row[header] = values[idx];
+        });
+        parsedData.push(row);
+      }
+      
+      setCsvData(parsedData);
+      
+      // If we have both match fields selected, trigger matching
+      if (matchFieldShapefile && foundMatchField) {
+        performDataMatching(parsedData, headers, foundMatchField);
+      } else {
+        alert(`CSV 文件已加载！\n共 ${parsedData.length} 行数据\n请在下方选择匹配字段和显示列`);
+      }
+      
+    } catch (error) {
+      console.error('❌ Failed to load CSV:', error);
+      alert('CSV 文件加载失败，请检查文件格式');
+    } finally {
+      setIsLoadingPortfolio(false);
+    }
+  };
+  
+  // Perform data matching between CSV and Shapefile
+  const performDataMatching = (data: any[], headers: string[], csvMatchField: string) => {
+    if (!matchFieldShapefile) {
+      alert('请先选择 Shapefile 的匹配字段');
+      return;
+    }
+    
+    if (!displayField) {
+      alert('请选择要显示的数值列');
+      return;
+    }
+    
+    console.log(`🔗 开始匹配: Shapefile[${matchFieldShapefile}] ↔ CSV[${csvMatchField}]`);
+    console.log(`📊 显示字段: ${displayField}`);
+    
+    const zoneData: {[key: string]: any} = {};
+    let matchedCount = 0;
+    
+    data.forEach(row => {
+      const matchValue = row[csvMatchField];
+      if (!matchValue) return;
+      
+      // Normalize match value (case-insensitive)
+      const normalizedMatch = matchValue.toString().trim().toUpperCase();
+      
+      // Get all numeric fields from this row
+      const customData: {[key: string]: number} = {};
+      headers.forEach(header => {
+        const value = parseFloat(row[header]);
+        if (!isNaN(value)) {
+          customData[header] = value;
+        }
+      });
+      
+      // Use display field value as TSI
+      const displayValue = parseFloat(row[displayField]) || 0;
+      
+      // Debug: Log first zone data
+      if (matchedCount === 0) {
+        console.log('📝 第一条数据示例:', {
+          matchValue,
+          normalizedMatch,
+          displayField,
+          displayValue,
+          customDataKeys: Object.keys(customData),
+          customData
+        });
+      }
+      
+      zoneData[normalizedMatch] = {
+        zoneCode: matchValue, // Keep original case for display
+        zoneName: matchValue,
+        tsi: displayValue, // Use selected display field as TSI
+        eventLimit: 0,
+        policyCount: 1,
+        customData, // Store all numeric fields
+        exposures: [row]
+      };
+      
+      matchedCount++;
+    });
+    
+    setPortfolioData(zoneData);
+    console.log(`✅ 匹配完成: ${matchedCount} 条记录`);
+    console.log('📊 Portfolio 数据示例:', Object.keys(zoneData).slice(0, 3));
+    alert(`数据匹配成功！\n匹配字段: ${matchFieldShapefile} ↔ ${csvMatchField}\n显示列: ${displayField}\n共 ${matchedCount} 条记录`);
+  };
+  
+  // Manual trigger matching when fields are changed
+  const handleApplyMatching = () => {
+    if (csvData.length === 0) {
+      alert('请先上传 CSV 文件');
+      return;
+    }
+    if (!matchFieldShapefile || !matchFieldCSV) {
+      alert('请选择匹配字段');
+      return;
+    }
+    if (!displayField) {
+      alert('请选择要显示的数值列');
+      return;
+    }
+    performDataMatching(csvData, csvHeaders, matchFieldCSV);
+  };
+  
+  // Clear portfolio data
+  const handleClearPortfolio = () => {
+    setPortfolioData({});
+    setCsvData([]);
+    setCsvHeaders([]);
+    setMatchFieldCSV('');
+    setDisplayField('');
+    const fileInput = document.querySelector('input[type="file"][accept=".csv"]') as HTMLInputElement;
+    if (fileInput) {
+      fileInput.value = '';
+    }
+    console.log('🗑️ Portfolio data cleared');
+  };
+  
+  // Get style for each GeoJSON zone based on portfolio data
   const getZoneStyle = (feature: any) => {
     if (!feature || !feature.properties) {
       return {
@@ -338,32 +569,70 @@ export default function TreatyPortfolioManagement() {
       };
     }
     
-    // Try to match zone to region aggregation
-    const zoneName = feature.properties.ZONE_NAME || 
-                     feature.properties.COUNTRY || 
-                     feature.properties.REGION || '';
+    // Try to match using configured match field
+    let portfolioZone = null;
     
-    const regionAgg = regionAggregations.find(agg => 
-      agg.region.toLowerCase().includes(zoneName.toLowerCase()) ||
-      zoneName.toLowerCase().includes(agg.region.toLowerCase())
-    );
+    if (matchFieldShapefile && feature.properties[matchFieldShapefile]) {
+      const shapefileValue = feature.properties[matchFieldShapefile].toString().trim().toUpperCase();
+      
+      // Find matching portfolio data (case-insensitive)
+      for (const key in portfolioData) {
+        if (key.toUpperCase() === shapefileValue) {
+          portfolioZone = portfolioData[key];
+          break;
+        }
+      }
+    } else {
+      // Fallback: try common field names
+      const zoneCode = feature.properties.ZONE_CODE || 
+                       feature.properties.CRESTA || 
+                       feature.properties.CODE ||
+                       feature.properties.ID ||
+                       feature.properties.ADM1_PCODE ||
+                       feature.properties.ADM1_EN || '';
+      
+      if (zoneCode) {
+        const normalizedCode = zoneCode.toString().trim().toUpperCase();
+        for (const key in portfolioData) {
+          if (key.toUpperCase() === normalizedCode) {
+            portfolioZone = portfolioData[key];
+            break;
+          }
+        }
+      }
+    }
     
-    if (!regionAgg || regionAgg.treatyCount === 0) {
+    if (!portfolioZone || portfolioZone.tsi === 0) {
+      // No portfolio data for this zone - show as gray
       return {
         fillColor: '#E5E7EB',
-        fillOpacity: 0.2,
-        color: '#D1D5DB',
-        weight: 1
+        fillOpacity: 0.3,
+        color: '#9CA3AF',
+        weight: 1.5,
+        opacity: 0.8
       };
     }
     
-    // Use aggregation data for styling
+    // Calculate color intensity based on selected display field value (TSI)
+    const maxTSI = Math.max(...Object.values(portfolioData).map(z => z.tsi));
+    const minTSI = Math.min(...Object.values(portfolioData).filter(z => z.tsi > 0).map(z => z.tsi));
+    const intensity = (portfolioZone.tsi - minTSI) / (maxTSI - minTSI) || 0;
+    
+    // Color gradient: Yellow (low) -> Orange -> Red (high) for better visibility
+    const getColor = (intensity: number) => {
+      if (intensity > 0.8) return '#DC2626'; // Very High - Dark Red
+      if (intensity > 0.6) return '#EA580C'; // High - Orange-Red
+      if (intensity > 0.4) return '#F97316'; // Medium - Orange
+      if (intensity > 0.2) return '#FBBF24'; // Low - Yellow-Orange
+      return '#FDE047'; // Very Low - Yellow
+    };
+    
     return {
-      fillColor: regionAgg.color,
-      fillOpacity: 0.3 + (regionAgg.utilization / 100) * 0.4,
-      color: '#FFFFFF',
+      fillColor: getColor(intensity),
+      fillOpacity: 0.5 + intensity * 0.4, // Range from 0.5 to 0.9 (more opaque = higher value)
+      color: '#78350F', // Dark brown border
       weight: 2,
-      opacity: 0.9
+      opacity: 1
     };
   };
   
@@ -560,12 +829,12 @@ export default function TreatyPortfolioManagement() {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-gray-50">
+    <div className="flex flex-col h-screen bg-gray-100">
       <AppHeader />
       
       <div className="flex flex-1 overflow-hidden">
         {/* ===== LEFT SIDEBAR: Filters (保留显示) ===== */}
-        <aside className="w-64 flex-shrink-0 border-r bg-white px-3 py-4 overflow-y-auto">
+        <aside className="w-96 flex-shrink-0 border-r bg-white px-3 py-4 overflow-y-auto">
           <div className="space-y-3">
             {/* Search Box */}
             <div>
@@ -592,7 +861,7 @@ export default function TreatyPortfolioManagement() {
                   onClick={() => setViewMode('treaties')}
                   className={`px-3 py-2 text-xs font-medium rounded-md transition-colors ${
                     viewMode === 'treaties'
-                      ? 'bg-blue-600 text-white shadow-sm'
+                      ? 'bg-gray-600 text-white shadow-sm'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
@@ -602,7 +871,7 @@ export default function TreatyPortfolioManagement() {
                   onClick={() => setViewMode('regions')}
                   className={`px-3 py-2 text-xs font-medium rounded-md transition-colors ${
                     viewMode === 'regions'
-                      ? 'bg-blue-600 text-white shadow-sm'
+                      ? 'bg-gray-600 text-white shadow-sm'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
@@ -613,39 +882,227 @@ export default function TreatyPortfolioManagement() {
             
             {/* Cresta Zone Shapefile Upload */}
             {viewMode === 'regions' && (
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-3">
-                <label className="text-xs font-semibold text-blue-900 mb-2 block flex items-center gap-1">
-                  <Upload className="h-3.5 w-3.5" />
-                  Cresta Zone Shapefile
-                </label>
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-3 space-y-3">
+                <div className="flex items-center justify-between">
+                  <label className="text-xs font-semibold text-blue-900 flex items-center gap-1">
+                    <Upload className="h-3.5 w-3.5" />
+                    Cresta Zone Shapefile
+                  </label>
+                </div>
+                
+                {/* File Upload Input */}
                 <input
                   type="file"
-                  accept=".zip,.shp"
+                  accept=".zip,.shp,.geojson"
                   onChange={handleShapefileUpload}
                   className="text-xs w-full"
                   disabled={isLoadingShapefile}
                 />
+                
                 {isLoadingShapefile && (
-                  <p className="text-xs text-blue-600 mt-2 animate-pulse">加载中...</p>
+                  <p className="text-xs text-blue-600 animate-pulse">⏳ 加载中...</p>
                 )}
-                {crestaZones && (
-                  <div className="mt-2 text-xs text-green-700">
-                    ✓ 已加载 {crestaZones.features?.length || 0} 个区域
+                
+                {/* Shapefile Selection Dropdown */}
+                {uploadedShapefiles.length > 0 && (
+                  <div className="space-y-2">
+                    <label className="text-xs font-medium text-gray-700 block">
+                      选择显示的文件：
+                    </label>
+                    <div className="flex items-center gap-2">
+                      <select
+                        value={selectedShapefileId}
+                        onChange={(e) => setSelectedShapefileId(e.target.value)}
+                        className="flex-1 text-xs px-2 py-1.5 border border-blue-300 rounded bg-white"
+                      >
+                        <option value="none">❌ None (不显示)</option>
+                        {uploadedShapefiles.map(sf => (
+                          <option key={sf.id} value={sf.id}>
+                            📁 {sf.name} ({sf.data.features?.length || 0} 区域)
+                          </option>
+                        ))}
+                      </select>
+                      {selectedShapefileId !== 'none' && (
+                        <button
+                          onClick={() => handleDeleteShapefile(selectedShapefileId)}
+                          className="text-xs text-red-600 hover:text-red-700 hover:bg-red-50 px-2 py-1.5 rounded border border-red-300 transition-colors flex items-center gap-1"
+                          title="删除此文件"
+                        >
+                          <Trash2 className="h-3.5 w-3.5" />
+                        </button>
+                      )}
+                    </div>
                   </div>
                 )}
-                <p className="text-xs text-gray-600 mt-2">
-                  上传 .zip 或 .shp 文件来显示真实地理边界
-                </p>
+                
+                {/* Status Display */}
+                {activeShapefile && (
+                  <div className="p-2 bg-green-50 border border-green-200 rounded">
+                    <span className="text-xs text-green-700">
+                      ✓ 当前显示: {uploadedShapefiles.find(sf => sf.id === selectedShapefileId)?.name}
+                      ({activeShapefile.features?.length || 0} 个区域)
+                    </span>
+                  </div>
+                )}
+                
+                {uploadedShapefiles.length === 0 && (
+                  <p className="text-xs text-gray-600">
+                    💡 上传 .zip、.shp 或 .geojson 文件来显示真实地理边界
+                  </p>
+                )}
+                
+                {/* GADM Global Boundaries */}
+                <div className="pt-2 border-t border-blue-300">
+                  <p className="text-xs text-gray-600 mb-2 flex items-center gap-1">
+                    🌍 GADM 全球行政边界数据
+                  </p>
+                  <button
+                    onClick={() => alert('GADM 数据文件位置：D:\\web-flood-insurance-model\\Data\\Shapefile\\gadm_410.gpkg\n\n文件信息：\n- 格式：GeoPackage (SQLite)\n- 大小：2.57 GB\n- 内容：全球行政边界（国家、省、市、县等多级）\n\n由于文件较大，建议：\n1. 使用 QGIS 打开查看\n2. 提取特定国家/地区后使用\n3. 或开发 API 按需加载')}
+                    className="w-full text-xs px-3 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded transition-colors flex items-center justify-center gap-2"
+                  >
+                    <FileText className="h-3.5 w-3.5" />
+                    查看 GADM 数据信息
+                  </button>
+                </div>
+              </div>
+            )}
+            
+            {/* Portfolio CSV Upload */}
+            {viewMode === 'regions' && (
+              <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-3 space-y-3">
+                <div className="flex items-center justify-between">
+                  <label className="text-xs font-semibold text-green-900 flex items-center gap-1">
+                    <FileText className="h-3.5 w-3.5" />
+                    Portfolio CSV 数据
+                  </label>
+                  {Object.keys(portfolioData).length > 0 && (
+                    <button
+                      onClick={handleClearPortfolio}
+                      className="text-xs text-red-600 hover:text-red-700 hover:bg-red-50 px-2 py-1 rounded transition-colors flex items-center gap-1"
+                      title="清除 Portfolio 数据"
+                    >
+                      <Trash2 className="h-3.5 w-3.5" />
+                      清除
+                    </button>
+                  )}
+                </div>
+                
+                {/* File Upload Input */}
+                <input
+                  type="file"
+                  accept=".csv"
+                  onChange={handlePortfolioUpload}
+                  className="text-xs w-full"
+                  disabled={isLoadingPortfolio}
+                />
+                
+                {isLoadingPortfolio && (
+                  <p className="text-xs text-green-600 animate-pulse">⏳ 加载中...</p>
+                )}
+                
+                {/* Field Mapping Configuration */}
+                {csvHeaders.length > 0 && (
+                  <div className="space-y-2 p-2 bg-yellow-50 border border-yellow-200 rounded">
+                    <p className="text-xs font-semibold text-yellow-900">🔧 字段匹配配置</p>
+                    
+                    {/* Shapefile Match Field */}
+                    <div>
+                      <label className="text-[10px] text-gray-600 block mb-1">Shapefile 匹配字段:</label>
+                      <select
+                        value={matchFieldShapefile}
+                        onChange={(e) => setMatchFieldShapefile(e.target.value)}
+                        className="w-full text-xs px-2 py-1 border border-yellow-300 rounded bg-white"
+                      >
+                        <option value="">-- 选择字段 --</option>
+                        {shapefileFields.map(field => (
+                          <option key={field} value={field}>{field}</option>
+                        ))}
+                      </select>
+                    </div>
+                    
+                    {/* CSV Match Field */}
+                    <div>
+                      <label className="text-[10px] text-gray-600 block mb-1">CSV 匹配字段:</label>
+                      <select
+                        value={matchFieldCSV}
+                        onChange={(e) => setMatchFieldCSV(e.target.value)}
+                        className="w-full text-xs px-2 py-1 border border-yellow-300 rounded bg-white"
+                      >
+                        <option value="">-- 选择字段 --</option>
+                        {csvHeaders.map(header => (
+                          <option key={header} value={header}>{header}</option>
+                        ))}
+                      </select>
+                    </div>
+                    
+                    {/* Display Field */}
+                    <div>
+                      <label className="text-[10px] text-gray-600 block mb-1">显示数值列:</label>
+                      <select
+                        value={displayField}
+                        onChange={(e) => setDisplayField(e.target.value)}
+                        className="w-full text-xs px-2 py-1 border border-yellow-300 rounded bg-white"
+                      >
+                        <option value="">-- 选择数值列 --</option>
+                        {csvHeaders.filter(h => {
+                          const sampleValue = csvData[0]?.[h];
+                          return sampleValue && !isNaN(parseFloat(sampleValue));
+                        }).map(header => (
+                          <option key={header} value={header}>{header}</option>
+                        ))}
+                      </select>
+                    </div>
+                    
+                    {/* Apply Button */}
+                    <button
+                      onClick={handleApplyMatching}
+                      disabled={!matchFieldShapefile || !matchFieldCSV || !displayField}
+                      className="w-full text-xs px-3 py-1.5 bg-yellow-600 hover:bg-yellow-700 text-white rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      ✓ 应用匹配
+                    </button>
+                  </div>
+                )}
+                
+                {/* Status Display */}
+                {Object.keys(portfolioData).length > 0 && (
+                  <div className="p-2 bg-green-100 border border-green-300 rounded space-y-1">
+                    <div className="text-xs text-green-800 font-semibold">
+                      ✓ Portfolio 已加载
+                    </div>
+                    <div className="text-xs text-green-700">
+                      • {Object.keys(portfolioData).length} 个区域
+                    </div>
+                    {displayField && (
+                      <div className="text-xs text-green-700">
+                        • 显示列: {displayField}
+                      </div>
+                    )}
+                    <div className="text-xs text-green-700">
+                      • 匹配: {matchFieldShapefile} ↔ {matchFieldCSV}
+                    </div>
+                  </div>
+                )}
+                
+                <div className="text-xs text-gray-600 space-y-1">
+                  <p>📋 使用说明：</p>
+                  <ul className="list-disc list-inside text-[10px] ml-2 space-y-0.5">
+                    <li>上传 CSV 文件后选择匹配字段</li>
+                    <li>Shapefile 字段需要先上传 Shapefile</li>
+                    <li>选择要在地图上显示的数值列</li>
+                    <li>点击"应用匹配"开始数据匹配</li>
+                  </ul>
+                </div>
               </div>
             )}
             
             {/* Treaty Type Filter */}
-            <div>
-              <label className="text-sm font-medium mb-2 block">📋 Treaty Type</label>
+            <div className="flex items-center gap-3">
+              <label className="text-sm font-medium whitespace-nowrap min-w-[100px]">📋 Treaty Type</label>
               <select
                 value={filterType}
                 onChange={(e) => setFilterType(e.target.value)}
-                className="w-full px-3 py-2 border rounded-md text-sm"
+                className="flex-1 px-3 py-2 border rounded-md text-sm"
               >
                 <option value="all">All Types</option>
                 <option value="CatXL">Cat XL</option>
@@ -657,12 +1114,12 @@ export default function TreatyPortfolioManagement() {
             </div>
             
             {/* Status Filter */}
-            <div>
-              <label className="text-sm font-medium mb-2 block">📊 Status</label>
+            <div className="flex items-center gap-3">
+              <label className="text-sm font-medium whitespace-nowrap min-w-[100px]">📊 Status</label>
               <select
                 value={filterStatus}
                 onChange={(e) => setFilterStatus(e.target.value)}
-                className="w-full px-3 py-2 border rounded-md text-sm"
+                className="flex-1 px-3 py-2 border rounded-md text-sm"
               >
                 <option value="all">All Status</option>
                 <option value="Active">Active</option>
@@ -673,12 +1130,12 @@ export default function TreatyPortfolioManagement() {
             </div>
             
             {/* Region Filter */}
-            <div>
-              <label className="text-sm font-medium mb-2 block">🌏 Region</label>
+            <div className="flex items-center gap-3">
+              <label className="text-sm font-medium whitespace-nowrap min-w-[100px]">🌏 Region</label>
               <select
                 value={filterRegion}
                 onChange={(e) => setFilterRegion(e.target.value)}
-                className="w-full px-3 py-2 border rounded-md text-sm"
+                className="flex-1 px-3 py-2 border rounded-md text-sm"
               >
                 <option value="all">All Regions</option>
                 <option value="Hong Kong">Hong Kong</option>
@@ -691,12 +1148,12 @@ export default function TreatyPortfolioManagement() {
             </div>
             
             {/* Cedant Filter */}
-            <div>
-              <label className="text-sm font-medium mb-2 block">🏢 Cedant</label>
+            <div className="flex items-center gap-3">
+              <label className="text-sm font-medium whitespace-nowrap min-w-[100px]">🏢 Cedant</label>
               <select
                 value={filterCedant}
                 onChange={(e) => setFilterCedant(e.target.value)}
-                className="w-full px-3 py-2 border rounded-md text-sm"
+                className="flex-1 px-3 py-2 border rounded-md text-sm"
               >
                 <option value="all">All Cedants</option>
                 {uniqueCedants.map(cedant => (
@@ -709,14 +1166,14 @@ export default function TreatyPortfolioManagement() {
             <div className="pt-4 space-y-2 border-t">
               <button
                 onClick={resetFilters}
-                className="w-full px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-md flex items-center justify-center gap-2"
+                className="w-full px-4 py-2 text-sm bg-gray-600 hover:bg-gray-700 text-white rounded-md flex items-center justify-center gap-2 transition-colors"
               >
                 <Filter className="h-4 w-4" />
                 Reset Filters
               </button>
               <button
                 onClick={handleExport}
-                className="w-full px-4 py-2 text-sm bg-blue-600 hover:bg-blue-700 text-white rounded-md flex items-center justify-center gap-2"
+                className="w-full px-4 py-2 text-sm bg-gray-600 hover:bg-gray-700 text-white rounded-md flex items-center justify-center gap-2 transition-colors"
               >
                 <Download className="h-4 w-4" />
                 Export Treaties
@@ -921,7 +1378,7 @@ export default function TreatyPortfolioManagement() {
                       </div>
                       <button 
                         onClick={() => handleTreatyClick(treaty)}
-                        className="w-full mt-3 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded transition-colors"
+                        className="w-full mt-3 px-3 py-1.5 bg-gray-600 hover:bg-gray-700 text-white text-xs rounded transition-colors"
                       >
                         View Details →
                       </button>
@@ -932,23 +1389,43 @@ export default function TreatyPortfolioManagement() {
             ) : (
               // Regional Aggregation - Circles OR Shapefile
               <>
-                {crestaZones ? (
+                {activeShapefile ? (
                   // Cresta Zone Shapefile Display (Choropleth Map)
                   <GeoJSON
-                    key={JSON.stringify(regionAggregations)} // Force re-render when data changes
-                    data={crestaZones}
+                    key={JSON.stringify(portfolioData) + selectedShapefileId} // Force re-render when data changes
+                    data={activeShapefile}
                     style={getZoneStyle}
                     onEachFeature={(feature: any, layer: any) => {
                       const zoneName = feature.properties.ZONE_NAME || 
+                                     feature.properties.NAME ||
+                                     feature.properties.ADM1_EN ||
                                      feature.properties.COUNTRY || 
                                      feature.properties.REGION || 
                                      'Unknown Zone';
                       
-                      // Find matching region aggregation
-                      const regionAgg = regionAggregations.find(agg => 
-                        agg.region.toLowerCase().includes(zoneName.toLowerCase()) ||
-                        zoneName.toLowerCase().includes(agg.region.toLowerCase())
-                      );
+                      // Get match value from shapefile
+                      let matchValue = '';
+                      if (matchFieldShapefile && feature.properties[matchFieldShapefile]) {
+                        matchValue = feature.properties[matchFieldShapefile];
+                      } else {
+                        matchValue = feature.properties.ZONE_CODE || 
+                                    feature.properties.CRESTA || 
+                                    feature.properties.CODE ||
+                                    feature.properties.ADM1_PCODE ||
+                                    feature.properties.ID || '';
+                      }
+                      
+                      // Find matching portfolio data (case-insensitive)
+                      let portfolioZone = null;
+                      if (matchValue) {
+                        const normalizedMatch = matchValue.toString().trim().toUpperCase();
+                        for (const key in portfolioData) {
+                          if (key.toUpperCase() === normalizedMatch) {
+                            portfolioZone = portfolioData[key];
+                            break;
+                          }
+                        }
+                      }
                       
                       // Mouse hover effects
                       layer.on({
@@ -967,132 +1444,91 @@ export default function TreatyPortfolioManagement() {
                         }
                       });
                       
-                      // Popup with aggregated data
-                      if (regionAgg && regionAgg.treatyCount > 0) {
+                      // Popup with portfolio data
+                      if (portfolioZone && portfolioZone.tsi > 0) {
+                        const maxTSI = Math.max(...Object.values(portfolioData).map(z => z.tsi));
+                        const riskLevel = portfolioZone.tsi / maxTSI;
+                        const getRiskLabel = (level: number) => {
+                          if (level > 0.8) return { text: 'Very High', color: '#DC2626' };
+                          if (level > 0.6) return { text: 'High', color: '#EA580C' };
+                          if (level > 0.4) return { text: 'Medium', color: '#F59E0B' };
+                          if (level > 0.2) return { text: 'Low', color: '#10B981' };
+                          return { text: 'Very Low', color: '#6EE7B7' };
+                        };
+                        const risk = getRiskLabel(riskLevel);
+                        
+                        // Debug: Log portfolio zone data
+                        console.log('🔍 弹窗数据:', {
+                          zoneName,
+                          matchValue,
+                          tsi: portfolioZone.tsi,
+                          displayField,
+                          hasCustomData: !!portfolioZone.customData,
+                          customDataKeys: portfolioZone.customData ? Object.keys(portfolioZone.customData) : []
+                        });
+                        
+                        // Build custom data rows
+                        let customDataRows = '';
+                        if (portfolioZone.customData) {
+                          for (const [key, value] of Object.entries(portfolioZone.customData)) {
+                            const isDisplayField = key === displayField;
+                            customDataRows += `
+                              <div class="flex justify-between ${isDisplayField ? 'bg-yellow-50 px-1 rounded' : ''}">
+                                <span class="text-gray-600">${key}:</span>
+                                <span class="${isDisplayField ? 'font-bold text-blue-700' : 'font-semibold'}">${typeof value === 'number' ? value.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : value}</span>
+                              </div>
+                            `;
+                          }
+                        }
+                        
                         layer.bindPopup(`
-                          <div class="min-w-[240px]">
-                            <h3 class="font-bold text-base mb-3">🌍 ${zoneName}</h3>
-                            <div class="text-sm space-y-2">
-                              <div class="flex justify-between pb-2 border-b">
-                                <span class="text-gray-600">Treaties:</span>
-                                <span class="font-bold text-lg text-blue-600">${regionAgg.treatyCount}</span>
-                              </div>
-                              <div class="flex justify-between">
-                                <span class="text-gray-600">Total Exposure:</span>
-                                <span class="font-bold">${formatCurrency(regionAgg.totalExposure)}</span>
-                              </div>
-                              <div class="flex justify-between">
-                                <span class="text-gray-600">Total Limit:</span>
-                                <span class="font-semibold">${formatCurrency(regionAgg.totalLimit)}</span>
-                              </div>
-                              <div class="flex justify-between items-center pt-2 border-t">
-                                <span class="text-gray-600">Avg Utilization:</span>
-                                <span class="font-bold text-base" style="color: ${regionAgg.color}">
-                                  ${regionAgg.utilization}%
+                          <div class="min-w-[280px]">
+                            <h3 class="font-bold text-base mb-2">🌍 ${zoneName}</h3>
+                            <div class="text-xs text-gray-500 mb-3">
+                              ${matchFieldShapefile ? `${matchFieldShapefile}: ${matchValue}` : `Zone: ${matchValue}`}
+                            </div>
+                            <div class="text-sm space-y-1.5">
+                              ${displayField ? `
+                                <div class="flex justify-between pb-2 border-b bg-blue-50 px-2 py-1 rounded">
+                                  <span class="text-gray-700 font-semibold">📊 ${displayField}:</span>
+                                  <span class="font-bold text-lg text-blue-600">${portfolioZone.tsi.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+                                </div>
+                              ` : ''}
+                              ${customDataRows ? `
+                                <div class="mt-2 space-y-1 text-xs border-t pt-2">
+                                  <div class="font-semibold text-gray-700 mb-1">📋 所有数据列:</div>
+                                  ${customDataRows}
+                                </div>
+                              ` : ''}
+                              <div class="flex justify-between items-center pt-2 border-t mt-2">
+                                <span class="text-gray-600">风险等级:</span>
+                                <span class="font-bold text-sm px-2 py-1 rounded" style="background-color: ${risk.color}20; color: ${risk.color}">
+                                  ${risk.text}
                                 </span>
                               </div>
-                              ${regionAgg.utilization >= 85 ? `
+                              ${riskLevel > 0.6 ? `
                                 <div class="mt-2 pt-2 border-t">
-                                  <div class="bg-red-50 p-2 rounded text-xs text-red-800">
-                                    ⚠️ High regional concentration
+                                  <div class="bg-red-50 p-2 rounded text-xs text-red-800 flex items-start gap-1">
+                                    <span>⚠️</span>
+                                    <span>高风险累积区域 - 关注该区域的暴露累积</span>
                                   </div>
                                 </div>
                               ` : ''}
                             </div>
-                            <button 
-                              onclick="window.dispatchEvent(new CustomEvent('filterRegion', {detail: '${regionAgg.region}'}))"
-                              class="w-full mt-3 px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded font-medium"
-                            >
-                              View ${regionAgg.treatyCount} Treaties →
-                            </button>
                           </div>
                         `);
                       } else {
                         layer.bindPopup(`
                           <div class="p-2">
                             <h3 class="font-bold text-sm mb-1">${zoneName}</h3>
-                            <p class="text-xs text-gray-600">No treaties in this zone</p>
+                            <div class="text-xs text-gray-500 mb-1">${matchFieldShapefile}: ${matchValue}</div>
+                            <p class="text-xs text-gray-600">此区域无 Portfolio 数据</p>
                           </div>
                         `);
                       }
                     }}
                   />
-                ) : (
-                  // Fallback to Circle markers if no shapefile loaded
-                  regionAggregations.map((region) => (
-                    <Circle
-                      key={region.region}
-                      center={region.coordinates}
-                      radius={Math.sqrt(region.totalExposure) * 1000}
-                      pathOptions={{
-                        fillColor: region.color,
-                        fillOpacity: 0.4,
-                        color: '#ffffff',
-                        weight: 2,
-                        opacity: 0.9
-                      }}
-                    >
-                      <Popup>
-                        <div className="min-w-[240px]">
-                          <h3 className="font-bold text-base mb-3 flex items-center gap-2">
-                            🌍 {region.region}
-                          </h3>
-                          <div className="text-sm space-y-2.5">
-                            <div className="flex justify-between items-center pb-2 border-b">
-                              <span className="text-gray-600">Treaties:</span>
-                              <span className="font-bold text-lg text-blue-600">{region.treatyCount}</span>
-                            </div>
-                            <div className="flex justify-between items-center">
-                              <span className="text-gray-600">Total Exposure:</span>
-                              <span className="font-bold text-lg">{formatCurrency(region.totalExposure)}</span>
-                            </div>
-                            <div className="flex justify-between items-center">
-                              <span className="text-gray-600">Total Limit:</span>
-                              <span className="font-semibold">{formatCurrency(region.totalLimit)}</span>
-                            </div>
-                            <div className="flex justify-between items-center pt-2 border-t">
-                              <span className="text-gray-600">Avg Utilization:</span>
-                              <div className="flex items-center gap-2">
-                                <div className="w-20 h-2.5 bg-gray-200 rounded-full overflow-hidden">
-                                  <div 
-                                    className={`h-full ${
-                                      region.utilization >= 90 ? 'bg-red-500' :
-                                      region.utilization >= 80 ? 'bg-orange-500' :
-                                      region.utilization >= 70 ? 'bg-yellow-500' : 'bg-green-500'
-                                    }`}
-                                    style={{ width: `${region.utilization}%` }}
-                                  ></div>
-                                </div>
-                                <span className={`font-bold text-base ${getUtilizationColor(region.utilization)}`}>
-                                  {region.utilization}%
-                                </span>
-                              </div>
-                            </div>
-                            {region.utilization >= 85 && (
-                              <div className="mt-3 pt-2 border-t">
-                                <div className="flex items-start gap-2 bg-red-50 p-2.5 rounded">
-                                  <AlertCircle className="h-4 w-4 text-red-600 flex-shrink-0 mt-0.5" />
-                                  <span className="text-xs text-red-800 font-medium">
-                                    High regional concentration - Monitor catastrophe exposure
-                                  </span>
-                                </div>
-                              </div>
-                            )}
-                          </div>
-                          <button 
-                            onClick={() => {
-                              setFilterRegion(region.region);
-                              setViewMode('treaties');
-                            }}
-                            className="w-full mt-3 px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded font-medium transition-colors"
-                          >
-                            View {region.treatyCount} Treaties in {region.region} →
-                          </button>
-                        </div>
-                      </Popup>
-                    </Circle>
-                  ))
-                )}
+                ) : null}
               </>
             )}
             
@@ -1132,32 +1568,71 @@ export default function TreatyPortfolioManagement() {
             <div className="bg-white/95 backdrop-blur rounded-lg shadow-lg p-3">
             <h4 className="text-xs font-semibold mb-2 flex items-center gap-1">
               <MapPin className="h-3.5 w-3.5" />
-              {viewMode === 'treaties' ? 'Treaty Markers' : 'Regional Risk Heatmap'}
+              {viewMode === 'treaties' ? 'Treaty Markers' : Object.keys(portfolioData).length > 0 ? 'Portfolio Risk Heatmap' : 'Regional Risk Heatmap'}
             </h4>
             <div className="space-y-2">
-              <div>
-                <p className="text-xs text-gray-600 mb-1.5 font-medium">
-                  {viewMode === 'treaties' ? 'Color = Utilization' : 'Color = Avg Utilization'}
-                </p>
-                <div className="space-y-1 text-xs">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-green-500 border-2 border-white"></div>
-                    <span>&lt;70% Safe</span>
+              {viewMode === 'regions' && Object.keys(portfolioData).length > 0 && displayField ? (
+                // Portfolio Data Heatmap Legend
+                <div>
+                  <p className="text-xs text-gray-600 mb-1.5 font-medium">
+                    📊 {displayField}
+                  </p>
+                  <div className="space-y-1 text-xs">
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-3 rounded bg-red-600 border border-gray-300"></div>
+                      <span>Very High (80-100%)</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-3 rounded bg-orange-600 border border-gray-300"></div>
+                      <span>High (60-80%)</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-3 rounded bg-orange-400 border border-gray-300"></div>
+                      <span>Medium (40-60%)</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-3 rounded bg-yellow-400 border border-gray-300"></div>
+                      <span>Low (20-40%)</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-3 rounded bg-yellow-200 border border-gray-300"></div>
+                      <span>Very Low (0-20%)</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-3 rounded bg-gray-300 border border-gray-400"></div>
+                      <span>No Data</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-yellow-500 border-2 border-white"></div>
-                    <span>70-79% Moderate</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-orange-500 border-2 border-white"></div>
-                    <span>80-89% High</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-red-500 border-2 border-white"></div>
-                    <span>≥90% Critical</span>
+                  <p className="text-[10px] text-gray-500 mt-2 italic">
+                    颜色深浅表示 {displayField} 值的相对大小
+                  </p>
+                </div>
+              ) : (
+                // Original Treaty/Regional Legend
+                <div>
+                  <p className="text-xs text-gray-600 mb-1.5 font-medium">
+                    {viewMode === 'treaties' ? 'Color = Utilization' : 'Color = Avg Utilization'}
+                  </p>
+                  <div className="space-y-1 text-xs">
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 rounded-full bg-green-500 border-2 border-white"></div>
+                      <span>&lt;70% Safe</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 rounded-full bg-yellow-500 border-2 border-white"></div>
+                      <span>70-79% Moderate</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 rounded-full bg-orange-500 border-2 border-white"></div>
+                      <span>80-89% High</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 rounded-full bg-red-500 border-2 border-white"></div>
+                      <span>≥90% Critical</span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
               {viewMode === 'treaties' ? (
                 <div className="pt-2 border-t border-gray-200">
                   <p className="text-xs text-gray-600 mb-1.5 font-medium">Size = Exposure</p>
@@ -1170,7 +1645,7 @@ export default function TreatyPortfolioManagement() {
                 </div>
               ) : (
                 <div className="pt-2 border-t border-gray-200">
-                  {crestaZones ? (
+                  {activeShapefile ? (
                     <>
                       <p className="text-xs text-gray-600 mb-1.5 font-medium">Opacity = Utilization</p>
                       <div className="flex items-center gap-2 text-xs mb-2">
@@ -1180,7 +1655,7 @@ export default function TreatyPortfolioManagement() {
                         <span className="text-gray-500">Darker = Higher Risk</span>
                       </div>
                       <p className="text-[10px] text-gray-500 italic">
-                        📊 Cresta Zone Shapefile
+                        📊 {uploadedShapefiles.find(sf => sf.id === selectedShapefileId)?.name || 'Shapefile'}
                       </p>
                     </>
                   ) : (
@@ -1367,15 +1842,15 @@ export default function TreatyPortfolioManagement() {
               
               {/* Action Buttons */}
               <div className="space-y-2 pt-4 border-t">
-                <button className="w-full px-4 py-2 text-sm bg-blue-600 hover:bg-blue-700 text-white rounded-md flex items-center justify-center gap-2">
+                <button className="w-full px-4 py-2 text-sm bg-gray-600 hover:bg-gray-700 text-white rounded-md flex items-center justify-center gap-2 transition-colors">
                   <MapPin className="h-4 w-4" />
                   View on Map
                 </button>
-                <button className="w-full px-4 py-2 text-sm bg-purple-600 hover:bg-purple-700 text-white rounded-md flex items-center justify-center gap-2">
+                <button className="w-full px-4 py-2 text-sm bg-gray-600 hover:bg-gray-700 text-white rounded-md flex items-center justify-center gap-2 transition-colors">
                   <TrendingUp className="h-4 w-4" />
                   Exposure Analysis
                 </button>
-                <button className="w-full px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-md flex items-center justify-center gap-2">
+                <button className="w-full px-4 py-2 text-sm bg-gray-600 hover:bg-gray-700 text-white rounded-md flex items-center justify-center gap-2 transition-colors">
                   <Download className="h-4 w-4" />
                   Export Treaty PDF
                 </button>

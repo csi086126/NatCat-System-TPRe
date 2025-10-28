@@ -13,7 +13,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Separator } from "@/components/ui/separator";
 import { 
   Home, MapPin, AlertTriangle, Map, Building2, Activity, Puzzle, User, LogOut,
-  Target, Search, FileText, Download, Upload, ChevronDown, ChevronUp, Layers, Settings, Globe, Shield, Eye, EyeOff
+  Target, Search, FileText, Download, Upload, ChevronDown, ChevronUp, Layers, Settings, Globe, Shield, Eye, EyeOff, PenTool, TrendingUp
 } from 'lucide-react';
 import { RegionSelector } from '@/components/RegionSelector';
 import { useRegion } from '@/contexts/RegionContext';
@@ -214,10 +214,36 @@ const legendData = [
 ];
 
 // 6. Legend Component
-const Legend = () => {
+const Legend = ({ visibleLayers }: { visibleLayers: any }) => {
+  // Determine legend title based on active layers
+  const getLegendTitle = () => {
+    // Check if any flood depth layers are visible
+    const floodDepthLayers = ['flood500yr', 'flood200yr', 'flood100yr', 'flood50yr', 'flood20yr', 
+                              'floodNoDrainage500yr', 'floodNoDrainage200yr', 'floodNoDrainage100yr', 
+                              'floodNoDrainage50yr', 'floodNoDrainage20yr'];
+    if (floodDepthLayers.some(layer => visibleLayers[layer])) {
+      return 'Flood Depth (m)';
+    }
+    
+    // Check if any rainstorm intensity layers are visible
+    const rainstormLayers = ['rainstorm500yr', 'rainstorm200yr', 'rainstorm100yr', 'rainstorm50yr', 'rainstorm20yr'];
+    if (rainstormLayers.some(layer => visibleLayers[layer])) {
+      return 'Rainstorm Intensity (mm/hr)';
+    }
+    
+    // Check if any typhoon layers are visible
+    const typhoonLayers = ['typhoonTD', 'typhoonTS', 'typhoonSTS', 'typhoonTY', 'typhoonSTY', 'typhoonSuperTY'];
+    if (typhoonLayers.some(layer => visibleLayers[layer])) {
+      return 'Typhoon Intensity';
+    }
+    
+    // Default to Risk Level for composite layers
+    return 'Risk Level';
+  };
+  
   return (
     <div className="absolute bottom-6 left-6 z-[1000] bg-white p-4 rounded-lg shadow-lg border border-gray-300">
-      <h3 className="text-base font-semibold mb-3">Risk Level</h3>
+      <h3 className="text-base font-semibold mb-3">{getLegendTitle()}</h3>
       <div className="flex flex-col space-y-1.5">
         {legendData.map(({ color, label }) => (
           <div key={label} className="flex items-center space-x-3">
@@ -1665,7 +1691,7 @@ export default function RiskMapPage() {
                 <Button 
                   onClick={handleSearchAndCalculate}
                   disabled={isLoading || batchQueryMode}
-                  className="flex-1 bg-gray-600 hover:bg-gray-700 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 bg-gray-600 hover:bg-gray-700 text-white disabled:opacity-50 disabled:cursor-not-allowed justify-start"
                 >
                   <Search className="w-4 h-4 mr-2" />
                   {isLoading ? 'Searching...' : 'Search Location & Calculate Risk'}
@@ -1698,14 +1724,15 @@ export default function RiskMapPage() {
               {/* Area Risk Assessment Toggle */}
               <div className="mt-3">
                 <Separator className="my-3" />
+                <Label className="text-sm font-semibold text-gray-700 mb-2 block">Area Risk Assessment</Label>
                 <div className="flex gap-2">
                   <Button
                     onClick={toggleDrawMode}
-                    className="flex-1 bg-gray-600 hover:bg-gray-700 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex-1 bg-gray-600 hover:bg-gray-700 text-white disabled:opacity-50 disabled:cursor-not-allowed justify-start"
                     disabled={isLoading || isCalculatingArea}
                   >
-                    <Layers className="w-4 h-4 mr-2" />
-                    {drawMode ? '✓ Drawing Mode Active' : 'Area Delineate & Calculate Risk'}
+                    <PenTool className="w-4 h-4 mr-2" />
+                    {drawMode ? '✓ Drawing Mode Active' : 'Draw Area & Calculate Risk'}
                   </Button>
                   <Button
                     variant="outline"
@@ -1822,7 +1849,7 @@ export default function RiskMapPage() {
                       className="w-full bg-gray-600 hover:bg-gray-700 text-white disabled:opacity-50 disabled:cursor-not-allowed"
                       asChild
                     >
-                      <span className="flex items-center justify-center">
+                      <span className="flex items-center justify-start">
                         <Upload className="w-4 h-4 mr-2" />
                         Upload Portfolio & Calculate Risk
                       </span>
@@ -2028,102 +2055,7 @@ export default function RiskMapPage() {
           
           <Separator className="my-6" />
           
-          {/* ========== Asset Vulnerability Curves ========== */}
-          <div className="mb-6">
-            <button
-              onClick={() => setAssetAttributesOpen(!assetAttributesOpen)}
-              className="w-full flex items-center justify-between p-3 bg-gradient-to-r from-slate-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 rounded-lg border-2 border-gray-300 transition-colors"
-            >
-              <div className="flex items-center gap-2">
-                <Building2 className="w-5 h-5 text-gray-700" />
-                <span className="text-sm font-bold text-gray-800">Asset Vulnerability Curves</span>
-              </div>
-              {assetAttributesOpen ? (
-                <ChevronUp className="w-5 h-5 text-gray-700" />
-              ) : (
-                <ChevronDown className="w-5 h-5 text-gray-700" />
-              )}
-            </button>
-            
-            {assetAttributesOpen && (
-              <div className="mt-3 p-4 bg-white border-2 border-gray-200 rounded-lg space-y-4">
-                
-                {/* Info Box */}
-                <div className="p-2 bg-gray-50 rounded border border-gray-200">
-                  <p className="text-xs text-gray-600">
-                    Define building characteristics for automatic vulnerability curve matching
-                  </p>
-                </div>
-                
-                {/* Building Type */}
-                <div className="flex items-center gap-3">
-                  <Label className="text-xs font-semibold whitespace-nowrap min-w-[100px]">Building Type</Label>
-                  <Select value={buildingType} onValueChange={setBuildingType}>
-                    <SelectTrigger className="w-full">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="residential">🏠 Residential</SelectItem>
-                      <SelectItem value="commercial">🏢 Commercial</SelectItem>
-                      <SelectItem value="industrial">🏭 Industrial</SelectItem>
-                      <SelectItem value="public">🏛️ Public Building</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                
-                {/* Structure Type */}
-                <div className="flex items-center gap-3">
-                  <Label className="text-xs font-semibold whitespace-nowrap min-w-[100px]">Structure Type</Label>
-                  <Select value={structureType} onValueChange={setStructureType}>
-                    <SelectTrigger className="w-full">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="concrete-frame">Concrete Frame - Low Risk</SelectItem>
-                      <SelectItem value="steel-frame">Steel Frame - Low Risk</SelectItem>
-                      <SelectItem value="masonry">Masonry - Medium Risk</SelectItem>
-                      <SelectItem value="wood-frame">Wood Frame - High Risk</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                
-                {/* Occupancy Type */}
-                <div className="flex items-center gap-3">
-                  <Label className="text-xs font-semibold whitespace-nowrap min-w-[100px]">Occupancy Type</Label>
-                  <Select value={occupancyType} onValueChange={setOccupancyType}>
-                    <SelectTrigger className="w-full">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="office">Office</SelectItem>
-                      <SelectItem value="retail">Retail</SelectItem>
-                      <SelectItem value="warehouse">Warehouse</SelectItem>
-                      <SelectItem value="apartment">Apartment</SelectItem>
-                      <SelectItem value="house">Single Family House</SelectItem>
-                      <SelectItem value="hospital">Hospital</SelectItem>
-                      <SelectItem value="school">School</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                
-                <Separator className="my-3" />
-                
-                {/* Visualization Button */}
-                <Button 
-                  onClick={() => setVulnerabilityCurveChartOpen(true)}
-                  className="w-full bg-gray-600 hover:bg-gray-700 text-white"
-                >
-                  <Activity className="w-4 h-4 mr-2" />
-                  Show Vulnerability Curve Visualization
-                </Button>
-                
-              </div>
-            )}
-          </div>
-          
-          <Separator className="my-6" />
-          
-          {/* ========== Geospatial Data Hub ========== */}
+          {/* ========== Geospatial & Disaster Data Hub ========== */}
           <div className="mb-6">
             <button
               onClick={() => setGeospatialDataOpen(!geospatialDataOpen)}
@@ -2143,7 +2075,7 @@ export default function RiskMapPage() {
             {geospatialDataOpen && (
               <div className="mt-3 p-4 bg-white border-2 border-gray-200 rounded-lg space-y-4">
                 
-                {/* Geospatial Layers Section */}
+                {/* Info Box */}
                 <div>
                   <Label className="text-xs font-bold text-gray-700 mb-2 block">📍 Geospatial Layers</Label>
                   
@@ -2599,6 +2531,101 @@ export default function RiskMapPage() {
                     </div>
                   )}
                 </div>
+              </div>
+            )}
+          </div>
+          
+          <Separator className="my-6" />
+          
+          {/* ========== Asset Vulnerability Curves ========== */}
+          <div className="mb-6">
+            <button
+              onClick={() => setAssetAttributesOpen(!assetAttributesOpen)}
+              className="w-full flex items-center justify-between p-3 bg-gradient-to-r from-slate-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 rounded-lg border-2 border-gray-300 transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <TrendingUp className="w-5 h-5 text-gray-700" />
+                <span className="text-sm font-bold text-gray-800">Asset Vulnerability Curves</span>
+              </div>
+              {assetAttributesOpen ? (
+                <ChevronUp className="w-5 h-5 text-gray-700" />
+              ) : (
+                <ChevronDown className="w-5 h-5 text-gray-700" />
+              )}
+            </button>
+            
+            {assetAttributesOpen && (
+              <div className="mt-3 p-4 bg-white border-2 border-gray-200 rounded-lg space-y-4">
+                
+                {/* Info Box */}
+                <div className="p-2 bg-gray-50 rounded border border-gray-200">
+                  <p className="text-xs text-gray-600">
+                    Define building characteristics for automatic vulnerability curve matching
+                  </p>
+                </div>
+                
+                {/* Building Type */}
+                <div className="flex items-center gap-3">
+                  <Label className="text-xs font-semibold whitespace-nowrap min-w-[100px]">Building Type</Label>
+                  <Select value={buildingType} onValueChange={setBuildingType}>
+                    <SelectTrigger className="w-full">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="residential">🏠 Residential</SelectItem>
+                      <SelectItem value="commercial">🏢 Commercial</SelectItem>
+                      <SelectItem value="industrial">🏭 Industrial</SelectItem>
+                      <SelectItem value="public">🏛️ Public Building</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                
+                {/* Structure Type */}
+                <div className="flex items-center gap-3">
+                  <Label className="text-xs font-semibold whitespace-nowrap min-w-[100px]">Structure Type</Label>
+                  <Select value={structureType} onValueChange={setStructureType}>
+                    <SelectTrigger className="w-full">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="concrete-frame">Concrete Frame - Low Risk</SelectItem>
+                      <SelectItem value="steel-frame">Steel Frame - Low Risk</SelectItem>
+                      <SelectItem value="masonry">Masonry - Medium Risk</SelectItem>
+                      <SelectItem value="wood-frame">Wood Frame - High Risk</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                
+                {/* Occupancy Type */}
+                <div className="flex items-center gap-3">
+                  <Label className="text-xs font-semibold whitespace-nowrap min-w-[100px]">Occupancy Type</Label>
+                  <Select value={occupancyType} onValueChange={setOccupancyType}>
+                    <SelectTrigger className="w-full">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="office">Office</SelectItem>
+                      <SelectItem value="retail">Retail</SelectItem>
+                      <SelectItem value="warehouse">Warehouse</SelectItem>
+                      <SelectItem value="apartment">Apartment</SelectItem>
+                      <SelectItem value="house">Single Family House</SelectItem>
+                      <SelectItem value="hospital">Hospital</SelectItem>
+                      <SelectItem value="school">School</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                
+                <Separator className="my-3" />
+                
+                {/* Visualization Button */}
+                <Button 
+                  onClick={() => setVulnerabilityCurveChartOpen(true)}
+                  className="w-full bg-gray-600 hover:bg-gray-700 text-white"
+                >
+                  <Activity className="w-4 h-4 mr-2" />
+                  Show Vulnerability Curve Visualization
+                </Button>
+                
               </div>
             )}
           </div>
@@ -3401,7 +3428,7 @@ export default function RiskMapPage() {
           )}
           
           {/* Legend (conditional) */}
-          {Object.values(visibleLayers).some(v => v) && <Legend />}
+          {Object.values(visibleLayers).some(v => v) && <Legend visibleLayers={visibleLayers} />}
         </div>
       </div>
     </div>
