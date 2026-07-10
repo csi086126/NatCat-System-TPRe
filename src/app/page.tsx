@@ -7,10 +7,11 @@ import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { 
-  Globe, AlertTriangle, Building2, Map, Activity, Puzzle, User, LogOut,
+  AlertTriangle, User, LogOut,
   TrendingUp, Shield, BarChart3, MapPin, ChevronDown, ChevronUp
 } from 'lucide-react';
 import { useRegion } from "@/contexts/RegionContext";
+import { platformModules } from '@/config/platformModules';
 
 export default function HomePage() {
   const router = useRouter();
@@ -36,54 +37,6 @@ export default function HomePage() {
     localStorage.removeItem('username');
     router.push('/login');
   };
-
-  const modules = [
-    {
-      title: 'Risk Map',
-      description: 'Interactive risk assessment, multi-hazard mapping, and location intelligence',
-      icon: Map,
-      href: '/riskmap',
-      color: 'from-slate-600 to-slate-700',
-      bgColor: 'bg-slate-50',
-      iconColor: 'text-slate-600'
-    },
-    {
-      title: 'Catastrophe Model',
-      description: 'Run catastrophe models, scenario analysis, and loss estimation',
-      icon: Activity,
-      href: '/model',
-      color: 'from-slate-600 to-slate-700',
-      bgColor: 'bg-slate-50',
-      iconColor: 'text-slate-600'
-    },
-    // {
-    //   title: 'Disaster Repository',
-    //   description: 'Browse historical disaster events, typhoon tracks, and catastrophe records',
-    //   icon: AlertTriangle,
-    //   href: '/disasterinfo',
-    //   color: 'from-slate-600 to-slate-700',
-    //   bgColor: 'bg-slate-50',
-    //   iconColor: 'text-slate-600'
-    // },
-    {
-      title: 'Portfolio Management',
-      description: 'Manage insured portfolio, exposure analysis, and business distribution',
-      icon: Building2,
-      href: '/portfolio',
-      color: 'from-slate-600 to-slate-700',
-      bgColor: 'bg-slate-50',
-      iconColor: 'text-slate-600'
-    },
-    {
-      title: 'Extensions',
-      description: 'Advanced tools, disaster early warning, real-time simulation, and future modules',
-      icon: Puzzle,
-      href: '/fuzhu',
-      color: 'from-slate-600 to-slate-700',
-      bgColor: 'bg-slate-50',
-      iconColor: 'text-slate-600'
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 relative">
@@ -139,17 +92,17 @@ export default function HomePage() {
         <div className="mt-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Platform Modules</h2>
           <div className="grid grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {modules.map((module) => (
+            {platformModules.map((module) => (
               <div key={module.href} onClick={() => {
-                if (module.href === '/riskmap' || module.href === '/portfolio') {
+                if (module.resetRegionOnEnter) {
                   switchRegion('worldwide');
                 }
                 router.push(module.href);
               }}>
-                <Card className={`h-full transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer border-2 hover:border-gray-300 ${module.bgColor}`}>
+                <Card className="h-full transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer border-2 hover:border-gray-300 bg-slate-50">
                   <CardHeader>
                     <div className="flex items-center gap-4 mb-3">
-                      <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${module.color} flex items-center justify-center flex-shrink-0`}>
+                      <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${module.cardClassName} flex items-center justify-center flex-shrink-0`}>
                         <module.icon className="w-7 h-7 text-white" />
                       </div>
                       <CardTitle className="text-xl">{module.title}</CardTitle>
@@ -159,7 +112,7 @@ export default function HomePage() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <Button variant="ghost" className={`w-full ${module.iconColor}`}>
+                    <Button variant="ghost" className={`w-full ${module.iconClassName}`}>
                       Enter Module →
                     </Button>
                   </CardContent>
