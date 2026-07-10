@@ -1,0 +1,50 @@
+{
+  "generated": "2026-01-19T08:31:32.032Z",
+  "portfolioFile": "tphk_portfolio_subset_5000.json",
+  "totalPolicies": 5000,
+  "levels": [
+    {
+      "name": "18 Districts",
+      "code": "districts18",
+      "count": 18,
+      "file": "districts-18-statistics.json",
+      "description": "Hong Kong administrative districts"
+    },
+    {
+      "name": "PPU",
+      "code": "ppu",
+      "count": 9,
+      "file": "ppu-statistics.json",
+      "description": "Primary Planning Units (9 regions)"
+    },
+    {
+      "name": "SPU",
+      "code": "spu",
+      "count": 50,
+      "file": "spu-statistics.json",
+      "description": "Secondary Planning Units (52 regions)"
+    },
+    {
+      "name": "TPU",
+      "code": "tpu",
+      "count": 247,
+      "file": "tpu-statistics.json",
+      "description": "Tertiary Planning Units (292 regions) - Recommended"
+    },
+    {
+      "name": "Subunit",
+      "code": "subunit",
+      "count": 97,
+      "file": "subunit-statistics.json",
+      "description": "Subunits (4,916 units) - Finest granularity"
+    }
+  ],
+  "summary": {
+    "totalPolicies": 194506,
+    "matchedTo18Districts": 4836,
+    "matchedToPPU": 4838,
+    "matchedToSPU": 4838,
+    "matchedToTPU": 4838,
+    "unmatchedCount": 162
+  }
+}

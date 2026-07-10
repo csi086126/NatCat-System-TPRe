@@ -1,0 +1,588 @@
+{
+  "district_3": {
+    "id": 3,
+    "name": "KWAI TSING",
+    "nameCN": "葵青區",
+    "count": 144,
+    "totalExposure": 108359773.43,
+    "avgExposure": 752498.43,
+    "minExposure": 300000,
+    "maxExposure": 10000000,
+    "byOccupancy": {
+      "STORAGE": {
+        "count": 2,
+        "totalExposure": 14319773.43
+      },
+      "WAREHOUSE": {
+        "count": 3,
+        "totalExposure": 3240000
+      },
+      "WAREHOUSE  ": {
+        "count": 4,
+        "totalExposure": 4000000
+      },
+      "DWELLING": {
+        "count": 135,
+        "totalExposure": 86800000
+      }
+    },
+    "byYear": {
+      "1977": {
+        "count": 1,
+        "totalExposure": 800000
+      },
+      "1978": {
+        "count": 4,
+        "totalExposure": 1200000
+      },
+      "1984": {
+        "count": 4,
+        "totalExposure": 3200000
+      }
+    }
+  },
+  "district_1": {
+    "id": 1,
+    "name": "WONG TAI SIN",
+    "nameCN": "黃大仙區",
+    "count": 146,
+    "totalExposure": 91710724,
+    "avgExposure": 628155.64,
+    "minExposure": 300000,
+    "maxExposure": 4010724,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 144,
+        "totalExposure": 85710724
+      },
+      "WAREHOUSE": {
+        "count": 2,
+        "totalExposure": 6000000
+      }
+    },
+    "byYear": {
+      "1972": {
+        "count": 4,
+        "totalExposure": 1200000
+      },
+      "1983": {
+        "count": 9,
+        "totalExposure": 4700000
+      },
+      "1985": {
+        "count": 1,
+        "totalExposure": 300000
+      }
+    }
+  },
+  "district_2": {
+    "id": 2,
+    "name": "ISLANDS",
+    "nameCN": "離島區",
+    "count": 85,
+    "totalExposure": 63731654,
+    "avgExposure": 749784.16,
+    "minExposure": 300000,
+    "maxExposure": 3558000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 85,
+        "totalExposure": 63731654
+      }
+    },
+    "byYear": {}
+  },
+  "district_15": {
+    "id": 15,
+    "name": "EASTERN",
+    "nameCN": "東區",
+    "count": 507,
+    "totalExposure": 486385837,
+    "avgExposure": 959340.9,
+    "minExposure": 300000,
+    "maxExposure": 11000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 503,
+        "totalExposure": 466225837
+      },
+      "SHOP": {
+        "count": 4,
+        "totalExposure": 20160000
+      }
+    },
+    "byYear": {
+      "1966": {
+        "count": 8,
+        "totalExposure": 5200000
+      },
+      "1967": {
+        "count": 13,
+        "totalExposure": 10100000
+      },
+      "1968": {
+        "count": 13,
+        "totalExposure": 19525000
+      },
+      "1972": {
+        "count": 3,
+        "totalExposure": 900000
+      },
+      "1975": {
+        "count": 15,
+        "totalExposure": 12100000
+      },
+      "1976": {
+        "count": 8,
+        "totalExposure": 8000000
+      },
+      "1978": {
+        "count": 9,
+        "totalExposure": 3200000
+      },
+      "1980": {
+        "count": 7,
+        "totalExposure": 3600000
+      },
+      "1981": {
+        "count": 7,
+        "totalExposure": 2100000
+      },
+      "1982": {
+        "count": 3,
+        "totalExposure": 5535489
+      },
+      "1983": {
+        "count": 4,
+        "totalExposure": 1200000
+      },
+      "1985": {
+        "count": 30,
+        "totalExposure": 29600000
+      },
+      "1986": {
+        "count": 6,
+        "totalExposure": 2800000
+      },
+      "1987": {
+        "count": 4,
+        "totalExposure": 4800000
+      }
+    }
+  },
+  "district_14": {
+    "id": 14,
+    "name": "WAN CHAI",
+    "nameCN": "灣仔區",
+    "count": 120,
+    "totalExposure": 98091000,
+    "avgExposure": 817425,
+    "minExposure": 300000,
+    "maxExposure": 5591000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 120,
+        "totalExposure": 98091000
+      }
+    },
+    "byYear": {
+      "1966": {
+        "count": 4,
+        "totalExposure": 4800000
+      },
+      "1973": {
+        "count": 4,
+        "totalExposure": 3200000
+      },
+      "1977": {
+        "count": 7,
+        "totalExposure": 5600000
+      },
+      "1979": {
+        "count": 4,
+        "totalExposure": 1200000
+      },
+      "1980": {
+        "count": 3,
+        "totalExposure": 2400000
+      },
+      "1986": {
+        "count": 1,
+        "totalExposure": 800000
+      }
+    }
+  },
+  "district_5": {
+    "id": 5,
+    "name": "YAU TSIM MONG",
+    "nameCN": "油尖旺區",
+    "count": 231,
+    "totalExposure": 300775000,
+    "avgExposure": 1302056.28,
+    "minExposure": 300000,
+    "maxExposure": 6000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 212,
+        "totalExposure": 272860000
+      },
+      "OFFICE": {
+        "count": 15,
+        "totalExposure": 23915000
+      },
+      "SHOP": {
+        "count": 4,
+        "totalExposure": 4000000
+      }
+    },
+    "byYear": {
+      "1964": {
+        "count": 1,
+        "totalExposure": 800000
+      },
+      "1966": {
+        "count": 4,
+        "totalExposure": 19800000
+      }
+    }
+  },
+  "district_8": {
+    "id": 8,
+    "name": "SAI KUNG",
+    "nameCN": "西貢區",
+    "count": 302,
+    "totalExposure": 243730000,
+    "avgExposure": 807052.98,
+    "minExposure": 300000,
+    "maxExposure": 9900000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 299,
+        "totalExposure": 214030000
+      },
+      "SHOP": {
+        "count": 3,
+        "totalExposure": 29700000
+      }
+    },
+    "byYear": {}
+  },
+  "district_10": {
+    "id": 10,
+    "name": "SHA TIN",
+    "nameCN": "沙田區",
+    "count": 314,
+    "totalExposure": 273850640,
+    "avgExposure": 872135.8,
+    "minExposure": 300000,
+    "maxExposure": 6036660,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 306,
+        "totalExposure": 263690640
+      },
+      "WAREHOUSE": {
+        "count": 8,
+        "totalExposure": 10160000
+      }
+    },
+    "byYear": {
+      "1981": {
+        "count": 13,
+        "totalExposure": 10400000
+      },
+      "1982": {
+        "count": 3,
+        "totalExposure": 3600000
+      },
+      "1983": {
+        "count": 7,
+        "totalExposure": 4100000
+      },
+      "1985": {
+        "count": 10,
+        "totalExposure": 4000000
+      },
+      "1986": {
+        "count": 8,
+        "totalExposure": 2400000
+      },
+      "1987": {
+        "count": 10,
+        "totalExposure": 4000000
+      }
+    }
+  },
+  "district_7": {
+    "id": 7,
+    "name": "KWUN TONG",
+    "nameCN": "觀塘區",
+    "count": 312,
+    "totalExposure": 198095000,
+    "avgExposure": 634919.87,
+    "minExposure": 300000,
+    "maxExposure": 3080000,
+    "byOccupancy": {
+      "WAREHOUSE": {
+        "count": 16,
+        "totalExposure": 15155000
+      },
+      "DWELLING": {
+        "count": 288,
+        "totalExposure": 171740000
+      },
+      "SHOP": {
+        "count": 4,
+        "totalExposure": 10000000
+      },
+      "Unknown": {
+        "count": 4,
+        "totalExposure": 1200000
+      }
+    },
+    "byYear": {
+      "1976": {
+        "count": 4,
+        "totalExposure": 3200000
+      },
+      "1977": {
+        "count": 32,
+        "totalExposure": 15600000
+      },
+      "1980": {
+        "count": 4,
+        "totalExposure": 1200000
+      },
+      "1981": {
+        "count": 5,
+        "totalExposure": 2000000
+      },
+      "1985": {
+        "count": 5,
+        "totalExposure": 4000000
+      }
+    }
+  },
+  "district_13": {
+    "id": 13,
+    "name": "CENTRAL & WESTERN",
+    "nameCN": "中西區",
+    "count": 160,
+    "totalExposure": 184640000,
+    "avgExposure": 1154000,
+    "minExposure": 300000,
+    "maxExposure": 18000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 160,
+        "totalExposure": 184640000
+      }
+    },
+    "byYear": {
+      "1981": {
+        "count": 6,
+        "totalExposure": 9800000
+      },
+      "1985": {
+        "count": 5,
+        "totalExposure": 5400000
+      },
+      "1987": {
+        "count": 3,
+        "totalExposure": 3600000
+      }
+    }
+  },
+  "district_17": {
+    "id": 17,
+    "name": "TUEN MUN",
+    "nameCN": "屯門區",
+    "count": 194,
+    "totalExposure": 169926660,
+    "avgExposure": 875910.62,
+    "minExposure": 300000,
+    "maxExposure": 6010129,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 190,
+        "totalExposure": 159046660
+      },
+      "WAREHOUSE": {
+        "count": 4,
+        "totalExposure": 10880000
+      }
+    },
+    "byYear": {}
+  },
+  "district_18": {
+    "id": 18,
+    "name": "YUEN LONG",
+    "nameCN": "元朗區",
+    "count": 282,
+    "totalExposure": 223825260,
+    "avgExposure": 793706.6,
+    "minExposure": 300000,
+    "maxExposure": 4510000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 282,
+        "totalExposure": 223825260
+      }
+    },
+    "byYear": {}
+  },
+  "district_4": {
+    "id": 4,
+    "name": "SHAM SHUI PO",
+    "nameCN": "深水埗區",
+    "count": 206,
+    "totalExposure": 193236648,
+    "avgExposure": 938041.98,
+    "minExposure": 300000,
+    "maxExposure": 20000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 206,
+        "totalExposure": 193236648
+      }
+    },
+    "byYear": {}
+  },
+  "district_16": {
+    "id": 16,
+    "name": "SOUTHERN",
+    "nameCN": "南區",
+    "count": 115,
+    "totalExposure": 84060000,
+    "avgExposure": 730956.52,
+    "minExposure": 300000,
+    "maxExposure": 2820000,
+    "byOccupancy": {
+      "OFFICE": {
+        "count": 1,
+        "totalExposure": 1440000
+      },
+      "DWELLING": {
+        "count": 113,
+        "totalExposure": 81820000
+      },
+      "住宅": {
+        "count": 1,
+        "totalExposure": 800000
+      }
+    },
+    "byYear": {
+      "1979": {
+        "count": 4,
+        "totalExposure": 3200000
+      },
+      "1981": {
+        "count": 4,
+        "totalExposure": 3200000
+      },
+      "1987": {
+        "count": 4,
+        "totalExposure": 3200000
+      }
+    }
+  },
+  "district_12": {
+    "id": 12,
+    "name": "TSUEN WAN",
+    "nameCN": "荃灣區",
+    "count": 126,
+    "totalExposure": 102388000,
+    "avgExposure": 812603.17,
+    "minExposure": 252000,
+    "maxExposure": 2000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 122,
+        "totalExposure": 101380000
+      },
+      "車位": {
+        "count": 4,
+        "totalExposure": 1008000
+      }
+    },
+    "byYear": {
+      "1981": {
+        "count": 5,
+        "totalExposure": 4500000
+      },
+      "1987": {
+        "count": 16,
+        "totalExposure": 15200000
+      }
+    }
+  },
+  "district_6": {
+    "id": 6,
+    "name": "KOWLOON CITY",
+    "nameCN": "九龍城區",
+    "count": 147,
+    "totalExposure": 121200000,
+    "avgExposure": 824489.8,
+    "minExposure": 300000,
+    "maxExposure": 3000000,
+    "byOccupancy": {
+      "OFFICE": {
+        "count": 3,
+        "totalExposure": 3600000
+      },
+      "DWELLING": {
+        "count": 144,
+        "totalExposure": 117600000
+      }
+    },
+    "byYear": {
+      "1981": {
+        "count": 2,
+        "totalExposure": 1600000
+      }
+    }
+  },
+  "district_11": {
+    "id": 11,
+    "name": "NORTH",
+    "nameCN": "北區",
+    "count": 129,
+    "totalExposure": 98821040,
+    "avgExposure": 766054.57,
+    "minExposure": 300000,
+    "maxExposure": 4407420,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 129,
+        "totalExposure": 98821040
+      }
+    },
+    "byYear": {}
+  },
+  "district_9": {
+    "id": 9,
+    "name": "TAI PO",
+    "nameCN": "大埔區",
+    "count": 129,
+    "totalExposure": 110700000,
+    "avgExposure": 858139.53,
+    "minExposure": 300000,
+    "maxExposure": 3050000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 125,
+        "totalExposure": 100700000
+      },
+      "SHOP": {
+        "count": 4,
+        "totalExposure": 10000000
+      }
+    },
+    "byYear": {
+      "1986": {
+        "count": 9,
+        "totalExposure": 7200000
+      }
+    }
+  }
+}

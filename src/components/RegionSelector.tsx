@@ -28,7 +28,7 @@ export function RegionSelector() {
                 <span className="font-semibold text-blue-600 min-w-[28px]">{region.icon}</span>
                 <span>-</span>
                 <span>{region.nameEn}</span>
-                {region.status === 'development' && (
+                {region.status === 'development' && region.code !== 'mo' && (
                   <span className="text-xs text-orange-500 ml-1">(Dev)</span>
                 )}
               </div>

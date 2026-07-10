@@ -10,9 +10,11 @@ import {
   Globe, AlertTriangle, Building2, Map, Activity, Puzzle, User, LogOut,
   TrendingUp, Shield, BarChart3, MapPin, ChevronDown, ChevronUp
 } from 'lucide-react';
+import { useRegion } from "@/contexts/RegionContext";
 
 export default function HomePage() {
   const router = useRouter();
+  const { switchRegion } = useRegion();
   const [username, setUsername] = useState('');
   const [showStats, setShowStats] = useState(false); // 控制统计信息的显示/隐藏
 
@@ -67,7 +69,7 @@ export default function HomePage() {
       title: 'Portfolio Management',
       description: 'Manage insured portfolio, exposure analysis, and business distribution',
       icon: Building2,
-      href: '/asset',
+      href: '/portfolio',
       color: 'from-slate-600 to-slate-700',
       bgColor: 'bg-slate-50',
       iconColor: 'text-slate-600'
@@ -138,7 +140,12 @@ export default function HomePage() {
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Platform Modules</h2>
           <div className="grid grid-cols-2 gap-8 max-w-4xl mx-auto">
             {modules.map((module) => (
-              <Link key={module.href} href={module.href}>
+              <div key={module.href} onClick={() => {
+                if (module.href === '/riskmap' || module.href === '/portfolio') {
+                  switchRegion('worldwide');
+                }
+                router.push(module.href);
+              }}>
                 <Card className={`h-full transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer border-2 hover:border-gray-300 ${module.bgColor}`}>
                   <CardHeader>
                     <div className="flex items-center gap-4 mb-3">
@@ -157,7 +164,7 @@ export default function HomePage() {
                     </Button>
                   </CardContent>
                 </Card>
-              </Link>
+              </div>
             ))}
           </div>
         </div>

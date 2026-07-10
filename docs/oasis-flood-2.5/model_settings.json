@@ -1,0 +1,33 @@
+{
+  "model_settings": {
+    "event_set": {
+      "name": "Event Set",
+      "desc": "Compound flood 10,000-year stochastic catalogue",
+      "default": "p",
+      "options": [
+        { "id": "p", "desc": "Probabilistic (full 10,000-year set)" }
+      ]
+    },
+    "event_occurrence_id": {
+      "name": "Occurrence Set",
+      "desc": "Event occurrence mapping",
+      "default": "lt",
+      "options": [
+        { "id": "lt", "desc": "Long term (10,000 periods)" }
+      ]
+    }
+  },
+  "lookup_settings": {
+    "supported_perils": [
+      { "id": "WSS", "desc": "Storm Surge" },
+      { "id": "ORF", "desc": "River / Fluvial Flood (upstream river inflow)" },
+      { "id": "OSF", "desc": "Flash / Surface / Pluvial Flood (rainfall + typhoon rain)" },
+      { "id": "OO1", "desc": "Flood (all sub-perils group)" }
+    ]
+  },
+  "model_default_samples": 100,
+  "data_settings": {
+    "damage_category": "buildings",
+    "valid_output_perspectives": [ "gul", "il" ]
+  }
+}

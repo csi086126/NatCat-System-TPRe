@@ -19,6 +19,8 @@ import "leaflet/dist/leaflet.css";
 const MapContainer = dynamic(() => import('react-leaflet').then(mod => mod.MapContainer), { ssr: false });
 const TileLayer = dynamic(() => import('react-leaflet').then(mod => mod.TileLayer), { ssr: false });
 const WMSTileLayer = dynamic(() => import('react-leaflet').then(mod => mod.WMSTileLayer), { ssr: false });
+const GeoJSON = dynamic(() => import('react-leaflet').then(mod => mod.GeoJSON), { ssr: false });
+const Popup = dynamic(() => import('react-leaflet').then(mod => mod.Popup), { ssr: false });
 const MapCoordinateDisplay = dynamic(() => import('@/components/MapCoordinateDisplay').then(mod => mod.MapCoordinateDisplay), { ssr: false });
 
 // 4. 主组件
@@ -74,13 +76,13 @@ export default function Component() {
   const [urbanElements, setUrbanElements] = useState({
     topography: false,
     geomorphology: false,
-    riverNetwork: false, 
+    riverNetwork: false,
     boundary: false,
     landCover: false, // 新增: 土地覆盖
     buildingRisk: false,
-    roadsAndStreets: false, 
+    roadsAndStreets: false,
     landUse: false,
-    drainageConduits: false, 
+    drainageConduits: false,
     drainageJunctions: false,
     drainageOutfalls: false,
     reservoirRegulation: false,
@@ -96,11 +98,205 @@ export default function Component() {
     earthMapIntegration: false,
   });
 
+  // Portfolio Analysis Layers - 保单分析图层
+  const [portfolioLayers, setPortfolioLayers] = useState({
+    districts18: false,      // 18 Districts
+    ppu9: false,             // PPU (9) - Polygons
+    spu52: false,            // SPU (52) - Polygons
+    tpu292: false,           // TPU (292) - Polygons
+    subunit4916: false,      // Subunit (4,916) - Polygons
+  });
+
+  // 选中的区域信息
+  const [selectedRegion, setSelectedRegion] = useState<any>(null);
+  const [portfolioStats, setPortfolioStats] = useState<any>(null);
+  const [isLoadingStats, setIsLoadingStats] = useState(false);
+
+  // GeoJSON 数据状态
+  const [geojsonData, setGeojsonData] = useState<any>(null);
+
+  // 加载选中的 GeoJSON 数据
+  useEffect(() => {
+    const loadGeoJSON = async () => {
+      let fileName = null;
+
+      if (portfolioLayers.tpu292) {
+        fileName = 'Hong_Kong_292_TPU.geojson';
+      }
+      // 其他图层的GeoJSON文件可以在这里添加
+
+      if (fileName) {
+        try {
+          const response = await fetch(`/data/shapefiles/${fileName}`);
+          const data = await response.json();
+          setGeojsonData(data);
+          console.log('✅ GeoJSON loaded:', fileName);
+        } catch (error) {
+          console.error('❌ Failed to load GeoJSON:', error);
+          setGeojsonData(null);
+        }
+      } else {
+        setGeojsonData(null);
+      }
+    };
+
+    loadGeoJSON();
+  }, [portfolioLayers]);
+
+  // GeoJSON 样式函数
+  const geoJSONStyle = (feature: any) => {
+    return {
+      fillColor: '#3b82f6',
+      fillOpacity: 0.2,
+      color: '#2563eb',
+      weight: 2,
+    };
+  };
+
+  // 鼠标悬停时的样式
+  const highlightFeature = (e: any) => {
+    const layer = e.target;
+    layer.setStyle({
+      fillColor: '#fbbf24',
+      fillOpacity: 0.4,
+      weight: 3,
+      color: '#f59e0b',
+    });
+  };
+
+  // 鼠标移出时恢复样式
+  const resetHighlight = (e: any) => {
+    const layer = e.target;
+    layer.setStyle(geoJSONStyle(layer.feature));
+  };
+
+  // 点击区域时查询保单统计 - 使用客户端空间计算
+  const onFeatureClick = async (feature: any, layer: any) => {
+    setSelectedRegion(feature.properties);
+    setIsLoadingStats(true);
+    setPortfolioStats(null);
+
+    try {
+      // 方案A：使用客户端空间计算（立即可用，无需数据库配置）
+      // 获取所有保单数据
+      const policiesResponse = await fetch('/api/portfolio/all-policies');
+      const policiesData = await policiesResponse.json();
+
+      if (policiesData.success && policiesData.data) {
+        // 在客户端计算哪些保单在这个多边形内
+        const stats = calculateStatsForPolygon(feature, policiesData.data);
+        setPortfolioStats(stats);
+      }
+
+      // 方案B（备选）：如果数据库已配置TPU列，可以改用API查询
+      // const queryParam = getQueryParam(feature);
+      // if (queryParam) {
+      //   const response = await fetch(`/api/portfolio/region-stats?${queryParam}`);
+      //   const data = await response.json();
+      //   if (data.success) setPortfolioStats(data.data);
+      // }
+
+    } catch (error) {
+      console.error('Error fetching portfolio stats:', error);
+    } finally {
+      setIsLoadingStats(false);
+    }
+  };
+
+  // 客户端空间计算函数
+  const calculateStatsForPolygon = (feature: any, policies: any[]) => {
+    // 简单的点在多边形内判断（可以改用turf.js库获得更精确的结果）
+    const polygon = feature.geometry;
+
+    const policiesInRegion = policies.filter((policy: any) => {
+      if (!policy.latitude || !policy.longitude) return false;
+
+      // 简单的边界框检查（快速但不精确）
+      // TODO: 使用 @turf/boolean-point-in-polygon 获得精确结果
+      const coords = polygon.coordinates[0];
+      if (!coords || coords.length === 0) return false;
+
+      const lats = coords.map((c: number[]) => c[1]);
+      const lngs = coords.map((c: number[]) => c[0]);
+      const minLat = Math.min(...lats);
+      const maxLat = Math.max(...lats);
+      const minLng = Math.min(...lngs);
+      const maxLng = Math.max(...lngs);
+
+      return policy.latitude >= minLat && policy.latitude <= maxLat &&
+             policy.longitude >= minLng && policy.longitude <= maxLng;
+    });
+
+    // 计算统计数据
+    if (policiesInRegion.length === 0) {
+      return {
+        policy_count: 0,
+        total_exposure: 0,
+        avg_exposure: 0,
+        message: 'No policies found in this region (using spatial analysis)'
+      };
+    }
+
+    const total_exposure = policiesInRegion.reduce((sum: number, p: any) =>
+      sum + (p.sum_insured || 0), 0);
+
+    const businessTypes = new Set(policiesInRegion.map((p: any) => p.business_type).filter(Boolean));
+
+    return {
+      region_type: feature.properties.TPU ? 'TPU' :
+                   feature.properties.PPU ? 'PPU' :
+                   feature.properties.SPU ? 'SPU' : 'DISTRICT',
+      region_id: feature.properties.TPU || feature.properties.PPU ||
+                 feature.properties.SPU || feature.properties.DISTRICT,
+      policy_count: policiesInRegion.length,
+      total_exposure: total_exposure,
+      avg_exposure: total_exposure / policiesInRegion.length,
+      min_exposure: Math.min(...policiesInRegion.map((p: any) => p.sum_insured || 0)),
+      max_exposure: Math.max(...policiesInRegion.map((p: any) => p.sum_insured || 0)),
+      business_type_count: businessTypes.size,
+      calculation_method: 'client-side spatial analysis',
+    };
+  };
+
+  // GeoJSON 每个要素的事件处理
+  const onEachFeature = (feature: any, layer: any) => {
+    layer.on({
+      mouseover: highlightFeature,
+      mouseout: resetHighlight,
+      click: () => onFeatureClick(feature, layer),
+    });
+
+    // 添加 Tooltip 显示区域名称
+    const properties = feature.properties;
+    let tooltipContent = '';
+
+    if (properties.TPU) tooltipContent = `TPU: ${properties.TPU}`;
+    else if (properties.PPU) tooltipContent = `PPU: ${properties.PPU}`;
+    else if (properties.SPU) tooltipContent = `SPU: ${properties.SPU}`;
+    else if (properties.DISTRICT) tooltipContent = `District: ${properties.DISTRICT}`;
+
+    if (tooltipContent) {
+      layer.bindTooltip(tooltipContent, {
+        permanent: false,
+        direction: 'center',
+        className: 'custom-tooltip',
+      });
+    }
+  };
+
   // 处理左侧复选框的点击事件
   const handleElementToggle = (elementKey: keyof typeof urbanElements) => {
     setUrbanElements(prev => ({
       ...prev,
       [elementKey]: !prev[elementKey]
+    }));
+  };
+
+  // 处理保单分析图层切换
+  const handlePortfolioLayerToggle = (layerKey: keyof typeof portfolioLayers) => {
+    setPortfolioLayers(prev => ({
+      ...prev,
+      [layerKey]: !prev[layerKey]
     }));
   };
 
@@ -285,6 +481,37 @@ export default function Component() {
               </div>
             </CardContent>
           </Card>
+
+          <Card className="border-2 border-blue-400">
+            <CardHeader className="bg-blue-50">
+              <CardTitle className="text-base flex items-center gap-2">
+                <Building2 className="h-4 w-4" />
+                Portfolio Analysis
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <div className="flex items-center space-x-2">
+                <Checkbox id="districts18" checked={portfolioLayers.districts18} onCheckedChange={() => handlePortfolioLayerToggle('districts18')} />
+                <Label htmlFor="districts18" className="font-normal">18 Districts</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Checkbox id="ppu9" checked={portfolioLayers.ppu9} onCheckedChange={() => handlePortfolioLayerToggle('ppu9')} />
+                <Label htmlFor="ppu9" className="font-normal">PPU (9 Polygons)</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Checkbox id="spu52" checked={portfolioLayers.spu52} onCheckedChange={() => handlePortfolioLayerToggle('spu52')} />
+                <Label htmlFor="spu52" className="font-normal">SPU (52 Polygons)</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Checkbox id="tpu292" checked={portfolioLayers.tpu292} onCheckedChange={() => handlePortfolioLayerToggle('tpu292')} />
+                <Label htmlFor="tpu292" className="font-normal">TPU (292 Polygons)</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Checkbox id="subunit4916" checked={portfolioLayers.subunit4916} onCheckedChange={() => handlePortfolioLayerToggle('subunit4916')} />
+                <Label htmlFor="subunit4916" className="font-normal">Subunit (4,916 Polygons)</Label>
+              </div>
+            </CardContent>
+          </Card>
         </aside>
 
         {/* 中间地图区域 */}
@@ -429,10 +656,90 @@ export default function Component() {
               />
             )}
 
+            {/* Portfolio Analysis GeoJSON Layers */}
+            {geojsonData && (
+              <GeoJSON
+                key={JSON.stringify(portfolioLayers)}
+                data={geojsonData}
+                style={geoJSONStyle}
+                onEachFeature={onEachFeature}
+              />
+            )}
+
             {/* Coordinate Display */}
             <MapCoordinateDisplay />
 
           </MapContainer>
+
+          {/* 保单统计信息面板 */}
+          {selectedRegion && (
+            <div className="absolute top-4 right-4 bg-white rounded-lg shadow-lg p-4 w-80 z-[1000]">
+              <div className="flex justify-between items-start mb-3">
+                <h3 className="text-lg font-semibold text-gray-800">Portfolio Statistics</h3>
+                <button
+                  onClick={() => {
+                    setSelectedRegion(null);
+                    setPortfolioStats(null);
+                  }}
+                  className="text-gray-500 hover:text-gray-700"
+                >
+                  ✕
+                </button>
+              </div>
+
+              <div className="space-y-2 mb-3">
+                <div className="text-sm">
+                  {selectedRegion.TPU && <p><span className="font-medium">TPU:</span> {selectedRegion.TPU}</p>}
+                  {selectedRegion.PPU && <p><span className="font-medium">PPU:</span> {selectedRegion.PPU}</p>}
+                  {selectedRegion.SPU && <p><span className="font-medium">SPU:</span> {selectedRegion.SPU}</p>}
+                  {selectedRegion.DISTRICT && <p><span className="font-medium">District:</span> {selectedRegion.DISTRICT}</p>}
+                </div>
+              </div>
+
+              <div className="border-t pt-3">
+                {isLoadingStats ? (
+                  <div className="flex items-center justify-center py-8">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                  </div>
+                ) : portfolioStats ? (
+                  <div className="space-y-2 text-sm">
+                    <div className="bg-blue-50 p-3 rounded">
+                      <p className="text-xs text-gray-600">Total Policies</p>
+                      <p className="text-2xl font-bold text-blue-600">{portfolioStats.policy_count?.toLocaleString() || 0}</p>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="bg-gray-50 p-2 rounded">
+                        <p className="text-xs text-gray-600">Total Exposure</p>
+                        <p className="font-semibold text-gray-800">
+                          {portfolioStats.total_exposure
+                            ? `$${(portfolioStats.total_exposure / 1000000).toFixed(2)}M`
+                            : 'N/A'}
+                        </p>
+                      </div>
+                      <div className="bg-gray-50 p-2 rounded">
+                        <p className="text-xs text-gray-600">Avg Exposure</p>
+                        <p className="font-semibold text-gray-800">
+                          {portfolioStats.avg_exposure
+                            ? `$${(portfolioStats.avg_exposure / 1000).toFixed(1)}K`
+                            : 'N/A'}
+                        </p>
+                      </div>
+                    </div>
+                    {portfolioStats.event_count && (
+                      <div className="bg-gray-50 p-2 rounded">
+                        <p className="text-xs text-gray-600">Event Types</p>
+                        <p className="font-semibold text-gray-800">{portfolioStats.event_count}</p>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <div className="text-center py-4 text-gray-500 text-sm">
+                    No portfolio data available for this region
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
         </main>
       </div>
     </div>

@@ -1,0 +1,29 @@
+# Portfolio Management Dependencies (Python 3.13 Compatible)
+
+# Core Framework
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+sqlalchemy>=2.0.23
+geoalchemy2>=0.14.2
+
+# Database - IMPORTANT: Install this first
+psycopg2-binary>=2.9.9
+
+# Data Processing (compatible with Python 3.13)
+pandas>=2.2.0
+numpy>=1.26.0
+openpyxl>=3.1.2
+
+# Geocoding
+requests>=2.31.0
+python-dotenv>=1.0.0
+
+# Geospatial (will install dependencies)
+shapely>=2.0.0
+
+# API
+pydantic>=2.5.0
+python-multipart>=0.0.6
+
+# Utilities
+python-dateutil>=2.8.2

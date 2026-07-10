@@ -1,0 +1,128 @@
+[
+  {
+    "id": "TY2017-HATO",
+    "name": "Typhoon Hato (天鸽)",
+    "nameEn": "Typhoon Hato",
+    "nameCn": "台风天鸽",
+    "type": "Typhoon",
+    "date": "2017-08-23",
+    "year": 2017,
+    "region": "Macau",
+    "maxWindSpeed": "185 km/h",
+    "maxWindSpeedCategory": "Severe Typhoon",
+    "totalRainfall": "320 mm",
+    "peakStormSurge": "2.5 m",
+    "estimatedLoss": "$1.65 Billion USD",
+    "affectedPopulation": "680,000",
+    "affectedAreas": ["Macau Peninsula", "Taipa", "Coloane"],
+    "geometry": {
+      "type": "Point",
+      "coordinates": [113.5439, 22.1987]
+    },
+    "impactSummary": "Typhoon Hato was the strongest typhoon to hit Macau in 53 years. It caused massive flooding across Macau Peninsula and Taipa, with significant damage to residential and commercial properties.",
+    "geoserverLayers": [
+      {
+        "id": "hato_macau_peninsula",
+        "name": "Flood Depth - Macau Peninsula",
+        "workspace": "Macau",
+        "layerName": "Hato_MacauPeninsula",
+        "type": "raster",
+        "format": "image/png",
+        "description": "Simulated flood depth for Macau Peninsula during Typhoon Hato (2017)"
+      },
+      {
+        "id": "hato_taipa",
+        "name": "Flood Depth - Taipa",
+        "workspace": "Macau",
+        "layerName": "Hato_Taipa",
+        "type": "raster",
+        "format": "image/png",
+        "description": "Simulated flood depth for Taipa during Typhoon Hato (2017)"
+      }
+    ]
+  },
+  {
+    "id": "TY2018-MANGKHUT",
+    "name": "Typhoon Mangkhut (山竹)",
+    "nameEn": "Typhoon Mangkhut",
+    "nameCn": "台风山竹",
+    "type": "Typhoon",
+    "date": "2018-09-16",
+    "year": 2018,
+    "region": "Macau",
+    "maxWindSpeed": "215 km/h",
+    "maxWindSpeedCategory": "Super Typhoon",
+    "totalRainfall": "450 mm",
+    "peakStormSurge": "3.2 m",
+    "estimatedLoss": "$2.83 Billion USD",
+    "affectedPopulation": "680,000",
+    "affectedAreas": ["Macau Peninsula", "Taipa", "Coloane", "Cotai"],
+    "geometry": {
+      "type": "Point",
+      "coordinates": [113.5439, 22.1987]
+    },
+    "impactSummary": "Super Typhoon Mangkhut was one of the most powerful storms to affect Macau. It caused extensive flooding, particularly in low-lying coastal areas, with severe damage to infrastructure and properties.",
+    "geoserverLayers": [
+      {
+        "id": "mangkhut_macau_peninsula",
+        "name": "Flood Depth - Macau Peninsula",
+        "workspace": "Macau",
+        "layerName": "Mangkhut_MacauPeninsula",
+        "type": "raster",
+        "format": "image/png",
+        "description": "Simulated flood depth for Macau Peninsula during Typhoon Mangkhut (2018)"
+      },
+      {
+        "id": "mangkhut_taipa",
+        "name": "Flood Depth - Taipa",
+        "workspace": "Macau",
+        "layerName": "Mangkhut_Taipa",
+        "type": "raster",
+        "format": "image/png",
+        "description": "Simulated flood depth for Taipa during Typhoon Mangkhut (2018)"
+      }
+    ]
+  },
+  {
+    "id": "TY2023-RAGASA",
+    "name": "Typhoon Ragasa (雷伽萨)",
+    "nameEn": "Typhoon Ragasa",
+    "nameCn": "台风雷伽萨",
+    "type": "Typhoon",
+    "date": "2023-09-02",
+    "year": 2023,
+    "region": "Macau",
+    "maxWindSpeed": "165 km/h",
+    "maxWindSpeedCategory": "Typhoon",
+    "totalRainfall": "280 mm",
+    "peakStormSurge": "1.8 m",
+    "estimatedLoss": "$950 Million USD",
+    "affectedPopulation": "680,000",
+    "affectedAreas": ["Macau Peninsula", "Taipa"],
+    "geometry": {
+      "type": "Point",
+      "coordinates": [113.5439, 22.1987]
+    },
+    "impactSummary": "Typhoon Ragasa brought significant rainfall and storm surge to Macau, causing flooding in several districts. The event resulted in substantial property damage and business interruption.",
+    "geoserverLayers": [
+      {
+        "id": "ragasa_macau_peninsula",
+        "name": "Flood Depth - Macau Peninsula",
+        "workspace": "Macau",
+        "layerName": "Ragasa_MacauPeninsula",
+        "type": "raster",
+        "format": "image/png",
+        "description": "Simulated flood depth for Macau Peninsula during Typhoon Ragasa (2023)"
+      },
+      {
+        "id": "ragasa_taipa",
+        "name": "Flood Depth - Taipa",
+        "workspace": "Macau",
+        "layerName": "Ragasa_Taipa",
+        "type": "raster",
+        "format": "image/png",
+        "description": "Simulated flood depth for Taipa during Typhoon Ragasa (2023)"
+      }
+    ]
+  }
+]

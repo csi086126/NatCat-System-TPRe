@@ -1,0 +1,252 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2025-11-18T12:00:00Z",
+  "description": "Regional configuration for NatCat Platform",
+  
+  "regions": [
+    {
+      "code": "Macau",
+      "name": "Macau SAR",
+      "nameZh": "澳门特别行政区",
+      "nameLocal": "澳門",
+      
+      "geography": {
+        "bounds": [113.528, 22.109, 113.598, 22.217],
+        "centerPoint": [113.5439, 22.1987],
+        "area": 32.9,
+        "areaUnit": "km²",
+        "coastlineLength": 41,
+        "coastlineLengthUnit": "km",
+        "averageElevation": 23,
+        "elevationUnit": "m"
+      },
+      
+      "demographics": {
+        "population": 683218,
+        "populationYear": 2023,
+        "populationDensity": 20759,
+        "gdp": 27.5,
+        "gdpUnit": "billion USD",
+        "gdpYear": 2023,
+        "currency": "MOP",
+        "currencyName": "Macanese Pataca"
+      },
+      
+      "riskProfile": {
+        "mainHazards": ["Typhoon", "StormSurge", "Rainstorm", "CoastalFlood"],
+        "vulnerabilityLevel": "High",
+        "exposureLevel": "Very High",
+        "resilience": "Medium",
+        "notes": "Low-lying coastal city highly vulnerable to typhoon-induced storm surge and flooding"
+      },
+      
+      "dataConfig": {
+        "geoserverWorkspace": "Macau",
+        "dataDirectory": "D:/geodata/Macau",
+        "eventsDirectory": "public/data/events/macau",
+        "timezone": "Asia/Macau",
+        "defaultCRS": "EPSG:4326",
+        "localCRS": "EPSG:3857"
+      },
+      
+      "visualization": {
+        "defaultZoom": 13,
+        "minZoom": 11,
+        "maxZoom": 18,
+        "mapCenter": [113.5439, 22.1987],
+        "color": "#1E88E5",
+        "icon": "🇲🇴"
+      },
+      
+      "contacts": {
+        "team": "Team Macau",
+        "email": "macau@natcat-platform.com",
+        "dataSource": "Macau Meteorological and Geophysical Bureau (SMG)"
+      }
+    },
+    {
+      "code": "HongKong",
+      "name": "Hong Kong SAR",
+      "nameZh": "香港特别行政区",
+      "nameLocal": "香港",
+      
+      "geography": {
+        "bounds": [113.835, 22.153, 114.441, 22.561],
+        "centerPoint": [114.1694, 22.3193],
+        "area": 1106.3,
+        "areaUnit": "km²",
+        "coastlineLength": 733,
+        "coastlineLengthUnit": "km"
+      },
+      
+      "demographics": {
+        "population": 7413100,
+        "populationYear": 2023,
+        "populationDensity": 6700,
+        "gdp": 382.0,
+        "gdpUnit": "billion USD",
+        "gdpYear": 2023,
+        "currency": "HKD",
+        "currencyName": "Hong Kong Dollar"
+      },
+      
+      "riskProfile": {
+        "mainHazards": ["Typhoon", "Rainstorm", "Landslide", "CoastalFlood"],
+        "vulnerabilityLevel": "High",
+        "exposureLevel": "Very High",
+        "resilience": "High",
+        "notes": "Dense urban area with advanced infrastructure, but still vulnerable to extreme weather"
+      },
+      
+      "dataConfig": {
+        "geoserverWorkspace": "HongKong",
+        "dataDirectory": "D:/geodata/HongKong",
+        "eventsDirectory": "public/data/events/hongkong",
+        "timezone": "Asia/Hong_Kong",
+        "defaultCRS": "EPSG:4326",
+        "localCRS": "EPSG:2326"
+      },
+      
+      "visualization": {
+        "defaultZoom": 11,
+        "minZoom": 9,
+        "maxZoom": 18,
+        "mapCenter": [114.1694, 22.3193],
+        "color": "#D32F2F",
+        "icon": "🇭🇰"
+      },
+      
+      "contacts": {
+        "team": "Team Hong Kong",
+        "email": "hongkong@natcat-platform.com",
+        "dataSource": "Hong Kong Observatory (HKO)"
+      }
+    },
+    {
+      "code": "GBA",
+      "name": "Greater Bay Area",
+      "nameZh": "粤港澳大湾区",
+      "nameLocal": "大湾区",
+      
+      "geography": {
+        "bounds": [112.921, 21.617, 114.441, 23.937],
+        "centerPoint": [113.681, 22.777],
+        "area": 56000,
+        "areaUnit": "km²"
+      },
+      
+      "demographics": {
+        "population": 86000000,
+        "populationYear": 2023,
+        "gdp": 1700,
+        "gdpUnit": "billion USD",
+        "gdpYear": 2023,
+        "currency": "CNY",
+        "currencyName": "Chinese Yuan"
+      },
+      
+      "riskProfile": {
+        "mainHazards": ["Typhoon", "Rainstorm", "Flood", "StormSurge"],
+        "vulnerabilityLevel": "High",
+        "exposureLevel": "Very High",
+        "resilience": "Medium-High",
+        "notes": "Major economic region covering multiple cities including Guangzhou, Shenzhen, Zhuhai, etc."
+      },
+      
+      "dataConfig": {
+        "geoserverWorkspace": "GBA",
+        "dataDirectory": "D:/geodata/GBA",
+        "eventsDirectory": "public/data/events/gba",
+        "timezone": "Asia/Shanghai",
+        "defaultCRS": "EPSG:4326",
+        "localCRS": "EPSG:4547"
+      },
+      
+      "visualization": {
+        "defaultZoom": 9,
+        "minZoom": 7,
+        "maxZoom": 16,
+        "mapCenter": [113.681, 22.777],
+        "color": "#388E3C",
+        "icon": "🌉"
+      },
+      
+      "contacts": {
+        "team": "Team GBA",
+        "email": "gba@natcat-platform.com",
+        "dataSource": "Multiple regional meteorological bureaus"
+      }
+    },
+    {
+      "code": "SEA",
+      "name": "Southeast Asia",
+      "nameZh": "东南亚",
+      "nameLocal": "Southeast Asia",
+      
+      "geography": {
+        "bounds": [92.0, -11.0, 141.0, 28.0],
+        "centerPoint": [116.5, 8.5],
+        "area": 4545000,
+        "areaUnit": "km²"
+      },
+      
+      "demographics": {
+        "population": 686000000,
+        "populationYear": 2023,
+        "gdp": 3500,
+        "gdpUnit": "billion USD",
+        "gdpYear": 2023,
+        "currency": "USD",
+        "currencyName": "US Dollar (reporting)"
+      },
+      
+      "riskProfile": {
+        "mainHazards": ["Typhoon", "Flood", "Earthquake", "Tsunami", "Volcano"],
+        "vulnerabilityLevel": "High",
+        "exposureLevel": "Very High",
+        "resilience": "Low-Medium",
+        "notes": "Diverse region covering Thailand, Vietnam, Philippines, Indonesia, Malaysia, Singapore, etc."
+      },
+      
+      "dataConfig": {
+        "geoserverWorkspace": "SEA",
+        "dataDirectory": "D:/geodata/SEA",
+        "eventsDirectory": "public/data/events/sea",
+        "timezone": "Asia/Bangkok",
+        "defaultCRS": "EPSG:4326"
+      },
+      
+      "visualization": {
+        "defaultZoom": 5,
+        "minZoom": 4,
+        "maxZoom": 14,
+        "mapCenter": [116.5, 8.5],
+        "color": "#F57C00",
+        "icon": "🌏"
+      },
+      
+      "contacts": {
+        "team": "Team SEA",
+        "email": "sea@natcat-platform.com",
+        "dataSource": "Multiple national meteorological agencies"
+      }
+    }
+  ],
+  
+  "regionGroups": [
+    {
+      "code": "HKMO",
+      "name": "Hong Kong & Macau",
+      "nameZh": "港澳",
+      "members": ["HongKong", "Macau"],
+      "description": "Special Administrative Regions with high exposure to typhoons"
+    },
+    {
+      "code": "PearlRiverDelta",
+      "name": "Pearl River Delta",
+      "nameZh": "珠江三角洲",
+      "members": ["HongKong", "Macau", "GBA"],
+      "description": "Major economic zone in southern China"
+    }
+  ]
+}

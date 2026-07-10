@@ -143,7 +143,7 @@ const REGIONS: Record<string, RegionConfig> = {
         weight: 0.30
       }
     ],
-    status: 'development'
+    status: 'active'
   },
   gba: {
     code: 'gba',

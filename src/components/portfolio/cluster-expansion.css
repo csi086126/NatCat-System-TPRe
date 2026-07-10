@@ -1,0 +1,17 @@
+/* Cluster Expansion Animation */
+.leaflet-interactive {
+  transition: cx 0.3s ease-out, cy 0.3s ease-out, r 0.3s ease-out !important;
+}
+
+.cluster-line {
+  animation: drawLine 0.3s ease-out;
+}
+
+@keyframes drawLine {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

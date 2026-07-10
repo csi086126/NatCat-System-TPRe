@@ -1,0 +1,318 @@
+/**
+ * Custom styles for map controls
+ * Layers control in top-right, draw tools in top-left
+ */
+
+/* Align all left-side controls */
+.leaflet-top.leaflet-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+/* Ensure zoom control aligns with draw control */
+.leaflet-control-zoom {
+  margin: 0 !important;
+  border: 2px solid rgba(0,0,0,0.2);
+  border-radius: 4px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+}
+
+/* Make zoom buttons consistent size with draw buttons */
+.leaflet-control-zoom a {
+  width: 30px !important;
+  height: 30px !important;
+  line-height: 30px !important;
+  font-size: 18px !important;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Remove border from last zoom button */
+.leaflet-control-zoom a:last-child {
+  border-bottom: none;
+}
+
+/* Hover effect for zoom buttons */
+.leaflet-control-zoom a:hover {
+  background-color: #f4f4f4;
+}
+
+/* Layers control styling */
+.leaflet-control-layers {
+  margin-top: 10px !important;
+  margin-right: 10px !important;
+  background: white !important;
+  background-color: white !important;
+  opacity: 1 !important;
+}
+
+/* Draw control styling */
+.leaflet-draw {
+  margin: 0 !important;
+  border: 2px solid rgba(0,0,0,0.2);
+}
+
+/* Make layers control icons larger */
+.leaflet-control-layers-toggle {
+  width: 36px !important;
+  height: 36px !important;
+  background-size: 24px 24px !important;
+}
+
+/* Ensure draw toolbar buttons are consistent size */
+.leaflet-draw-toolbar a {
+  width: 30px !important;
+  height: 30px !important;
+  line-height: 30px !important;
+}
+
+/* IMPORTANT: Layers panel styling */
+.leaflet-control-layers-expanded {
+  padding: 8px 12px !important;
+  color: #333;
+  background: white !important;
+  background-color: white !important;
+  opacity: 1 !important;
+  border-radius: 4px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+  min-width: 250px;
+  max-width: 320px;
+  width: 320px !important;
+  border: 2px solid rgba(0,0,0,0.2);
+  pointer-events: auto !important;
+  height: auto !important;
+}
+
+/* Ensure internal layout uses full width consistently */
+.leaflet-control-layers-expanded .leaflet-control-layers-list,
+.leaflet-control-layers-expanded .leaflet-control-layers-base,
+.leaflet-control-layers-expanded .leaflet-control-layers-overlays {
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* Sticky open mode: keep panel open until user closes */
+.leaflet-control-layers.leaflet-control-layers-sticky {
+  background: white !important;
+  background-color: white !important;
+  opacity: 1 !important;
+}
+
+/* Ensure the list stays visible when sticky (even if Leaflet tries to collapse it) */
+.leaflet-control-layers.leaflet-control-layers-sticky .leaflet-control-layers-list {
+  display: block !important;
+}
+
+/* Close button (×) */
+.leaflet-control-layers-close {
+  display: none;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  line-height: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  background: white;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.leaflet-control-layers.leaflet-control-layers-sticky .leaflet-control-layers-close {
+  display: block;
+}
+
+.leaflet-control-layers-close:hover {
+  background: #f4f4f4;
+}
+
+/* Style layer labels for better readability */
+.leaflet-control-layers-base label,
+.leaflet-control-layers-overlays label {
+  font-size: 13px;
+  padding: 5px 6px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+
+/* Add visual grouping for overlays */
+.leaflet-control-layers-separator {
+  height: 1px;
+  background-color: #ddd;
+  margin: 5px 0;
+}
+
+/* Improve checkbox/radio alignment and interaction */
+.leaflet-control-layers input {
+  margin-right: 8px;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+/* Make labels hoverable */
+.leaflet-control-layers-base label:hover,
+.leaflet-control-layers-overlays label:hover {
+  background-color: #f5f5f5;
+}
+
+/* Make sure controls don't overlap */
+.leaflet-control-layers,
+.leaflet-draw {
+  box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+  border-radius: 4px;
+}
+
+/* Adjust z-index to ensure proper stacking */
+.leaflet-control-layers {
+  z-index: 800;
+}
+
+.leaflet-draw {
+  z-index: 799;
+}
+
+/* Style the layers control when collapsed to match draw toolbar */
+.leaflet-control-layers.leaflet-control {
+  border: 2px solid rgba(0,0,0,0.2);
+  background-clip: padding-box;
+  position: relative;
+}
+
+/* Disable hover expansion - only expand on click */
+.leaflet-control-layers:hover {
+  width: 36px !important;
+  height: 36px !important;
+}
+
+/* Ensure collapsed layers control is also interactive */
+.leaflet-control-layers {
+  pointer-events: auto !important;
+}
+
+/* Hover effects for consistency */
+.leaflet-control-layers-toggle:hover,
+.leaflet-draw-toolbar a:hover {
+  background-color: #f4f4f4;
+}
+
+/* Make toggle button clickable */
+.leaflet-control-layers-toggle {
+  cursor: pointer;
+}
+
+/* Active state for draw tools */
+.leaflet-draw-toolbar a.leaflet-draw-draw-circle,
+.leaflet-draw-toolbar a.leaflet-draw-draw-rectangle,
+.leaflet-draw-toolbar a.leaflet-draw-draw-polygon {
+  background-color: white;
+}
+
+/* Ensure proper spacing between toolbar sections */
+.leaflet-draw-toolbar {
+  margin-top: 0;
+}
+
+.leaflet-draw-actions {
+  margin-top: 0;
+}
+
+/* Section headers for better organization */
+.leaflet-control-layers-base,
+.leaflet-control-layers-overlays {
+  margin-bottom: 8px;
+  background: white !important;
+  background-color: white !important;
+}
+
+/* Add section titles */
+.leaflet-control-layers-base::before {
+  content: "Base Layers";
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2px 6px;
+}
+
+.leaflet-control-layers-overlays::before {
+  content: "Overlays";
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  margin-top: 8px;
+  letter-spacing: 0.5px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2px 6px;
+}
+
+/* Make scrollable if too many layers */
+.leaflet-control-layers-overlays {
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar for layers list */
+.leaflet-control-layers-overlays::-webkit-scrollbar {
+  width: 6px;
+}
+
+.leaflet-control-layers-overlays::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.leaflet-control-layers-overlays::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.leaflet-control-layers-overlays::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Ensure the panel is clickable and interactive */
+.leaflet-control-layers-expanded * {
+  pointer-events: auto;
+}
+
+/* When layers control is at bottom-left, make it expand upward */
+.leaflet-bottom .leaflet-control-layers.leaflet-control-layers-expanded {
+  position: relative !important;
+  bottom: auto !important;
+  max-height: calc(100vh - 100px) !important;
+  overflow-y: auto !important;
+}
+
+/* Ensure the expanded panel content doesn't overflow */
+.leaflet-bottom .leaflet-control-layers-expanded .leaflet-control-layers-overlays {
+  max-height: calc(100vh - 250px) !important;
+  overflow-y: auto !important;
+}
+
+/* Adjust margin for bottom-left position */
+.leaflet-bottom.leaflet-left .leaflet-control-layers {
+  margin-bottom: 10px !important;
+  margin-left: 10px !important;
+}

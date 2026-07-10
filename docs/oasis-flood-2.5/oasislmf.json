@@ -1,0 +1,14 @@
+{
+  "model_name_id": "FloodHKMO",
+  "model_supplier_id": "NatCatPlatform",
+  "model_version_id": "0.1",
+  "kernel_alloc_rule_il": 2,
+  "kernel_alloc_rule_gul": 1,
+  "kernel_num_processes": 4,
+  "model_settings_json": "model_settings.json",
+  "analysis_settings_json": "analysis_settings.json",
+  "oed_location_csv": "location.csv",
+  "oed_accounts_csv": "account.csv",
+  "model_data_dir": "model_data",
+  "lookup_config_json": "lookup.json"
+}

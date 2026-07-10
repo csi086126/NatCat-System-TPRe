@@ -1,0 +1,5550 @@
+{
+  "tpu_111": {
+    "id": 111,
+    "name": "TPU 111",
+    "count": 152,
+    "totalExposure": 979237057.172214,
+    "avgExposure": 6442349.060343513,
+    "minExposure": 644234.9060343513,
+    "maxExposure": 64423490.60343513,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 91,
+        "totalExposure": 489618528.586107
+      },
+      "COMMERCIAL": {
+        "count": 60,
+        "totalExposure": 489618528.586107
+      }
+    }
+  },
+  "tpu_112": {
+    "id": 112,
+    "name": "TPU 112",
+    "count": 249,
+    "totalExposure": 5417832296.0687,
+    "avgExposure": 21758362.634814054,
+    "minExposure": 2175836.2634814056,
+    "maxExposure": 217583626.34814054,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 149,
+        "totalExposure": 2708916148.03435
+      },
+      "COMMERCIAL": {
+        "count": 99,
+        "totalExposure": 2708916148.03435
+      }
+    }
+  },
+  "tpu_113": {
+    "id": 113,
+    "name": "TPU 113",
+    "count": 94,
+    "totalExposure": 1787156360.146319,
+    "avgExposure": 19012301.703684244,
+    "minExposure": 1901230.1703684246,
+    "maxExposure": 190123017.03684244,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 56,
+        "totalExposure": 893578180.0731595
+      },
+      "COMMERCIAL": {
+        "count": 37,
+        "totalExposure": 893578180.0731595
+      }
+    }
+  },
+  "tpu_114": {
+    "id": 114,
+    "name": "TPU 114",
+    "count": 11,
+    "totalExposure": 73735483.05748206,
+    "avgExposure": 6703225.73249837,
+    "minExposure": 670322.573249837,
+    "maxExposure": 67032257.3249837,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 6,
+        "totalExposure": 36867741.52874103
+      },
+      "COMMERCIAL": {
+        "count": 4,
+        "totalExposure": 36867741.52874103
+      }
+    }
+  },
+  "tpu_115": {
+    "id": 115,
+    "name": "TPU 115",
+    "count": 311,
+    "totalExposure": 6799965060.807042,
+    "avgExposure": 21864839.423816856,
+    "minExposure": 2186483.9423816856,
+    "maxExposure": 218648394.23816857,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 186,
+        "totalExposure": 3399982530.403521
+      },
+      "COMMERCIAL": {
+        "count": 124,
+        "totalExposure": 3399982530.403521
+      }
+    }
+  },
+  "tpu_116": {
+    "id": 116,
+    "name": "TPU 116",
+    "count": 244,
+    "totalExposure": 1325894180.4421499,
+    "avgExposure": 5433992.542795696,
+    "minExposure": 543399.2542795696,
+    "maxExposure": 54339925.42795696,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 146,
+        "totalExposure": 662947090.2210749
+      },
+      "COMMERCIAL": {
+        "count": 97,
+        "totalExposure": 662947090.2210749
+      }
+    }
+  },
+  "tpu_121": {
+    "id": 121,
+    "name": "TPU 121",
+    "count": 295,
+    "totalExposure": 5016928723.731028,
+    "avgExposure": 17006538.046545856,
+    "minExposure": 1700653.8046545857,
+    "maxExposure": 170065380.46545857,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 177,
+        "totalExposure": 2508464361.865514
+      },
+      "COMMERCIAL": {
+        "count": 118,
+        "totalExposure": 2508464361.865514
+      }
+    }
+  },
+  "tpu_122": {
+    "id": 122,
+    "name": "TPU 122",
+    "count": 333,
+    "totalExposure": 2528320605.5003552,
+    "avgExposure": 7592554.370871938,
+    "minExposure": 759255.4370871938,
+    "maxExposure": 75925543.70871937,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 199,
+        "totalExposure": 1264160302.7501776
+      },
+      "COMMERCIAL": {
+        "count": 133,
+        "totalExposure": 1264160302.7501776
+      }
+    }
+  },
+  "tpu_123": {
+    "id": 123,
+    "name": "TPU 123",
+    "count": 447,
+    "totalExposure": 5498780702.992667,
+    "avgExposure": 12301522.82548695,
+    "minExposure": 1230152.282548695,
+    "maxExposure": 123015228.2548695,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 268,
+        "totalExposure": 2749390351.4963336
+      },
+      "COMMERCIAL": {
+        "count": 178,
+        "totalExposure": 2749390351.4963336
+      }
+    }
+  },
+  "tpu_124": {
+    "id": 124,
+    "name": "TPU 124",
+    "count": 507,
+    "totalExposure": 4514400877.631977,
+    "avgExposure": 8904143.74286386,
+    "minExposure": 890414.3742863861,
+    "maxExposure": 89041437.4286386,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 304,
+        "totalExposure": 2257200438.8159885
+      },
+      "COMMERCIAL": {
+        "count": 202,
+        "totalExposure": 2257200438.8159885
+      }
+    }
+  },
+  "tpu_131": {
+    "id": 131,
+    "name": "TPU 131",
+    "count": 239,
+    "totalExposure": 1196364302.7566102,
+    "avgExposure": 5005708.37973477,
+    "minExposure": 500570.8379734771,
+    "maxExposure": 50057083.7973477,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 143,
+        "totalExposure": 598182151.3783051
+      },
+      "COMMERCIAL": {
+        "count": 95,
+        "totalExposure": 598182151.3783051
+      }
+    }
+  },
+  "tpu_132": {
+    "id": 132,
+    "name": "TPU 132",
+    "count": 428,
+    "totalExposure": 9498525603.167143,
+    "avgExposure": 22192816.829829775,
+    "minExposure": 2219281.6829829775,
+    "maxExposure": 221928168.29829776,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 256,
+        "totalExposure": 4749262801.583571
+      },
+      "COMMERCIAL": {
+        "count": 171,
+        "totalExposure": 4749262801.583571
+      }
+    }
+  },
+  "tpu_133": {
+    "id": 133,
+    "name": "TPU 133",
+    "count": 432,
+    "totalExposure": 2868325477.158312,
+    "avgExposure": 6639642.308236833,
+    "minExposure": 663964.2308236833,
+    "maxExposure": 66396423.08236833,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 259,
+        "totalExposure": 1434162738.579156
+      },
+      "COMMERCIAL": {
+        "count": 172,
+        "totalExposure": 1434162738.579156
+      }
+    }
+  },
+  "tpu_134": {
+    "id": 134,
+    "name": "TPU 134",
+    "count": 256,
+    "totalExposure": 3430488283.727157,
+    "avgExposure": 13400344.858309207,
+    "minExposure": 1340034.4858309207,
+    "maxExposure": 134003448.58309208,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 153,
+        "totalExposure": 1715244141.8635786
+      },
+      "COMMERCIAL": {
+        "count": 102,
+        "totalExposure": 1715244141.8635786
+      }
+    }
+  },
+  "tpu_135": {
+    "id": 135,
+    "name": "TPU 135",
+    "count": 282,
+    "totalExposure": 2634215434.815674,
+    "avgExposure": 9341189.485161964,
+    "minExposure": 934118.9485161965,
+    "maxExposure": 93411894.85161963,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 169,
+        "totalExposure": 1317107717.407837
+      },
+      "COMMERCIAL": {
+        "count": 112,
+        "totalExposure": 1317107717.407837
+      }
+    }
+  },
+  "tpu_140": {
+    "id": 140,
+    "name": "TPU 140",
+    "count": 399,
+    "totalExposure": 4239282454.237309,
+    "avgExposure": 10624768.055732604,
+    "minExposure": 1062476.8055732604,
+    "maxExposure": 106247680.55732605,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 239,
+        "totalExposure": 2119641227.1186545
+      },
+      "COMMERCIAL": {
+        "count": 159,
+        "totalExposure": 2119641227.1186545
+      }
+    }
+  },
+  "tpu_141": {
+    "id": 141,
+    "name": "TPU 141",
+    "count": 140,
+    "totalExposure": 3081409932.632007,
+    "avgExposure": 22010070.94737148,
+    "minExposure": 2201007.094737148,
+    "maxExposure": 220100709.4737148,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 84,
+        "totalExposure": 1540704966.3160036
+      },
+      "COMMERCIAL": {
+        "count": 56,
+        "totalExposure": 1540704966.3160036
+      }
+    }
+  },
+  "tpu_142": {
+    "id": 142,
+    "name": "TPU 142",
+    "count": 125,
+    "totalExposure": 675308676.4353058,
+    "avgExposure": 5402469.411482447,
+    "minExposure": 540246.9411482447,
+    "maxExposure": 54024694.11482447,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 75,
+        "totalExposure": 337654338.2176529
+      },
+      "COMMERCIAL": {
+        "count": 50,
+        "totalExposure": 337654338.2176529
+      }
+    }
+  },
+  "tpu_143": {
+    "id": 143,
+    "name": "TPU 143",
+    "count": 388,
+    "totalExposure": 4560209403.539141,
+    "avgExposure": 11753117.019430775,
+    "minExposure": 1175311.7019430776,
+    "maxExposure": 117531170.19430774,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 232,
+        "totalExposure": 2280104701.7695704
+      },
+      "COMMERCIAL": {
+        "count": 155,
+        "totalExposure": 2280104701.7695704
+      }
+    }
+  },
+  "tpu_144": {
+    "id": 144,
+    "name": "TPU 144",
+    "count": 63,
+    "totalExposure": 357151105.5147996,
+    "avgExposure": 5669065.166901581,
+    "minExposure": 566906.5166901582,
+    "maxExposure": 56690651.66901581,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 37,
+        "totalExposure": 178575552.7573998
+      },
+      "COMMERCIAL": {
+        "count": 25,
+        "totalExposure": 178575552.7573998
+      }
+    }
+  },
+  "tpu_145": {
+    "id": 145,
+    "name": "TPU 145",
+    "count": 80,
+    "totalExposure": 1996127667.8049116,
+    "avgExposure": 24951595.847561397,
+    "minExposure": 2495159.5847561397,
+    "maxExposure": 249515958.47561395,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 48,
+        "totalExposure": 998063833.9024558
+      },
+      "COMMERCIAL": {
+        "count": 32,
+        "totalExposure": 998063833.9024558
+      }
+    }
+  },
+  "tpu_146": {
+    "id": 146,
+    "name": "TPU 146",
+    "count": 468,
+    "totalExposure": 8942790085.395512,
+    "avgExposure": 19108525.823494684,
+    "minExposure": 1910852.5823494685,
+    "maxExposure": 191085258.23494685,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 280,
+        "totalExposure": 4471395042.697756
+      },
+      "COMMERCIAL": {
+        "count": 187,
+        "totalExposure": 4471395042.697756
+      }
+    }
+  },
+  "tpu_147": {
+    "id": 147,
+    "name": "TPU 147",
+    "count": 143,
+    "totalExposure": 1542848869.06157,
+    "avgExposure": 10789152.930500489,
+    "minExposure": 1078915.2930500489,
+    "maxExposure": 107891529.3050049,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 85,
+        "totalExposure": 771424434.530785
+      },
+      "COMMERCIAL": {
+        "count": 57,
+        "totalExposure": 771424434.530785
+      }
+    }
+  },
+  "tpu_148": {
+    "id": 148,
+    "name": "TPU 148",
+    "count": 213,
+    "totalExposure": 4424955843.232928,
+    "avgExposure": 20774440.578558348,
+    "minExposure": 2077444.057855835,
+    "maxExposure": 207744405.7855835,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 127,
+        "totalExposure": 2212477921.616464
+      },
+      "COMMERCIAL": {
+        "count": 85,
+        "totalExposure": 2212477921.616464
+      }
+    }
+  },
+  "tpu_149": {
+    "id": 149,
+    "name": "TPU 149",
+    "count": 451,
+    "totalExposure": 3413346254.241459,
+    "avgExposure": 7568395.242220529,
+    "minExposure": 756839.524222053,
+    "maxExposure": 75683952.4222053,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 270,
+        "totalExposure": 1706673127.1207294
+      },
+      "COMMERCIAL": {
+        "count": 180,
+        "totalExposure": 1706673127.1207294
+      }
+    }
+  },
+  "tpu_151": {
+    "id": 151,
+    "name": "TPU 151",
+    "count": 494,
+    "totalExposure": 8238283096.096102,
+    "avgExposure": 16676686.429344336,
+    "minExposure": 1667668.6429344337,
+    "maxExposure": 166766864.29344335,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 296,
+        "totalExposure": 4119141548.048051
+      },
+      "COMMERCIAL": {
+        "count": 197,
+        "totalExposure": 4119141548.048051
+      }
+    }
+  },
+  "tpu_152": {
+    "id": 152,
+    "name": "TPU 152",
+    "count": 394,
+    "totalExposure": 6815888016.549452,
+    "avgExposure": 17299208.163831096,
+    "minExposure": 1729920.8163831097,
+    "maxExposure": 172992081.63831097,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 236,
+        "totalExposure": 3407944008.274726
+      },
+      "COMMERCIAL": {
+        "count": 157,
+        "totalExposure": 3407944008.274726
+      }
+    }
+  },
+  "tpu_153": {
+    "id": 153,
+    "name": "TPU 153",
+    "count": 386,
+    "totalExposure": 9618755626.675714,
+    "avgExposure": 24919056.027657293,
+    "minExposure": 2491905.602765729,
+    "maxExposure": 249190560.27657294,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 231,
+        "totalExposure": 4809377813.337857
+      },
+      "COMMERCIAL": {
+        "count": 154,
+        "totalExposure": 4809377813.337857
+      }
+    }
+  },
+  "tpu_154": {
+    "id": 154,
+    "name": "TPU 154",
+    "count": 168,
+    "totalExposure": 3041023820.0833936,
+    "avgExposure": 18101332.262401152,
+    "minExposure": 1810133.2262401152,
+    "maxExposure": 181013322.62401152,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 100,
+        "totalExposure": 1520511910.0416968
+      },
+      "COMMERCIAL": {
+        "count": 67,
+        "totalExposure": 1520511910.0416968
+      }
+    }
+  },
+  "tpu_155": {
+    "id": 155,
+    "name": "TPU 155",
+    "count": 59,
+    "totalExposure": 1005021573.3697774,
+    "avgExposure": 17034263.955419958,
+    "minExposure": 1703426.3955419958,
+    "maxExposure": 170342639.55419958,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 35,
+        "totalExposure": 502510786.6848887
+      },
+      "COMMERCIAL": {
+        "count": 23,
+        "totalExposure": 502510786.6848887
+      }
+    }
+  },
+  "tpu_156": {
+    "id": 156,
+    "name": "TPU 156",
+    "count": 38,
+    "totalExposure": 786556338.607056,
+    "avgExposure": 20698851.01597516,
+    "minExposure": 2069885.1015975159,
+    "maxExposure": 206988510.1597516,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 22,
+        "totalExposure": 393278169.303528
+      },
+      "COMMERCIAL": {
+        "count": 15,
+        "totalExposure": 393278169.303528
+      }
+    }
+  },
+  "tpu_157": {
+    "id": 157,
+    "name": "TPU 157",
+    "count": 392,
+    "totalExposure": 7409034751.560814,
+    "avgExposure": 18900598.856022485,
+    "minExposure": 1890059.8856022486,
+    "maxExposure": 189005988.56022483,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 235,
+        "totalExposure": 3704517375.780407
+      },
+      "COMMERCIAL": {
+        "count": 156,
+        "totalExposure": 3704517375.780407
+      }
+    }
+  },
+  "tpu_158": {
+    "id": 158,
+    "name": "TPU 158",
+    "count": 188,
+    "totalExposure": 3507952705.520377,
+    "avgExposure": 18659322.901704133,
+    "minExposure": 1865932.2901704134,
+    "maxExposure": 186593229.01704133,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 112,
+        "totalExposure": 1753976352.7601886
+      },
+      "COMMERCIAL": {
+        "count": 75,
+        "totalExposure": 1753976352.7601886
+      }
+    }
+  },
+  "tpu_161": {
+    "id": 161,
+    "name": "TPU 161",
+    "count": 410,
+    "totalExposure": 6098882854.975105,
+    "avgExposure": 14875324.036524648,
+    "minExposure": 1487532.403652465,
+    "maxExposure": 148753240.36524647,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 246,
+        "totalExposure": 3049441427.4875526
+      },
+      "COMMERCIAL": {
+        "count": 164,
+        "totalExposure": 3049441427.4875526
+      }
+    }
+  },
+  "tpu_162": {
+    "id": 162,
+    "name": "TPU 162",
+    "count": 464,
+    "totalExposure": 3543121900.071925,
+    "avgExposure": 7636038.577741218,
+    "minExposure": 763603.8577741218,
+    "maxExposure": 76360385.77741218,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 278,
+        "totalExposure": 1771560950.0359626
+      },
+      "COMMERCIAL": {
+        "count": 185,
+        "totalExposure": 1771560950.0359626
+      }
+    }
+  },
+  "tpu_163": {
+    "id": 163,
+    "name": "TPU 163",
+    "count": 212,
+    "totalExposure": 3507967035.454085,
+    "avgExposure": 16547014.318179645,
+    "minExposure": 1654701.4318179647,
+    "maxExposure": 165470143.18179643,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 127,
+        "totalExposure": 1753983517.7270424
+      },
+      "COMMERCIAL": {
+        "count": 84,
+        "totalExposure": 1753983517.7270424
+      }
+    }
+  },
+  "tpu_164": {
+    "id": 164,
+    "name": "TPU 164",
+    "count": 233,
+    "totalExposure": 5816244034.841584,
+    "avgExposure": 24962420.750393067,
+    "minExposure": 2496242.0750393067,
+    "maxExposure": 249624207.50393066,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 139,
+        "totalExposure": 2908122017.420792
+      },
+      "COMMERCIAL": {
+        "count": 93,
+        "totalExposure": 2908122017.420792
+      }
+    }
+  },
+  "tpu_165": {
+    "id": 165,
+    "name": "TPU 165",
+    "count": 283,
+    "totalExposure": 5937218502.160061,
+    "avgExposure": 20979570.679010816,
+    "minExposure": 2097957.067901082,
+    "maxExposure": 209795706.79010814,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 169,
+        "totalExposure": 2968609251.0800304
+      },
+      "COMMERCIAL": {
+        "count": 113,
+        "totalExposure": 2968609251.0800304
+      }
+    }
+  },
+  "tpu_166": {
+    "id": 166,
+    "name": "TPU 166",
+    "count": 258,
+    "totalExposure": 5231774309.409032,
+    "avgExposure": 20278194.997709427,
+    "minExposure": 2027819.4997709428,
+    "maxExposure": 202781949.97709426,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 154,
+        "totalExposure": 2615887154.704516
+      },
+      "COMMERCIAL": {
+        "count": 103,
+        "totalExposure": 2615887154.704516
+      }
+    }
+  },
+  "tpu_167": {
+    "id": 167,
+    "name": "TPU 167",
+    "count": 369,
+    "totalExposure": 3968474726.7777996,
+    "avgExposure": 10754674.0563084,
+    "minExposure": 1075467.40563084,
+    "maxExposure": 107546740.563084,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 221,
+        "totalExposure": 1984237363.3888998
+      },
+      "COMMERCIAL": {
+        "count": 147,
+        "totalExposure": 1984237363.3888998
+      }
+    }
+  },
+  "tpu_171": {
+    "id": 171,
+    "name": "TPU 171",
+    "count": 372,
+    "totalExposure": 5643891244.303567,
+    "avgExposure": 15171750.656730019,
+    "minExposure": 1517175.065673002,
+    "maxExposure": 151717506.5673002,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 223,
+        "totalExposure": 2821945622.1517835
+      },
+      "COMMERCIAL": {
+        "count": 148,
+        "totalExposure": 2821945622.1517835
+      }
+    }
+  },
+  "tpu_172": {
+    "id": 172,
+    "name": "TPU 172",
+    "count": 110,
+    "totalExposure": 2517006604.4533415,
+    "avgExposure": 22881878.222303104,
+    "minExposure": 2288187.8222303106,
+    "maxExposure": 228818782.22303104,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 66,
+        "totalExposure": 1258503302.2266707
+      },
+      "COMMERCIAL": {
+        "count": 44,
+        "totalExposure": 1258503302.2266707
+      }
+    }
+  },
+  "tpu_173": {
+    "id": 173,
+    "name": "TPU 173",
+    "count": 335,
+    "totalExposure": 2835409269.5348687,
+    "avgExposure": 8463908.267268265,
+    "minExposure": 846390.8267268265,
+    "maxExposure": 84639082.67268264,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 201,
+        "totalExposure": 1417704634.7674344
+      },
+      "COMMERCIAL": {
+        "count": 134,
+        "totalExposure": 1417704634.7674344
+      }
+    }
+  },
+  "tpu_174": {
+    "id": 174,
+    "name": "TPU 174",
+    "count": 304,
+    "totalExposure": 4017291936.055772,
+    "avgExposure": 13214776.105446618,
+    "minExposure": 1321477.610544662,
+    "maxExposure": 132147761.05446619,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 182,
+        "totalExposure": 2008645968.027886
+      },
+      "COMMERCIAL": {
+        "count": 121,
+        "totalExposure": 2008645968.027886
+      }
+    }
+  },
+  "tpu_175": {
+    "id": 175,
+    "name": "TPU 175",
+    "count": 271,
+    "totalExposure": 4355151067.1380825,
+    "avgExposure": 16070668.144420968,
+    "minExposure": 1607066.814442097,
+    "maxExposure": 160706681.4442097,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 162,
+        "totalExposure": 2177575533.5690413
+      },
+      "COMMERCIAL": {
+        "count": 108,
+        "totalExposure": 2177575533.5690413
+      }
+    }
+  },
+  "tpu_176": {
+    "id": 176,
+    "name": "TPU 176",
+    "count": 455,
+    "totalExposure": 5504150894.87856,
+    "avgExposure": 12097034.933799032,
+    "minExposure": 1209703.4933799033,
+    "maxExposure": 120970349.33799031,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 273,
+        "totalExposure": 2752075447.43928
+      },
+      "COMMERCIAL": {
+        "count": 182,
+        "totalExposure": 2752075447.43928
+      }
+    }
+  },
+  "tpu_181": {
+    "id": 181,
+    "name": "TPU 181",
+    "count": 42,
+    "totalExposure": 302940979.64517677,
+    "avgExposure": 7212880.467742304,
+    "minExposure": 721288.0467742304,
+    "maxExposure": 72128804.67742305,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 25,
+        "totalExposure": 151470489.82258838
+      },
+      "COMMERCIAL": {
+        "count": 16,
+        "totalExposure": 151470489.82258838
+      }
+    }
+  },
+  "tpu_182": {
+    "id": 182,
+    "name": "TPU 182",
+    "count": 457,
+    "totalExposure": 3935417309.0836115,
+    "avgExposure": 8611416.431255167,
+    "minExposure": 861141.6431255168,
+    "maxExposure": 86114164.31255168,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 274,
+        "totalExposure": 1967708654.5418057
+      },
+      "COMMERCIAL": {
+        "count": 182,
+        "totalExposure": 1967708654.5418057
+      }
+    }
+  },
+  "tpu_183": {
+    "id": 183,
+    "name": "TPU 183",
+    "count": 81,
+    "totalExposure": 790040028.4049007,
+    "avgExposure": 9753580.597591367,
+    "minExposure": 975358.0597591368,
+    "maxExposure": 97535805.97591367,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 48,
+        "totalExposure": 395020014.20245034
+      },
+      "COMMERCIAL": {
+        "count": 32,
+        "totalExposure": 395020014.20245034
+      }
+    }
+  },
+  "tpu_184": {
+    "id": 184,
+    "name": "TPU 184",
+    "count": 444,
+    "totalExposure": 7804559686.275665,
+    "avgExposure": 17577837.1312515,
+    "minExposure": 1757783.71312515,
+    "maxExposure": 175778371.312515,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 266,
+        "totalExposure": 3902279843.1378326
+      },
+      "COMMERCIAL": {
+        "count": 177,
+        "totalExposure": 3902279843.1378326
+      }
+    }
+  },
+  "tpu_190": {
+    "id": 190,
+    "name": "TPU 190",
+    "count": 254,
+    "totalExposure": 2674952763.513023,
+    "avgExposure": 10531310.092570957,
+    "minExposure": 1053131.0092570956,
+    "maxExposure": 105313100.92570958,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 152,
+        "totalExposure": 1337476381.7565114
+      },
+      "COMMERCIAL": {
+        "count": 101,
+        "totalExposure": 1337476381.7565114
+      }
+    }
+  },
+  "tpu_191": {
+    "id": 191,
+    "name": "TPU 191",
+    "count": 246,
+    "totalExposure": 1408908458.725613,
+    "avgExposure": 5727270.157421191,
+    "minExposure": 572727.0157421192,
+    "maxExposure": 57272701.57421191,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 147,
+        "totalExposure": 704454229.3628066
+      },
+      "COMMERCIAL": {
+        "count": 98,
+        "totalExposure": 704454229.3628066
+      }
+    }
+  },
+  "tpu_192": {
+    "id": 192,
+    "name": "TPU 192",
+    "count": 387,
+    "totalExposure": 4258531758.0787897,
+    "avgExposure": 11003958.031211343,
+    "minExposure": 1100395.8031211344,
+    "maxExposure": 110039580.31211343,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 232,
+        "totalExposure": 2129265879.0393949
+      },
+      "COMMERCIAL": {
+        "count": 154,
+        "totalExposure": 2129265879.0393949
+      }
+    }
+  },
+  "tpu_193": {
+    "id": 193,
+    "name": "TPU 193",
+    "count": 300,
+    "totalExposure": 2518150056.2310214,
+    "avgExposure": 8393833.520770071,
+    "minExposure": 839383.3520770072,
+    "maxExposure": 83938335.20770071,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 180,
+        "totalExposure": 1259075028.1155107
+      },
+      "COMMERCIAL": {
+        "count": 120,
+        "totalExposure": 1259075028.1155107
+      }
+    }
+  },
+  "tpu_194": {
+    "id": 194,
+    "name": "TPU 194",
+    "count": 373,
+    "totalExposure": 7986732505.188955,
+    "avgExposure": 21412151.48844224,
+    "minExposure": 2141215.148844224,
+    "maxExposure": 214121514.8844224,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 223,
+        "totalExposure": 3993366252.5944777
+      },
+      "COMMERCIAL": {
+        "count": 149,
+        "totalExposure": 3993366252.5944777
+      }
+    }
+  },
+  "tpu_195": {
+    "id": 195,
+    "name": "TPU 195",
+    "count": 253,
+    "totalExposure": 4915974830.559254,
+    "avgExposure": 19430730.555570174,
+    "minExposure": 1943073.0555570174,
+    "maxExposure": 194307305.55570173,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 151,
+        "totalExposure": 2457987415.279627
+      },
+      "COMMERCIAL": {
+        "count": 101,
+        "totalExposure": 2457987415.279627
+      }
+    }
+  },
+  "tpu_196": {
+    "id": 196,
+    "name": "TPU 196",
+    "count": 342,
+    "totalExposure": 6746467808.819168,
+    "avgExposure": 19726514.06087476,
+    "minExposure": 1972651.406087476,
+    "maxExposure": 197265140.6087476,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 205,
+        "totalExposure": 3373233904.409584
+      },
+      "COMMERCIAL": {
+        "count": 136,
+        "totalExposure": 3373233904.409584
+      }
+    }
+  },
+  "tpu_197": {
+    "id": 197,
+    "name": "TPU 197",
+    "count": 356,
+    "totalExposure": 4832549509.384957,
+    "avgExposure": 13574577.27355325,
+    "minExposure": 1357457.7273553251,
+    "maxExposure": 135745772.7355325,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 213,
+        "totalExposure": 2416274754.6924787
+      },
+      "COMMERCIAL": {
+        "count": 142,
+        "totalExposure": 2416274754.6924787
+      }
+    }
+  },
+  "tpu_198": {
+    "id": 198,
+    "name": "TPU 198",
+    "count": 273,
+    "totalExposure": 2872366717.544173,
+    "avgExposure": 10521489.807854112,
+    "minExposure": 1052148.9807854113,
+    "maxExposure": 105214898.07854113,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 163,
+        "totalExposure": 1436183358.7720864
+      },
+      "COMMERCIAL": {
+        "count": 109,
+        "totalExposure": 1436183358.7720864
+      }
+    }
+  },
+  "tpu_211": {
+    "id": 211,
+    "name": "TPU 211",
+    "count": 453,
+    "totalExposure": 10797985910.466251,
+    "avgExposure": 23836613.488887973,
+    "minExposure": 2383661.348888797,
+    "maxExposure": 238366134.88887972,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 271,
+        "totalExposure": 5398992955.233126
+      },
+      "COMMERCIAL": {
+        "count": 181,
+        "totalExposure": 5398992955.233126
+      }
+    }
+  },
+  "tpu_212": {
+    "id": 212,
+    "name": "TPU 212",
+    "count": 490,
+    "totalExposure": 4550970042.256215,
+    "avgExposure": 9287693.963788195,
+    "minExposure": 928769.3963788195,
+    "maxExposure": 92876939.63788195,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 294,
+        "totalExposure": 2275485021.1281075
+      },
+      "COMMERCIAL": {
+        "count": 196,
+        "totalExposure": 2275485021.1281075
+      }
+    }
+  },
+  "tpu_213": {
+    "id": 213,
+    "name": "TPU 213",
+    "count": 165,
+    "totalExposure": 2290291299.1935883,
+    "avgExposure": 13880553.32844599,
+    "minExposure": 1388055.3328445992,
+    "maxExposure": 138805533.2844599,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 99,
+        "totalExposure": 1145145649.5967941
+      },
+      "COMMERCIAL": {
+        "count": 66,
+        "totalExposure": 1145145649.5967941
+      }
+    }
+  },
+  "tpu_214": {
+    "id": 214,
+    "name": "TPU 214",
+    "count": 214,
+    "totalExposure": 2192163618.9708376,
+    "avgExposure": 10243755.22883569,
+    "minExposure": 1024375.5228835691,
+    "maxExposure": 102437552.2883569,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 128,
+        "totalExposure": 1096081809.4854188
+      },
+      "COMMERCIAL": {
+        "count": 85,
+        "totalExposure": 1096081809.4854188
+      }
+    }
+  },
+  "tpu_215": {
+    "id": 215,
+    "name": "TPU 215",
+    "count": 498,
+    "totalExposure": 11453784099.155178,
+    "avgExposure": 22999566.464167025,
+    "minExposure": 2299956.646416703,
+    "maxExposure": 229995664.64167026,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 298,
+        "totalExposure": 5726892049.577589
+      },
+      "COMMERCIAL": {
+        "count": 199,
+        "totalExposure": 5726892049.577589
+      }
+    }
+  },
+  "tpu_216": {
+    "id": 216,
+    "name": "TPU 216",
+    "count": 341,
+    "totalExposure": 2745350560.011825,
+    "avgExposure": 8050881.407659312,
+    "minExposure": 805088.1407659312,
+    "maxExposure": 80508814.07659312,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 204,
+        "totalExposure": 1372675280.0059125
+      },
+      "COMMERCIAL": {
+        "count": 136,
+        "totalExposure": 1372675280.0059125
+      }
+    }
+  },
+  "tpu_217": {
+    "id": 217,
+    "name": "TPU 217",
+    "count": 216,
+    "totalExposure": 5320203060.011294,
+    "avgExposure": 24630569.722274512,
+    "minExposure": 2463056.9722274514,
+    "maxExposure": 246305697.22274512,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 129,
+        "totalExposure": 2660101530.005647
+      },
+      "COMMERCIAL": {
+        "count": 86,
+        "totalExposure": 2660101530.005647
+      }
+    }
+  },
+  "tpu_220": {
+    "id": 220,
+    "name": "TPU 220",
+    "count": 241,
+    "totalExposure": 1400968977.0075583,
+    "avgExposure": 5813149.282189039,
+    "minExposure": 581314.9282189038,
+    "maxExposure": 58131492.821890384,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 144,
+        "totalExposure": 700484488.5037792
+      },
+      "COMMERCIAL": {
+        "count": 96,
+        "totalExposure": 700484488.5037792
+      }
+    }
+  },
+  "tpu_221": {
+    "id": 221,
+    "name": "TPU 221",
+    "count": 318,
+    "totalExposure": 2100866677.593422,
+    "avgExposure": 6606498.9861428365,
+    "minExposure": 660649.8986142837,
+    "maxExposure": 66064989.861428365,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 190,
+        "totalExposure": 1050433338.796711
+      },
+      "COMMERCIAL": {
+        "count": 127,
+        "totalExposure": 1050433338.796711
+      }
+    }
+  },
+  "tpu_222": {
+    "id": 222,
+    "name": "TPU 222",
+    "count": 505,
+    "totalExposure": 5109528441.310887,
+    "avgExposure": 10117878.101605717,
+    "minExposure": 1011787.8101605717,
+    "maxExposure": 101178781.01605716,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 303,
+        "totalExposure": 2554764220.6554437
+      },
+      "COMMERCIAL": {
+        "count": 202,
+        "totalExposure": 2554764220.6554437
+      }
+    }
+  },
+  "tpu_225": {
+    "id": 225,
+    "name": "TPU 225",
+    "count": 266,
+    "totalExposure": 5210259467.892898,
+    "avgExposure": 19587441.608619917,
+    "minExposure": 1958744.1608619918,
+    "maxExposure": 195874416.08619916,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 159,
+        "totalExposure": 2605129733.946449
+      },
+      "COMMERCIAL": {
+        "count": 106,
+        "totalExposure": 2605129733.946449
+      }
+    }
+  },
+  "tpu_226": {
+    "id": 226,
+    "name": "TPU 226",
+    "count": 33,
+    "totalExposure": 454886252.0364205,
+    "avgExposure": 13784431.879891532,
+    "minExposure": 1378443.1879891532,
+    "maxExposure": 137844318.79891533,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 19,
+        "totalExposure": 227443126.01821026
+      },
+      "COMMERCIAL": {
+        "count": 13,
+        "totalExposure": 227443126.01821026
+      }
+    }
+  },
+  "tpu_227": {
+    "id": 227,
+    "name": "TPU 227",
+    "count": 219,
+    "totalExposure": 5227599584.110727,
+    "avgExposure": 23870317.735665422,
+    "minExposure": 2387031.773566542,
+    "maxExposure": 238703177.35665423,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 131,
+        "totalExposure": 2613799792.0553637
+      },
+      "COMMERCIAL": {
+        "count": 87,
+        "totalExposure": 2613799792.0553637
+      }
+    }
+  },
+  "tpu_228": {
+    "id": 228,
+    "name": "TPU 228",
+    "count": 419,
+    "totalExposure": 6976575315.939526,
+    "avgExposure": 16650537.746872377,
+    "minExposure": 1665053.7746872378,
+    "maxExposure": 166505377.46872377,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 251,
+        "totalExposure": 3488287657.969763
+      },
+      "COMMERCIAL": {
+        "count": 167,
+        "totalExposure": 3488287657.969763
+      }
+    }
+  },
+  "tpu_229": {
+    "id": 229,
+    "name": "TPU 229",
+    "count": 394,
+    "totalExposure": 5772507508.5295925,
+    "avgExposure": 14651034.285608102,
+    "minExposure": 1465103.4285608102,
+    "maxExposure": 146510342.856081,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 236,
+        "totalExposure": 2886253754.2647963
+      },
+      "COMMERCIAL": {
+        "count": 157,
+        "totalExposure": 2886253754.2647963
+      }
+    }
+  },
+  "tpu_231": {
+    "id": 231,
+    "name": "TPU 231",
+    "count": 127,
+    "totalExposure": 2278016501.073768,
+    "avgExposure": 17937137.803730458,
+    "minExposure": 1793713.780373046,
+    "maxExposure": 179371378.03730458,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 76,
+        "totalExposure": 1139008250.536884
+      },
+      "COMMERCIAL": {
+        "count": 50,
+        "totalExposure": 1139008250.536884
+      }
+    }
+  },
+  "tpu_232": {
+    "id": 232,
+    "name": "TPU 232",
+    "count": 448,
+    "totalExposure": 3102520531.2229385,
+    "avgExposure": 6925269.042908344,
+    "minExposure": 692526.9042908344,
+    "maxExposure": 69252690.42908344,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 268,
+        "totalExposure": 1551260265.6114693
+      },
+      "COMMERCIAL": {
+        "count": 179,
+        "totalExposure": 1551260265.6114693
+      }
+    }
+  },
+  "tpu_233": {
+    "id": 233,
+    "name": "TPU 233",
+    "count": 367,
+    "totalExposure": 2241343435.5726724,
+    "avgExposure": 6107202.821723903,
+    "minExposure": 610720.2821723903,
+    "maxExposure": 61072028.21723902,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 220,
+        "totalExposure": 1120671717.7863362
+      },
+      "COMMERCIAL": {
+        "count": 146,
+        "totalExposure": 1120671717.7863362
+      }
+    }
+  },
+  "tpu_234": {
+    "id": 234,
+    "name": "TPU 234",
+    "count": 374,
+    "totalExposure": 8088339382.420407,
+    "avgExposure": 21626575.88882462,
+    "minExposure": 2162657.588882462,
+    "maxExposure": 216265758.88824618,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 224,
+        "totalExposure": 4044169691.2102036
+      },
+      "COMMERCIAL": {
+        "count": 149,
+        "totalExposure": 4044169691.2102036
+      }
+    }
+  },
+  "tpu_235": {
+    "id": 235,
+    "name": "TPU 235",
+    "count": 224,
+    "totalExposure": 3725464801.9464297,
+    "avgExposure": 16631539.294403704,
+    "minExposure": 1663153.9294403705,
+    "maxExposure": 166315392.94403705,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 134,
+        "totalExposure": 1862732400.9732149
+      },
+      "COMMERCIAL": {
+        "count": 89,
+        "totalExposure": 1862732400.9732149
+      }
+    }
+  },
+  "tpu_236": {
+    "id": 236,
+    "name": "TPU 236",
+    "count": 147,
+    "totalExposure": 2374798755.9914904,
+    "avgExposure": 16155093.578173403,
+    "minExposure": 1615509.3578173404,
+    "maxExposure": 161550935.78173402,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 88,
+        "totalExposure": 1187399377.9957452
+      },
+      "COMMERCIAL": {
+        "count": 58,
+        "totalExposure": 1187399377.9957452
+      }
+    }
+  },
+  "tpu_237": {
+    "id": 237,
+    "name": "TPU 237",
+    "count": 426,
+    "totalExposure": 5763342148.606369,
+    "avgExposure": 13528972.179827157,
+    "minExposure": 1352897.217982716,
+    "maxExposure": 135289721.79827157,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 255,
+        "totalExposure": 2881671074.3031845
+      },
+      "COMMERCIAL": {
+        "count": 170,
+        "totalExposure": 2881671074.3031845
+      }
+    }
+  },
+  "tpu_241": {
+    "id": 241,
+    "name": "TPU 241",
+    "count": 235,
+    "totalExposure": 5415281636.812257,
+    "avgExposure": 23043751.6460096,
+    "minExposure": 2304375.1646009604,
+    "maxExposure": 230437516.460096,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 141,
+        "totalExposure": 2707640818.4061284
+      },
+      "COMMERCIAL": {
+        "count": 94,
+        "totalExposure": 2707640818.4061284
+      }
+    }
+  },
+  "tpu_242": {
+    "id": 242,
+    "name": "TPU 242",
+    "count": 182,
+    "totalExposure": 3834544267.456363,
+    "avgExposure": 21068924.546463534,
+    "minExposure": 2106892.4546463536,
+    "maxExposure": 210689245.46463534,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 109,
+        "totalExposure": 1917272133.7281816
+      },
+      "COMMERCIAL": {
+        "count": 72,
+        "totalExposure": 1917272133.7281816
+      }
+    }
+  },
+  "tpu_243": {
+    "id": 243,
+    "name": "TPU 243",
+    "count": 181,
+    "totalExposure": 1008412647.8138434,
+    "avgExposure": 5571340.595656593,
+    "minExposure": 557134.0595656594,
+    "maxExposure": 55713405.95656593,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 108,
+        "totalExposure": 504206323.9069217
+      },
+      "COMMERCIAL": {
+        "count": 72,
+        "totalExposure": 504206323.9069217
+      }
+    }
+  },
+  "tpu_244": {
+    "id": 244,
+    "name": "TPU 244",
+    "count": 199,
+    "totalExposure": 2375426734.1524825,
+    "avgExposure": 11936817.759560214,
+    "minExposure": 1193681.7759560214,
+    "maxExposure": 119368177.59560214,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 119,
+        "totalExposure": 1187713367.0762413
+      },
+      "COMMERCIAL": {
+        "count": 79,
+        "totalExposure": 1187713367.0762413
+      }
+    }
+  },
+  "tpu_245": {
+    "id": 245,
+    "name": "TPU 245",
+    "count": 110,
+    "totalExposure": 727708589.9180144,
+    "avgExposure": 6615532.635618313,
+    "minExposure": 661553.2635618313,
+    "maxExposure": 66155326.356183134,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 66,
+        "totalExposure": 363854294.9590072
+      },
+      "COMMERCIAL": {
+        "count": 44,
+        "totalExposure": 363854294.9590072
+      }
+    }
+  },
+  "tpu_246": {
+    "id": 246,
+    "name": "TPU 246",
+    "count": 164,
+    "totalExposure": 2776855518.770829,
+    "avgExposure": 16932045.846163593,
+    "minExposure": 1693204.5846163593,
+    "maxExposure": 169320458.46163595,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 98,
+        "totalExposure": 1388427759.3854146
+      },
+      "COMMERCIAL": {
+        "count": 65,
+        "totalExposure": 1388427759.3854146
+      }
+    }
+  },
+  "tpu_247": {
+    "id": 247,
+    "name": "TPU 247",
+    "count": 65,
+    "totalExposure": 1521584101.6054454,
+    "avgExposure": 23408986.178545315,
+    "minExposure": 2340898.6178545314,
+    "maxExposure": 234089861.78545314,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 39,
+        "totalExposure": 760792050.8027227
+      },
+      "COMMERCIAL": {
+        "count": 26,
+        "totalExposure": 760792050.8027227
+      }
+    }
+  },
+  "tpu_251": {
+    "id": 251,
+    "name": "TPU 251",
+    "count": 63,
+    "totalExposure": 1168092360.6783762,
+    "avgExposure": 18541148.582196448,
+    "minExposure": 1854114.858219645,
+    "maxExposure": 185411485.82196447,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 37,
+        "totalExposure": 584046180.3391881
+      },
+      "COMMERCIAL": {
+        "count": 25,
+        "totalExposure": 584046180.3391881
+      }
+    }
+  },
+  "tpu_252": {
+    "id": 252,
+    "name": "TPU 252",
+    "count": 326,
+    "totalExposure": 6074981341.534275,
+    "avgExposure": 18634912.090595935,
+    "minExposure": 1863491.2090595935,
+    "maxExposure": 186349120.90595934,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 195,
+        "totalExposure": 3037490670.7671375
+      },
+      "COMMERCIAL": {
+        "count": 130,
+        "totalExposure": 3037490670.7671375
+      }
+    }
+  },
+  "tpu_253": {
+    "id": 253,
+    "name": "TPU 253",
+    "count": 305,
+    "totalExposure": 6754799235.035431,
+    "avgExposure": 22146882.737821084,
+    "minExposure": 2214688.2737821084,
+    "maxExposure": 221468827.37821084,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 183,
+        "totalExposure": 3377399617.5177155
+      },
+      "COMMERCIAL": {
+        "count": 122,
+        "totalExposure": 3377399617.5177155
+      }
+    }
+  },
+  "tpu_254": {
+    "id": 254,
+    "name": "TPU 254",
+    "count": 509,
+    "totalExposure": 11085419090.594364,
+    "avgExposure": 21778819.431423113,
+    "minExposure": 2177881.943142311,
+    "maxExposure": 217788194.31423113,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 305,
+        "totalExposure": 5542709545.297182
+      },
+      "COMMERCIAL": {
+        "count": 203,
+        "totalExposure": 5542709545.297182
+      }
+    }
+  },
+  "tpu_255": {
+    "id": 255,
+    "name": "TPU 255",
+    "count": 120,
+    "totalExposure": 2033934534.6713877,
+    "avgExposure": 16949454.455594897,
+    "minExposure": 1694945.4455594898,
+    "maxExposure": 169494544.55594897,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 72,
+        "totalExposure": 1016967267.3356938
+      },
+      "COMMERCIAL": {
+        "count": 48,
+        "totalExposure": 1016967267.3356938
+      }
+    }
+  },
+  "tpu_256": {
+    "id": 256,
+    "name": "TPU 256",
+    "count": 354,
+    "totalExposure": 7565306059.543124,
+    "avgExposure": 21370921.072155718,
+    "minExposure": 2137092.1072155717,
+    "maxExposure": 213709210.72155717,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 212,
+        "totalExposure": 3782653029.771562
+      },
+      "COMMERCIAL": {
+        "count": 141,
+        "totalExposure": 3782653029.771562
+      }
+    }
+  },
+  "tpu_260": {
+    "id": 260,
+    "name": "TPU 260",
+    "count": 226,
+    "totalExposure": 3806267948.5056896,
+    "avgExposure": 16841893.577458803,
+    "minExposure": 1684189.3577458803,
+    "maxExposure": 168418935.77458802,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 135,
+        "totalExposure": 1903133974.2528448
+      },
+      "COMMERCIAL": {
+        "count": 90,
+        "totalExposure": 1903133974.2528448
+      }
+    }
+  },
+  "tpu_261": {
+    "id": 261,
+    "name": "TPU 261",
+    "count": 485,
+    "totalExposure": 7024817707.994118,
+    "avgExposure": 14484160.222668285,
+    "minExposure": 1448416.0222668285,
+    "maxExposure": 144841602.22668284,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 291,
+        "totalExposure": 3512408853.997059
+      },
+      "COMMERCIAL": {
+        "count": 194,
+        "totalExposure": 3512408853.997059
+      }
+    }
+  },
+  "tpu_262": {
+    "id": 262,
+    "name": "TPU 262",
+    "count": 429,
+    "totalExposure": 10206067673.930609,
+    "avgExposure": 23790367.538299788,
+    "minExposure": 2379036.753829979,
+    "maxExposure": 237903675.38299787,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 257,
+        "totalExposure": 5103033836.965304
+      },
+      "COMMERCIAL": {
+        "count": 171,
+        "totalExposure": 5103033836.965304
+      }
+    }
+  },
+  "tpu_263": {
+    "id": 263,
+    "name": "TPU 263",
+    "count": 232,
+    "totalExposure": 3124799630.4665546,
+    "avgExposure": 13468963.924424805,
+    "minExposure": 1346896.3924424807,
+    "maxExposure": 134689639.24424803,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 139,
+        "totalExposure": 1562399815.2332773
+      },
+      "COMMERCIAL": {
+        "count": 92,
+        "totalExposure": 1562399815.2332773
+      }
+    }
+  },
+  "tpu_264": {
+    "id": 264,
+    "name": "TPU 264",
+    "count": 82,
+    "totalExposure": 1707357416.620935,
+    "avgExposure": 20821431.910011403,
+    "minExposure": 2082143.1910011405,
+    "maxExposure": 208214319.10011405,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 49,
+        "totalExposure": 853678708.3104675
+      },
+      "COMMERCIAL": {
+        "count": 32,
+        "totalExposure": 853678708.3104675
+      }
+    }
+  },
+  "tpu_265": {
+    "id": 265,
+    "name": "TPU 265",
+    "count": 388,
+    "totalExposure": 4614991470.656007,
+    "avgExposure": 11894307.914061872,
+    "minExposure": 1189430.7914061872,
+    "maxExposure": 118943079.14061873,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 232,
+        "totalExposure": 2307495735.3280034
+      },
+      "COMMERCIAL": {
+        "count": 155,
+        "totalExposure": 2307495735.3280034
+      }
+    }
+  },
+  "tpu_266": {
+    "id": 266,
+    "name": "TPU 266",
+    "count": 493,
+    "totalExposure": 6533730981.427393,
+    "avgExposure": 13253004.0191225,
+    "minExposure": 1325300.40191225,
+    "maxExposure": 132530040.19122499,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 295,
+        "totalExposure": 3266865490.7136965
+      },
+      "COMMERCIAL": {
+        "count": 197,
+        "totalExposure": 3266865490.7136965
+      }
+    }
+  },
+  "tpu_267": {
+    "id": 267,
+    "name": "TPU 267",
+    "count": 128,
+    "totalExposure": 964536578.3296944,
+    "avgExposure": 7535442.018200737,
+    "minExposure": 753544.2018200738,
+    "maxExposure": 75354420.18200737,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 76,
+        "totalExposure": 482268289.1648472
+      },
+      "COMMERCIAL": {
+        "count": 51,
+        "totalExposure": 482268289.1648472
+      }
+    }
+  },
+  "tpu_268": {
+    "id": 268,
+    "name": "TPU 268",
+    "count": 212,
+    "totalExposure": 4826462841.914378,
+    "avgExposure": 22766334.15997348,
+    "minExposure": 2276633.4159973483,
+    "maxExposure": 227663341.59973478,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 127,
+        "totalExposure": 2413231420.957189
+      },
+      "COMMERCIAL": {
+        "count": 84,
+        "totalExposure": 2413231420.957189
+      }
+    }
+  },
+  "tpu_269": {
+    "id": 269,
+    "name": "TPU 269",
+    "count": 141,
+    "totalExposure": 2394742423.372823,
+    "avgExposure": 16983988.81824697,
+    "minExposure": 1698398.8818246974,
+    "maxExposure": 169839888.18246973,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 84,
+        "totalExposure": 1197371211.6864116
+      },
+      "COMMERCIAL": {
+        "count": 56,
+        "totalExposure": 1197371211.6864116
+      }
+    }
+  },
+  "tpu_271": {
+    "id": 271,
+    "name": "TPU 271",
+    "count": 20,
+    "totalExposure": 337878847.9030725,
+    "avgExposure": 16893942.395153623,
+    "minExposure": 1689394.2395153623,
+    "maxExposure": 168939423.95153624,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 12,
+        "totalExposure": 168939423.95153624
+      },
+      "COMMERCIAL": {
+        "count": 8,
+        "totalExposure": 168939423.95153624
+      }
+    }
+  },
+  "tpu_272": {
+    "id": 272,
+    "name": "TPU 272",
+    "count": 84,
+    "totalExposure": 1398151191.1674585,
+    "avgExposure": 16644657.03770784,
+    "minExposure": 1664465.703770784,
+    "maxExposure": 166446570.37707838,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 50,
+        "totalExposure": 699075595.5837293
+      },
+      "COMMERCIAL": {
+        "count": 33,
+        "totalExposure": 699075595.5837293
+      }
+    }
+  },
+  "tpu_280": {
+    "id": 280,
+    "name": "TPU 280",
+    "count": 493,
+    "totalExposure": 9735176687.106205,
+    "avgExposure": 19746808.69595579,
+    "minExposure": 1974680.869595579,
+    "maxExposure": 197468086.9595579,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 295,
+        "totalExposure": 4867588343.5531025
+      },
+      "COMMERCIAL": {
+        "count": 197,
+        "totalExposure": 4867588343.5531025
+      }
+    }
+  },
+  "tpu_281": {
+    "id": 281,
+    "name": "TPU 281",
+    "count": 96,
+    "totalExposure": 2033120126.597527,
+    "avgExposure": 21178334.652057573,
+    "minExposure": 2117833.4652057574,
+    "maxExposure": 211783346.52057573,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 57,
+        "totalExposure": 1016560063.2987635
+      },
+      "COMMERCIAL": {
+        "count": 38,
+        "totalExposure": 1016560063.2987635
+      }
+    }
+  },
+  "tpu_282": {
+    "id": 282,
+    "name": "TPU 282",
+    "count": 112,
+    "totalExposure": 1955740535.7110019,
+    "avgExposure": 17461969.06884823,
+    "minExposure": 1746196.906884823,
+    "maxExposure": 174619690.68848228,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 67,
+        "totalExposure": 977870267.8555009
+      },
+      "COMMERCIAL": {
+        "count": 44,
+        "totalExposure": 977870267.8555009
+      }
+    }
+  },
+  "tpu_283": {
+    "id": 283,
+    "name": "TPU 283",
+    "count": 313,
+    "totalExposure": 2156201842.3677616,
+    "avgExposure": 6888823.777532784,
+    "minExposure": 688882.3777532785,
+    "maxExposure": 68888237.77532785,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 187,
+        "totalExposure": 1078100921.1838808
+      },
+      "COMMERCIAL": {
+        "count": 125,
+        "totalExposure": 1078100921.1838808
+      }
+    }
+  },
+  "tpu_284": {
+    "id": 284,
+    "name": "TPU 284",
+    "count": 273,
+    "totalExposure": 6353547723.579931,
+    "avgExposure": 23273068.584541872,
+    "minExposure": 2327306.8584541874,
+    "maxExposure": 232730685.84541872,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 163,
+        "totalExposure": 3176773861.7899656
+      },
+      "COMMERCIAL": {
+        "count": 109,
+        "totalExposure": 3176773861.7899656
+      }
+    }
+  },
+  "tpu_285": {
+    "id": 285,
+    "name": "TPU 285",
+    "count": 265,
+    "totalExposure": 5958249001.461612,
+    "avgExposure": 22483958.496081553,
+    "minExposure": 2248395.8496081554,
+    "maxExposure": 224839584.96081555,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 159,
+        "totalExposure": 2979124500.730806
+      },
+      "COMMERCIAL": {
+        "count": 106,
+        "totalExposure": 2979124500.730806
+      }
+    }
+  },
+  "tpu_286": {
+    "id": 286,
+    "name": "TPU 286",
+    "count": 455,
+    "totalExposure": 5890221076.841493,
+    "avgExposure": 12945540.82822306,
+    "minExposure": 1294554.082822306,
+    "maxExposure": 129455408.28223062,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 273,
+        "totalExposure": 2945110538.4207463
+      },
+      "COMMERCIAL": {
+        "count": 182,
+        "totalExposure": 2945110538.4207463
+      }
+    }
+  },
+  "tpu_287": {
+    "id": 287,
+    "name": "TPU 287",
+    "count": 470,
+    "totalExposure": 10809378316.490112,
+    "avgExposure": 22998677.269127898,
+    "minExposure": 2299867.72691279,
+    "maxExposure": 229986772.691279,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 282,
+        "totalExposure": 5404689158.245056
+      },
+      "COMMERCIAL": {
+        "count": 188,
+        "totalExposure": 5404689158.245056
+      }
+    }
+  },
+  "tpu_288": {
+    "id": 288,
+    "name": "TPU 288",
+    "count": 33,
+    "totalExposure": 513395530.5430863,
+    "avgExposure": 15557440.319487464,
+    "minExposure": 1555744.0319487464,
+    "maxExposure": 155574403.19487464,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 19,
+        "totalExposure": 256697765.27154315
+      },
+      "COMMERCIAL": {
+        "count": 13,
+        "totalExposure": 256697765.27154315
+      }
+    }
+  },
+  "tpu_289": {
+    "id": 289,
+    "name": "TPU 289",
+    "count": 355,
+    "totalExposure": 7097722826.352881,
+    "avgExposure": 19993585.426346146,
+    "minExposure": 1999358.5426346147,
+    "maxExposure": 199935854.26346147,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 213,
+        "totalExposure": 3548861413.1764407
+      },
+      "COMMERCIAL": {
+        "count": 142,
+        "totalExposure": 3548861413.1764407
+      }
+    }
+  },
+  "tpu_290": {
+    "id": 290,
+    "name": "TPU 290",
+    "count": 76,
+    "totalExposure": 1363070689.9738884,
+    "avgExposure": 17935140.657551162,
+    "minExposure": 1793514.0657551163,
+    "maxExposure": 179351406.57551163,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 45,
+        "totalExposure": 681535344.9869442
+      },
+      "COMMERCIAL": {
+        "count": 30,
+        "totalExposure": 681535344.9869442
+      }
+    }
+  },
+  "tpu_291": {
+    "id": 291,
+    "name": "TPU 291",
+    "count": 328,
+    "totalExposure": 5394557185.103726,
+    "avgExposure": 16446820.68629185,
+    "minExposure": 1644682.068629185,
+    "maxExposure": 164468206.8629185,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 196,
+        "totalExposure": 2697278592.551863
+      },
+      "COMMERCIAL": {
+        "count": 131,
+        "totalExposure": 2697278592.551863
+      }
+    }
+  },
+  "tpu_292": {
+    "id": 292,
+    "name": "TPU 292",
+    "count": 450,
+    "totalExposure": 5236853408.441563,
+    "avgExposure": 11637452.018759027,
+    "minExposure": 1163745.2018759027,
+    "maxExposure": 116374520.18759027,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 270,
+        "totalExposure": 2618426704.2207813
+      },
+      "COMMERCIAL": {
+        "count": 180,
+        "totalExposure": 2618426704.2207813
+      }
+    }
+  },
+  "tpu_293": {
+    "id": 293,
+    "name": "TPU 293",
+    "count": 359,
+    "totalExposure": 8802504287.545366,
+    "avgExposure": 24519510.550265644,
+    "minExposure": 2451951.0550265643,
+    "maxExposure": 245195105.50265643,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 215,
+        "totalExposure": 4401252143.772683
+      },
+      "COMMERCIAL": {
+        "count": 143,
+        "totalExposure": 4401252143.772683
+      }
+    }
+  },
+  "tpu_294": {
+    "id": 294,
+    "name": "TPU 294",
+    "count": 204,
+    "totalExposure": 5014144003.970399,
+    "avgExposure": 24579137.274364702,
+    "minExposure": 2457913.7274364703,
+    "maxExposure": 245791372.74364704,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 122,
+        "totalExposure": 2507072001.9851995
+      },
+      "COMMERCIAL": {
+        "count": 81,
+        "totalExposure": 2507072001.9851995
+      }
+    }
+  },
+  "tpu_295": {
+    "id": 295,
+    "name": "TPU 295",
+    "count": 354,
+    "totalExposure": 7305761618.780354,
+    "avgExposure": 20637744.685820207,
+    "minExposure": 2063774.4685820208,
+    "maxExposure": 206377446.85820207,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 212,
+        "totalExposure": 3652880809.390177
+      },
+      "COMMERCIAL": {
+        "count": 141,
+        "totalExposure": 3652880809.390177
+      }
+    }
+  },
+  "tpu_296": {
+    "id": 296,
+    "name": "TPU 296",
+    "count": 171,
+    "totalExposure": 3304043649.6040034,
+    "avgExposure": 19321892.68774271,
+    "minExposure": 1932189.268774271,
+    "maxExposure": 193218926.8774271,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 102,
+        "totalExposure": 1652021824.8020017
+      },
+      "COMMERCIAL": {
+        "count": 68,
+        "totalExposure": 1652021824.8020017
+      }
+    }
+  },
+  "tpu_297": {
+    "id": 297,
+    "name": "TPU 297",
+    "count": 84,
+    "totalExposure": 1901098940.314781,
+    "avgExposure": 22632130.24184263,
+    "minExposure": 2263213.0241842633,
+    "maxExposure": 226321302.4184263,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 50,
+        "totalExposure": 950549470.1573905
+      },
+      "COMMERCIAL": {
+        "count": 33,
+        "totalExposure": 950549470.1573905
+      }
+    }
+  },
+  "tpu_298": {
+    "id": 298,
+    "name": "TPU 298",
+    "count": 190,
+    "totalExposure": 1596657399.0891829,
+    "avgExposure": 8403459.995206226,
+    "minExposure": 840345.9995206227,
+    "maxExposure": 84034599.95206225,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 114,
+        "totalExposure": 798328699.5445914
+      },
+      "COMMERCIAL": {
+        "count": 76,
+        "totalExposure": 798328699.5445914
+      }
+    }
+  },
+  "tpu_310": {
+    "id": 310,
+    "name": "TPU 310",
+    "count": 114,
+    "totalExposure": 1571623552.3090913,
+    "avgExposure": 13786171.511483258,
+    "minExposure": 1378617.1511483258,
+    "maxExposure": 137861715.11483258,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 68,
+        "totalExposure": 785811776.1545457
+      },
+      "COMMERCIAL": {
+        "count": 45,
+        "totalExposure": 785811776.1545457
+      }
+    }
+  },
+  "tpu_320": {
+    "id": 320,
+    "name": "TPU 320",
+    "count": 490,
+    "totalExposure": 11367345957.554985,
+    "avgExposure": 23198665.219499968,
+    "minExposure": 2319866.5219499967,
+    "maxExposure": 231986652.1949997,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 294,
+        "totalExposure": 5683672978.777493
+      },
+      "COMMERCIAL": {
+        "count": 196,
+        "totalExposure": 5683672978.777493
+      }
+    }
+  },
+  "tpu_321": {
+    "id": 321,
+    "name": "TPU 321",
+    "count": 301,
+    "totalExposure": 7258400023.810064,
+    "avgExposure": 24114285.793388918,
+    "minExposure": 2411428.579338892,
+    "maxExposure": 241142857.93388918,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 180,
+        "totalExposure": 3629200011.905032
+      },
+      "COMMERCIAL": {
+        "count": 120,
+        "totalExposure": 3629200011.905032
+      }
+    }
+  },
+  "tpu_322": {
+    "id": 322,
+    "name": "TPU 322",
+    "count": 236,
+    "totalExposure": 4743243400.40781,
+    "avgExposure": 20098488.984778855,
+    "minExposure": 2009848.8984778856,
+    "maxExposure": 200984889.84778854,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 141,
+        "totalExposure": 2371621700.203905
+      },
+      "COMMERCIAL": {
+        "count": 94,
+        "totalExposure": 2371621700.203905
+      }
+    }
+  },
+  "tpu_323": {
+    "id": 323,
+    "name": "TPU 323",
+    "count": 227,
+    "totalExposure": 4319222031.508845,
+    "avgExposure": 19027409.83043544,
+    "minExposure": 1902740.983043544,
+    "maxExposure": 190274098.3043544,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 136,
+        "totalExposure": 2159611015.7544227
+      },
+      "COMMERCIAL": {
+        "count": 90,
+        "totalExposure": 2159611015.7544227
+      }
+    }
+  },
+  "tpu_324": {
+    "id": 324,
+    "name": "TPU 324",
+    "count": 193,
+    "totalExposure": 4546360685.836316,
+    "avgExposure": 23556272.983607855,
+    "minExposure": 2355627.2983607855,
+    "maxExposure": 235562729.83607855,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 115,
+        "totalExposure": 2273180342.918158
+      },
+      "COMMERCIAL": {
+        "count": 77,
+        "totalExposure": 2273180342.918158
+      }
+    }
+  },
+  "tpu_325": {
+    "id": 325,
+    "name": "TPU 325",
+    "count": 218,
+    "totalExposure": 2458739546.0425167,
+    "avgExposure": 11278621.770837232,
+    "minExposure": 1127862.1770837232,
+    "maxExposure": 112786217.70837232,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 130,
+        "totalExposure": 1229369773.0212584
+      },
+      "COMMERCIAL": {
+        "count": 87,
+        "totalExposure": 1229369773.0212584
+      }
+    }
+  },
+  "tpu_326": {
+    "id": 326,
+    "name": "TPU 326",
+    "count": 424,
+    "totalExposure": 2878544680.308409,
+    "avgExposure": 6789020.472425493,
+    "minExposure": 678902.0472425494,
+    "maxExposure": 67890204.72425494,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 254,
+        "totalExposure": 1439272340.1542046
+      },
+      "COMMERCIAL": {
+        "count": 169,
+        "totalExposure": 1439272340.1542046
+      }
+    }
+  },
+  "tpu_327": {
+    "id": 327,
+    "name": "TPU 327",
+    "count": 441,
+    "totalExposure": 3604795818.81143,
+    "avgExposure": 8174140.178710725,
+    "minExposure": 817414.0178710725,
+    "maxExposure": 81741401.78710726,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 264,
+        "totalExposure": 1802397909.405715
+      },
+      "COMMERCIAL": {
+        "count": 176,
+        "totalExposure": 1802397909.405715
+      }
+    }
+  },
+  "tpu_328": {
+    "id": 328,
+    "name": "TPU 328",
+    "count": 176,
+    "totalExposure": 3474354832.2054806,
+    "avgExposure": 19740652.45571296,
+    "minExposure": 1974065.245571296,
+    "maxExposure": 197406524.5571296,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 105,
+        "totalExposure": 1737177416.1027403
+      },
+      "COMMERCIAL": {
+        "count": 70,
+        "totalExposure": 1737177416.1027403
+      }
+    }
+  },
+  "tpu_329": {
+    "id": 329,
+    "name": "TPU 329",
+    "count": 320,
+    "totalExposure": 6881716873.71111,
+    "avgExposure": 21505365.23034722,
+    "minExposure": 2150536.523034722,
+    "maxExposure": 215053652.3034722,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 192,
+        "totalExposure": 3440858436.855555
+      },
+      "COMMERCIAL": {
+        "count": 128,
+        "totalExposure": 3440858436.855555
+      }
+    }
+  },
+  "tpu_331": {
+    "id": 331,
+    "name": "TPU 331",
+    "count": 336,
+    "totalExposure": 6663918969.734391,
+    "avgExposure": 19833092.171828546,
+    "minExposure": 1983309.2171828547,
+    "maxExposure": 198330921.71828544,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 201,
+        "totalExposure": 3331959484.8671956
+      },
+      "COMMERCIAL": {
+        "count": 134,
+        "totalExposure": 3331959484.8671956
+      }
+    }
+  },
+  "tpu_332": {
+    "id": 332,
+    "name": "TPU 332",
+    "count": 310,
+    "totalExposure": 3537875754.893706,
+    "avgExposure": 11412502.435140986,
+    "minExposure": 1141250.2435140987,
+    "maxExposure": 114125024.35140985,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 186,
+        "totalExposure": 1768937877.446853
+      },
+      "COMMERCIAL": {
+        "count": 124,
+        "totalExposure": 1768937877.446853
+      }
+    }
+  },
+  "tpu_333": {
+    "id": 333,
+    "name": "TPU 333",
+    "count": 452,
+    "totalExposure": 3191983246.5919433,
+    "avgExposure": 7061909.837592795,
+    "minExposure": 706190.9837592795,
+    "maxExposure": 70619098.37592794,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 271,
+        "totalExposure": 1595991623.2959716
+      },
+      "COMMERCIAL": {
+        "count": 180,
+        "totalExposure": 1595991623.2959716
+      }
+    }
+  },
+  "tpu_334": {
+    "id": 334,
+    "name": "TPU 334",
+    "count": 139,
+    "totalExposure": 1362165360.7032318,
+    "avgExposure": 9799750.796426129,
+    "minExposure": 979975.079642613,
+    "maxExposure": 97997507.9642613,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 83,
+        "totalExposure": 681082680.3516159
+      },
+      "COMMERCIAL": {
+        "count": 55,
+        "totalExposure": 681082680.3516159
+      }
+    }
+  },
+  "tpu_335": {
+    "id": 335,
+    "name": "TPU 335",
+    "count": 289,
+    "totalExposure": 3178463072.1132455,
+    "avgExposure": 10998142.118038911,
+    "minExposure": 1099814.2118038912,
+    "maxExposure": 109981421.1803891,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 173,
+        "totalExposure": 1589231536.0566227
+      },
+      "COMMERCIAL": {
+        "count": 115,
+        "totalExposure": 1589231536.0566227
+      }
+    }
+  },
+  "tpu_336": {
+    "id": 336,
+    "name": "TPU 336",
+    "count": 434,
+    "totalExposure": 7442097027.454314,
+    "avgExposure": 17147689.003350955,
+    "minExposure": 1714768.9003350956,
+    "maxExposure": 171476890.03350955,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 260,
+        "totalExposure": 3721048513.727157
+      },
+      "COMMERCIAL": {
+        "count": 173,
+        "totalExposure": 3721048513.727157
+      }
+    }
+  },
+  "tpu_340": {
+    "id": 340,
+    "name": "TPU 340",
+    "count": 320,
+    "totalExposure": 7361247927.139014,
+    "avgExposure": 23003899.77230942,
+    "minExposure": 2300389.977230942,
+    "maxExposure": 230038997.7230942,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 192,
+        "totalExposure": 3680623963.569507
+      },
+      "COMMERCIAL": {
+        "count": 128,
+        "totalExposure": 3680623963.569507
+      }
+    }
+  },
+  "tpu_350": {
+    "id": 350,
+    "name": "TPU 350",
+    "count": 301,
+    "totalExposure": 4853299040.341094,
+    "avgExposure": 16123917.077545162,
+    "minExposure": 1612391.7077545163,
+    "maxExposure": 161239170.77545163,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 180,
+        "totalExposure": 2426649520.170547
+      },
+      "COMMERCIAL": {
+        "count": 120,
+        "totalExposure": 2426649520.170547
+      }
+    }
+  },
+  "tpu_351": {
+    "id": 351,
+    "name": "TPU 351",
+    "count": 256,
+    "totalExposure": 2874454802.350384,
+    "avgExposure": 11228339.071681188,
+    "minExposure": 1122833.907168119,
+    "maxExposure": 112283390.71681188,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 153,
+        "totalExposure": 1437227401.175192
+      },
+      "COMMERCIAL": {
+        "count": 102,
+        "totalExposure": 1437227401.175192
+      }
+    }
+  },
+  "tpu_411": {
+    "id": 411,
+    "name": "TPU 411",
+    "count": 97,
+    "totalExposure": 1958852257.8810787,
+    "avgExposure": 20194353.17403174,
+    "minExposure": 2019435.317403174,
+    "maxExposure": 201943531.74031737,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 58,
+        "totalExposure": 979426128.9405394
+      },
+      "COMMERCIAL": {
+        "count": 38,
+        "totalExposure": 979426128.9405394
+      }
+    }
+  },
+  "tpu_412": {
+    "id": 412,
+    "name": "TPU 412",
+    "count": 119,
+    "totalExposure": 1500194287.5849962,
+    "avgExposure": 12606674.685588203,
+    "minExposure": 1260667.4685588204,
+    "maxExposure": 126066746.85588203,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 71,
+        "totalExposure": 750097143.7924981
+      },
+      "COMMERCIAL": {
+        "count": 47,
+        "totalExposure": 750097143.7924981
+      }
+    }
+  },
+  "tpu_413": {
+    "id": 413,
+    "name": "TPU 413",
+    "count": 412,
+    "totalExposure": 2244645586.2056503,
+    "avgExposure": 5448168.898557404,
+    "minExposure": 544816.8898557405,
+    "maxExposure": 54481688.98557404,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 247,
+        "totalExposure": 1122322793.1028252
+      },
+      "COMMERCIAL": {
+        "count": 164,
+        "totalExposure": 1122322793.1028252
+      }
+    }
+  },
+  "tpu_414": {
+    "id": 414,
+    "name": "TPU 414",
+    "count": 214,
+    "totalExposure": 5285129417.075352,
+    "avgExposure": 24696866.43493155,
+    "minExposure": 2469686.643493155,
+    "maxExposure": 246968664.3493155,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 128,
+        "totalExposure": 2642564708.537676
+      },
+      "COMMERCIAL": {
+        "count": 85,
+        "totalExposure": 2642564708.537676
+      }
+    }
+  },
+  "tpu_415": {
+    "id": 415,
+    "name": "TPU 415",
+    "count": 72,
+    "totalExposure": 1683544272.30638,
+    "avgExposure": 23382559.337588612,
+    "minExposure": 2338255.9337588614,
+    "maxExposure": 233825593.3758861,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 43,
+        "totalExposure": 841772136.15319
+      },
+      "COMMERCIAL": {
+        "count": 28,
+        "totalExposure": 841772136.15319
+      }
+    }
+  },
+  "tpu_416": {
+    "id": 416,
+    "name": "TPU 416",
+    "count": 194,
+    "totalExposure": 4269192233.4920783,
+    "avgExposure": 22006145.53346432,
+    "minExposure": 2200614.5533464323,
+    "maxExposure": 220061455.3346432,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 116,
+        "totalExposure": 2134596116.7460392
+      },
+      "COMMERCIAL": {
+        "count": 77,
+        "totalExposure": 2134596116.7460392
+      }
+    }
+  },
+  "tpu_421": {
+    "id": 421,
+    "name": "TPU 421",
+    "count": 479,
+    "totalExposure": 5358002574.233565,
+    "avgExposure": 11185809.132011618,
+    "minExposure": 1118580.913201162,
+    "maxExposure": 111858091.32011619,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 287,
+        "totalExposure": 2679001287.1167827
+      },
+      "COMMERCIAL": {
+        "count": 191,
+        "totalExposure": 2679001287.1167827
+      }
+    }
+  },
+  "tpu_422": {
+    "id": 422,
+    "name": "TPU 422",
+    "count": 494,
+    "totalExposure": 3105986149.380747,
+    "avgExposure": 6287421.355021754,
+    "minExposure": 628742.1355021754,
+    "maxExposure": 62874213.55021754,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 296,
+        "totalExposure": 1552993074.6903734
+      },
+      "COMMERCIAL": {
+        "count": 197,
+        "totalExposure": 1552993074.6903734
+      }
+    }
+  },
+  "tpu_423": {
+    "id": 423,
+    "name": "TPU 423",
+    "count": 22,
+    "totalExposure": 546819510.510615,
+    "avgExposure": 24855432.295937046,
+    "minExposure": 2485543.229593705,
+    "maxExposure": 248554322.95937046,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 13,
+        "totalExposure": 273409755.2553075
+      },
+      "COMMERCIAL": {
+        "count": 8,
+        "totalExposure": 273409755.2553075
+      }
+    }
+  },
+  "tpu_424": {
+    "id": 424,
+    "name": "TPU 424",
+    "count": 491,
+    "totalExposure": 7543708643.291421,
+    "avgExposure": 15363968.723607782,
+    "minExposure": 1536396.8723607783,
+    "maxExposure": 153639687.23607782,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 294,
+        "totalExposure": 3771854321.6457105
+      },
+      "COMMERCIAL": {
+        "count": 196,
+        "totalExposure": 3771854321.6457105
+      }
+    }
+  },
+  "tpu_425": {
+    "id": 425,
+    "name": "TPU 425",
+    "count": 223,
+    "totalExposure": 4759263142.256549,
+    "avgExposure": 21341987.185006946,
+    "minExposure": 2134198.7185006947,
+    "maxExposure": 213419871.85006946,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 133,
+        "totalExposure": 2379631571.1282744
+      },
+      "COMMERCIAL": {
+        "count": 89,
+        "totalExposure": 2379631571.1282744
+      }
+    }
+  },
+  "tpu_426": {
+    "id": 426,
+    "name": "TPU 426",
+    "count": 471,
+    "totalExposure": 5503856428.318027,
+    "avgExposure": 11685470.123817466,
+    "minExposure": 1168547.0123817467,
+    "maxExposure": 116854701.23817466,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 282,
+        "totalExposure": 2751928214.1590133
+      },
+      "COMMERCIAL": {
+        "count": 188,
+        "totalExposure": 2751928214.1590133
+      }
+    }
+  },
+  "tpu_427": {
+    "id": 427,
+    "name": "TPU 427",
+    "count": 374,
+    "totalExposure": 7465859931.86581,
+    "avgExposure": 19962192.331192005,
+    "minExposure": 1996219.2331192007,
+    "maxExposure": 199621923.31192005,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 224,
+        "totalExposure": 3732929965.932905
+      },
+      "COMMERCIAL": {
+        "count": 149,
+        "totalExposure": 3732929965.932905
+      }
+    }
+  },
+  "tpu_428": {
+    "id": 428,
+    "name": "TPU 428",
+    "count": 417,
+    "totalExposure": 4500800143.218519,
+    "avgExposure": 10793285.715152325,
+    "minExposure": 1079328.5715152326,
+    "maxExposure": 107932857.15152325,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 250,
+        "totalExposure": 2250400071.6092596
+      },
+      "COMMERCIAL": {
+        "count": 166,
+        "totalExposure": 2250400071.6092596
+      }
+    }
+  },
+  "tpu_431": {
+    "id": 431,
+    "name": "TPU 431",
+    "count": 236,
+    "totalExposure": 1671827482.6817749,
+    "avgExposure": 7084014.757126165,
+    "minExposure": 708401.4757126165,
+    "maxExposure": 70840147.57126164,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 141,
+        "totalExposure": 835913741.3408874
+      },
+      "COMMERCIAL": {
+        "count": 94,
+        "totalExposure": 835913741.3408874
+      }
+    }
+  },
+  "tpu_432": {
+    "id": 432,
+    "name": "TPU 432",
+    "count": 469,
+    "totalExposure": 5707469124.287234,
+    "avgExposure": 12169443.76180647,
+    "minExposure": 1216944.376180647,
+    "maxExposure": 121694437.6180647,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 281,
+        "totalExposure": 2853734562.143617
+      },
+      "COMMERCIAL": {
+        "count": 187,
+        "totalExposure": 2853734562.143617
+      }
+    }
+  },
+  "tpu_433": {
+    "id": 433,
+    "name": "TPU 433",
+    "count": 239,
+    "totalExposure": 2551699303.0395355,
+    "avgExposure": 10676566.121504333,
+    "minExposure": 1067656.6121504332,
+    "maxExposure": 106765661.21504334,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 143,
+        "totalExposure": 1275849651.5197678
+      },
+      "COMMERCIAL": {
+        "count": 95,
+        "totalExposure": 1275849651.5197678
+      }
+    }
+  },
+  "tpu_434": {
+    "id": 434,
+    "name": "TPU 434",
+    "count": 432,
+    "totalExposure": 8467151927.255294,
+    "avgExposure": 19599888.720498364,
+    "minExposure": 1959988.8720498364,
+    "maxExposure": 195998887.20498365,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 259,
+        "totalExposure": 4233575963.627647
+      },
+      "COMMERCIAL": {
+        "count": 172,
+        "totalExposure": 4233575963.627647
+      }
+    }
+  },
+  "tpu_441": {
+    "id": 441,
+    "name": "TPU 441",
+    "count": 175,
+    "totalExposure": 1590285835.5024605,
+    "avgExposure": 9087347.63144263,
+    "minExposure": 908734.7631442631,
+    "maxExposure": 90873476.3144263,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 105,
+        "totalExposure": 795142917.7512302
+      },
+      "COMMERCIAL": {
+        "count": 70,
+        "totalExposure": 795142917.7512302
+      }
+    }
+  },
+  "tpu_442": {
+    "id": 442,
+    "name": "TPU 442",
+    "count": 257,
+    "totalExposure": 5765997547.0277405,
+    "avgExposure": 22435788.120730508,
+    "minExposure": 2243578.812073051,
+    "maxExposure": 224357881.20730507,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 154,
+        "totalExposure": 2882998773.5138702
+      },
+      "COMMERCIAL": {
+        "count": 102,
+        "totalExposure": 2882998773.5138702
+      }
+    }
+  },
+  "tpu_510": {
+    "id": 510,
+    "name": "TPU 510",
+    "count": 216,
+    "totalExposure": 4767865436.710678,
+    "avgExposure": 22073451.09588277,
+    "minExposure": 2207345.109588277,
+    "maxExposure": 220734510.9588277,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 129,
+        "totalExposure": 2383932718.355339
+      },
+      "COMMERCIAL": {
+        "count": 86,
+        "totalExposure": 2383932718.355339
+      }
+    }
+  },
+  "tpu_511": {
+    "id": 511,
+    "name": "TPU 511",
+    "count": 141,
+    "totalExposure": 3083632166.3975396,
+    "avgExposure": 21869731.676578294,
+    "minExposure": 2186973.1676578294,
+    "maxExposure": 218697316.76578295,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 84,
+        "totalExposure": 1541816083.1987698
+      },
+      "COMMERCIAL": {
+        "count": 56,
+        "totalExposure": 1541816083.1987698
+      }
+    }
+  },
+  "tpu_512": {
+    "id": 512,
+    "name": "TPU 512",
+    "count": 105,
+    "totalExposure": 596749289.6116536,
+    "avgExposure": 5683326.567730034,
+    "minExposure": 568332.6567730034,
+    "maxExposure": 56833265.677300334,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 63,
+        "totalExposure": 298374644.8058268
+      },
+      "COMMERCIAL": {
+        "count": 42,
+        "totalExposure": 298374644.8058268
+      }
+    }
+  },
+  "tpu_513": {
+    "id": 513,
+    "name": "TPU 513",
+    "count": 256,
+    "totalExposure": 5902001079.969668,
+    "avgExposure": 23054691.718631517,
+    "minExposure": 2305469.1718631517,
+    "maxExposure": 230546917.18631518,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 153,
+        "totalExposure": 2951000539.984834
+      },
+      "COMMERCIAL": {
+        "count": 102,
+        "totalExposure": 2951000539.984834
+      }
+    }
+  },
+  "tpu_514": {
+    "id": 514,
+    "name": "TPU 514",
+    "count": 103,
+    "totalExposure": 2167490666.629777,
+    "avgExposure": 21043598.705143467,
+    "minExposure": 2104359.8705143468,
+    "maxExposure": 210435987.05143467,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 61,
+        "totalExposure": 1083745333.3148885
+      },
+      "COMMERCIAL": {
+        "count": 41,
+        "totalExposure": 1083745333.3148885
+      }
+    }
+  },
+  "tpu_515": {
+    "id": 515,
+    "name": "TPU 515",
+    "count": 132,
+    "totalExposure": 2421857437.8811088,
+    "avgExposure": 18347404.832432643,
+    "minExposure": 1834740.4832432643,
+    "maxExposure": 183474048.32432643,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 79,
+        "totalExposure": 1210928718.9405544
+      },
+      "COMMERCIAL": {
+        "count": 52,
+        "totalExposure": 1210928718.9405544
+      }
+    }
+  },
+  "tpu_516": {
+    "id": 516,
+    "name": "TPU 516",
+    "count": 394,
+    "totalExposure": 1975057967.6358616,
+    "avgExposure": 5012837.481309294,
+    "minExposure": 501283.7481309294,
+    "maxExposure": 50128374.81309294,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 236,
+        "totalExposure": 987528983.8179308
+      },
+      "COMMERCIAL": {
+        "count": 157,
+        "totalExposure": 987528983.8179308
+      }
+    }
+  },
+  "tpu_517": {
+    "id": 517,
+    "name": "TPU 517",
+    "count": 137,
+    "totalExposure": 1887597823.793921,
+    "avgExposure": 13778086.305065116,
+    "minExposure": 1377808.6305065118,
+    "maxExposure": 137780863.05065116,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 82,
+        "totalExposure": 943798911.8969605
+      },
+      "COMMERCIAL": {
+        "count": 54,
+        "totalExposure": 943798911.8969605
+      }
+    }
+  },
+  "tpu_518": {
+    "id": 518,
+    "name": "TPU 518",
+    "count": 170,
+    "totalExposure": 1426024785.412696,
+    "avgExposure": 8388381.090662917,
+    "minExposure": 838838.1090662917,
+    "maxExposure": 83883810.90662917,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 102,
+        "totalExposure": 713012392.706348
+      },
+      "COMMERCIAL": {
+        "count": 68,
+        "totalExposure": 713012392.706348
+      }
+    }
+  },
+  "tpu_519": {
+    "id": 519,
+    "name": "TPU 519",
+    "count": 171,
+    "totalExposure": 3232863475.9706693,
+    "avgExposure": 18905634.362401575,
+    "minExposure": 1890563.4362401576,
+    "maxExposure": 189056343.62401575,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 102,
+        "totalExposure": 1616431737.9853346
+      },
+      "COMMERCIAL": {
+        "count": 68,
+        "totalExposure": 1616431737.9853346
+      }
+    }
+  },
+  "tpu_521": {
+    "id": 521,
+    "name": "TPU 521",
+    "count": 433,
+    "totalExposure": 8441703722.942853,
+    "avgExposure": 19495851.554140538,
+    "minExposure": 1949585.155414054,
+    "maxExposure": 194958515.54140538,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 259,
+        "totalExposure": 4220851861.4714265
+      },
+      "COMMERCIAL": {
+        "count": 173,
+        "totalExposure": 4220851861.4714265
+      }
+    }
+  },
+  "tpu_522": {
+    "id": 522,
+    "name": "TPU 522",
+    "count": 240,
+    "totalExposure": 1336707564.0640154,
+    "avgExposure": 5569614.85026673,
+    "minExposure": 556961.4850266731,
+    "maxExposure": 55696148.50266731,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 144,
+        "totalExposure": 668353782.0320077
+      },
+      "COMMERCIAL": {
+        "count": 96,
+        "totalExposure": 668353782.0320077
+      }
+    }
+  },
+  "tpu_523": {
+    "id": 523,
+    "name": "TPU 523",
+    "count": 405,
+    "totalExposure": 6405217429.3814,
+    "avgExposure": 15815351.677484939,
+    "minExposure": 1581535.167748494,
+    "maxExposure": 158153516.77484939,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 243,
+        "totalExposure": 3202608714.6907
+      },
+      "COMMERCIAL": {
+        "count": 162,
+        "totalExposure": 3202608714.6907
+      }
+    }
+  },
+  "tpu_524": {
+    "id": 524,
+    "name": "TPU 524",
+    "count": 79,
+    "totalExposure": 398412662.1117727,
+    "avgExposure": 5043198.254579402,
+    "minExposure": 504319.82545794017,
+    "maxExposure": 50431982.54579402,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 47,
+        "totalExposure": 199206331.05588636
+      },
+      "COMMERCIAL": {
+        "count": 31,
+        "totalExposure": 199206331.05588636
+      }
+    }
+  },
+  "tpu_525": {
+    "id": 525,
+    "name": "TPU 525",
+    "count": 267,
+    "totalExposure": 2698215512.630445,
+    "avgExposure": 10105676.077267583,
+    "minExposure": 1010567.6077267583,
+    "maxExposure": 101056760.77267584,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 160,
+        "totalExposure": 1349107756.3152225
+      },
+      "COMMERCIAL": {
+        "count": 106,
+        "totalExposure": 1349107756.3152225
+      }
+    }
+  },
+  "tpu_526": {
+    "id": 526,
+    "name": "TPU 526",
+    "count": 455,
+    "totalExposure": 3857967971.3240576,
+    "avgExposure": 8479050.4864265,
+    "minExposure": 847905.0486426501,
+    "maxExposure": 84790504.86426501,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 273,
+        "totalExposure": 1928983985.6620288
+      },
+      "COMMERCIAL": {
+        "count": 182,
+        "totalExposure": 1928983985.6620288
+      }
+    }
+  },
+  "tpu_527": {
+    "id": 527,
+    "name": "TPU 527",
+    "count": 416,
+    "totalExposure": 2700643021.1669917,
+    "avgExposure": 6491930.33934373,
+    "minExposure": 649193.0339343731,
+    "maxExposure": 64919303.3934373,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 249,
+        "totalExposure": 1350321510.5834959
+      },
+      "COMMERCIAL": {
+        "count": 166,
+        "totalExposure": 1350321510.5834959
+      }
+    }
+  },
+  "tpu_528": {
+    "id": 528,
+    "name": "TPU 528",
+    "count": 412,
+    "totalExposure": 9126605145.356882,
+    "avgExposure": 22151954.236303113,
+    "minExposure": 2215195.4236303116,
+    "maxExposure": 221519542.36303115,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 247,
+        "totalExposure": 4563302572.678441
+      },
+      "COMMERCIAL": {
+        "count": 164,
+        "totalExposure": 4563302572.678441
+      }
+    }
+  },
+  "tpu_529": {
+    "id": 529,
+    "name": "TPU 529",
+    "count": 386,
+    "totalExposure": 4107093256.37276,
+    "avgExposure": 10640137.969877616,
+    "minExposure": 1064013.7969877615,
+    "maxExposure": 106401379.69877616,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 231,
+        "totalExposure": 2053546628.18638
+      },
+      "COMMERCIAL": {
+        "count": 154,
+        "totalExposure": 2053546628.18638
+      }
+    }
+  },
+  "tpu_531": {
+    "id": 531,
+    "name": "TPU 531",
+    "count": 93,
+    "totalExposure": 490875890.84904313,
+    "avgExposure": 5278235.385473582,
+    "minExposure": 527823.5385473582,
+    "maxExposure": 52782353.85473582,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 55,
+        "totalExposure": 245437945.42452157
+      },
+      "COMMERCIAL": {
+        "count": 37,
+        "totalExposure": 245437945.42452157
+      }
+    }
+  },
+  "tpu_532": {
+    "id": 532,
+    "name": "TPU 532",
+    "count": 328,
+    "totalExposure": 2383465755.411048,
+    "avgExposure": 7266663.888448317,
+    "minExposure": 726666.3888448317,
+    "maxExposure": 72666638.88448316,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 196,
+        "totalExposure": 1191732877.705524
+      },
+      "COMMERCIAL": {
+        "count": 131,
+        "totalExposure": 1191732877.705524
+      }
+    }
+  },
+  "tpu_533": {
+    "id": 533,
+    "name": "TPU 533",
+    "count": 85,
+    "totalExposure": 1995837298.619452,
+    "avgExposure": 23480438.80728767,
+    "minExposure": 2348043.8807287673,
+    "maxExposure": 234804388.0728767,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 51,
+        "totalExposure": 997918649.309726
+      },
+      "COMMERCIAL": {
+        "count": 34,
+        "totalExposure": 997918649.309726
+      }
+    }
+  },
+  "tpu_541": {
+    "id": 541,
+    "name": "TPU 541",
+    "count": 313,
+    "totalExposure": 3582726942.9846373,
+    "avgExposure": 11446411.95841737,
+    "minExposure": 1144641.195841737,
+    "maxExposure": 114464119.58417371,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 187,
+        "totalExposure": 1791363471.4923186
+      },
+      "COMMERCIAL": {
+        "count": 125,
+        "totalExposure": 1791363471.4923186
+      }
+    }
+  },
+  "tpu_542": {
+    "id": 542,
+    "name": "TPU 542",
+    "count": 430,
+    "totalExposure": 7713142762.386445,
+    "avgExposure": 17937541.307875454,
+    "minExposure": 1793754.1307875456,
+    "maxExposure": 179375413.07875454,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 258,
+        "totalExposure": 3856571381.1932225
+      },
+      "COMMERCIAL": {
+        "count": 172,
+        "totalExposure": 3856571381.1932225
+      }
+    }
+  },
+  "tpu_543": {
+    "id": 543,
+    "name": "TPU 543",
+    "count": 445,
+    "totalExposure": 5975724876.4442625,
+    "avgExposure": 13428595.227964634,
+    "minExposure": 1342859.5227964635,
+    "maxExposure": 134285952.27964634,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 267,
+        "totalExposure": 2987862438.2221313
+      },
+      "COMMERCIAL": {
+        "count": 178,
+        "totalExposure": 2987862438.2221313
+      }
+    }
+  },
+  "tpu_544": {
+    "id": 544,
+    "name": "TPU 544",
+    "count": 394,
+    "totalExposure": 8853711074.495337,
+    "avgExposure": 22471347.9048105,
+    "minExposure": 2247134.79048105,
+    "maxExposure": 224713479.048105,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 236,
+        "totalExposure": 4426855537.247668
+      },
+      "COMMERCIAL": {
+        "count": 157,
+        "totalExposure": 4426855537.247668
+      }
+    }
+  },
+  "tpu_545": {
+    "id": 545,
+    "name": "TPU 545",
+    "count": 300,
+    "totalExposure": 5588395282.13274,
+    "avgExposure": 18627984.2737758,
+    "minExposure": 1862798.4273775802,
+    "maxExposure": 186279842.737758,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 180,
+        "totalExposure": 2794197641.06637
+      },
+      "COMMERCIAL": {
+        "count": 120,
+        "totalExposure": 2794197641.06637
+      }
+    }
+  },
+  "tpu_546": {
+    "id": 546,
+    "name": "TPU 546",
+    "count": 426,
+    "totalExposure": 4261803037.803135,
+    "avgExposure": 10004232.48310595,
+    "minExposure": 1000423.248310595,
+    "maxExposure": 100042324.8310595,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 255,
+        "totalExposure": 2130901518.9015675
+      },
+      "COMMERCIAL": {
+        "count": 170,
+        "totalExposure": 2130901518.9015675
+      }
+    }
+  },
+  "tpu_547": {
+    "id": 547,
+    "name": "TPU 547",
+    "count": 282,
+    "totalExposure": 6756611647.088958,
+    "avgExposure": 23959615.769819,
+    "minExposure": 2395961.5769819,
+    "maxExposure": 239596157.69818997,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 169,
+        "totalExposure": 3378305823.544479
+      },
+      "COMMERCIAL": {
+        "count": 112,
+        "totalExposure": 3378305823.544479
+      }
+    }
+  },
+  "tpu_548": {
+    "id": 548,
+    "name": "TPU 548",
+    "count": 176,
+    "totalExposure": 2758144837.7973075,
+    "avgExposure": 15671277.487484701,
+    "minExposure": 1567127.74874847,
+    "maxExposure": 156712774.874847,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 105,
+        "totalExposure": 1379072418.8986537
+      },
+      "COMMERCIAL": {
+        "count": 70,
+        "totalExposure": 1379072418.8986537
+      }
+    }
+  },
+  "tpu_549": {
+    "id": 549,
+    "name": "TPU 549",
+    "count": 58,
+    "totalExposure": 415821498.9383442,
+    "avgExposure": 7169336.1885921415,
+    "minExposure": 716933.6188592142,
+    "maxExposure": 71693361.88592142,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 34,
+        "totalExposure": 207910749.4691721
+      },
+      "COMMERCIAL": {
+        "count": 23,
+        "totalExposure": 207910749.4691721
+      }
+    }
+  },
+  "tpu_610": {
+    "id": 610,
+    "name": "TPU 610",
+    "count": 241,
+    "totalExposure": 1441941094.965826,
+    "avgExposure": 5983158.070397618,
+    "minExposure": 598315.8070397618,
+    "maxExposure": 59831580.703976184,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 144,
+        "totalExposure": 720970547.482913
+      },
+      "COMMERCIAL": {
+        "count": 96,
+        "totalExposure": 720970547.482913
+      }
+    }
+  },
+  "tpu_620": {
+    "id": 620,
+    "name": "TPU 620",
+    "count": 261,
+    "totalExposure": 4501921232.417946,
+    "avgExposure": 17248740.354091745,
+    "minExposure": 1724874.0354091746,
+    "maxExposure": 172487403.54091746,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 156,
+        "totalExposure": 2250960616.208973
+      },
+      "COMMERCIAL": {
+        "count": 104,
+        "totalExposure": 2250960616.208973
+      }
+    }
+  },
+  "tpu_621": {
+    "id": 621,
+    "name": "TPU 621",
+    "count": 442,
+    "totalExposure": 2658260582.8146944,
+    "avgExposure": 6014164.214512883,
+    "minExposure": 601416.4214512883,
+    "maxExposure": 60141642.14512883,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 265,
+        "totalExposure": 1329130291.4073472
+      },
+      "COMMERCIAL": {
+        "count": 176,
+        "totalExposure": 1329130291.4073472
+      }
+    }
+  },
+  "tpu_622": {
+    "id": 622,
+    "name": "TPU 622",
+    "count": 400,
+    "totalExposure": 9150973498.298832,
+    "avgExposure": 22877433.74574708,
+    "minExposure": 2287743.374574708,
+    "maxExposure": 228774337.45747077,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 240,
+        "totalExposure": 4575486749.149416
+      },
+      "COMMERCIAL": {
+        "count": 160,
+        "totalExposure": 4575486749.149416
+      }
+    }
+  },
+  "tpu_623": {
+    "id": 623,
+    "name": "TPU 623",
+    "count": 399,
+    "totalExposure": 5827232669.378392,
+    "avgExposure": 14604593.156336822,
+    "minExposure": 1460459.3156336823,
+    "maxExposure": 146045931.5633682,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 239,
+        "totalExposure": 2913616334.689196
+      },
+      "COMMERCIAL": {
+        "count": 159,
+        "totalExposure": 2913616334.689196
+      }
+    }
+  },
+  "tpu_624": {
+    "id": 624,
+    "name": "TPU 624",
+    "count": 362,
+    "totalExposure": 8976268516.45331,
+    "avgExposure": 24796321.868655555,
+    "minExposure": 2479632.1868655556,
+    "maxExposure": 247963218.68655556,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 217,
+        "totalExposure": 4488134258.226655
+      },
+      "COMMERCIAL": {
+        "count": 144,
+        "totalExposure": 4488134258.226655
+      }
+    }
+  },
+  "tpu_625": {
+    "id": 625,
+    "name": "TPU 625",
+    "count": 462,
+    "totalExposure": 6019774495.675993,
+    "avgExposure": 13029814.925705612,
+    "minExposure": 1302981.4925705614,
+    "maxExposure": 130298149.25705612,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 277,
+        "totalExposure": 3009887247.8379965
+      },
+      "COMMERCIAL": {
+        "count": 184,
+        "totalExposure": 3009887247.8379965
+      }
+    }
+  },
+  "tpu_626": {
+    "id": 626,
+    "name": "TPU 626",
+    "count": 175,
+    "totalExposure": 4020864653.765308,
+    "avgExposure": 22976369.450087473,
+    "minExposure": 2297636.9450087473,
+    "maxExposure": 229763694.50087473,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 105,
+        "totalExposure": 2010432326.882654
+      },
+      "COMMERCIAL": {
+        "count": 70,
+        "totalExposure": 2010432326.882654
+      }
+    }
+  },
+  "tpu_627": {
+    "id": 627,
+    "name": "TPU 627",
+    "count": 109,
+    "totalExposure": 2109800456.922907,
+    "avgExposure": 19355967.49470557,
+    "minExposure": 1935596.749470557,
+    "maxExposure": 193559674.9470557,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 65,
+        "totalExposure": 1054900228.4614536
+      },
+      "COMMERCIAL": {
+        "count": 43,
+        "totalExposure": 1054900228.4614536
+      }
+    }
+  },
+  "tpu_628": {
+    "id": 628,
+    "name": "TPU 628",
+    "count": 366,
+    "totalExposure": 8216185497.926563,
+    "avgExposure": 22448594.256629955,
+    "minExposure": 2244859.425662996,
+    "maxExposure": 224485942.56629956,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 219,
+        "totalExposure": 4108092748.9632816
+      },
+      "COMMERCIAL": {
+        "count": 146,
+        "totalExposure": 4108092748.9632816
+      }
+    }
+  },
+  "tpu_629": {
+    "id": 629,
+    "name": "TPU 629",
+    "count": 327,
+    "totalExposure": 5857643066.399586,
+    "avgExposure": 17913281.548622586,
+    "minExposure": 1791328.1548622586,
+    "maxExposure": 179132815.48622584,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 196,
+        "totalExposure": 2928821533.199793
+      },
+      "COMMERCIAL": {
+        "count": 130,
+        "totalExposure": 2928821533.199793
+      }
+    }
+  },
+  "tpu_631": {
+    "id": 631,
+    "name": "TPU 631",
+    "count": 151,
+    "totalExposure": 2006280407.3049448,
+    "avgExposure": 13286625.213940032,
+    "minExposure": 1328662.5213940032,
+    "maxExposure": 132866252.13940032,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 90,
+        "totalExposure": 1003140203.6524724
+      },
+      "COMMERCIAL": {
+        "count": 60,
+        "totalExposure": 1003140203.6524724
+      }
+    }
+  },
+  "tpu_632": {
+    "id": 632,
+    "name": "TPU 632",
+    "count": 338,
+    "totalExposure": 7668270178.740093,
+    "avgExposure": 22687189.87792927,
+    "minExposure": 2268718.9877929273,
+    "maxExposure": 226871898.7792927,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 202,
+        "totalExposure": 3834135089.3700466
+      },
+      "COMMERCIAL": {
+        "count": 135,
+        "totalExposure": 3834135089.3700466
+      }
+    }
+  },
+  "tpu_633": {
+    "id": 633,
+    "name": "TPU 633",
+    "count": 95,
+    "totalExposure": 703975045.4764699,
+    "avgExposure": 7410263.63659442,
+    "minExposure": 741026.363659442,
+    "maxExposure": 74102636.3659442,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 57,
+        "totalExposure": 351987522.73823494
+      },
+      "COMMERCIAL": {
+        "count": 38,
+        "totalExposure": 351987522.73823494
+      }
+    }
+  },
+  "tpu_634": {
+    "id": 634,
+    "name": "TPU 634",
+    "count": 403,
+    "totalExposure": 6216727934.541187,
+    "avgExposure": 15426123.907050092,
+    "minExposure": 1542612.3907050092,
+    "maxExposure": 154261239.0705009,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 241,
+        "totalExposure": 3108363967.2705936
+      },
+      "COMMERCIAL": {
+        "count": 161,
+        "totalExposure": 3108363967.2705936
+      }
+    }
+  },
+  "tpu_641": {
+    "id": 641,
+    "name": "TPU 641",
+    "count": 346,
+    "totalExposure": 6363193625.856246,
+    "avgExposure": 18390733.022705913,
+    "minExposure": 1839073.3022705913,
+    "maxExposure": 183907330.22705913,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 207,
+        "totalExposure": 3181596812.928123
+      },
+      "COMMERCIAL": {
+        "count": 138,
+        "totalExposure": 3181596812.928123
+      }
+    }
+  },
+  "tpu_642": {
+    "id": 642,
+    "name": "TPU 642",
+    "count": 416,
+    "totalExposure": 3691021600.4650173,
+    "avgExposure": 8872648.078040907,
+    "minExposure": 887264.8078040908,
+    "maxExposure": 88726480.78040907,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 249,
+        "totalExposure": 1845510800.2325087
+      },
+      "COMMERCIAL": {
+        "count": 166,
+        "totalExposure": 1845510800.2325087
+      }
+    }
+  },
+  "tpu_651": {
+    "id": 651,
+    "name": "TPU 651",
+    "count": 428,
+    "totalExposure": 3148787350.4958467,
+    "avgExposure": 7356979.790878147,
+    "minExposure": 735697.9790878147,
+    "maxExposure": 73569797.90878147,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 256,
+        "totalExposure": 1574393675.2479234
+      },
+      "COMMERCIAL": {
+        "count": 171,
+        "totalExposure": 1574393675.2479234
+      }
+    }
+  },
+  "tpu_652": {
+    "id": 652,
+    "name": "TPU 652",
+    "count": 478,
+    "totalExposure": 9391930664.051493,
+    "avgExposure": 19648390.510567978,
+    "minExposure": 1964839.0510567978,
+    "maxExposure": 196483905.10567978,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 286,
+        "totalExposure": 4695965332.025746
+      },
+      "COMMERCIAL": {
+        "count": 191,
+        "totalExposure": 4695965332.025746
+      }
+    }
+  },
+  "tpu_653": {
+    "id": 653,
+    "name": "TPU 653",
+    "count": 239,
+    "totalExposure": 2043093843.8605218,
+    "avgExposure": 8548509.80694779,
+    "minExposure": 854850.9806947791,
+    "maxExposure": 85485098.0694779,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 143,
+        "totalExposure": 1021546921.9302609
+      },
+      "COMMERCIAL": {
+        "count": 95,
+        "totalExposure": 1021546921.9302609
+      }
+    }
+  },
+  "tpu_711": {
+    "id": 711,
+    "name": "TPU 711",
+    "count": 468,
+    "totalExposure": 8939853103.423481,
+    "avgExposure": 19102250.220990345,
+    "minExposure": 1910225.0220990346,
+    "maxExposure": 191022502.20990345,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 280,
+        "totalExposure": 4469926551.7117405
+      },
+      "COMMERCIAL": {
+        "count": 187,
+        "totalExposure": 4469926551.7117405
+      }
+    }
+  },
+  "tpu_712": {
+    "id": 712,
+    "name": "TPU 712",
+    "count": 251,
+    "totalExposure": 1684418176.5916874,
+    "avgExposure": 6710829.388811504,
+    "minExposure": 671082.9388811504,
+    "maxExposure": 67108293.88811503,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 150,
+        "totalExposure": 842209088.2958437
+      },
+      "COMMERCIAL": {
+        "count": 100,
+        "totalExposure": 842209088.2958437
+      }
+    }
+  },
+  "tpu_720": {
+    "id": 720,
+    "name": "TPU 720",
+    "count": 136,
+    "totalExposure": 2859204294.3501315,
+    "avgExposure": 21023560.987868614,
+    "minExposure": 2102356.0987868616,
+    "maxExposure": 210235609.87868613,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 81,
+        "totalExposure": 1429602147.1750658
+      },
+      "COMMERCIAL": {
+        "count": 54,
+        "totalExposure": 1429602147.1750658
+      }
+    }
+  },
+  "tpu_721": {
+    "id": 721,
+    "name": "TPU 721",
+    "count": 446,
+    "totalExposure": 8626057585.868776,
+    "avgExposure": 19340936.291185595,
+    "minExposure": 1934093.6291185596,
+    "maxExposure": 193409362.91185594,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 267,
+        "totalExposure": 4313028792.934388
+      },
+      "COMMERCIAL": {
+        "count": 178,
+        "totalExposure": 4313028792.934388
+      }
+    }
+  },
+  "tpu_722": {
+    "id": 722,
+    "name": "TPU 722",
+    "count": 429,
+    "totalExposure": 8346198490.919842,
+    "avgExposure": 19455008.13734229,
+    "minExposure": 1945500.813734229,
+    "maxExposure": 194550081.3734229,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 257,
+        "totalExposure": 4173099245.459921
+      },
+      "COMMERCIAL": {
+        "count": 171,
+        "totalExposure": 4173099245.459921
+      }
+    }
+  },
+  "tpu_723": {
+    "id": 723,
+    "name": "TPU 723",
+    "count": 378,
+    "totalExposure": 6689407298.605721,
+    "avgExposure": 17696844.705306143,
+    "minExposure": 1769684.4705306143,
+    "maxExposure": 176968447.05306143,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 226,
+        "totalExposure": 3344703649.3028607
+      },
+      "COMMERCIAL": {
+        "count": 151,
+        "totalExposure": 3344703649.3028607
+      }
+    }
+  },
+  "tpu_724": {
+    "id": 724,
+    "name": "TPU 724",
+    "count": 466,
+    "totalExposure": 9260079851.347792,
+    "avgExposure": 19871415.99001672,
+    "minExposure": 1987141.5990016721,
+    "maxExposure": 198714159.90016723,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 279,
+        "totalExposure": 4630039925.673896
+      },
+      "COMMERCIAL": {
+        "count": 186,
+        "totalExposure": 4630039925.673896
+      }
+    }
+  },
+  "tpu_725": {
+    "id": 725,
+    "name": "TPU 725",
+    "count": 196,
+    "totalExposure": 4847760072.863525,
+    "avgExposure": 24733469.759507783,
+    "minExposure": 2473346.9759507785,
+    "maxExposure": 247334697.5950778,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 117,
+        "totalExposure": 2423880036.4317627
+      },
+      "COMMERCIAL": {
+        "count": 78,
+        "totalExposure": 2423880036.4317627
+      }
+    }
+  },
+  "tpu_726": {
+    "id": 726,
+    "name": "TPU 726",
+    "count": 153,
+    "totalExposure": 2112001979.6105657,
+    "avgExposure": 13803934.5072586,
+    "minExposure": 1380393.45072586,
+    "maxExposure": 138039345.072586,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 91,
+        "totalExposure": 1056000989.8052828
+      },
+      "COMMERCIAL": {
+        "count": 61,
+        "totalExposure": 1056000989.8052828
+      }
+    }
+  },
+  "tpu_727": {
+    "id": 727,
+    "name": "TPU 727",
+    "count": 251,
+    "totalExposure": 1655179015.4002686,
+    "avgExposure": 6594338.706773979,
+    "minExposure": 659433.8706773979,
+    "maxExposure": 65943387.067739785,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 150,
+        "totalExposure": 827589507.7001343
+      },
+      "COMMERCIAL": {
+        "count": 100,
+        "totalExposure": 827589507.7001343
+      }
+    }
+  },
+  "tpu_728": {
+    "id": 728,
+    "name": "TPU 728",
+    "count": 292,
+    "totalExposure": 6414032456.860477,
+    "avgExposure": 21965864.578289308,
+    "minExposure": 2196586.457828931,
+    "maxExposure": 219658645.78289306,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 175,
+        "totalExposure": 3207016228.4302387
+      },
+      "COMMERCIAL": {
+        "count": 116,
+        "totalExposure": 3207016228.4302387
+      }
+    }
+  },
+  "tpu_729": {
+    "id": 729,
+    "name": "TPU 729",
+    "count": 273,
+    "totalExposure": 2883936430.3733163,
+    "avgExposure": 10563869.708327167,
+    "minExposure": 1056386.9708327167,
+    "maxExposure": 105638697.08327167,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 163,
+        "totalExposure": 1441968215.1866581
+      },
+      "COMMERCIAL": {
+        "count": 109,
+        "totalExposure": 1441968215.1866581
+      }
+    }
+  },
+  "tpu_731": {
+    "id": 731,
+    "name": "TPU 731",
+    "count": 387,
+    "totalExposure": 6015721636.86986,
+    "avgExposure": 15544500.353668887,
+    "minExposure": 1554450.0353668889,
+    "maxExposure": 155445003.53668886,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 232,
+        "totalExposure": 3007860818.43493
+      },
+      "COMMERCIAL": {
+        "count": 154,
+        "totalExposure": 3007860818.43493
+      }
+    }
+  },
+  "tpu_732": {
+    "id": 732,
+    "name": "TPU 732",
+    "count": 464,
+    "totalExposure": 11526725147.455462,
+    "avgExposure": 24842080.059171252,
+    "minExposure": 2484208.0059171254,
+    "maxExposure": 248420800.59171253,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 278,
+        "totalExposure": 5763362573.727731
+      },
+      "COMMERCIAL": {
+        "count": 185,
+        "totalExposure": 5763362573.727731
+      }
+    }
+  },
+  "tpu_733": {
+    "id": 733,
+    "name": "TPU 733",
+    "count": 113,
+    "totalExposure": 2686896264.528341,
+    "avgExposure": 23777843.04892337,
+    "minExposure": 2377784.304892337,
+    "maxExposure": 237778430.4892337,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 67,
+        "totalExposure": 1343448132.2641704
+      },
+      "COMMERCIAL": {
+        "count": 45,
+        "totalExposure": 1343448132.2641704
+      }
+    }
+  },
+  "tpu_741": {
+    "id": 741,
+    "name": "TPU 741",
+    "count": 231,
+    "totalExposure": 4359872421.347792,
+    "avgExposure": 18873906.585921176,
+    "minExposure": 1887390.6585921177,
+    "maxExposure": 188739065.85921174,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 138,
+        "totalExposure": 2179936210.673896
+      },
+      "COMMERCIAL": {
+        "count": 92,
+        "totalExposure": 2179936210.673896
+      }
+    }
+  },
+  "tpu_742": {
+    "id": 742,
+    "name": "TPU 742",
+    "count": 319,
+    "totalExposure": 6421315591.160503,
+    "avgExposure": 20129515.959750794,
+    "minExposure": 2012951.5959750796,
+    "maxExposure": 201295159.59750795,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 191,
+        "totalExposure": 3210657795.5802517
+      },
+      "COMMERCIAL": {
+        "count": 127,
+        "totalExposure": 3210657795.5802517
+      }
+    }
+  },
+  "tpu_743": {
+    "id": 743,
+    "name": "TPU 743",
+    "count": 27,
+    "totalExposure": 189216165.55211118,
+    "avgExposure": 7008006.131559674,
+    "minExposure": 700800.6131559674,
+    "maxExposure": 70080061.31559673,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 16,
+        "totalExposure": 94608082.77605559
+      },
+      "COMMERCIAL": {
+        "count": 10,
+        "totalExposure": 94608082.77605559
+      }
+    }
+  },
+  "tpu_744": {
+    "id": 744,
+    "name": "TPU 744",
+    "count": 16,
+    "totalExposure": 153545308.16570446,
+    "avgExposure": 9596581.760356529,
+    "minExposure": 959658.1760356529,
+    "maxExposure": 95965817.60356529,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 9,
+        "totalExposure": 76772654.08285223
+      },
+      "COMMERCIAL": {
+        "count": 6,
+        "totalExposure": 76772654.08285223
+      }
+    }
+  },
+  "tpu_751": {
+    "id": 751,
+    "name": "TPU 751",
+    "count": 229,
+    "totalExposure": 3170938695.4049263,
+    "avgExposure": 13846893.866397059,
+    "minExposure": 1384689.3866397059,
+    "maxExposure": 138468938.6639706,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 137,
+        "totalExposure": 1585469347.7024632
+      },
+      "COMMERCIAL": {
+        "count": 91,
+        "totalExposure": 1585469347.7024632
+      }
+    }
+  },
+  "tpu_753": {
+    "id": 753,
+    "name": "TPU 753",
+    "count": 108,
+    "totalExposure": 1061001152.6635387,
+    "avgExposure": 9824084.746884618,
+    "minExposure": 982408.4746884619,
+    "maxExposure": 98240847.46884617,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 64,
+        "totalExposure": 530500576.33176935
+      },
+      "COMMERCIAL": {
+        "count": 43,
+        "totalExposure": 530500576.33176935
+      }
+    }
+  },
+  "tpu_754": {
+    "id": 754,
+    "name": "TPU 754",
+    "count": 457,
+    "totalExposure": 8404088786.32471,
+    "avgExposure": 18389690.99852234,
+    "minExposure": 1838969.0998522341,
+    "maxExposure": 183896909.9852234,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 274,
+        "totalExposure": 4202044393.162355
+      },
+      "COMMERCIAL": {
+        "count": 182,
+        "totalExposure": 4202044393.162355
+      }
+    }
+  },
+  "tpu_755": {
+    "id": 755,
+    "name": "TPU 755",
+    "count": 187,
+    "totalExposure": 953001765.5495379,
+    "avgExposure": 5096266.1259333575,
+    "minExposure": 509626.6125933358,
+    "maxExposure": 50962661.25933357,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 112,
+        "totalExposure": 476500882.77476895
+      },
+      "COMMERCIAL": {
+        "count": 74,
+        "totalExposure": 476500882.77476895
+      }
+    }
+  },
+  "tpu_756": {
+    "id": 756,
+    "name": "TPU 756",
+    "count": 302,
+    "totalExposure": 2628004283.0316324,
+    "avgExposure": 8702000.937190836,
+    "minExposure": 870200.0937190837,
+    "maxExposure": 87020009.37190837,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 181,
+        "totalExposure": 1314002141.5158162
+      },
+      "COMMERCIAL": {
+        "count": 120,
+        "totalExposure": 1314002141.5158162
+      }
+    }
+  },
+  "tpu_757": {
+    "id": 757,
+    "name": "TPU 757",
+    "count": 108,
+    "totalExposure": 964282598.8088064,
+    "avgExposure": 8928542.581563022,
+    "minExposure": 892854.2581563023,
+    "maxExposure": 89285425.81563023,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 64,
+        "totalExposure": 482141299.4044032
+      },
+      "COMMERCIAL": {
+        "count": 43,
+        "totalExposure": 482141299.4044032
+      }
+    }
+  },
+  "tpu_758": {
+    "id": 758,
+    "name": "TPU 758",
+    "count": 384,
+    "totalExposure": 5732557936.8846655,
+    "avgExposure": 14928536.293970482,
+    "minExposure": 1492853.6293970484,
+    "maxExposure": 149285362.93970484,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 230,
+        "totalExposure": 2866278968.4423327
+      },
+      "COMMERCIAL": {
+        "count": 153,
+        "totalExposure": 2866278968.4423327
+      }
+    }
+  },
+  "tpu_759": {
+    "id": 759,
+    "name": "TPU 759",
+    "count": 187,
+    "totalExposure": 1565240652.8198023,
+    "avgExposure": 8370270.87069413,
+    "minExposure": 837027.087069413,
+    "maxExposure": 83702708.70694129,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 112,
+        "totalExposure": 782620326.4099011
+      },
+      "COMMERCIAL": {
+        "count": 74,
+        "totalExposure": 782620326.4099011
+      }
+    }
+  },
+  "tpu_761": {
+    "id": 761,
+    "name": "TPU 761",
+    "count": 141,
+    "totalExposure": 1294902507.567629,
+    "avgExposure": 9183705.727429993,
+    "minExposure": 918370.5727429994,
+    "maxExposure": 91837057.27429993,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 84,
+        "totalExposure": 647451253.7838145
+      },
+      "COMMERCIAL": {
+        "count": 56,
+        "totalExposure": 647451253.7838145
+      }
+    }
+  },
+  "tpu_762": {
+    "id": 762,
+    "name": "TPU 762",
+    "count": 387,
+    "totalExposure": 9117778935.752197,
+    "avgExposure": 23560152.288765367,
+    "minExposure": 2356015.2288765367,
+    "maxExposure": 235601522.88765368,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 232,
+        "totalExposure": 4558889467.876099
+      },
+      "COMMERCIAL": {
+        "count": 154,
+        "totalExposure": 4558889467.876099
+      }
+    }
+  },
+  "tpu_811": {
+    "id": 811,
+    "name": "TPU 811",
+    "count": 34,
+    "totalExposure": 371102286.96280456,
+    "avgExposure": 10914773.14596484,
+    "minExposure": 1091477.3145964842,
+    "maxExposure": 109147731.4596484,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 20,
+        "totalExposure": 185551143.48140228
+      },
+      "COMMERCIAL": {
+        "count": 13,
+        "totalExposure": 185551143.48140228
+      }
+    }
+  },
+  "tpu_812": {
+    "id": 812,
+    "name": "TPU 812",
+    "count": 456,
+    "totalExposure": 9210630693.13368,
+    "avgExposure": 20198751.52003,
+    "minExposure": 2019875.152003,
+    "maxExposure": 201987515.20029998,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 273,
+        "totalExposure": 4605315346.56684
+      },
+      "COMMERCIAL": {
+        "count": 182,
+        "totalExposure": 4605315346.56684
+      }
+    }
+  },
+  "tpu_813": {
+    "id": 813,
+    "name": "TPU 813",
+    "count": 388,
+    "totalExposure": 6571228457.079959,
+    "avgExposure": 16936155.81721639,
+    "minExposure": 1693615.581721639,
+    "maxExposure": 169361558.1721639,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 232,
+        "totalExposure": 3285614228.5399795
+      },
+      "COMMERCIAL": {
+        "count": 155,
+        "totalExposure": 3285614228.5399795
+      }
+    }
+  },
+  "tpu_814": {
+    "id": 814,
+    "name": "TPU 814",
+    "count": 438,
+    "totalExposure": 8833830655.921913,
+    "avgExposure": 20168563.14137423,
+    "minExposure": 2016856.3141374232,
+    "maxExposure": 201685631.4137423,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 262,
+        "totalExposure": 4416915327.960957
+      },
+      "COMMERCIAL": {
+        "count": 175,
+        "totalExposure": 4416915327.960957
+      }
+    }
+  },
+  "tpu_815": {
+    "id": 815,
+    "name": "TPU 815",
+    "count": 336,
+    "totalExposure": 6818986765.627085,
+    "avgExposure": 20294603.46912823,
+    "minExposure": 2029460.346912823,
+    "maxExposure": 202946034.69128227,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 201,
+        "totalExposure": 3409493382.8135424
+      },
+      "COMMERCIAL": {
+        "count": 134,
+        "totalExposure": 3409493382.8135424
+      }
+    }
+  },
+  "tpu_820": {
+    "id": 820,
+    "name": "TPU 820",
+    "count": 230,
+    "totalExposure": 4355370453.205736,
+    "avgExposure": 18936393.27480755,
+    "minExposure": 1893639.327480755,
+    "maxExposure": 189363932.7480755,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 138,
+        "totalExposure": 2177685226.602868
+      },
+      "COMMERCIAL": {
+        "count": 92,
+        "totalExposure": 2177685226.602868
+      }
+    }
+  },
+  "tpu_821": {
+    "id": 821,
+    "name": "TPU 821",
+    "count": 12,
+    "totalExposure": 177099232.04178676,
+    "avgExposure": 14758269.336815564,
+    "minExposure": 1475826.9336815565,
+    "maxExposure": 147582693.36815563,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 7,
+        "totalExposure": 88549616.02089338
+      },
+      "COMMERCIAL": {
+        "count": 4,
+        "totalExposure": 88549616.02089338
+      }
+    }
+  },
+  "tpu_822": {
+    "id": 822,
+    "name": "TPU 822",
+    "count": 495,
+    "totalExposure": 7200207918.409974,
+    "avgExposure": 14545874.582646413,
+    "minExposure": 1454587.4582646415,
+    "maxExposure": 145458745.82646412,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 297,
+        "totalExposure": 3600103959.204987
+      },
+      "COMMERCIAL": {
+        "count": 198,
+        "totalExposure": 3600103959.204987
+      }
+    }
+  },
+  "tpu_823": {
+    "id": 823,
+    "name": "TPU 823",
+    "count": 211,
+    "totalExposure": 5034872803.044073,
+    "avgExposure": 23861956.412531152,
+    "minExposure": 2386195.641253115,
+    "maxExposure": 238619564.12531152,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 126,
+        "totalExposure": 2517436401.5220366
+      },
+      "COMMERCIAL": {
+        "count": 84,
+        "totalExposure": 2517436401.5220366
+      }
+    }
+  },
+  "tpu_824": {
+    "id": 824,
+    "name": "TPU 824",
+    "count": 40,
+    "totalExposure": 821763345.6975805,
+    "avgExposure": 20544083.64243951,
+    "minExposure": 2054408.3642439512,
+    "maxExposure": 205440836.4243951,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 24,
+        "totalExposure": 410881672.8487902
+      },
+      "COMMERCIAL": {
+        "count": 16,
+        "totalExposure": 410881672.8487902
+      }
+    }
+  },
+  "tpu_825": {
+    "id": 825,
+    "name": "TPU 825",
+    "count": 493,
+    "totalExposure": 7348276896.912644,
+    "avgExposure": 14905226.971425243,
+    "minExposure": 1490522.6971425244,
+    "maxExposure": 149052269.7142524,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 295,
+        "totalExposure": 3674138448.456322
+      },
+      "COMMERCIAL": {
+        "count": 197,
+        "totalExposure": 3674138448.456322
+      }
+    }
+  },
+  "tpu_826": {
+    "id": 826,
+    "name": "TPU 826",
+    "count": 75,
+    "totalExposure": 507737031.9104856,
+    "avgExposure": 6769827.092139808,
+    "minExposure": 676982.7092139809,
+    "maxExposure": 67698270.92139809,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 45,
+        "totalExposure": 253868515.9552428
+      },
+      "COMMERCIAL": {
+        "count": 30,
+        "totalExposure": 253868515.9552428
+      }
+    }
+  },
+  "tpu_827": {
+    "id": 827,
+    "name": "TPU 827",
+    "count": 135,
+    "totalExposure": 2599848743.388706,
+    "avgExposure": 19258138.83991634,
+    "minExposure": 1925813.8839916342,
+    "maxExposure": 192581388.39916342,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 81,
+        "totalExposure": 1299924371.694353
+      },
+      "COMMERCIAL": {
+        "count": 54,
+        "totalExposure": 1299924371.694353
+      }
+    }
+  },
+  "tpu_828": {
+    "id": 828,
+    "name": "TPU 828",
+    "count": 183,
+    "totalExposure": 1435896915.4164696,
+    "avgExposure": 7846431.231783986,
+    "minExposure": 784643.1231783987,
+    "maxExposure": 78464312.31783986,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 109,
+        "totalExposure": 717948457.7082348
+      },
+      "COMMERCIAL": {
+        "count": 73,
+        "totalExposure": 717948457.7082348
+      }
+    }
+  },
+  "tpu_829": {
+    "id": 829,
+    "name": "TPU 829",
+    "count": 86,
+    "totalExposure": 1918567659.4342065,
+    "avgExposure": 22308926.272490773,
+    "minExposure": 2230892.6272490774,
+    "maxExposure": 223089262.72490773,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 51,
+        "totalExposure": 959283829.7171032
+      },
+      "COMMERCIAL": {
+        "count": 34,
+        "totalExposure": 959283829.7171032
+      }
+    }
+  },
+  "tpu_831": {
+    "id": 831,
+    "name": "TPU 831",
+    "count": 271,
+    "totalExposure": 1985382934.4936874,
+    "avgExposure": 7326136.289644603,
+    "minExposure": 732613.6289644603,
+    "maxExposure": 73261362.89644602,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 162,
+        "totalExposure": 992691467.2468437
+      },
+      "COMMERCIAL": {
+        "count": 108,
+        "totalExposure": 992691467.2468437
+      }
+    }
+  },
+  "tpu_832": {
+    "id": 832,
+    "name": "TPU 832",
+    "count": 35,
+    "totalExposure": 415002428.7717769,
+    "avgExposure": 11857212.250622198,
+    "minExposure": 1185721.22506222,
+    "maxExposure": 118572122.50622198,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 21,
+        "totalExposure": 207501214.38588846
+      },
+      "COMMERCIAL": {
+        "count": 14,
+        "totalExposure": 207501214.38588846
+      }
+    }
+  },
+  "tpu_833": {
+    "id": 833,
+    "name": "TPU 833",
+    "count": 156,
+    "totalExposure": 3308745880.4779024,
+    "avgExposure": 21209909.490242966,
+    "minExposure": 2120990.949024297,
+    "maxExposure": 212099094.90242964,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 93,
+        "totalExposure": 1654372940.2389512
+      },
+      "COMMERCIAL": {
+        "count": 62,
+        "totalExposure": 1654372940.2389512
+      }
+    }
+  },
+  "tpu_834": {
+    "id": 834,
+    "name": "TPU 834",
+    "count": 276,
+    "totalExposure": 6744764706.831467,
+    "avgExposure": 24437553.285621256,
+    "minExposure": 2443755.3285621256,
+    "maxExposure": 244375532.85621256,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 165,
+        "totalExposure": 3372382353.4157333
+      },
+      "COMMERCIAL": {
+        "count": 110,
+        "totalExposure": 3372382353.4157333
+      }
+    }
+  },
+  "tpu_835": {
+    "id": 835,
+    "name": "TPU 835",
+    "count": 274,
+    "totalExposure": 2931856791.6592345,
+    "avgExposure": 10700207.268829323,
+    "minExposure": 1070020.7268829325,
+    "maxExposure": 107002072.68829323,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 164,
+        "totalExposure": 1465928395.8296173
+      },
+      "COMMERCIAL": {
+        "count": 109,
+        "totalExposure": 1465928395.8296173
+      }
+    }
+  },
+  "tpu_836": {
+    "id": 836,
+    "name": "TPU 836",
+    "count": 378,
+    "totalExposure": 6230924680.846805,
+    "avgExposure": 16483927.72710795,
+    "minExposure": 1648392.772710795,
+    "maxExposure": 164839277.27107948,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 226,
+        "totalExposure": 3115462340.4234023
+      },
+      "COMMERCIAL": {
+        "count": 151,
+        "totalExposure": 3115462340.4234023
+      }
+    }
+  },
+  "tpu_837": {
+    "id": 837,
+    "name": "TPU 837",
+    "count": 434,
+    "totalExposure": 3590470292.2468214,
+    "avgExposure": 8272973.023610188,
+    "minExposure": 827297.3023610188,
+    "maxExposure": 82729730.23610188,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 260,
+        "totalExposure": 1795235146.1234107
+      },
+      "COMMERCIAL": {
+        "count": 173,
+        "totalExposure": 1795235146.1234107
+      }
+    }
+  },
+  "tpu_838": {
+    "id": 838,
+    "name": "TPU 838",
+    "count": 10,
+    "totalExposure": 191564097.70302057,
+    "avgExposure": 19156409.770302057,
+    "minExposure": 1915640.9770302058,
+    "maxExposure": 191564097.70302057,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 6,
+        "totalExposure": 95782048.85151029
+      },
+      "COMMERCIAL": {
+        "count": 4,
+        "totalExposure": 95782048.85151029
+      }
+    }
+  },
+  "tpu_839": {
+    "id": 839,
+    "name": "TPU 839",
+    "count": 255,
+    "totalExposure": 3790495101.9430604,
+    "avgExposure": 14864686.67428651,
+    "minExposure": 1486468.6674286511,
+    "maxExposure": 148646866.74286512,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 153,
+        "totalExposure": 1895247550.9715302
+      },
+      "COMMERCIAL": {
+        "count": 102,
+        "totalExposure": 1895247550.9715302
+      }
+    }
+  },
+  "tpu_911": {
+    "id": 911,
+    "name": "TPU 911",
+    "count": 318,
+    "totalExposure": 6899787642.678286,
+    "avgExposure": 21697445.417227313,
+    "minExposure": 2169744.541722731,
+    "maxExposure": 216974454.17227313,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 190,
+        "totalExposure": 3449893821.339143
+      },
+      "COMMERCIAL": {
+        "count": 127,
+        "totalExposure": 3449893821.339143
+      }
+    }
+  },
+  "tpu_912": {
+    "id": 912,
+    "name": "TPU 912",
+    "count": 297,
+    "totalExposure": 2237160228.0224147,
+    "avgExposure": 7532526.020277491,
+    "minExposure": 753252.6020277492,
+    "maxExposure": 75325260.20277491,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 178,
+        "totalExposure": 1118580114.0112073
+      },
+      "COMMERCIAL": {
+        "count": 118,
+        "totalExposure": 1118580114.0112073
+      }
+    }
+  },
+  "tpu_913": {
+    "id": 913,
+    "name": "TPU 913",
+    "count": 153,
+    "totalExposure": 3210709633.4956555,
+    "avgExposure": 20985030.28428533,
+    "minExposure": 2098503.028428533,
+    "maxExposure": 209850302.8428533,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 91,
+        "totalExposure": 1605354816.7478278
+      },
+      "COMMERCIAL": {
+        "count": 61,
+        "totalExposure": 1605354816.7478278
+      }
+    }
+  },
+  "tpu_920": {
+    "id": 920,
+    "name": "TPU 920",
+    "count": 97,
+    "totalExposure": 971208278.678272,
+    "avgExposure": 10012456.4812193,
+    "minExposure": 1001245.64812193,
+    "maxExposure": 100124564.81219299,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 58,
+        "totalExposure": 485604139.339136
+      },
+      "COMMERCIAL": {
+        "count": 38,
+        "totalExposure": 485604139.339136
+      }
+    }
+  },
+  "tpu_931": {
+    "id": 931,
+    "name": "TPU 931",
+    "count": 153,
+    "totalExposure": 783863901.6374884,
+    "avgExposure": 5123293.474754826,
+    "minExposure": 512329.3474754826,
+    "maxExposure": 51232934.74754826,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 91,
+        "totalExposure": 391931950.8187442
+      },
+      "COMMERCIAL": {
+        "count": 61,
+        "totalExposure": 391931950.8187442
+      }
+    }
+  },
+  "tpu_932": {
+    "id": 932,
+    "name": "TPU 932",
+    "count": 337,
+    "totalExposure": 6266368562.541161,
+    "avgExposure": 18594565.46748119,
+    "minExposure": 1859456.546748119,
+    "maxExposure": 185945654.6748119,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 202,
+        "totalExposure": 3133184281.2705803
+      },
+      "COMMERCIAL": {
+        "count": 134,
+        "totalExposure": 3133184281.2705803
+      }
+    }
+  },
+  "tpu_933": {
+    "id": 933,
+    "name": "TPU 933",
+    "count": 137,
+    "totalExposure": 1161341900.1952996,
+    "avgExposure": 8476948.176608026,
+    "minExposure": 847694.8176608026,
+    "maxExposure": 84769481.76608026,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 82,
+        "totalExposure": 580670950.0976498
+      },
+      "COMMERCIAL": {
+        "count": 54,
+        "totalExposure": 580670950.0976498
+      }
+    }
+  },
+  "tpu_934": {
+    "id": 934,
+    "name": "TPU 934",
+    "count": 507,
+    "totalExposure": 9770578502.841896,
+    "avgExposure": 19271357.993770998,
+    "minExposure": 1927135.7993770998,
+    "maxExposure": 192713579.93771,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 304,
+        "totalExposure": 4885289251.420948
+      },
+      "COMMERCIAL": {
+        "count": 202,
+        "totalExposure": 4885289251.420948
+      }
+    }
+  },
+  "tpu_941": {
+    "id": 941,
+    "name": "TPU 941",
+    "count": 33,
+    "totalExposure": 551929149.064281,
+    "avgExposure": 16725125.729220634,
+    "minExposure": 1672512.5729220635,
+    "maxExposure": 167251257.29220635,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 19,
+        "totalExposure": 275964574.5321405
+      },
+      "COMMERCIAL": {
+        "count": 13,
+        "totalExposure": 275964574.5321405
+      }
+    }
+  },
+  "tpu_942": {
+    "id": 942,
+    "name": "TPU 942",
+    "count": 72,
+    "totalExposure": 490017635.103742,
+    "avgExposure": 6805800.487551972,
+    "minExposure": 680580.0487551973,
+    "maxExposure": 68058004.87551972,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 43,
+        "totalExposure": 245008817.551871
+      },
+      "COMMERCIAL": {
+        "count": 28,
+        "totalExposure": 245008817.551871
+      }
+    }
+  },
+  "tpu_943": {
+    "id": 943,
+    "name": "TPU 943",
+    "count": 13,
+    "totalExposure": 140658835.68393326,
+    "avgExposure": 10819910.437225636,
+    "minExposure": 1081991.0437225637,
+    "maxExposure": 108199104.37225637,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 7,
+        "totalExposure": 70329417.84196663
+      },
+      "COMMERCIAL": {
+        "count": 5,
+        "totalExposure": 70329417.84196663
+      }
+    }
+  },
+  "tpu_944": {
+    "id": 944,
+    "name": "TPU 944",
+    "count": 409,
+    "totalExposure": 2478186340.507554,
+    "avgExposure": 6059135.306864436,
+    "minExposure": 605913.5306864436,
+    "maxExposure": 60591353.06864436,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 245,
+        "totalExposure": 1239093170.253777
+      },
+      "COMMERCIAL": {
+        "count": 163,
+        "totalExposure": 1239093170.253777
+      }
+    }
+  },
+  "tpu_950": {
+    "id": 950,
+    "name": "TPU 950",
+    "count": 466,
+    "totalExposure": 3278290144.0132885,
+    "avgExposure": 7034957.390586456,
+    "minExposure": 703495.7390586457,
+    "maxExposure": 70349573.90586457,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 279,
+        "totalExposure": 1639145072.0066442
+      },
+      "COMMERCIAL": {
+        "count": 186,
+        "totalExposure": 1639145072.0066442
+      }
+    }
+  },
+  "tpu_951": {
+    "id": 951,
+    "name": "TPU 951",
+    "count": 327,
+    "totalExposure": 6178026193.467653,
+    "avgExposure": 18893046.463203833,
+    "minExposure": 1889304.6463203833,
+    "maxExposure": 188930464.63203833,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 196,
+        "totalExposure": 3089013096.7338266
+      },
+      "COMMERCIAL": {
+        "count": 130,
+        "totalExposure": 3089013096.7338266
+      }
+    }
+  },
+  "tpu_961": {
+    "id": 961,
+    "name": "TPU 961",
+    "count": 202,
+    "totalExposure": 1926109514.883264,
+    "avgExposure": 9535195.61823398,
+    "minExposure": 953519.5618233981,
+    "maxExposure": 95351956.1823398,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 121,
+        "totalExposure": 963054757.441632
+      },
+      "COMMERCIAL": {
+        "count": 80,
+        "totalExposure": 963054757.441632
+      }
+    }
+  },
+  "tpu_962": {
+    "id": 962,
+    "name": "TPU 962",
+    "count": 333,
+    "totalExposure": 1755348570.4326015,
+    "avgExposure": 5271317.0283261305,
+    "minExposure": 527131.702832613,
+    "maxExposure": 52713170.28326131,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 199,
+        "totalExposure": 877674285.2163007
+      },
+      "COMMERCIAL": {
+        "count": 133,
+        "totalExposure": 877674285.2163007
+      }
+    }
+  },
+  "tpu_963": {
+    "id": 963,
+    "name": "TPU 963",
+    "count": 185,
+    "totalExposure": 3357275045.9379306,
+    "avgExposure": 18147432.68074557,
+    "minExposure": 1814743.2680745572,
+    "maxExposure": 181474326.80745572,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 111,
+        "totalExposure": 1678637522.9689653
+      },
+      "COMMERCIAL": {
+        "count": 74,
+        "totalExposure": 1678637522.9689653
+      }
+    }
+  },
+  "tpu_971": {
+    "id": 971,
+    "name": "TPU 971",
+    "count": 112,
+    "totalExposure": 1454674676.3868957,
+    "avgExposure": 12988166.753454426,
+    "minExposure": 1298816.6753454427,
+    "maxExposure": 129881667.53454426,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 67,
+        "totalExposure": 727337338.1934478
+      },
+      "COMMERCIAL": {
+        "count": 44,
+        "totalExposure": 727337338.1934478
+      }
+    }
+  },
+  "tpu_972": {
+    "id": 972,
+    "name": "TPU 972",
+    "count": 153,
+    "totalExposure": 3297859084.5201044,
+    "avgExposure": 21554634.539347086,
+    "minExposure": 2155463.4539347086,
+    "maxExposure": 215546345.39347085,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 91,
+        "totalExposure": 1648929542.2600522
+      },
+      "COMMERCIAL": {
+        "count": 61,
+        "totalExposure": 1648929542.2600522
+      }
+    }
+  },
+  "tpu_973": {
+    "id": 973,
+    "name": "TPU 973",
+    "count": 437,
+    "totalExposure": 8934072491.486664,
+    "avgExposure": 20444101.811182298,
+    "minExposure": 2044410.1811182299,
+    "maxExposure": 204441018.11182296,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 262,
+        "totalExposure": 4467036245.743332
+      },
+      "COMMERCIAL": {
+        "count": 174,
+        "totalExposure": 4467036245.743332
+      }
+    }
+  },
+  "tpu_974": {
+    "id": 974,
+    "name": "TPU 974",
+    "count": 335,
+    "totalExposure": 2404769022.054735,
+    "avgExposure": 7178414.991208164,
+    "minExposure": 717841.4991208165,
+    "maxExposure": 71784149.91208164,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 201,
+        "totalExposure": 1202384511.0273676
+      },
+      "COMMERCIAL": {
+        "count": 134,
+        "totalExposure": 1202384511.0273676
+      }
+    }
+  },
+  "tpu_975": {
+    "id": 975,
+    "name": "TPU 975",
+    "count": 235,
+    "totalExposure": 2545232036.775062,
+    "avgExposure": 10830774.624574732,
+    "minExposure": 1083077.4624574732,
+    "maxExposure": 108307746.24574733,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 141,
+        "totalExposure": 1272616018.387531
+      },
+      "COMMERCIAL": {
+        "count": 94,
+        "totalExposure": 1272616018.387531
+      }
+    }
+  },
+  "tpu_976": {
+    "id": 976,
+    "name": "TPU 976",
+    "count": 295,
+    "totalExposure": 7228299923.016572,
+    "avgExposure": 24502711.603446007,
+    "minExposure": 2450271.1603446007,
+    "maxExposure": 245027116.03446007,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 177,
+        "totalExposure": 3614149961.508286
+      },
+      "COMMERCIAL": {
+        "count": 118,
+        "totalExposure": 3614149961.508286
+      }
+    }
+  }
+}

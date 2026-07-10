@@ -1,0 +1,161 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2025-11-18T12:00:00Z",
+  "description": "NatCat Platform Event Index - Central registry for all disaster events",
+  
+  "metadata": {
+    "totalEvents": 3,
+    "regions": ["Macau"],
+    "hazardTypes": ["Typhoon"],
+    "dateRange": {
+      "earliest": "2017-08-23",
+      "latest": "2023-09-02"
+    }
+  },
+  
+  "regions": [
+    {
+      "code": "Macau",
+      "name": "Macau SAR",
+      "nameZh": "澳门特别行政区",
+      "eventCount": 3,
+      "bounds": [113.528, 22.109, 113.598, 22.217],
+      "centerPoint": [113.5439, 22.1987],
+      "geoserverWorkspace": "Macau"
+    }
+  ],
+  
+  "hazardTypes": [
+    {
+      "code": "Typhoon",
+      "name": "Typhoon",
+      "nameZh": "台风",
+      "icon": "🌀",
+      "color": "#FF6B6B",
+      "count": 3
+    }
+  ],
+  
+  "events": [
+    {
+      "id": "TY2017-HATO",
+      "code": "TY2017-HATO",
+      "name": "Typhoon Hato",
+      "nameZh": "台风天鸽",
+      "hazardType": "Typhoon",
+      "date": "2017-08-23",
+      "year": 2017,
+      
+      "regions": ["Macau"],
+      "primaryRegion": "Macau",
+      
+      "geometry": {
+        "type": "Point",
+        "coordinates": [113.5439, 22.1987]
+      },
+      
+      "severity": "Severe",
+      "estimatedLoss": 1650000000,
+      "currency": "USD",
+      "affectedPopulation": 680000,
+      
+      "parameters": {
+        "maxWindSpeed": 185,
+        "windSpeedUnit": "km/h",
+        "totalRainfall": 320,
+        "rainfallUnit": "mm",
+        "stormSurge": 2.5,
+        "stormSurgeUnit": "m"
+      },
+      
+      "dataLayers": {
+        "count": 2,
+        "formats": ["GeoTIFF"]
+      },
+      
+      "tags": ["major", "historical", "simulated"],
+      
+      "detailFile": "macau-typhoon-events.json"
+    },
+    {
+      "id": "TY2018-MANGKHUT",
+      "code": "TY2018-MANGKHUT",
+      "name": "Typhoon Mangkhut",
+      "nameZh": "台风山竹",
+      "hazardType": "Typhoon",
+      "date": "2018-09-16",
+      "year": 2018,
+      
+      "regions": ["Macau"],
+      "primaryRegion": "Macau",
+      
+      "geometry": {
+        "type": "Point",
+        "coordinates": [113.5439, 22.1987]
+      },
+      
+      "severity": "Catastrophic",
+      "estimatedLoss": 2830000000,
+      "currency": "USD",
+      "affectedPopulation": 680000,
+      
+      "parameters": {
+        "maxWindSpeed": 215,
+        "windSpeedUnit": "km/h",
+        "totalRainfall": 450,
+        "rainfallUnit": "mm",
+        "stormSurge": 3.2,
+        "stormSurgeUnit": "m"
+      },
+      
+      "dataLayers": {
+        "count": 2,
+        "formats": ["GeoTIFF"]
+      },
+      
+      "tags": ["major", "historical", "super-typhoon", "simulated"],
+      
+      "detailFile": "macau-typhoon-events.json"
+    },
+    {
+      "id": "TY2023-RAGASA",
+      "code": "TY2023-RAGASA",
+      "name": "Typhoon Ragasa",
+      "nameZh": "台风桦加沙",
+      "hazardType": "Typhoon",
+      "date": "2023-09-02",
+      "year": 2023,
+      
+      "regions": ["Macau"],
+      "primaryRegion": "Macau",
+      
+      "geometry": {
+        "type": "Point",
+        "coordinates": [113.5439, 22.1987]
+      },
+      
+      "severity": "Moderate",
+      "estimatedLoss": 950000000,
+      "currency": "USD",
+      "affectedPopulation": 680000,
+      
+      "parameters": {
+        "maxWindSpeed": 165,
+        "windSpeedUnit": "km/h",
+        "totalRainfall": 280,
+        "rainfallUnit": "mm",
+        "stormSurge": 1.8,
+        "stormSurgeUnit": "m"
+      },
+      
+      "dataLayers": {
+        "count": 2,
+        "formats": ["GeoTIFF"]
+      },
+      
+      "tags": ["recent", "simulated"],
+      
+      "detailFile": "macau-typhoon-events.json"
+    }
+  ]
+}

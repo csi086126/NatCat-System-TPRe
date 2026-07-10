@@ -1,0 +1,72 @@
+{
+  "大堂区": {
+    "id": 3,
+    "name": "Cathedral",
+    "nameCN": "大堂区",
+    "count": 1,
+    "totalExposure": 1111000,
+    "avgExposure": 1111000,
+    "minExposure": 132000,
+    "maxExposure": 4210680000,
+    "byOccupancy": {
+      "工程險": {
+        "count": 2060,
+        "totalExposure": 68384951423.06998
+      }
+    },
+    "byYear": {
+      "2013": {
+        "count": 1,
+        "totalExposure": 1111000
+      },
+      "2014": {
+        "count": 185,
+        "totalExposure": 4524620208.280001
+      },
+      "2015": {
+        "count": 206,
+        "totalExposure": 5864443058.35
+      },
+      "2016": {
+        "count": 192,
+        "totalExposure": 4153452921.83
+      },
+      "2017": {
+        "count": 174,
+        "totalExposure": 4428100230.84
+      },
+      "2018": {
+        "count": 208,
+        "totalExposure": 6683204949.01
+      },
+      "2019": {
+        "count": 203,
+        "totalExposure": 4276969009.71
+      },
+      "2020": {
+        "count": 135,
+        "totalExposure": 4534696711.860001
+      },
+      "2021": {
+        "count": 206,
+        "totalExposure": 13479710880.080002
+      },
+      "2022": {
+        "count": 104,
+        "totalExposure": 2674852463.5
+      },
+      "2023": {
+        "count": 170,
+        "totalExposure": 5010875007.219999
+      },
+      "2024": {
+        "count": 160,
+        "totalExposure": 9242068562.96
+      },
+      "2025": {
+        "count": 116,
+        "totalExposure": 3510846419.4300003
+      }
+    }
+  }
+}

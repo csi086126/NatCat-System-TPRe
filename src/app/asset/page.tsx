@@ -291,8 +291,32 @@ export default function TreatyPortfolioManagement() {
   const [filterRegion, setFilterRegion] = useState<string>('all');
   const [filterCedant, setFilterCedant] = useState<string>('all');
   
-  // View mode: individual treaties or regional aggregation
-  const [viewMode, setViewMode] = useState<'treaties' | 'regions'>('treaties');
+  // View mode: individual treaties, regional aggregation, or direct insurance
+  const [viewMode, setViewMode] = useState<'treaties' | 'regions' | 'direct'>('direct');
+  
+  // TPHK Direct Insurance Data
+  const [tphkData, setTphkData] = useState<any[]>([]);
+  const [isLoadingTphk, setIsLoadingTphk] = useState(false);
+
+  // Load TPHK data when view mode changes to direct
+  useEffect(() => {
+    if (viewMode === 'direct' && tphkData.length === 0) {
+      setIsLoadingTphk(true);
+      fetch('/data/tphk_portfolio_subset_5000.json')
+        .then(res => res.json())
+        .then(data => {
+          setTphkData(data);
+          setIsLoadingTphk(false);
+          // Zoom to HK
+          setMapCenter([22.3193, 114.1694]);
+          setMapZoom(11);
+        })
+        .catch(err => {
+          console.error('Failed to load TPHK data', err);
+          setIsLoadingTphk(false);
+        });
+    }
+  }, [viewMode]);
   
   // Regional aggregation data
   const [regionAggregations, setRegionAggregations] = useState<RegionAggregation[]>([]);
@@ -856,10 +880,10 @@ export default function TreatyPortfolioManagement() {
             {/* View Mode Toggle */}
             <div className="border-b pb-3 mb-3">
               <label className="text-sm font-medium mb-2 block">🗺️ View Mode</label>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-3 gap-2">
                 <button
                   onClick={() => setViewMode('treaties')}
-                  className={`px-3 py-2 text-xs font-medium rounded-md transition-colors ${
+                  className={`px-2 py-2 text-xs font-medium rounded-md transition-colors ${
                     viewMode === 'treaties'
                       ? 'bg-gray-600 text-white shadow-sm'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -869,13 +893,23 @@ export default function TreatyPortfolioManagement() {
                 </button>
                 <button
                   onClick={() => setViewMode('regions')}
-                  className={`px-3 py-2 text-xs font-medium rounded-md transition-colors ${
+                  className={`px-2 py-2 text-xs font-medium rounded-md transition-colors ${
                     viewMode === 'regions'
                       ? 'bg-gray-600 text-white shadow-sm'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
                   🌍 Regional
+                </button>
+                <button
+                  onClick={() => setViewMode('direct')}
+                  className={`px-2 py-2 text-xs font-medium rounded-md transition-colors ${
+                    viewMode === 'direct'
+                      ? 'bg-gray-600 text-white shadow-sm'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  🏢 Direct
                 </button>
               </div>
             </div>
@@ -1183,30 +1217,51 @@ export default function TreatyPortfolioManagement() {
             {/* Statistics Summary */}
             <div className="pt-4 border-t space-y-3">
               <h3 className="text-sm font-semibold">📈 Portfolio Summary</h3>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Total:</span>
-                  <span className="font-semibold">{stats.totalTreaties}</span>
+              {viewMode === 'direct' ? (
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Total Policies:</span>
+                    <span className="font-semibold">{tphkData.length}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Geocoded:</span>
+                    <span className="font-semibold text-green-600">
+                      {tphkData.filter(i => i.location).length}
+                    </span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Total Sum Insured:</span>
+                    <span className="font-semibold">
+                      {formatCurrency(tphkData.reduce((acc, item) => acc + (Number(item.sum_insured) || 0), 0))}
+                    </span>
+                  </div>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Active:</span>
-                  <span className="font-semibold text-green-600">{stats.activeTreaties}</span>
+              ) : (
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Total:</span>
+                    <span className="font-semibold">{stats.totalTreaties}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Active:</span>
+                    <span className="font-semibold text-green-600">{stats.activeTreaties}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Expiring:</span>
+                    <span className="font-semibold text-orange-600">{stats.expiringCount}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Exposure:</span>
+                    <span className="font-semibold">{formatCurrency(stats.totalExposure)}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Avg Util:</span>
+                    <span className={`font-semibold ${getUtilizationColor(stats.avgUtilization)}`}>
+                      {stats.avgUtilization}%
+                    </span>
+                  </div>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Expiring:</span>
-                  <span className="font-semibold text-orange-600">{stats.expiringCount}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Exposure:</span>
-                  <span className="font-semibold">{formatCurrency(stats.totalExposure)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Avg Util:</span>
-                  <span className={`font-semibold ${getUtilizationColor(stats.avgUtilization)}`}>
-                    {stats.avgUtilization}%
-                  </span>
-                </div>
-              </div>
+              )}
             </div>
           </div>
         </aside>
@@ -1313,7 +1368,7 @@ export default function TreatyPortfolioManagement() {
               url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
             />
             
-            {/* Conditional Rendering: Treaty Markers OR Regional Circles */}
+            {/* Conditional Rendering: Treaty Markers OR Direct Insurance OR Regional Circles */}
             {viewMode === 'treaties' ? (
               // Individual Treaty Markers
               treaties.map((treaty) => treaty.coordinates && (
@@ -1385,6 +1440,45 @@ export default function TreatyPortfolioManagement() {
                     </div>
                   </Popup>
                 </Marker>
+              ))
+            ) : viewMode === 'direct' ? (
+              // Direct Insurance Markers
+              tphkData.map((item, idx) => item.location && (
+                <Circle
+                  key={idx}
+                  center={[item.location.lat, item.location.lng]}
+                  radius={30}
+                  pathOptions={{ color: '#3B82F6', fillColor: '#3B82F6', fillOpacity: 0.6, weight: 1 }}
+                >
+                  <Popup>
+                    <div className="min-w-[200px]">
+                      <h3 className="font-bold text-sm mb-1">{item.id}</h3>
+                      <p className="text-xs text-gray-600 mb-2">{item.address}</p>
+                      <div className="grid grid-cols-2 gap-2 text-xs">
+                        <div>
+                          <span className="font-semibold">Sum Insured:</span>
+                          <br />
+                          HKD {Number(item.sum_insured).toLocaleString()}
+                        </div>
+                        <div>
+                          <span className="font-semibold">Occupancy:</span>
+                          <br />
+                          {item.occupancy || 'N/A'}
+                        </div>
+                        <div>
+                          <span className="font-semibold">Construction:</span>
+                          <br />
+                          {item.construction || 'N/A'}
+                        </div>
+                        <div>
+                          <span className="font-semibold">Year Built:</span>
+                          <br />
+                          {item.year_built || 'N/A'}
+                        </div>
+                      </div>
+                    </div>
+                  </Popup>
+                </Circle>
               ))
             ) : (
               // Regional Aggregation - Circles OR Shapefile

@@ -1,0 +1,6 @@
+python-dotenv>=1.0.0
+requests>=2.31.0
+
+# Shapefile处理 (选择其一)
+pyshp>=2.3.1              # 轻量级,快速
+# geopandas>=0.14.0       # 功能强大,需要额外依赖 (fiona, shapely, pyproj)

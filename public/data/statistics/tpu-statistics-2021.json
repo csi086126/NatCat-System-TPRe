@@ -1,0 +1,3554 @@
+{
+  "tpu_329": {
+    "id": 329,
+    "name": "TPU 329",
+    "count": 2,
+    "totalExposure": 14319773.43,
+    "avgExposure": 7159886.715,
+    "minExposure": 4319773.43,
+    "maxExposure": 10000000,
+    "byOccupancy": {
+      "STORAGE": {
+        "count": 2,
+        "totalExposure": 14319773.43
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.06915325408935546,
+    "riskDensity": 17191027638.46641,
+    "riskDensityPerKm2": 17191027638.46641,
+    "policiesPerKm2": 2978.8909099464763
+  },
+  "tpu_281": {
+    "id": 281,
+    "name": "TPU 281",
+    "count": 73,
+    "totalExposure": 43610724,
+    "avgExposure": 597407.1780821917,
+    "minExposure": 300000,
+    "maxExposure": 4010724,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 73,
+        "totalExposure": 43610724
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.04424606201171875,
+    "riskDensity": 567904058503.667,
+    "riskDensityPerKm2": 567904058503.667,
+    "policiesPerKm2": 46874.228026229604
+  },
+  "tpu_920": {
+    "id": 920,
+    "name": "TPU 920",
+    "count": 7,
+    "totalExposure": 4493654,
+    "avgExposure": 641950.5714285715,
+    "minExposure": 300000,
+    "maxExposure": 1000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 7,
+        "totalExposure": 4493654
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.14763368420410156,
+    "riskDensity": 3397457895.2224317,
+    "riskDensityPerKm2": 3397457895.2224317,
+    "policiesPerKm2": 2424.920856849104
+  },
+  "tpu_151": {
+    "id": 151,
+    "name": "TPU 151",
+    "count": 51,
+    "totalExposure": 59497948,
+    "avgExposure": 1166626.431372549,
+    "minExposure": 300000,
+    "maxExposure": 11000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 51,
+        "totalExposure": 59497948
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.006202284851074219,
+    "riskDensity": 6201065684933.626,
+    "riskDensityPerKm2": 6201065684933.626,
+    "policiesPerKm2": 447093.29974093725
+  },
+  "tpu_144": {
+    "id": 144,
+    "name": "TPU 144",
+    "count": 31,
+    "totalExposure": 28191000,
+    "avgExposure": 909387.0967741936,
+    "minExposure": 300000,
+    "maxExposure": 5591000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 31,
+        "totalExposure": 28191000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.010410390563964844,
+    "riskDensity": 2737985102057.911,
+    "riskDensityPerKm2": 2737985102057.911,
+    "policiesPerKm2": 164931.3721180959
+  },
+  "tpu_225": {
+    "id": 225,
+    "name": "TPU 225",
+    "count": 17,
+    "totalExposure": 33480000,
+    "avgExposure": 1969411.7647058824,
+    "minExposure": 300000,
+    "maxExposure": 3270000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 17,
+        "totalExposure": 33480000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.0024470546875,
+    "riskDensity": 3362638792158.175,
+    "riskDensityPerKm2": 3362638792158.175,
+    "policiesPerKm2": 850818.7457498333
+  },
+  "tpu_161": {
+    "id": 161,
+    "name": "TPU 161",
+    "count": 86,
+    "totalExposure": 90340000,
+    "avgExposure": 1050465.1162790698,
+    "minExposure": 300000,
+    "maxExposure": 5040000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 82,
+        "totalExposure": 70180000
+      },
+      "SHOP": {
+        "count": 4,
+        "totalExposure": 20160000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.024164390686035157,
+    "riskDensity": 1388976108955.9294,
+    "riskDensityPerKm2": 1388976108955.9294,
+    "policiesPerKm2": 112686.47471312608
+  },
+  "tpu_825": {
+    "id": 825,
+    "name": "TPU 825",
+    "count": 17,
+    "totalExposure": 43500000,
+    "avgExposure": 2558823.529411765,
+    "minExposure": 1800000,
+    "maxExposure": 3570000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 17,
+        "totalExposure": 43500000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.14275917840576172,
+    "riskDensity": 14770191864.699736,
+    "riskDensityPerKm2": 14770191864.699736,
+    "policiesPerKm2": 5933.068608678791
+  },
+  "tpu_755": {
+    "id": 755,
+    "name": "TPU 755",
+    "count": 39,
+    "totalExposure": 36152000,
+    "avgExposure": 926974.358974359,
+    "minExposure": 300000,
+    "maxExposure": 3300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 39,
+        "totalExposure": 36152000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.019945682006835937,
+    "riskDensity": 128326181525.54372,
+    "riskDensityPerKm2": 128326181525.54372,
+    "policiesPerKm2": 74652.7493765156
+  },
+  "tpu_295": {
+    "id": 295,
+    "name": "TPU 295",
+    "count": 15,
+    "totalExposure": 10290000,
+    "avgExposure": 686000,
+    "minExposure": 300000,
+    "maxExposure": 1890000,
+    "byOccupancy": {
+      "WAREHOUSE": {
+        "count": 7,
+        "totalExposure": 5890000
+      },
+      "DWELLING": {
+        "count": 8,
+        "totalExposure": 4400000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.032997852844238285,
+    "riskDensity": 1439690256021.8428,
+    "riskDensityPerKm2": 1439690256021.8428,
+    "policiesPerKm2": 148615.73033702045
+  },
+  "tpu_271": {
+    "id": 271,
+    "name": "TPU 271",
+    "count": 20,
+    "totalExposure": 28000000,
+    "avgExposure": 1400000,
+    "minExposure": 300000,
+    "maxExposure": 6000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 20,
+        "totalExposure": 28000000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.03054975524902344,
+    "riskDensity": 179822883020.1711,
+    "riskDensityPerKm2": 179822883020.1711,
+    "policiesPerKm2": 21800.501986715248
+  },
+  "tpu_284": {
+    "id": 284,
+    "name": "TPU 284",
+    "count": 6,
+    "totalExposure": 10600000,
+    "avgExposure": 1766666.6666666667,
+    "minExposure": 800000,
+    "maxExposure": 3000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 4600000
+      },
+      "WAREHOUSE": {
+        "count": 2,
+        "totalExposure": 6000000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.013953125,
+    "riskDensity": 1697245293142.576,
+    "riskDensityPerKm2": 1697245293142.576,
+    "policiesPerKm2": 152653.97536394178
+  },
+  "tpu_111": {
+    "id": 111,
+    "name": "TPU 111",
+    "count": 24,
+    "totalExposure": 21020000,
+    "avgExposure": 875833.3333333334,
+    "minExposure": 300000,
+    "maxExposure": 3420000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 23,
+        "totalExposure": 20220000
+      },
+      "住宅": {
+        "count": 1,
+        "totalExposure": 800000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.010230636779785156,
+    "riskDensity": 2904176999830.302,
+    "riskDensityPerKm2": 2904176999830.302,
+    "policiesPerKm2": 187867.09384480387
+  },
+  "tpu_141": {
+    "id": 141,
+    "name": "TPU 141",
+    "count": 9,
+    "totalExposure": 26000000,
+    "avgExposure": 2888888.888888889,
+    "minExposure": 800000,
+    "maxExposure": 18000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 9,
+        "totalExposure": 26000000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.010056500427246094,
+    "riskDensity": 648299732956.4434,
+    "riskDensityPerKm2": 648299732956.4434,
+    "policiesPerKm2": 83627.50104613701
+  },
+  "tpu_280": {
+    "id": 280,
+    "name": "TPU 280",
+    "count": 18,
+    "totalExposure": 13150000,
+    "avgExposure": 730555.5555555555,
+    "minExposure": 300000,
+    "maxExposure": 1350000,
+    "byOccupancy": {
+      "WAREHOUSE": {
+        "count": 2,
+        "totalExposure": 2650000
+      },
+      "DWELLING": {
+        "count": 16,
+        "totalExposure": 10500000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.030262065002441406,
+    "riskDensity": 903723140402.7499,
+    "riskDensityPerKm2": 903723140402.7499,
+    "policiesPerKm2": 101480.18648933065
+  },
+  "tpu_326": {
+    "id": 326,
+    "name": "TPU 326",
+    "count": 30,
+    "totalExposure": 15340000,
+    "avgExposure": 511333.3333333333,
+    "minExposure": 300000,
+    "maxExposure": 1120000,
+    "byOccupancy": {
+      "WAREHOUSE": {
+        "count": 3,
+        "totalExposure": 3240000
+      },
+      "DWELLING": {
+        "count": 27,
+        "totalExposure": 12100000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.012747946655273438,
+    "riskDensity": 3162942992507.2695,
+    "riskDensityPerKm2": 3162942992507.2695,
+    "policiesPerKm2": 198306.4463918386
+  },
+  "tpu_266": {
+    "id": 266,
+    "name": "TPU 266",
+    "count": 26,
+    "totalExposure": 11600000,
+    "avgExposure": 446153.8461538461,
+    "minExposure": 300000,
+    "maxExposure": 1400000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 26,
+        "totalExposure": 11600000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.048528725830078126,
+    "riskDensity": 100428909225.3332,
+    "riskDensityPerKm2": 100428909225.3332,
+    "policiesPerKm2": 42737.57376738158
+  },
+  "tpu_336": {
+    "id": 336,
+    "name": "TPU 336",
+    "count": 8,
+    "totalExposure": 5280000,
+    "avgExposure": 660000,
+    "minExposure": 300000,
+    "maxExposure": 1180000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 8,
+        "totalExposure": 5280000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.08190761145019532,
+    "riskDensity": 38074585255.19687,
+    "riskDensityPerKm2": 38074585255.19687,
+    "policiesPerKm2": 7276.491029925874
+  },
+  "tpu_156": {
+    "id": 156,
+    "name": "TPU 156",
+    "count": 37,
+    "totalExposure": 24500000,
+    "avgExposure": 662162.1621621621,
+    "minExposure": 300000,
+    "maxExposure": 2700000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 37,
+        "totalExposure": 24500000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.005600035888671875,
+    "riskDensity": 2440194745362.7627,
+    "riskDensityPerKm2": 2440194745362.7627,
+    "policiesPerKm2": 190355.92292477546
+  },
+  "tpu_820": {
+    "id": 820,
+    "name": "TPU 820",
+    "count": 2,
+    "totalExposure": 4600000,
+    "avgExposure": 2300000,
+    "minExposure": 1200000,
+    "maxExposure": 3400000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 2,
+        "totalExposure": 4600000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.04980114392089844,
+    "riskDensity": 15635292526.548706,
+    "riskDensityPerKm2": 15635292526.548706,
+    "policiesPerKm2": 6465.714934408899
+  },
+  "tpu_541": {
+    "id": 541,
+    "name": "TPU 541",
+    "count": 8,
+    "totalExposure": 5600000,
+    "avgExposure": 700000,
+    "minExposure": 800000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 8,
+        "totalExposure": 5600000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.11183687426757813,
+    "riskDensity": 21826341344.624397,
+    "riskDensityPerKm2": 21826341344.624397,
+    "policiesPerKm2": 8038.493617490371
+  },
+  "tpu_228": {
+    "id": 228,
+    "name": "TPU 228",
+    "count": 6,
+    "totalExposure": 6300000,
+    "avgExposure": 1050000,
+    "minExposure": 800000,
+    "maxExposure": 2300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 6,
+        "totalExposure": 6300000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.004495097351074219,
+    "riskDensity": 282845027611.28467,
+    "riskDensityPerKm2": 282845027611.28467,
+    "policiesPerKm2": 180641.2490278885
+  },
+  "tpu_272": {
+    "id": 272,
+    "name": "TPU 272",
+    "count": 5,
+    "totalExposure": 7200000,
+    "avgExposure": 1440000,
+    "minExposure": 800000,
+    "maxExposure": 4000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 5,
+        "totalExposure": 7200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.030789114440917968,
+    "riskDensity": 350643297029.49774,
+    "riskDensityPerKm2": 350643297029.49774,
+    "policiesPerKm2": 10555.678716373963
+  },
+  "tpu_226": {
+    "id": 226,
+    "name": "TPU 226",
+    "count": 1,
+    "totalExposure": 2475000,
+    "avgExposure": 2475000,
+    "minExposure": 2475000,
+    "maxExposure": 2475000,
+    "byOccupancy": {
+      "OFFICE": {
+        "count": 1,
+        "totalExposure": 2475000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.005027583251953125,
+    "riskDensity": 2967585855252.408,
+    "riskDensityPerKm2": 2967585855252.408,
+    "policiesPerKm2": 74190.71575892776
+  },
+  "tpu_234": {
+    "id": 234,
+    "name": "TPU 234",
+    "count": 48,
+    "totalExposure": 33100000,
+    "avgExposure": 689583.3333333334,
+    "minExposure": 300000,
+    "maxExposure": 2000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 48,
+        "totalExposure": 33100000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.03808566088867187,
+    "riskDensity": 3115269246089.4155,
+    "riskDensityPerKm2": 3115269246089.4155,
+    "policiesPerKm2": 55322.65820879328
+  },
+  "tpu_255": {
+    "id": 255,
+    "name": "TPU 255",
+    "count": 16,
+    "totalExposure": 26500000,
+    "avgExposure": 1656250,
+    "minExposure": 300000,
+    "maxExposure": 20000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 16,
+        "totalExposure": 26500000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.09453287091064454,
+    "riskDensity": 158765829261.30096,
+    "riskDensityPerKm2": 158765829261.30096,
+    "policiesPerKm2": 3924.5608054227077
+  },
+  "tpu_221": {
+    "id": 221,
+    "name": "TPU 221",
+    "count": 37,
+    "totalExposure": 44500000,
+    "avgExposure": 1202702.7027027027,
+    "minExposure": 300000,
+    "maxExposure": 4200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 37,
+        "totalExposure": 44500000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.007283050048828125,
+    "riskDensity": 2346008523119.956,
+    "riskDensityPerKm2": 2346008523119.956,
+    "policiesPerKm2": 578878.3506545274
+  },
+  "tpu_113": {
+    "id": 113,
+    "name": "TPU 113",
+    "count": 37,
+    "totalExposure": 30150000,
+    "avgExposure": 814864.8648648649,
+    "minExposure": 300000,
+    "maxExposure": 1600000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 37,
+        "totalExposure": 30150000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.0080302021484375,
+    "riskDensity": 1552800605294.3826,
+    "riskDensityPerKm2": 1552800605294.3826,
+    "policiesPerKm2": 322781.41347965266
+  },
+  "tpu_514": {
+    "id": 514,
+    "name": "TPU 514",
+    "count": 3,
+    "totalExposure": 13530000,
+    "avgExposure": 4510000,
+    "minExposure": 4510000,
+    "maxExposure": 4510000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 3,
+        "totalExposure": 13530000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.024612788635253905,
+    "riskDensity": 5954588330.965371,
+    "riskDensityPerKm2": 5954588330.965371,
+    "policiesPerKm2": 2722.1620838214635
+  },
+  "tpu_531": {
+    "id": 531,
+    "name": "TPU 531",
+    "count": 2,
+    "totalExposure": 3858000,
+    "avgExposure": 1929000,
+    "minExposure": 300000,
+    "maxExposure": 3558000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 2,
+        "totalExposure": 3858000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.22850628118896485,
+    "riskDensity": 4746017984.5698395,
+    "riskDensityPerKm2": 4746017984.5698395,
+    "policiesPerKm2": 1973.687540024523
+  },
+  "tpu_112": {
+    "id": 112,
+    "name": "TPU 112",
+    "count": 44,
+    "totalExposure": 62800000,
+    "avgExposure": 1427272.7272727273,
+    "minExposure": 300000,
+    "maxExposure": 3350000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 44,
+        "totalExposure": 62800000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.0476675927734375,
+    "riskDensity": 280349536149.1548,
+    "riskDensityPerKm2": 280349536149.1548,
+    "policiesPerKm2": 60712.10714908736
+  },
+  "tpu_214": {
+    "id": 214,
+    "name": "TPU 214",
+    "count": 9,
+    "totalExposure": 31180000,
+    "avgExposure": 3464444.4444444445,
+    "minExposure": 2100000,
+    "maxExposure": 4950000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 5,
+        "totalExposure": 21900000
+      },
+      "OFFICE": {
+        "count": 4,
+        "totalExposure": 9280000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.012537568725585937,
+    "riskDensity": 758929410112.9895,
+    "riskDensityPerKm2": 758929410112.9895,
+    "policiesPerKm2": 53040.58662050696
+  },
+  "tpu_294": {
+    "id": 294,
+    "name": "TPU 294",
+    "count": 88,
+    "totalExposure": 59140000,
+    "avgExposure": 672045.4545454546,
+    "minExposure": 300000,
+    "maxExposure": 3080000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 88,
+        "totalExposure": 59140000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.025673024719238283,
+    "riskDensity": 1201178666994.832,
+    "riskDensityPerKm2": 1201178666994.832,
+    "policiesPerKm2": 96443.64180215157
+  },
+  "tpu_173": {
+    "id": 173,
+    "name": "TPU 173",
+    "count": 15,
+    "totalExposure": 10140000,
+    "avgExposure": 676000,
+    "minExposure": 300000,
+    "maxExposure": 1440000,
+    "byOccupancy": {
+      "OFFICE": {
+        "count": 1,
+        "totalExposure": 1440000
+      },
+      "DWELLING": {
+        "count": 14,
+        "totalExposure": 8700000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.006364813842773437,
+    "riskDensity": 1274908398135.3525,
+    "riskDensityPerKm2": 1274908398135.3525,
+    "policiesPerKm2": 226086.73804872236
+  },
+  "tpu_323": {
+    "id": 323,
+    "name": "TPU 323",
+    "count": 41,
+    "totalExposure": 32400000,
+    "avgExposure": 790243.9024390244,
+    "minExposure": 300000,
+    "maxExposure": 1400000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 41,
+        "totalExposure": 32400000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.07722776306152344,
+    "riskDensity": 259963071181.23022,
+    "riskDensityPerKm2": 259963071181.23022,
+    "policiesPerKm2": 24641.39740113897
+  },
+  "tpu_131": {
+    "id": 131,
+    "name": "TPU 131",
+    "count": 14,
+    "totalExposure": 13320000,
+    "avgExposure": 951428.5714285715,
+    "minExposure": 800000,
+    "maxExposure": 2920000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 14,
+        "totalExposure": 13320000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.02418512939453125,
+    "riskDensity": 19441441257267.797,
+    "riskDensityPerKm2": 19441441257267.797,
+    "policiesPerKm2": 107173.29470174776
+  },
+  "tpu_212": {
+    "id": 212,
+    "name": "TPU 212",
+    "count": 17,
+    "totalExposure": 34880000,
+    "avgExposure": 2051764.705882353,
+    "minExposure": 1200000,
+    "maxExposure": 3720000,
+    "byOccupancy": {
+      "OFFICE": {
+        "count": 6,
+        "totalExposure": 8400000
+      },
+      "DWELLING": {
+        "count": 11,
+        "totalExposure": 26480000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.012180428283691406,
+    "riskDensity": 2192002821238.9287,
+    "riskDensityPerKm2": 2192002821238.9287,
+    "policiesPerKm2": 174706.5004971309
+  },
+  "tpu_227": {
+    "id": 227,
+    "name": "TPU 227",
+    "count": 30,
+    "totalExposure": 25280000,
+    "avgExposure": 842666.6666666666,
+    "minExposure": 300000,
+    "maxExposure": 2820000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 30,
+        "totalExposure": 25280000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.00666084521484375,
+    "riskDensity": 230968053972244.8,
+    "riskDensityPerKm2": 230968053972244.8,
+    "policiesPerKm2": 499486.1601926663
+  },
+  "tpu_324": {
+    "id": 324,
+    "name": "TPU 324",
+    "count": 72,
+    "totalExposure": 58980000,
+    "avgExposure": 819166.6666666666,
+    "minExposure": 300000,
+    "maxExposure": 1960000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 72,
+        "totalExposure": 58980000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.019644164306640625,
+    "riskDensity": 2490600691729.1387,
+    "riskDensityPerKm2": 2490600691729.1387,
+    "policiesPerKm2": 342035.4205512663
+  },
+  "tpu_114": {
+    "id": 114,
+    "name": "TPU 114",
+    "count": 7,
+    "totalExposure": 7950000,
+    "avgExposure": 1135714.2857142857,
+    "minExposure": 300000,
+    "maxExposure": 2250000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 7,
+        "totalExposure": 7950000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.006894299865722656,
+    "riskDensity": 4239743398517.831,
+    "riskDensityPerKm2": 4239743398517.831,
+    "policiesPerKm2": 269933.13842535205
+  },
+  "tpu_153": {
+    "id": 153,
+    "name": "TPU 153",
+    "count": 112,
+    "totalExposure": 131192400,
+    "avgExposure": 1171360.7142857143,
+    "minExposure": 300000,
+    "maxExposure": 10698100,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 112,
+        "totalExposure": 131192400
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.004760540222167969,
+    "riskDensity": 9040924345168.033,
+    "riskDensityPerKm2": 9040924345168.033,
+    "policiesPerKm2": 932457.1987291102
+  },
+  "tpu_826": {
+    "id": 826,
+    "name": "TPU 826",
+    "count": 10,
+    "totalExposure": 31800000,
+    "avgExposure": 3180000,
+    "minExposure": 300000,
+    "maxExposure": 9900000,
+    "byOccupancy": {
+      "SHOP": {
+        "count": 3,
+        "totalExposure": 29700000
+      },
+      "DWELLING": {
+        "count": 7,
+        "totalExposure": 2100000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.07661990759277344,
+    "riskDensity": 10098199869.05042,
+    "riskDensityPerKm2": 10098199869.05042,
+    "policiesPerKm2": 4293.923215733952
+  },
+  "tpu_321": {
+    "id": 321,
+    "name": "TPU 321",
+    "count": 4,
+    "totalExposure": 8000000,
+    "avgExposure": 2000000,
+    "minExposure": 2000000,
+    "maxExposure": 2000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 8000000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.05465073150634766,
+    "riskDensity": 1068238217.3277806,
+    "riskDensityPerKm2": 1068238217.3277806,
+    "policiesPerKm2": 914.9008370398943
+  },
+  "tpu_527": {
+    "id": 527,
+    "name": "TPU 527",
+    "count": 52,
+    "totalExposure": 38980000,
+    "avgExposure": 749615.3846153846,
+    "minExposure": 300000,
+    "maxExposure": 4000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 52,
+        "totalExposure": 38980000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.037717156372070314,
+    "riskDensity": 430279811756.63556,
+    "riskDensityPerKm2": 430279811756.63556,
+    "policiesPerKm2": 67210.79327913428
+  },
+  "tpu_285": {
+    "id": 285,
+    "name": "TPU 285",
+    "count": 7,
+    "totalExposure": 7600000,
+    "avgExposure": 1085714.2857142857,
+    "minExposure": 1000000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "OFFICE": {
+        "count": 3,
+        "totalExposure": 3600000
+      },
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 4000000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.004783767517089844,
+    "riskDensity": 3383775915566.925,
+    "riskDensityPerKm2": 3383775915566.925,
+    "policiesPerKm2": 153017.46947044466
+  },
+  "tpu_298": {
+    "id": 298,
+    "name": "TPU 298",
+    "count": 24,
+    "totalExposure": 12915000,
+    "avgExposure": 538125,
+    "minExposure": 300000,
+    "maxExposure": 2205000,
+    "byOccupancy": {
+      "WAREHOUSE": {
+        "count": 3,
+        "totalExposure": 6615000
+      },
+      "DWELLING": {
+        "count": 17,
+        "totalExposure": 5100000
+      },
+      "Unknown": {
+        "count": 4,
+        "totalExposure": 1200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.08408080841064453,
+    "riskDensity": 113976380261.66713,
+    "riskDensityPerKm2": 113976380261.66713,
+    "policiesPerKm2": 9288.683288886246
+  },
+  "tpu_335": {
+    "id": 335,
+    "name": "TPU 335",
+    "count": 28,
+    "totalExposure": 51570000,
+    "avgExposure": 1841785.7142857143,
+    "minExposure": 252000,
+    "maxExposure": 4548000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 24,
+        "totalExposure": 50562000
+      },
+      "車位": {
+        "count": 4,
+        "totalExposure": 1008000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.2628669595336914,
+    "riskDensity": 10448974521.303278,
+    "riskDensityPerKm2": 10448974521.303278,
+    "policiesPerKm2": 3442.80620738875
+  },
+  "tpu_163": {
+    "id": 163,
+    "name": "TPU 163",
+    "count": 76,
+    "totalExposure": 61035489,
+    "avgExposure": 803098.5394736842,
+    "minExposure": 300000,
+    "maxExposure": 1845163,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 76,
+        "totalExposure": 61035489
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.051207409057617184,
+    "riskDensity": 620388851566.283,
+    "riskDensityPerKm2": 620388851566.283,
+    "policiesPerKm2": 49856.0666704975
+  },
+  "tpu_426": {
+    "id": 426,
+    "name": "TPU 426",
+    "count": 26,
+    "totalExposure": 46526660,
+    "avgExposure": 1789486.923076923,
+    "minExposure": 300000,
+    "maxExposure": 6010129,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 26,
+        "totalExposure": 46526660
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.08446932122802735,
+    "riskDensity": 215329306223.60547,
+    "riskDensityPerKm2": 215329306223.60547,
+    "policiesPerKm2": 9612.957558969638
+  },
+  "tpu_533": {
+    "id": 533,
+    "name": "TPU 533",
+    "count": 3,
+    "totalExposure": 12000000,
+    "avgExposure": 4000000,
+    "minExposure": 4000000,
+    "maxExposure": 4000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 3,
+        "totalExposure": 12000000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.4703046236572266,
+    "riskDensity": 453890458.9753334,
+    "riskDensityPerKm2": 453890458.9753334,
+    "policiesPerKm2": 153.09226483913108
+  },
+  "tpu_146": {
+    "id": 146,
+    "name": "TPU 146",
+    "count": 25,
+    "totalExposure": 23500000,
+    "avgExposure": 940000,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 25,
+        "totalExposure": 23500000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.0012840946655273437,
+    "riskDensity": 24959589748912.87,
+    "riskDensityPerKm2": 24959589748912.87,
+    "policiesPerKm2": 1406438.363528536
+  },
+  "tpu_524": {
+    "id": 524,
+    "name": "TPU 524",
+    "count": 46,
+    "totalExposure": 36480000,
+    "avgExposure": 793043.4782608695,
+    "minExposure": 300000,
+    "maxExposure": 2600000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 46,
+        "totalExposure": 36480000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.023816429138183593,
+    "riskDensity": 466124455921.13104,
+    "riskDensityPerKm2": 466124455921.13104,
+    "policiesPerKm2": 140197.33943434712
+  },
+  "tpu_260": {
+    "id": 260,
+    "name": "TPU 260",
+    "count": 49,
+    "totalExposure": 35800000,
+    "avgExposure": 730612.2448979592,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 49,
+        "totalExposure": 35800000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.1307790389404297,
+    "riskDensity": 11410253600.959036,
+    "riskDensityPerKm2": 11410253600.959036,
+    "policiesPerKm2": 6660.088704251325
+  },
+  "tpu_962": {
+    "id": 962,
+    "name": "TPU 962",
+    "count": 8,
+    "totalExposure": 5680000,
+    "avgExposure": 710000,
+    "minExposure": 300000,
+    "maxExposure": 1120000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 8,
+        "totalExposure": 5680000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.05409185266113281,
+    "riskDensity": 157113274354.6525,
+    "riskDensityPerKm2": 157113274354.6525,
+    "policiesPerKm2": 1331.0692175965146
+  },
+  "tpu_652": {
+    "id": 652,
+    "name": "TPU 652",
+    "count": 4,
+    "totalExposure": 17629680,
+    "avgExposure": 4407420,
+    "minExposure": 4407420,
+    "maxExposure": 4407420,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 17629680
+      }
+    },
+    "byYear": {},
+    "area_km2": 1.4989992268066406,
+    "riskDensity": 69970821.28150392,
+    "riskDensityPerKm2": 69970821.28150392,
+    "policiesPerKm2": 42.02804035743944
+  },
+  "tpu_511": {
+    "id": 511,
+    "name": "TPU 511",
+    "count": 4,
+    "totalExposure": 4215260,
+    "avgExposure": 1053815,
+    "minExposure": 1053815,
+    "maxExposure": 1053815,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 4215260
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.07494944018554688,
+    "riskDensity": 14556448642.69962,
+    "riskDensityPerKm2": 14556448642.69962,
+    "policiesPerKm2": 3655.7978194590664
+  },
+  "tpu_264": {
+    "id": 264,
+    "name": "TPU 264",
+    "count": 21,
+    "totalExposure": 25280000,
+    "avgExposure": 1203809.5238095238,
+    "minExposure": 300000,
+    "maxExposure": 2990000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 21,
+        "totalExposure": 25280000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.008079619506835937,
+    "riskDensity": 5320052529957.933,
+    "riskDensityPerKm2": 5320052529957.933,
+    "policiesPerKm2": 263007.4347191842
+  },
+  "tpu_725": {
+    "id": 725,
+    "name": "TPU 725",
+    "count": 8,
+    "totalExposure": 20200000,
+    "avgExposure": 2525000,
+    "minExposure": 2000000,
+    "maxExposure": 3050000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 8,
+        "totalExposure": 20200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.14146454949951173,
+    "riskDensity": 2489106217.9589767,
+    "riskDensityPerKm2": 2489106217.9589767,
+    "policiesPerKm2": 1590.5044818368194
+  },
+  "tpu_753": {
+    "id": 753,
+    "name": "TPU 753",
+    "count": 21,
+    "totalExposure": 14100000,
+    "avgExposure": 671428.5714285715,
+    "minExposure": 300000,
+    "maxExposure": 1000000,
+    "byOccupancy": {
+      "WAREHOUSE": {
+        "count": 4,
+        "totalExposure": 4000000
+      },
+      "DWELLING": {
+        "count": 17,
+        "totalExposure": 10100000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.025962432250976563,
+    "riskDensity": 2540671846092.497,
+    "riskDensityPerKm2": 2540671846092.497,
+    "policiesPerKm2": 100568.38953914992
+  },
+  "tpu_133": {
+    "id": 133,
+    "name": "TPU 133",
+    "count": 2,
+    "totalExposure": 2300000,
+    "avgExposure": 1150000,
+    "minExposure": 300000,
+    "maxExposure": 2000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 2,
+        "totalExposure": 2300000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.006077274108886719,
+    "riskDensity": 1644655691416.717,
+    "riskDensityPerKm2": 1644655691416.717,
+    "policiesPerKm2": 228720.9652050121
+  },
+  "tpu_286": {
+    "id": 286,
+    "name": "TPU 286",
+    "count": 15,
+    "totalExposure": 8700000,
+    "avgExposure": 580000,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "WAREHOUSE": {
+        "count": 4,
+        "totalExposure": 0
+      },
+      "DWELLING": {
+        "count": 11,
+        "totalExposure": 8700000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.016230919921875,
+    "riskDensity": 2683498156588.6763,
+    "riskDensityPerKm2": 2683498156588.6763,
+    "policiesPerKm2": 29758.017556912677
+  },
+  "tpu_222": {
+    "id": 222,
+    "name": "TPU 222",
+    "count": 20,
+    "totalExposure": 22800000,
+    "avgExposure": 1140000,
+    "minExposure": 300000,
+    "maxExposure": 2600000,
+    "byOccupancy": {
+      "SHOP": {
+        "count": 4,
+        "totalExposure": 4000000
+      },
+      "DWELLING": {
+        "count": 16,
+        "totalExposure": 18800000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.007209563354492188,
+    "riskDensity": 1713733282069.2378,
+    "riskDensityPerKm2": 1713733282069.2378,
+    "policiesPerKm2": 278380.24320147815
+  },
+  "tpu_267": {
+    "id": 267,
+    "name": "TPU 267",
+    "count": 29,
+    "totalExposure": 28489644,
+    "avgExposure": 982401.5172413794,
+    "minExposure": 300000,
+    "maxExposure": 3822411,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 29,
+        "totalExposure": 28489644
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.014632675231933593,
+    "riskDensity": 131419342346.45676,
+    "riskDensityPerKm2": 131419342346.45676,
+    "policiesPerKm2": 96428.02683959708
+  },
+  "tpu_283": {
+    "id": 283,
+    "name": "TPU 283",
+    "count": 17,
+    "totalExposure": 7900000,
+    "avgExposure": 464705.8823529412,
+    "minExposure": 300000,
+    "maxExposure": 1000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 17,
+        "totalExposure": 7900000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.00603308203125,
+    "riskDensity": 149735074265.65375,
+    "riskDensityPerKm2": 149735074265.65375,
+    "policiesPerKm2": 54366.905389489846
+  },
+  "tpu_327": {
+    "id": 327,
+    "name": "TPU 327",
+    "count": 28,
+    "totalExposure": 22400000,
+    "avgExposure": 800000,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "WAREHOUSE  ": {
+        "count": 4,
+        "totalExposure": 4000000
+      },
+      "DWELLING": {
+        "count": 24,
+        "totalExposure": 18400000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.4711375248413086,
+    "riskDensity": 43885445368.832054,
+    "riskDensityPerKm2": 43885445368.832054,
+    "policiesPerKm2": 5522.80356118189
+  },
+  "tpu_241": {
+    "id": 241,
+    "name": "TPU 241",
+    "count": 22,
+    "totalExposure": 15100000,
+    "avgExposure": 686363.6363636364,
+    "minExposure": 300000,
+    "maxExposure": 1100000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 22,
+        "totalExposure": 15100000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.007808045166015625,
+    "riskDensity": 331315381803.8281,
+    "riskDensityPerKm2": 331315381803.8281,
+    "policiesPerKm2": 193006.0556718076
+  },
+  "tpu_529": {
+    "id": 529,
+    "name": "TPU 529",
+    "count": 20,
+    "totalExposure": 26400000,
+    "avgExposure": 1320000,
+    "minExposure": 800000,
+    "maxExposure": 3000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 20,
+        "totalExposure": 26400000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.2967519779663086,
+    "riskDensity": 1056103021.9167793,
+    "riskDensityPerKm2": 1056103021.9167793,
+    "policiesPerKm2": 849.1940027729505
+  },
+  "tpu_532": {
+    "id": 532,
+    "name": "TPU 532",
+    "count": 7,
+    "totalExposure": 11600000,
+    "avgExposure": 1657142.857142857,
+    "minExposure": 1200000,
+    "maxExposure": 2000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 7,
+        "totalExposure": 11600000
+      }
+    },
+    "byYear": {},
+    "area_km2": 3.9097571056518556,
+    "riskDensity": 279117323.4630021,
+    "riskDensityPerKm2": 279117323.4630021,
+    "policiesPerKm2": 145.78910776222415
+  },
+  "tpu_423": {
+    "id": 423,
+    "name": "TPU 423",
+    "count": 49,
+    "totalExposure": 29780000,
+    "avgExposure": 607755.1020408163,
+    "minExposure": 300000,
+    "maxExposure": 2720000,
+    "byOccupancy": {
+      "WAREHOUSE": {
+        "count": 4,
+        "totalExposure": 10880000
+      },
+      "DWELLING": {
+        "count": 45,
+        "totalExposure": 18900000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.29185525939941404,
+    "riskDensity": 194391543488.64185,
+    "riskDensityPerKm2": 194391543488.64185,
+    "policiesPerKm2": 11385.780769680629
+  },
+  "tpu_116": {
+    "id": 116,
+    "name": "TPU 116",
+    "count": 14,
+    "totalExposure": 8500000,
+    "avgExposure": 607142.8571428572,
+    "minExposure": 300000,
+    "maxExposure": 1800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 14,
+        "totalExposure": 8500000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.01533476416015625,
+    "riskDensity": 242821829246.9689,
+    "riskDensityPerKm2": 242821829246.9689,
+    "policiesPerKm2": 45256.64645063107
+  },
+  "tpu_291": {
+    "id": 291,
+    "name": "TPU 291",
+    "count": 69,
+    "totalExposure": 47200000,
+    "avgExposure": 684057.9710144928,
+    "minExposure": 300000,
+    "maxExposure": 2500000,
+    "byOccupancy": {
+      "SHOP": {
+        "count": 4,
+        "totalExposure": 10000000
+      },
+      "DWELLING": {
+        "count": 65,
+        "totalExposure": 37200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.012802570678710937,
+    "riskDensity": 1906906070769.5408,
+    "riskDensityPerKm2": 1906906070769.5408,
+    "policiesPerKm2": 75609.81495768363
+  },
+  "tpu_726": {
+    "id": 726,
+    "name": "TPU 726",
+    "count": 28,
+    "totalExposure": 24700000,
+    "avgExposure": 882142.8571428572,
+    "minExposure": 300000,
+    "maxExposure": 2500000,
+    "byOccupancy": {
+      "SHOP": {
+        "count": 4,
+        "totalExposure": 10000000
+      },
+      "DWELLING": {
+        "count": 24,
+        "totalExposure": 14700000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.007889989440917969,
+    "riskDensity": 401024166905.8399,
+    "riskDensityPerKm2": 401024166905.8399,
+    "policiesPerKm2": 253485.76382471152
+  },
+  "tpu_756": {
+    "id": 756,
+    "name": "TPU 756",
+    "count": 85,
+    "totalExposure": 88306640,
+    "avgExposure": 1038901.6470588235,
+    "minExposure": 300000,
+    "maxExposure": 6036660,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 81,
+        "totalExposure": 82146640
+      },
+      "WAREHOUSE": {
+        "count": 4,
+        "totalExposure": 6160000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.1143273798828125,
+    "riskDensity": 315675211846.5689,
+    "riskDensityPerKm2": 315675211846.5689,
+    "policiesPerKm2": 21989.483206707726
+  },
+  "tpu_625": {
+    "id": 625,
+    "name": "TPU 625",
+    "count": 52,
+    "totalExposure": 49991360,
+    "avgExposure": 961372.3076923077,
+    "minExposure": 300000,
+    "maxExposure": 2105280,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 52,
+        "totalExposure": 49991360
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.023804116943359373,
+    "riskDensity": 1456934425326.0344,
+    "riskDensityPerKm2": 1456934425326.0344,
+    "policiesPerKm2": 93345.19760960386
+  },
+  "tpu_132": {
+    "id": 132,
+    "name": "TPU 132",
+    "count": 26,
+    "totalExposure": 23200000,
+    "avgExposure": 892307.6923076923,
+    "minExposure": 300000,
+    "maxExposure": 1400000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 26,
+        "totalExposure": 23200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.007637772338867188,
+    "riskDensity": 4629743119974.249,
+    "riskDensityPerKm2": 4629743119974.249,
+    "policiesPerKm2": 212758.37088396578
+  },
+  "tpu_261": {
+    "id": 261,
+    "name": "TPU 261",
+    "count": 12,
+    "totalExposure": 24187004,
+    "avgExposure": 2015583.6666666667,
+    "minExposure": 800000,
+    "maxExposure": 4446751,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 12,
+        "totalExposure": 24187004
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.03715234002685547,
+    "riskDensity": 346201233521.02734,
+    "riskDensityPerKm2": 346201233521.02734,
+    "policiesPerKm2": 54586.06371857239
+  },
+  "tpu_723": {
+    "id": 723,
+    "name": "TPU 723",
+    "count": 53,
+    "totalExposure": 37800000,
+    "avgExposure": 713207.5471698113,
+    "minExposure": 300000,
+    "maxExposure": 2400000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 53,
+        "totalExposure": 37800000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.009676857788085937,
+    "riskDensity": 2131231607051.3735,
+    "riskDensityPerKm2": 2131231607051.3735,
+    "policiesPerKm2": 208435.4285420328
+  },
+  "tpu_839": {
+    "id": 839,
+    "name": "TPU 839",
+    "count": 20,
+    "totalExposure": 9700000,
+    "avgExposure": 485000,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 20,
+        "totalExposure": 9700000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.5932477288208008,
+    "riskDensity": 32864839315.63327,
+    "riskDensityPerKm2": 32864839315.63327,
+    "policiesPerKm2": 724.8236767036791
+  },
+  "tpu_157": {
+    "id": 157,
+    "name": "TPU 157",
+    "count": 55,
+    "totalExposure": 46160000,
+    "avgExposure": 839272.7272727273,
+    "minExposure": 300000,
+    "maxExposure": 1620000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 55,
+        "totalExposure": 46160000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.007672589782714844,
+    "riskDensity": 3820093316246.478,
+    "riskDensityPerKm2": 3820093316246.478,
+    "policiesPerKm2": 171519.66119246258
+  },
+  "tpu_757": {
+    "id": 757,
+    "name": "TPU 757",
+    "count": 87,
+    "totalExposure": 80500000,
+    "avgExposure": 925287.356321839,
+    "minExposure": 300000,
+    "maxExposure": 4200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 87,
+        "totalExposure": 80500000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.8706458866577148,
+    "riskDensity": 121997976742.2919,
+    "riskDensityPerKm2": 121997976742.2919,
+    "policiesPerKm2": 3269.9861604230696
+  },
+  "tpu_211": {
+    "id": 211,
+    "name": "TPU 211",
+    "count": 18,
+    "totalExposure": 22160000,
+    "avgExposure": 1231111.111111111,
+    "minExposure": 800000,
+    "maxExposure": 1600000,
+    "byOccupancy": {
+      "OFFICE": {
+        "count": 4,
+        "totalExposure": 3760000
+      },
+      "DWELLING": {
+        "count": 14,
+        "totalExposure": 18400000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.03141713543701172,
+    "riskDensity": 4209333209928.6606,
+    "riskDensityPerKm2": 4209333209928.6606,
+    "policiesPerKm2": 48444.90049232722
+  },
+  "tpu_166": {
+    "id": 166,
+    "name": "TPU 166",
+    "count": 15,
+    "totalExposure": 8000000,
+    "avgExposure": 533333.3333333334,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 15,
+        "totalExposure": 8000000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.021263324462890625,
+    "riskDensity": 1023295865045.6503,
+    "riskDensityPerKm2": 1023295865045.6503,
+    "policiesPerKm2": 12133.568316199526
+  },
+  "tpu_233": {
+    "id": 233,
+    "name": "TPU 233",
+    "count": 4,
+    "totalExposure": 1200000,
+    "avgExposure": 300000,
+    "minExposure": 300000,
+    "maxExposure": 300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 1200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.019342964599609377,
+    "riskDensity": 313270766422.3493,
+    "riskDensityPerKm2": 313270766422.3493,
+    "policiesPerKm2": 8323.439727706027
+  },
+  "tpu_837": {
+    "id": 837,
+    "name": "TPU 837",
+    "count": 57,
+    "totalExposure": 35200000,
+    "avgExposure": 617543.8596491228,
+    "minExposure": 300000,
+    "maxExposure": 1800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 57,
+        "totalExposure": 35200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.30667910021972655,
+    "riskDensity": 28699470003.96821,
+    "riskDensityPerKm2": 28699470003.96821,
+    "policiesPerKm2": 3003.1391097082605
+  },
+  "tpu_235": {
+    "id": 235,
+    "name": "TPU 235",
+    "count": 13,
+    "totalExposure": 13300000,
+    "avgExposure": 1023076.9230769231,
+    "minExposure": 300000,
+    "maxExposure": 4200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 13,
+        "totalExposure": 13300000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.004262862487792968,
+    "riskDensity": 1687025198099.533,
+    "riskDensityPerKm2": 1687025198099.533,
+    "policiesPerKm2": 212064.07726936368
+  },
+  "tpu_254": {
+    "id": 254,
+    "name": "TPU 254",
+    "count": 18,
+    "totalExposure": 19200000,
+    "avgExposure": 1066666.6666666667,
+    "minExposure": 800000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 18,
+        "totalExposure": 19200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.007587660949707031,
+    "riskDensity": 754890719704.7544,
+    "riskDensityPerKm2": 754890719704.7544,
+    "policiesPerKm2": 25172.447907991296
+  },
+  "tpu_268": {
+    "id": 268,
+    "name": "TPU 268",
+    "count": 5,
+    "totalExposure": 4000000,
+    "avgExposure": 800000,
+    "minExposure": 800000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 5,
+        "totalExposure": 4000000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.12826525958251953,
+    "riskDensity": 45333460328.04077,
+    "riskDensityPerKm2": 45333460328.04077,
+    "policiesPerKm2": 3243.278821981927
+  },
+  "tpu_253": {
+    "id": 253,
+    "name": "TPU 253",
+    "count": 15,
+    "totalExposure": 9000000,
+    "avgExposure": 600000,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 15,
+        "totalExposure": 9000000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.011118276611328125,
+    "riskDensity": 17240981376.978157,
+    "riskDensityPerKm2": 17240981376.978157,
+    "policiesPerKm2": 26353.00507827534
+  },
+  "tpu_836": {
+    "id": 836,
+    "name": "TPU 836",
+    "count": 34,
+    "totalExposure": 17900000,
+    "avgExposure": 526470.5882352941,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 34,
+        "totalExposure": 17900000
+      }
+    },
+    "byYear": {},
+    "area_km2": 1.1016689746704103,
+    "riskDensity": 3196429751.608018,
+    "riskDensityPerKm2": 3196429751.608018,
+    "policiesPerKm2": 850.5277188915347
+  },
+  "tpu_628": {
+    "id": 628,
+    "name": "TPU 628",
+    "count": 63,
+    "totalExposure": 28800000,
+    "avgExposure": 457142.85714285716,
+    "minExposure": 300000,
+    "maxExposure": 2100000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 63,
+        "totalExposure": 28800000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.054023923583984376,
+    "riskDensity": 43477468167.38647,
+    "riskDensityPerKm2": 43477468167.38647,
+    "policiesPerKm2": 20972.190186050884
+  },
+  "tpu_175": {
+    "id": 175,
+    "name": "TPU 175",
+    "count": 8,
+    "totalExposure": 6100000,
+    "avgExposure": 762500,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 8,
+        "totalExposure": 6100000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.07975668524169922,
+    "riskDensity": 191955893305.55063,
+    "riskDensityPerKm2": 191955893305.55063,
+    "policiesPerKm2": 12575.748314519986
+  },
+  "tpu_231": {
+    "id": 231,
+    "name": "TPU 231",
+    "count": 6,
+    "totalExposure": 6800000,
+    "avgExposure": 1133333.3333333333,
+    "minExposure": 800000,
+    "maxExposure": 1300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 6,
+        "totalExposure": 6800000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.023483480773925782,
+    "riskDensity": 31256175661.786064,
+    "riskDensityPerKm2": 31256175661.786064,
+    "policiesPerKm2": 9496.036901292833
+  },
+  "tpu_838": {
+    "id": 838,
+    "name": "TPU 838",
+    "count": 110,
+    "totalExposure": 65000000,
+    "avgExposure": 590909.0909090909,
+    "minExposure": 300000,
+    "maxExposure": 1300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 110,
+        "totalExposure": 65000000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.06821253033447265,
+    "riskDensity": 696014566331.1425,
+    "riskDensityPerKm2": 696014566331.1425,
+    "policiesPerKm2": 23074.93934445862
+  },
+  "tpu_759": {
+    "id": 759,
+    "name": "TPU 759",
+    "count": 35,
+    "totalExposure": 19200000,
+    "avgExposure": 548571.4285714285,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 35,
+        "totalExposure": 19200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.04237827856445313,
+    "riskDensity": 230736603007.7957,
+    "riskDensityPerKm2": 230736603007.7957,
+    "policiesPerKm2": 25767.91783411346
+  },
+  "tpu_421": {
+    "id": 421,
+    "name": "TPU 421",
+    "count": 5,
+    "totalExposure": 3500000,
+    "avgExposure": 700000,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 5,
+        "totalExposure": 3500000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.056609011291503905,
+    "riskDensity": 181500391199.06064,
+    "riskDensityPerKm2": 181500391199.06064,
+    "policiesPerKm2": 1819.498303363914
+  },
+  "tpu_167": {
+    "id": 167,
+    "name": "TPU 167",
+    "count": 40,
+    "totalExposure": 37300000,
+    "avgExposure": 932500,
+    "minExposure": 300000,
+    "maxExposure": 1700000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 40,
+        "totalExposure": 37300000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.010268101013183593,
+    "riskDensity": 535511288108.68115,
+    "riskDensityPerKm2": 535511288108.68115,
+    "policiesPerKm2": 68756.6278412669
+  },
+  "tpu_122": {
+    "id": 122,
+    "name": "TPU 122",
+    "count": 1,
+    "totalExposure": 1200000,
+    "avgExposure": 1200000,
+    "minExposure": 1200000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 1,
+        "totalExposure": 1200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.0027096322021484373,
+    "riskDensity": 2567951001432.1934,
+    "riskDensityPerKm2": 2567951001432.1934,
+    "policiesPerKm2": 230658.61097474574
+  },
+  "tpu_162": {
+    "id": 162,
+    "name": "TPU 162",
+    "count": 9,
+    "totalExposure": 6800000,
+    "avgExposure": 755555.5555555555,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 9,
+        "totalExposure": 6800000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.13294529125976562,
+    "riskDensity": 591828110498.9525,
+    "riskDensityPerKm2": 591828110498.9525,
+    "policiesPerKm2": 1030.499077491295
+  },
+  "tpu_510": {
+    "id": 510,
+    "name": "TPU 510",
+    "count": 89,
+    "totalExposure": 46500000,
+    "avgExposure": 522471.91011235956,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 89,
+        "totalExposure": 46500000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.12809864331054688,
+    "riskDensity": 535445160994.39996,
+    "riskDensityPerKm2": 535445160994.39996,
+    "policiesPerKm2": 14637.157362037602
+  },
+  "tpu_754": {
+    "id": 754,
+    "name": "TPU 754",
+    "count": 28,
+    "totalExposure": 12100000,
+    "avgExposure": 432142.85714285716,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 28,
+        "totalExposure": 12100000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.199342794921875,
+    "riskDensity": 31968259645.03768,
+    "riskDensityPerKm2": 31968259645.03768,
+    "policiesPerKm2": 5949.55037359042
+  },
+  "tpu_154": {
+    "id": 154,
+    "name": "TPU 154",
+    "count": 2,
+    "totalExposure": 1000000,
+    "avgExposure": 500000,
+    "minExposure": 300000,
+    "maxExposure": 700000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 2,
+        "totalExposure": 1000000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.041008157348632814,
+    "riskDensity": 147863206872.47745,
+    "riskDensityPerKm2": 147863206872.47745,
+    "policiesPerKm2": 8412.960306091443
+  },
+  "tpu_251": {
+    "id": 251,
+    "name": "TPU 251",
+    "count": 12,
+    "totalExposure": 14400000,
+    "avgExposure": 1200000,
+    "minExposure": 1200000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 12,
+        "totalExposure": 14400000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.0019605014038085937,
+    "riskDensity": 1700376336137.2542,
+    "riskDensityPerKm2": 1700376336137.2542,
+    "policiesPerKm2": 116296.77977127321
+  },
+  "tpu_145": {
+    "id": 145,
+    "name": "TPU 145",
+    "count": 2,
+    "totalExposure": 300000,
+    "avgExposure": 150000,
+    "minExposure": 300000,
+    "maxExposure": 300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 2,
+        "totalExposure": 300000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.004600449462890625,
+    "riskDensity": 1275901465373.7437,
+    "riskDensityPerKm2": 1275901465373.7437,
+    "policiesPerKm2": 165635.98973244856
+  },
+  "tpu_172": {
+    "id": 172,
+    "name": "TPU 172",
+    "count": 19,
+    "totalExposure": 9700000,
+    "avgExposure": 510526.3157894737,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 19,
+        "totalExposure": 9700000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.14377585760498046,
+    "riskDensity": 3218081728.7920837,
+    "riskDensityPerKm2": 3218081728.7920837,
+    "policiesPerKm2": 3581.964375513905
+  },
+  "tpu_425": {
+    "id": 425,
+    "name": "TPU 425",
+    "count": 17,
+    "totalExposure": 9100000,
+    "avgExposure": 535294.1176470588,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 17,
+        "totalExposure": 9100000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.0202493828125,
+    "riskDensity": 143475538822.17865,
+    "riskDensityPerKm2": 143475538822.17865,
+    "policiesPerKm2": 72051.5787325308
+  },
+  "tpu_245": {
+    "id": 245,
+    "name": "TPU 245",
+    "count": 22,
+    "totalExposure": 17600000,
+    "avgExposure": 800000,
+    "minExposure": 300000,
+    "maxExposure": 2200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 22,
+        "totalExposure": 17600000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.0247564931640625,
+    "riskDensity": 187059973794.36877,
+    "riskDensityPerKm2": 187059973794.36877,
+    "policiesPerKm2": 43544.13174984199
+  },
+  "tpu_174": {
+    "id": 174,
+    "name": "TPU 174",
+    "count": 35,
+    "totalExposure": 21700000,
+    "avgExposure": 620000,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 35,
+        "totalExposure": 21700000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.008319755004882813,
+    "riskDensity": 2743419693981.9014,
+    "riskDensityPerKm2": 2743419693981.9014,
+    "policiesPerKm2": 177769.65777621866
+  },
+  "tpu_517": {
+    "id": 517,
+    "name": "TPU 517",
+    "count": 4,
+    "totalExposure": 2700000,
+    "avgExposure": 675000,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 2700000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.11769476647949219,
+    "riskDensity": 11232516993.101427,
+    "riskDensityPerKm2": 11232516993.101427,
+    "policiesPerKm2": 3237.187271758491
+  },
+  "tpu_624": {
+    "id": 624,
+    "name": "TPU 624",
+    "count": 17,
+    "totalExposure": 10600000,
+    "avgExposure": 623529.4117647059,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 17,
+        "totalExposure": 10600000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.2157391317138672,
+    "riskDensity": 52312496670.97169,
+    "riskDensityPerKm2": 52312496670.97169,
+    "policiesPerKm2": 6531.035833910482
+  },
+  "tpu_297": {
+    "id": 297,
+    "name": "TPU 297",
+    "count": 36,
+    "totalExposure": 21800000,
+    "avgExposure": 605555.5555555555,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 36,
+        "totalExposure": 21800000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.010175482055664063,
+    "riskDensity": 2085402281907.4355,
+    "riskDensityPerKm2": 2085402281907.4355,
+    "policiesPerKm2": 88644.4489868578
+  },
+  "tpu_519": {
+    "id": 519,
+    "name": "TPU 519",
+    "count": 5,
+    "totalExposure": 1500000,
+    "avgExposure": 300000,
+    "minExposure": 300000,
+    "maxExposure": 300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 5,
+        "totalExposure": 1500000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.19958738275146484,
+    "riskDensity": 50763547424.520935,
+    "riskDensityPerKm2": 50763547424.520935,
+    "policiesPerKm2": 2409.971980037249
+  },
+  "tpu_424": {
+    "id": 424,
+    "name": "TPU 424",
+    "count": 44,
+    "totalExposure": 23200000,
+    "avgExposure": 527272.7272727273,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 44,
+        "totalExposure": 23200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.007293910461425781,
+    "riskDensity": 1868289916347.042,
+    "riskDensityPerKm2": 1868289916347.042,
+    "policiesPerKm2": 348784.1005800763
+  },
+  "tpu_350": {
+    "id": 350,
+    "name": "TPU 350",
+    "count": 39,
+    "totalExposure": 29400000,
+    "avgExposure": 753846.1538461539,
+    "minExposure": 300000,
+    "maxExposure": 1300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 39,
+        "totalExposure": 29400000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.04450470422363281,
+    "riskDensity": 1608094610281.135,
+    "riskDensityPerKm2": 1608094610281.135,
+    "policiesPerKm2": 32805.52079761297
+  },
+  "tpu_351": {
+    "id": 351,
+    "name": "TPU 351",
+    "count": 33,
+    "totalExposure": 28600000,
+    "avgExposure": 866666.6666666666,
+    "minExposure": 300000,
+    "maxExposure": 2200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 33,
+        "totalExposure": 28600000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.059585781433105466,
+    "riskDensity": 59283176540.459076,
+    "riskDensityPerKm2": 59283176540.459076,
+    "policiesPerKm2": 8525.523837768427
+  },
+  "tpu_242": {
+    "id": 242,
+    "name": "TPU 242",
+    "count": 5,
+    "totalExposure": 2000000,
+    "avgExposure": 400000,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 5,
+        "totalExposure": 2000000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.01005355194091797,
+    "riskDensity": 667939973939.8818,
+    "riskDensityPerKm2": 667939973939.8818,
+    "policiesPerKm2": 160042.93899864066
+  },
+  "tpu_950": {
+    "id": 950,
+    "name": "TPU 950",
+    "count": 34,
+    "totalExposure": 17600000,
+    "avgExposure": 517647.0588235294,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 34,
+        "totalExposure": 17600000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.14888424493408203,
+    "riskDensity": 369286000630.23846,
+    "riskDensityPerKm2": 369286000630.23846,
+    "policiesPerKm2": 5057.6204374975205
+  },
+  "tpu_165": {
+    "id": 165,
+    "name": "TPU 165",
+    "count": 19,
+    "totalExposure": 9700000,
+    "avgExposure": 510526.3157894737,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 19,
+        "totalExposure": 9700000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.08833601776123047,
+    "riskDensity": 140162619757.05722,
+    "riskDensityPerKm2": 140162619757.05722,
+    "policiesPerKm2": 5297.952204105346
+  },
+  "tpu_282": {
+    "id": 282,
+    "name": "TPU 282",
+    "count": 20,
+    "totalExposure": 10000000,
+    "avgExposure": 500000,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 20,
+        "totalExposure": 10000000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.015556937744140626,
+    "riskDensity": 19767233613.55763,
+    "riskDensityPerKm2": 19767233613.55763,
+    "policiesPerKm2": 31497.201316792176
+  },
+  "tpu_262": {
+    "id": 262,
+    "name": "TPU 262",
+    "count": 13,
+    "totalExposure": 5400000,
+    "avgExposure": 415384.6153846154,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 13,
+        "totalExposure": 5400000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.013445160522460937,
+    "riskDensity": 323284697688.71277,
+    "riskDensityPerKm2": 323284697688.71277,
+    "policiesPerKm2": 20825.337081862534
+  },
+  "tpu_155": {
+    "id": 155,
+    "name": "TPU 155",
+    "count": 13,
+    "totalExposure": 8000000,
+    "avgExposure": 615384.6153846154,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 13,
+        "totalExposure": 8000000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.08969597399902343,
+    "riskDensity": 768445671267.3683,
+    "riskDensityPerKm2": 768445671267.3683,
+    "policiesPerKm2": 14738.67712294861
+  },
+  "tpu_247": {
+    "id": 247,
+    "name": "TPU 247",
+    "count": 6,
+    "totalExposure": 4000000,
+    "avgExposure": 666666.6666666666,
+    "minExposure": 800000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 6,
+        "totalExposure": 4000000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.011302787780761719,
+    "riskDensity": 71636924952.10529,
+    "riskDensityPerKm2": 71636924952.10529,
+    "policiesPerKm2": 15129.010941093326
+  },
+  "tpu_288": {
+    "id": 288,
+    "name": "TPU 288",
+    "count": 26,
+    "totalExposure": 12700000,
+    "avgExposure": 488461.53846153844,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 26,
+        "totalExposure": 12700000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.03572173358154297,
+    "riskDensity": 75040570535.0489,
+    "riskDensityPerKm2": 75040570535.0489,
+    "policiesPerKm2": 13913.09855848638
+  },
+  "tpu_975": {
+    "id": 975,
+    "name": "TPU 975",
+    "count": 1,
+    "totalExposure": 800000,
+    "avgExposure": 800000,
+    "minExposure": 800000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 1,
+        "totalExposure": 800000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.2178424301147461,
+    "riskDensity": 894068634.3675523,
+    "riskDensityPerKm2": 894068634.3675523,
+    "policiesPerKm2": 725.2948836311422
+  },
+  "tpu_626": {
+    "id": 626,
+    "name": "TPU 626",
+    "count": 13,
+    "totalExposure": 4400000,
+    "avgExposure": 338461.53846153844,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 13,
+        "totalExposure": 4400000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.07401276824951172,
+    "riskDensity": 3476427190.67865,
+    "riskDensityPerKm2": 3476427190.67865,
+    "policiesPerKm2": 2607.658172565019
+  },
+  "tpu_236": {
+    "id": 236,
+    "name": "TPU 236",
+    "count": 4,
+    "totalExposure": 2700000,
+    "avgExposure": 675000,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 2700000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.03191778112792969,
+    "riskDensity": 104196414432.76352,
+    "riskDensityPerKm2": 104196414432.76352,
+    "policiesPerKm2": 9524.471603509572
+  },
+  "tpu_265": {
+    "id": 265,
+    "name": "TPU 265",
+    "count": 9,
+    "totalExposure": 3200000,
+    "avgExposure": 355555.55555555556,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 9,
+        "totalExposure": 3200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.010713002380371093,
+    "riskDensity": 673949422951.5795,
+    "riskDensityPerKm2": 673949422951.5795,
+    "policiesPerKm2": 38737.973283790554
+  },
+  "tpu_512": {
+    "id": 512,
+    "name": "TPU 512",
+    "count": 5,
+    "totalExposure": 2400000,
+    "avgExposure": 480000,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 5,
+        "totalExposure": 2400000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.281779505065918,
+    "riskDensity": 1711555538.8500583,
+    "riskDensityPerKm2": 1711555538.8500583,
+    "policiesPerKm2": 986.5870121922678
+  },
+  "tpu_528": {
+    "id": 528,
+    "name": "TPU 528",
+    "count": 1,
+    "totalExposure": 800000,
+    "avgExposure": 800000,
+    "minExposure": 800000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 1,
+        "totalExposure": 800000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.22007092987060548,
+    "riskDensity": 70206153002.2811,
+    "riskDensityPerKm2": 70206153002.2811,
+    "policiesPerKm2": 863.3580096731258
+  },
+  "tpu_290": {
+    "id": 290,
+    "name": "TPU 290",
+    "count": 18,
+    "totalExposure": 10900000,
+    "avgExposure": 605555.5555555555,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 18,
+        "totalExposure": 10900000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.1824285297241211,
+    "riskDensity": 76342825246.47528,
+    "riskDensityPerKm2": 76342825246.47528,
+    "policiesPerKm2": 3003.9161134978012
+  },
+  "tpu_422": {
+    "id": 422,
+    "name": "TPU 422",
+    "count": 18,
+    "totalExposure": 8100000,
+    "avgExposure": 450000,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 18,
+        "totalExposure": 8100000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.07041635394287109,
+    "riskDensity": 112953812936.59322,
+    "riskDensityPerKm2": 112953812936.59322,
+    "policiesPerKm2": 21429.680969058045
+  },
+  "tpu_243": {
+    "id": 243,
+    "name": "TPU 243",
+    "count": 17,
+    "totalExposure": 14800000,
+    "avgExposure": 870588.2352941176,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 17,
+        "totalExposure": 14800000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.0057621727905273435,
+    "riskDensity": 855059656624.6133,
+    "riskDensityPerKm2": 855059656624.6133,
+    "policiesPerKm2": 170421.8244920297
+  },
+  "tpu_293": {
+    "id": 293,
+    "name": "TPU 293",
+    "count": 17,
+    "totalExposure": 9600000,
+    "avgExposure": 564705.8823529412,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 17,
+        "totalExposure": 9600000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.23246134997558593,
+    "riskDensity": 24202485409.255695,
+    "riskDensityPerKm2": 24202485409.255695,
+    "policiesPerKm2": 1346.4603902234612
+  },
+  "tpu_142": {
+    "id": 142,
+    "name": "TPU 142",
+    "count": 15,
+    "totalExposure": 12800000,
+    "avgExposure": 853333.3333333334,
+    "minExposure": 800000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 15,
+        "totalExposure": 12800000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.02369310546875,
+    "riskDensity": 1384462155780.0618,
+    "riskDensityPerKm2": 1384462155780.0618,
+    "policiesPerKm2": 56640.94990713774
+  },
+  "tpu_522": {
+    "id": 522,
+    "name": "TPU 522",
+    "count": 2,
+    "totalExposure": 1600000,
+    "avgExposure": 800000,
+    "minExposure": 800000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 2,
+        "totalExposure": 1600000
+      }
+    },
+    "byYear": {},
+    "area_km2": 1.069208380065918,
+    "riskDensity": 1055782828.6946319,
+    "riskDensityPerKm2": 1055782828.6946319,
+    "policiesPerKm2": 479.7942193161383
+  },
+  "tpu_195": {
+    "id": 195,
+    "name": "TPU 195",
+    "count": 1,
+    "totalExposure": 1200000,
+    "avgExposure": 1200000,
+    "minExposure": 1200000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 1,
+        "totalExposure": 1200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.3904703070678711,
+    "riskDensity": 7341506148.127478,
+    "riskDensityPerKm2": 7341506148.127478,
+    "policiesPerKm2": 496.83675426382456
+  },
+  "tpu_328": {
+    "id": 328,
+    "name": "TPU 328",
+    "count": 20,
+    "totalExposure": 9100000,
+    "avgExposure": 455000,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 20,
+        "totalExposure": 9100000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.1510464949951172,
+    "riskDensity": 259355651073.57434,
+    "riskDensityPerKm2": 259355651073.57434,
+    "policiesPerKm2": 19219.247689884123
+  },
+  "tpu_148": {
+    "id": 148,
+    "name": "TPU 148",
+    "count": 3,
+    "totalExposure": 2400000,
+    "avgExposure": 800000,
+    "minExposure": 800000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 3,
+        "totalExposure": 2400000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.03475302935791016,
+    "riskDensity": 23784162568.603924,
+    "riskDensityPerKm2": 23784162568.603924,
+    "policiesPerKm2": 3539.2598076346944
+  },
+  "tpu_833": {
+    "id": 833,
+    "name": "TPU 833",
+    "count": 9,
+    "totalExposure": 10400000,
+    "avgExposure": 1155555.5555555555,
+    "minExposure": 800000,
+    "maxExposure": 1600000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 9,
+        "totalExposure": 10400000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.12884515466308594,
+    "riskDensity": 172450786084.28156,
+    "riskDensityPerKm2": 172450786084.28156,
+    "policiesPerKm2": 2941.515348334502
+  },
+  "tpu_547": {
+    "id": 547,
+    "name": "TPU 547",
+    "count": 1,
+    "totalExposure": 300000,
+    "avgExposure": 300000,
+    "minExposure": 300000,
+    "maxExposure": 300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 1,
+        "totalExposure": 300000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.8168145126342773,
+    "riskDensity": 1879918965.5283818,
+    "riskDensityPerKm2": 1879918965.5283818,
+    "policiesPerKm2": 250.9749726885512
+  },
+  "tpu_525": {
+    "id": 525,
+    "name": "TPU 525",
+    "count": 1,
+    "totalExposure": 300000,
+    "avgExposure": 300000,
+    "minExposure": 300000,
+    "maxExposure": 300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 1,
+        "totalExposure": 300000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.008298820068359376,
+    "riskDensity": 390433623371.7807,
+    "riskDensityPerKm2": 390433623371.7807,
+    "policiesPerKm2": 1204.9905790977027
+  },
+  "tpu_971": {
+    "id": 971,
+    "name": "TPU 971",
+    "count": 12,
+    "totalExposure": 11600000,
+    "avgExposure": 966666.6666666666,
+    "minExposure": 300000,
+    "maxExposure": 1700000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 12,
+        "totalExposure": 11600000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.5048282091674805,
+    "riskDensity": 65138628148.9879,
+    "riskDensityPerKm2": 65138628148.9879,
+    "policiesPerKm2": 410.040477613893
+  },
+  "tpu_516": {
+    "id": 516,
+    "name": "TPU 516",
+    "count": 1,
+    "totalExposure": 800000,
+    "avgExposure": 800000,
+    "minExposure": 800000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 1,
+        "totalExposure": 800000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.2430857412109375,
+    "riskDensity": 725753863.723793,
+    "riskDensityPerKm2": 725753863.723793,
+    "policiesPerKm2": 431.9463555408061
+  },
+  "tpu_149": {
+    "id": 149,
+    "name": "TPU 149",
+    "count": 3,
+    "totalExposure": 2400000,
+    "avgExposure": 800000,
+    "minExposure": 800000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 3,
+        "totalExposure": 2400000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.008066291076660155,
+    "riskDensity": 606238112299.1586,
+    "riskDensityPerKm2": 606238112299.1586,
+    "policiesPerKm2": 27150.02445593333
+  },
+  "tpu_171": {
+    "id": 171,
+    "name": "TPU 171",
+    "count": 12,
+    "totalExposure": 12800000,
+    "avgExposure": 1066666.6666666667,
+    "minExposure": 800000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 12,
+        "totalExposure": 12800000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.2268101414794922,
+    "riskDensity": 211178590040.12305,
+    "riskDensityPerKm2": 211178590040.12305,
+    "policiesPerKm2": 1688.6370137669978
+  },
+  "tpu_758": {
+    "id": 758,
+    "name": "TPU 758",
+    "count": 6,
+    "totalExposure": 3800000,
+    "avgExposure": 633333.3333333334,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 6,
+        "totalExposure": 3800000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.11316711364746093,
+    "riskDensity": 30105627551.687935,
+    "riskDensityPerKm2": 30105627551.687935,
+    "policiesPerKm2": 6485.983218468949
+  },
+  "tpu_135": {
+    "id": 135,
+    "name": "TPU 135",
+    "count": 4,
+    "totalExposure": 1200000,
+    "avgExposure": 300000,
+    "minExposure": 300000,
+    "maxExposure": 300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 1200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.042299794921875,
+    "riskDensity": 856769597756.0913,
+    "riskDensityPerKm2": 856769597756.0913,
+    "policiesPerKm2": 5035.48540586065
+  },
+  "tpu_835": {
+    "id": 835,
+    "name": "TPU 835",
+    "count": 24,
+    "totalExposure": 16800000,
+    "avgExposure": 700000,
+    "minExposure": 300000,
+    "maxExposure": 1100000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 24,
+        "totalExposure": 16800000
+      }
+    },
+    "byYear": {},
+    "area_km2": 1.7560906618652343,
+    "riskDensity": 5653274989.490188,
+    "riskDensityPerKm2": 5653274989.490188,
+    "policiesPerKm2": 118.44490977423256
+  },
+  "tpu_724": {
+    "id": 724,
+    "name": "TPU 724",
+    "count": 4,
+    "totalExposure": 1200000,
+    "avgExposure": 300000,
+    "minExposure": 300000,
+    "maxExposure": 300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 1200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.20668010595703126,
+    "riskDensity": 1521686834.3167238,
+    "riskDensityPerKm2": 1521686834.3167238,
+    "policiesPerKm2": 1204.760365527232
+  },
+  "tpu_152": {
+    "id": 152,
+    "name": "TPU 152",
+    "count": 20,
+    "totalExposure": 17100000,
+    "avgExposure": 855000,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 20,
+        "totalExposure": 17100000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.019102096862792968,
+    "riskDensity": 92067217172.66272,
+    "riskDensityPerKm2": 92067217172.66272,
+    "policiesPerKm2": 35336.43478244338
+  },
+  "tpu_427": {
+    "id": 427,
+    "name": "TPU 427",
+    "count": 8,
+    "totalExposure": 6400000,
+    "avgExposure": 800000,
+    "minExposure": 800000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 8,
+        "totalExposure": 6400000
+      }
+    },
+    "byYear": {},
+    "area_km2": 2.4476061506347655,
+    "riskDensity": 198878149.86645585,
+    "riskDensityPerKm2": 198878149.86645585,
+    "policiesPerKm2": 57.19874497115976
+  },
+  "tpu_432": {
+    "id": 432,
+    "name": "TPU 432",
+    "count": 1,
+    "totalExposure": 1200000,
+    "avgExposure": 1200000,
+    "minExposure": 1200000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 1,
+        "totalExposure": 1200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.039409372680664065,
+    "riskDensity": 6093379028.025513,
+    "riskDensityPerKm2": 6093379028.025513,
+    "policiesPerKm2": 3044.9609277560808
+  },
+  "tpu_237": {
+    "id": 237,
+    "name": "TPU 237",
+    "count": 11,
+    "totalExposure": 6000000,
+    "avgExposure": 545454.5454545454,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 11,
+        "totalExposure": 6000000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.1192403851928711,
+    "riskDensity": 94942583757.7455,
+    "riskDensityPerKm2": 94942583757.7455,
+    "policiesPerKm2": 930.8926654376176
+  },
+  "tpu_441": {
+    "id": 441,
+    "name": "TPU 441",
+    "count": 4,
+    "totalExposure": 3200000,
+    "avgExposure": 800000,
+    "minExposure": 800000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 3200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.013018750915527344,
+    "riskDensity": 91347485428.23848,
+    "riskDensityPerKm2": 91347485428.23848,
+    "policiesPerKm2": 57148.33971611194
+  },
+  "tpu_722": {
+    "id": 722,
+    "name": "TPU 722",
+    "count": 15,
+    "totalExposure": 12800000,
+    "avgExposure": 853333.3333333334,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 15,
+        "totalExposure": 12800000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.18157619415283202,
+    "riskDensity": 105393610555.09552,
+    "riskDensityPerKm2": 105393610555.09552,
+    "policiesPerKm2": 6069.077530463331
+  },
+  "tpu_831": {
+    "id": 831,
+    "name": "TPU 831",
+    "count": 3,
+    "totalExposure": 900000,
+    "avgExposure": 300000,
+    "minExposure": 300000,
+    "maxExposure": 300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 3,
+        "totalExposure": 900000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.2187019750366211,
+    "riskDensity": 13947687066.974226,
+    "riskDensityPerKm2": 13947687066.974226,
+    "policiesPerKm2": 2368.519991249563
+  },
+  "tpu_728": {
+    "id": 728,
+    "name": "TPU 728",
+    "count": 11,
+    "totalExposure": 9200000,
+    "avgExposure": 836363.6363636364,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 11,
+        "totalExposure": 9200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.029686264038085938,
+    "riskDensity": 415880147115.5419,
+    "riskDensityPerKm2": 415880147115.5419,
+    "policiesPerKm2": 18830.257633053185
+  },
+  "tpu_246": {
+    "id": 246,
+    "name": "TPU 246",
+    "count": 5,
+    "totalExposure": 2500000,
+    "avgExposure": 500000,
+    "minExposure": 300000,
+    "maxExposure": 1300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 5,
+        "totalExposure": 2500000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.0121546494140625,
+    "riskDensity": 545268050647.5299,
+    "riskDensityPerKm2": 545268050647.5299,
+    "policiesPerKm2": 37269.688706602676
+  },
+  "tpu_334": {
+    "id": 334,
+    "name": "TPU 334",
+    "count": 4,
+    "totalExposure": 3200000,
+    "avgExposure": 800000,
+    "minExposure": 800000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 3200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.5759190725097656,
+    "riskDensity": 7219362561.967418,
+    "riskDensityPerKm2": 7219362561.967418,
+    "policiesPerKm2": 197.9444776905994
+  },
+  "tpu_729": {
+    "id": 729,
+    "name": "TPU 729",
+    "count": 7,
+    "totalExposure": 6800000,
+    "avgExposure": 971428.5714285715,
+    "minExposure": 800000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 7,
+        "totalExposure": 6800000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.0873810640258789,
+    "riskDensity": 473901539883.01105,
+    "riskDensityPerKm2": 473901539883.01105,
+    "policiesPerKm2": 4302.991777356285
+  },
+  "tpu_217": {
+    "id": 217,
+    "name": "TPU 217",
+    "count": 4,
+    "totalExposure": 10000000,
+    "avgExposure": 2500000,
+    "minExposure": 2500000,
+    "maxExposure": 2500000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 10000000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.05515827294921875,
+    "riskDensity": 897610235959.0149,
+    "riskDensityPerKm2": 897610235959.0149,
+    "policiesPerKm2": 2284.3354815695807
+  },
+  "tpu_269": {
+    "id": 269,
+    "name": "TPU 269",
+    "count": 8,
+    "totalExposure": 8400000,
+    "avgExposure": 1050000,
+    "minExposure": 800000,
+    "maxExposure": 1300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 8,
+        "totalExposure": 8400000
+      }
+    },
+    "byYear": {},
+    "area_km2": 1.2311924955444336,
+    "riskDensity": 24039768043.413834,
+    "riskDensityPerKm2": 24039768043.413834,
+    "policiesPerKm2": 93.40537764498555
+  },
+  "tpu_542": {
+    "id": 542,
+    "name": "TPU 542",
+    "count": 12,
+    "totalExposure": 12800000,
+    "avgExposure": 1066666.6666666667,
+    "minExposure": 800000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 12,
+        "totalExposure": 12800000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.7124532986450195,
+    "riskDensity": 54949253863.706116,
+    "riskDensityPerKm2": 54949253863.706116,
+    "policiesPerKm2": 269.49134822613007
+  },
+  "tpu_292": {
+    "id": 292,
+    "name": "TPU 292",
+    "count": 4,
+    "totalExposure": 1200000,
+    "avgExposure": 300000,
+    "minExposure": 300000,
+    "maxExposure": 300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 1200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.36143807397460936,
+    "riskDensity": 10352592782.637667,
+    "riskDensityPerKm2": 10352592782.637667,
+    "policiesPerKm2": 464.8099137773787
+  },
+  "tpu_244": {
+    "id": 244,
+    "name": "TPU 244",
+    "count": 12,
+    "totalExposure": 18400000,
+    "avgExposure": 1533333.3333333333,
+    "minExposure": 1200000,
+    "maxExposure": 2200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 12,
+        "totalExposure": 18400000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.008530338317871094,
+    "riskDensity": 518826421818.2302,
+    "riskDensityPerKm2": 518826421818.2302,
+    "policiesPerKm2": 166347.44685649677
+  },
+  "tpu_523": {
+    "id": 523,
+    "name": "TPU 523",
+    "count": 4,
+    "totalExposure": 3200000,
+    "avgExposure": 800000,
+    "minExposure": 800000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 3200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.13417380865478515,
+    "riskDensity": 2345716008.850699,
+    "riskDensityPerKm2": 2345716008.850699,
+    "policiesPerKm2": 1669.4763474764886
+  },
+  "tpu_761": {
+    "id": 761,
+    "name": "TPU 761",
+    "count": 4,
+    "totalExposure": 3200000,
+    "avgExposure": 800000,
+    "minExposure": 800000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 3200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.051540969421386716,
+    "riskDensity": 19745474472.54085,
+    "riskDensityPerKm2": 19745474472.54085,
+    "policiesPerKm2": 950.7000071998577
+  },
+  "tpu_912": {
+    "id": 912,
+    "name": "TPU 912",
+    "count": 4,
+    "totalExposure": 1200000,
+    "avgExposure": 300000,
+    "minExposure": 300000,
+    "maxExposure": 300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 1200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.4255303677368164,
+    "riskDensity": 273436033.76378506,
+    "riskDensityPerKm2": 273436033.76378506,
+    "policiesPerKm2": 230.30083733204066
+  },
+  "tpu_526": {
+    "id": 526,
+    "name": "TPU 526",
+    "count": 4,
+    "totalExposure": 4800000,
+    "avgExposure": 1200000,
+    "minExposure": 1200000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 4800000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.0946712710571289,
+    "riskDensity": 29652247589.514244,
+    "riskDensityPerKm2": 29652247589.514244,
+    "policiesPerKm2": 1066.8495191012282
+  },
+  "tpu_515": {
+    "id": 515,
+    "name": "TPU 515",
+    "count": 8,
+    "totalExposure": 2400000,
+    "avgExposure": 300000,
+    "minExposure": 300000,
+    "maxExposure": 300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 8,
+        "totalExposure": 2400000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.0862173892211914,
+    "riskDensity": 205079086071.12042,
+    "riskDensityPerKm2": 205079086071.12042,
+    "policiesPerKm2": 2435.703538427072
+  },
+  "tpu_976": {
+    "id": 976,
+    "name": "TPU 976",
+    "count": 4,
+    "totalExposure": 1200000,
+    "avgExposure": 300000,
+    "minExposure": 300000,
+    "maxExposure": 300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 1200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.05984424822998047,
+    "riskDensity": 1883856900.7793314,
+    "riskDensityPerKm2": 1883856900.7793314,
+    "policiesPerKm2": 1520.6139719608223
+  },
+  "tpu_263": {
+    "id": 263,
+    "name": "TPU 263",
+    "count": 4,
+    "totalExposure": 3200000,
+    "avgExposure": 800000,
+    "minExposure": 800000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 3200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.02947023095703125,
+    "riskDensity": 27125249958.357574,
+    "riskDensityPerKm2": 27125249958.357574,
+    "policiesPerKm2": 10858.415072028873
+  },
+  "tpu_521": {
+    "id": 521,
+    "name": "TPU 521",
+    "count": 4,
+    "totalExposure": 1200000,
+    "avgExposure": 300000,
+    "minExposure": 300000,
+    "maxExposure": 300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 1200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.04752497845458984,
+    "riskDensity": 5506095857.571671,
+    "riskDensityPerKm2": 5506095857.571671,
+    "policiesPerKm2": 3051.0271590874604
+  },
+  "tpu_827": {
+    "id": 827,
+    "name": "TPU 827",
+    "count": 4,
+    "totalExposure": 3200000,
+    "avgExposure": 800000,
+    "minExposure": 800000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 3200000
+      }
+    },
+    "byYear": {},
+    "area_km2": 0.15270716766357423,
+    "riskDensity": 22398359240.971485,
+    "riskDensityPerKm2": 22398359240.971485,
+    "policiesPerKm2": 333.97253567269985
+  }
+}

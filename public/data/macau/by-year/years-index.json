@@ -1,0 +1,58 @@
+{
+  "years": [
+    {
+      "year": 2025,
+      "count": 389
+    },
+    {
+      "year": 2024,
+      "count": 510
+    },
+    {
+      "year": 2023,
+      "count": 546
+    },
+    {
+      "year": 2022,
+      "count": 412
+    },
+    {
+      "year": 2021,
+      "count": 646
+    },
+    {
+      "year": 2020,
+      "count": 563
+    },
+    {
+      "year": 2019,
+      "count": 604
+    },
+    {
+      "year": 2018,
+      "count": 693
+    },
+    {
+      "year": 2017,
+      "count": 661
+    },
+    {
+      "year": 2016,
+      "count": 682
+    },
+    {
+      "year": 2015,
+      "count": 761
+    },
+    {
+      "year": 2014,
+      "count": 632
+    },
+    {
+      "year": 2013,
+      "count": 1
+    }
+  ],
+  "totalRecords": 7100,
+  "generatedAt": "2026-01-19T05:56:04.804Z"
+}

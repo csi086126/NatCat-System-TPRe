@@ -32,6 +32,47 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
+
+# Large/generated geocoding intermediates (keep locally, do not upload)
+/public/data/tphk-geocoding-*.json
+/public/data/tphk-geocoded-portfolio*.json
+/public/data/tphk-oed-*.json
+/public/data/tphk-portfolio-oed-*.json
+/public/data/by-year/tphk-portfolio-*.json
+/public/data/macau/tpmo-*.json
+/public/data/**/*portfolio*.json
+/public/data/**/*portfolio*.geojson
+/public/data/test-oed-with-originals.json
+/scripts/portfolio_management/output/
+
+# Business-data correction artifacts (may contain client locations)
+/correction-report.json
+/geocoding-*-corrections*.json
+/geocoding-corrections-*.json
+/geocoding-cluster-corrections-log.json
+
+# Downloaded GIS source layers (reproducible and too large for GitHub)
+/scripts/downloaded_layers/
+
+# Local PostgreSQL backups (contain business data and may be large)
+/backups/
+
+# Local runtime artifacts and temporary analysis output
+/nul
+/public/data/nul
+*.log
+/temp_*.json
+/*-output.txt
+/test-output.txt
+
+# Python virtual environments
+geo_env/
+venv/
+env/
+ENV/
+*.pyc
+__pycache__/
 
 # vercel
 .vercel

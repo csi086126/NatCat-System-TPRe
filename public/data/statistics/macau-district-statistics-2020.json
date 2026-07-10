@@ -1,0 +1,534 @@
+{
+  "圣方济各堂区": {
+    "id": 7,
+    "name": "St. Francis Xavier",
+    "nameCN": "圣方济各堂区",
+    "count": 29,
+    "totalExposure": 1562261977.5,
+    "avgExposure": 53871102.672413796,
+    "minExposure": 130630,
+    "maxExposure": 7590017825.23,
+    "byOccupancy": {
+      "工程險": {
+        "count": 407,
+        "totalExposure": 35529142577.80001
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 34,
+        "totalExposure": 5616343850.5
+      },
+      "2015": {
+        "count": 44,
+        "totalExposure": 1278547543.58
+      },
+      "2016": {
+        "count": 47,
+        "totalExposure": 2126927822.21
+      },
+      "2017": {
+        "count": 42,
+        "totalExposure": 3063230717.0299997
+      },
+      "2018": {
+        "count": 39,
+        "totalExposure": 362639674.15
+      },
+      "2019": {
+        "count": 41,
+        "totalExposure": 9240798246.06
+      },
+      "2020": {
+        "count": 29,
+        "totalExposure": 1562261977.5
+      },
+      "2021": {
+        "count": 26,
+        "totalExposure": 2354668661
+      },
+      "2022": {
+        "count": 31,
+        "totalExposure": 649616295.65
+      },
+      "2023": {
+        "count": 30,
+        "totalExposure": 1020655398.63
+      },
+      "2024": {
+        "count": 25,
+        "totalExposure": 2693470679.41
+      },
+      "2025": {
+        "count": 19,
+        "totalExposure": 5559981712.08
+      }
+    }
+  },
+  "大堂区": {
+    "id": 3,
+    "name": "Cathedral",
+    "nameCN": "大堂区",
+    "count": 135,
+    "totalExposure": 4534696711.860001,
+    "avgExposure": 33590346.013777785,
+    "minExposure": 132000,
+    "maxExposure": 4210680000,
+    "byOccupancy": {
+      "工程險": {
+        "count": 2060,
+        "totalExposure": 68384951423.06998
+      }
+    },
+    "byYear": {
+      "2013": {
+        "count": 1,
+        "totalExposure": 1111000
+      },
+      "2014": {
+        "count": 185,
+        "totalExposure": 4524620208.280001
+      },
+      "2015": {
+        "count": 206,
+        "totalExposure": 5864443058.35
+      },
+      "2016": {
+        "count": 192,
+        "totalExposure": 4153452921.83
+      },
+      "2017": {
+        "count": 174,
+        "totalExposure": 4428100230.84
+      },
+      "2018": {
+        "count": 208,
+        "totalExposure": 6683204949.01
+      },
+      "2019": {
+        "count": 203,
+        "totalExposure": 4276969009.71
+      },
+      "2020": {
+        "count": 135,
+        "totalExposure": 4534696711.860001
+      },
+      "2021": {
+        "count": 206,
+        "totalExposure": 13479710880.080002
+      },
+      "2022": {
+        "count": 104,
+        "totalExposure": 2674852463.5
+      },
+      "2023": {
+        "count": 170,
+        "totalExposure": 5010875007.219999
+      },
+      "2024": {
+        "count": 160,
+        "totalExposure": 9242068562.96
+      },
+      "2025": {
+        "count": 116,
+        "totalExposure": 3510846419.4300003
+      }
+    }
+  },
+  "Unknown": {
+    "id": 0,
+    "name": "Unknown",
+    "nameCN": "Unknown",
+    "count": 139,
+    "totalExposure": 9746533786.839998,
+    "avgExposure": 70118948.10676257,
+    "minExposure": 117840,
+    "maxExposure": 11050000000,
+    "byOccupancy": {
+      "工程險": {
+        "count": 1465,
+        "totalExposure": 72629574964.31602
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 139,
+        "totalExposure": 2713174832.246
+      },
+      "2015": {
+        "count": 132,
+        "totalExposure": 1279539164.33
+      },
+      "2016": {
+        "count": 140,
+        "totalExposure": 12874285190.38
+      },
+      "2017": {
+        "count": 145,
+        "totalExposure": 2676969754.18
+      },
+      "2018": {
+        "count": 140,
+        "totalExposure": 1891348940.22
+      },
+      "2019": {
+        "count": 111,
+        "totalExposure": 3286136392.44
+      },
+      "2020": {
+        "count": 139,
+        "totalExposure": 9746533786.839998
+      },
+      "2021": {
+        "count": 108,
+        "totalExposure": 7450249380.86
+      },
+      "2022": {
+        "count": 91,
+        "totalExposure": 9023977347.85
+      },
+      "2023": {
+        "count": 127,
+        "totalExposure": 7033776176.660002
+      },
+      "2024": {
+        "count": 113,
+        "totalExposure": 10895614630.22
+      },
+      "2025": {
+        "count": 80,
+        "totalExposure": 3757969368.09
+      }
+    }
+  },
+  "嘉模堂区": {
+    "id": 6,
+    "name": "Our Lady of Carmel",
+    "nameCN": "嘉模堂区",
+    "count": 150,
+    "totalExposure": 6694702336.93,
+    "avgExposure": 44631348.91286667,
+    "minExposure": 0,
+    "maxExposure": 4858000000,
+    "byOccupancy": {
+      "工程險": {
+        "count": 1641,
+        "totalExposure": 58822631726.950005
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 99,
+        "totalExposure": 1497915243.8000002
+      },
+      "2015": {
+        "count": 209,
+        "totalExposure": 4299556730.380001
+      },
+      "2016": {
+        "count": 121,
+        "totalExposure": 2969181290.8
+      },
+      "2017": {
+        "count": 133,
+        "totalExposure": 6446889874.71
+      },
+      "2018": {
+        "count": 173,
+        "totalExposure": 4294922005.82
+      },
+      "2019": {
+        "count": 132,
+        "totalExposure": 5695435847.85
+      },
+      "2020": {
+        "count": 150,
+        "totalExposure": 6694702336.93
+      },
+      "2021": {
+        "count": 169,
+        "totalExposure": 5191841428.77
+      },
+      "2022": {
+        "count": 116,
+        "totalExposure": 2866002662.6899996
+      },
+      "2023": {
+        "count": 123,
+        "totalExposure": 7144517135.34
+      },
+      "2024": {
+        "count": 123,
+        "totalExposure": 3740056622.4799995
+      },
+      "2025": {
+        "count": 93,
+        "totalExposure": 7981610547.38
+      }
+    }
+  },
+  "花王堂区": {
+    "id": 2,
+    "name": "St. Anthony",
+    "nameCN": "花王堂区",
+    "count": 5,
+    "totalExposure": 183835000,
+    "avgExposure": 36767000,
+    "minExposure": 200000,
+    "maxExposure": 1455000000,
+    "byOccupancy": {
+      "工程險": {
+        "count": 77,
+        "totalExposure": 2840169000.09
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 14,
+        "totalExposure": 41801824.03
+      },
+      "2015": {
+        "count": 8,
+        "totalExposure": 259387617.2
+      },
+      "2016": {
+        "count": 14,
+        "totalExposure": 1557112425.61
+      },
+      "2017": {
+        "count": 8,
+        "totalExposure": 29316886
+      },
+      "2018": {
+        "count": 4,
+        "totalExposure": 34780000
+      },
+      "2019": {
+        "count": 6,
+        "totalExposure": 33608210
+      },
+      "2020": {
+        "count": 5,
+        "totalExposure": 183835000
+      },
+      "2021": {
+        "count": 8,
+        "totalExposure": 156314619.45
+      },
+      "2022": {
+        "count": 3,
+        "totalExposure": 16972566.8
+      },
+      "2023": {
+        "count": 2,
+        "totalExposure": 12728633
+      },
+      "2024": {
+        "count": 4,
+        "totalExposure": 512505218
+      },
+      "2025": {
+        "count": 1,
+        "totalExposure": 1806000
+      }
+    }
+  },
+  "花地玛堂区": {
+    "id": 1,
+    "name": "Our Lady of Fatima",
+    "nameCN": "花地玛堂区",
+    "count": 57,
+    "totalExposure": 785740435.8,
+    "avgExposure": 13784919.926315788,
+    "minExposure": 127300,
+    "maxExposure": 2090185158.47,
+    "byOccupancy": {
+      "工程險": {
+        "count": 785,
+        "totalExposure": 19125055751.13
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 88,
+        "totalExposure": 1341465237.1200001
+      },
+      "2015": {
+        "count": 114,
+        "totalExposure": 2843395851.5299997
+      },
+      "2016": {
+        "count": 92,
+        "totalExposure": 2619050774.3700004
+      },
+      "2017": {
+        "count": 105,
+        "totalExposure": 1935219057.41
+      },
+      "2018": {
+        "count": 79,
+        "totalExposure": 2425214719
+      },
+      "2019": {
+        "count": 65,
+        "totalExposure": 2211438318.1
+      },
+      "2020": {
+        "count": 57,
+        "totalExposure": 785740435.8
+      },
+      "2021": {
+        "count": 57,
+        "totalExposure": 1837715410.2
+      },
+      "2022": {
+        "count": 28,
+        "totalExposure": 595880546.82
+      },
+      "2023": {
+        "count": 37,
+        "totalExposure": 737572931.5
+      },
+      "2024": {
+        "count": 37,
+        "totalExposure": 1303616308.78
+      },
+      "2025": {
+        "count": 26,
+        "totalExposure": 488746160.5
+      }
+    }
+  },
+  "望德堂区": {
+    "id": 4,
+    "name": "St. Lazarus",
+    "nameCN": "望德堂区",
+    "count": 24,
+    "totalExposure": 418773188,
+    "avgExposure": 17448882.833333332,
+    "minExposure": 158800,
+    "maxExposure": 352000000,
+    "byOccupancy": {
+      "工程險": {
+        "count": 392,
+        "totalExposure": 5654344541.3
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 37,
+        "totalExposure": 130196915.69
+      },
+      "2015": {
+        "count": 24,
+        "totalExposure": 186053079.76
+      },
+      "2016": {
+        "count": 27,
+        "totalExposure": 255936697
+      },
+      "2017": {
+        "count": 26,
+        "totalExposure": 632749994
+      },
+      "2018": {
+        "count": 27,
+        "totalExposure": 317980961
+      },
+      "2019": {
+        "count": 28,
+        "totalExposure": 317905834
+      },
+      "2020": {
+        "count": 24,
+        "totalExposure": 418773188
+      },
+      "2021": {
+        "count": 51,
+        "totalExposure": 782601465
+      },
+      "2022": {
+        "count": 26,
+        "totalExposure": 330325478
+      },
+      "2023": {
+        "count": 45,
+        "totalExposure": 785401654.8
+      },
+      "2024": {
+        "count": 39,
+        "totalExposure": 724011237.1999999
+      },
+      "2025": {
+        "count": 38,
+        "totalExposure": 772408036.85
+      }
+    }
+  },
+  "风顺堂区": {
+    "id": 5,
+    "name": "St. Lawrence",
+    "nameCN": "风顺堂区",
+    "count": 24,
+    "totalExposure": 179171730.55,
+    "avgExposure": 7465488.772916667,
+    "minExposure": 182000,
+    "maxExposure": 390129940,
+    "byOccupancy": {
+      "工程險": {
+        "count": 273,
+        "totalExposure": 3621432606.5399995
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 36,
+        "totalExposure": 625371949
+      },
+      "2015": {
+        "count": 24,
+        "totalExposure": 122535655.5
+      },
+      "2016": {
+        "count": 49,
+        "totalExposure": 511453710.09999996
+      },
+      "2017": {
+        "count": 28,
+        "totalExposure": 361412285
+      },
+      "2018": {
+        "count": 23,
+        "totalExposure": 160013725.2
+      },
+      "2019": {
+        "count": 18,
+        "totalExposure": 179716663
+      },
+      "2020": {
+        "count": 24,
+        "totalExposure": 179171730.55
+      },
+      "2021": {
+        "count": 21,
+        "totalExposure": 245418837
+      },
+      "2022": {
+        "count": 13,
+        "totalExposure": 339646455.5
+      },
+      "2023": {
+        "count": 12,
+        "totalExposure": 315443437
+      },
+      "2024": {
+        "count": 9,
+        "totalExposure": 338759173
+      },
+      "2025": {
+        "count": 16,
+        "totalExposure": 242488985.69
+      }
+    }
+  }
+}

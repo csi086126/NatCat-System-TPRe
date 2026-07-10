@@ -1,0 +1,702 @@
+{
+  "spu_32": {
+    "id": 32,
+    "name": "SPU 32",
+    "count": 197,
+    "totalExposure": 160539773.43,
+    "avgExposure": 814922.7077664975,
+    "minExposure": 300000,
+    "maxExposure": 10000000,
+    "byOccupancy": {
+      "STORAGE": {
+        "count": 2,
+        "totalExposure": 14319773.43
+      },
+      "WAREHOUSE": {
+        "count": 3,
+        "totalExposure": 3240000
+      },
+      "DWELLING": {
+        "count": 188,
+        "totalExposure": 138980000
+      },
+      "WAREHOUSE  ": {
+        "count": 4,
+        "totalExposure": 4000000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_28": {
+    "id": 28,
+    "name": "SPU 28",
+    "count": 182,
+    "totalExposure": 114260724,
+    "avgExposure": 627806.1758241758,
+    "minExposure": 300000,
+    "maxExposure": 4010724,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 171,
+        "totalExposure": 102010724
+      },
+      "WAREHOUSE": {
+        "count": 8,
+        "totalExposure": 8650000
+      },
+      "OFFICE": {
+        "count": 3,
+        "totalExposure": 3600000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_92": {
+    "id": 92,
+    "name": "SPU 92",
+    "count": 7,
+    "totalExposure": 4493654,
+    "avgExposure": 641950.5714285715,
+    "minExposure": 300000,
+    "maxExposure": 1000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 7,
+        "totalExposure": 4493654
+      }
+    },
+    "byYear": {}
+  },
+  "spu_15": {
+    "id": 15,
+    "name": "SPU 15",
+    "count": 290,
+    "totalExposure": 287450348,
+    "avgExposure": 991208.0965517241,
+    "minExposure": 300000,
+    "maxExposure": 11000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 290,
+        "totalExposure": 287450348
+      }
+    },
+    "byYear": {}
+  },
+  "spu_14": {
+    "id": 14,
+    "name": "SPU 14",
+    "count": 88,
+    "totalExposure": 95591000,
+    "avgExposure": 1086261.3636363635,
+    "minExposure": 300000,
+    "maxExposure": 18000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 88,
+        "totalExposure": 95591000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_22": {
+    "id": 22,
+    "name": "SPU 22",
+    "count": 111,
+    "totalExposure": 134835000,
+    "avgExposure": 1214729.7297297297,
+    "minExposure": 300000,
+    "maxExposure": 4200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 106,
+        "totalExposure": 128360000
+      },
+      "OFFICE": {
+        "count": 1,
+        "totalExposure": 2475000
+      },
+      "SHOP": {
+        "count": 4,
+        "totalExposure": 4000000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_16": {
+    "id": 16,
+    "name": "SPU 16",
+    "count": 245,
+    "totalExposure": 213175489,
+    "avgExposure": 870104.0367346939,
+    "minExposure": 300000,
+    "maxExposure": 5040000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 241,
+        "totalExposure": 193015489
+      },
+      "SHOP": {
+        "count": 4,
+        "totalExposure": 20160000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_82": {
+    "id": 82,
+    "name": "SPU 82",
+    "count": 33,
+    "totalExposure": 83100000,
+    "avgExposure": 2518181.8181818184,
+    "minExposure": 300000,
+    "maxExposure": 9900000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 30,
+        "totalExposure": 53400000
+      },
+      "SHOP": {
+        "count": 3,
+        "totalExposure": 29700000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_75": {
+    "id": 75,
+    "name": "SPU 75",
+    "count": 301,
+    "totalExposure": 254158640,
+    "avgExposure": 844380.8637873754,
+    "minExposure": 300000,
+    "maxExposure": 6036660,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 293,
+        "totalExposure": 243998640
+      },
+      "WAREHOUSE": {
+        "count": 8,
+        "totalExposure": 10160000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_29": {
+    "id": 29,
+    "name": "SPU 29",
+    "count": 271,
+    "totalExposure": 173045000,
+    "avgExposure": 638542.4354243543,
+    "minExposure": 300000,
+    "maxExposure": 3080000,
+    "byOccupancy": {
+      "WAREHOUSE": {
+        "count": 10,
+        "totalExposure": 12505000
+      },
+      "DWELLING": {
+        "count": 253,
+        "totalExposure": 149340000
+      },
+      "SHOP": {
+        "count": 4,
+        "totalExposure": 10000000
+      },
+      "Unknown": {
+        "count": 4,
+        "totalExposure": 1200000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_27": {
+    "id": 27,
+    "name": "SPU 27",
+    "count": 25,
+    "totalExposure": 35200000,
+    "avgExposure": 1408000.0,
+    "minExposure": 300000,
+    "maxExposure": 6000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 25,
+        "totalExposure": 35200000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_11": {
+    "id": 11,
+    "name": "SPU 11",
+    "count": 126,
+    "totalExposure": 130420000,
+    "avgExposure": 1035079.3650793651,
+    "minExposure": 300000,
+    "maxExposure": 3420000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 125,
+        "totalExposure": 129620000
+      },
+      "住宅": {
+        "count": 1,
+        "totalExposure": 800000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_26": {
+    "id": 26,
+    "name": "SPU 26",
+    "count": 176,
+    "totalExposure": 149556648,
+    "avgExposure": 849753.6818181818,
+    "minExposure": 300000,
+    "maxExposure": 4446751,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 176,
+        "totalExposure": 149556648
+      }
+    },
+    "byYear": {}
+  },
+  "spu_33": {
+    "id": 33,
+    "name": "SPU 33",
+    "count": 40,
+    "totalExposure": 60050000,
+    "avgExposure": 1501250.0,
+    "minExposure": 252000,
+    "maxExposure": 4548000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 36,
+        "totalExposure": 59042000
+      },
+      "車位": {
+        "count": 4,
+        "totalExposure": 1008000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_54": {
+    "id": 54,
+    "name": "SPU 54",
+    "count": 21,
+    "totalExposure": 18700000,
+    "avgExposure": 890476.1904761905,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 21,
+        "totalExposure": 18700000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_23": {
+    "id": 23,
+    "name": "SPU 23",
+    "count": 86,
+    "totalExposure": 63100000,
+    "avgExposure": 733720.9302325582,
+    "minExposure": 300000,
+    "maxExposure": 4200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 86,
+        "totalExposure": 63100000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_25": {
+    "id": 25,
+    "name": "SPU 25",
+    "count": 61,
+    "totalExposure": 69100000,
+    "avgExposure": 1132786.8852459015,
+    "minExposure": 300000,
+    "maxExposure": 20000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 61,
+        "totalExposure": 69100000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_51": {
+    "id": 51,
+    "name": "SPU 51",
+    "count": 119,
+    "totalExposure": 74045260,
+    "avgExposure": 622229.0756302521,
+    "minExposure": 300000,
+    "maxExposure": 4510000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 119,
+        "totalExposure": 74045260
+      }
+    },
+    "byYear": {}
+  },
+  "spu_53": {
+    "id": 53,
+    "name": "SPU 53",
+    "count": 12,
+    "totalExposure": 27458000,
+    "avgExposure": 2288166.6666666665,
+    "minExposure": 300000,
+    "maxExposure": 4000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 12,
+        "totalExposure": 27458000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_21": {
+    "id": 21,
+    "name": "SPU 21",
+    "count": 48,
+    "totalExposure": 98220000,
+    "avgExposure": 2046250.0,
+    "minExposure": 800000,
+    "maxExposure": 4950000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 34,
+        "totalExposure": 76780000
+      },
+      "OFFICE": {
+        "count": 14,
+        "totalExposure": 21440000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_17": {
+    "id": 17,
+    "name": "SPU 17",
+    "count": 89,
+    "totalExposure": 60440000,
+    "avgExposure": 679101.1235955056,
+    "minExposure": 300000,
+    "maxExposure": 1440000,
+    "byOccupancy": {
+      "OFFICE": {
+        "count": 1,
+        "totalExposure": 1440000
+      },
+      "DWELLING": {
+        "count": 88,
+        "totalExposure": 59000000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_13": {
+    "id": 13,
+    "name": "SPU 13",
+    "count": 46,
+    "totalExposure": 40020000,
+    "avgExposure": 870000.0,
+    "minExposure": 300000,
+    "maxExposure": 2920000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 46,
+        "totalExposure": 40020000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_52": {
+    "id": 52,
+    "name": "SPU 52",
+    "count": 134,
+    "totalExposure": 113760000,
+    "avgExposure": 848955.223880597,
+    "minExposure": 300000,
+    "maxExposure": 4000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 134,
+        "totalExposure": 113760000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_42": {
+    "id": 42,
+    "name": "SPU 42",
+    "count": 167,
+    "totalExposure": 126606660,
+    "avgExposure": 758123.7125748503,
+    "minExposure": 300000,
+    "maxExposure": 6010129,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 163,
+        "totalExposure": 115726660
+      },
+      "WAREHOUSE": {
+        "count": 4,
+        "totalExposure": 10880000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_96": {
+    "id": 96,
+    "name": "SPU 96",
+    "count": 8,
+    "totalExposure": 5680000,
+    "avgExposure": 710000.0,
+    "minExposure": 300000,
+    "maxExposure": 1120000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 8,
+        "totalExposure": 5680000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_65": {
+    "id": 65,
+    "name": "SPU 65",
+    "count": 4,
+    "totalExposure": 17629680,
+    "avgExposure": 4407420.0,
+    "minExposure": 4407420,
+    "maxExposure": 4407420,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 17629680
+      }
+    },
+    "byYear": {}
+  },
+  "spu_72": {
+    "id": 72,
+    "name": "SPU 72",
+    "count": 126,
+    "totalExposure": 112700000,
+    "avgExposure": 894444.4444444445,
+    "minExposure": 300000,
+    "maxExposure": 3050000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 122,
+        "totalExposure": 102700000
+      },
+      "SHOP": {
+        "count": 4,
+        "totalExposure": 10000000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_24": {
+    "id": 24,
+    "name": "SPU 24",
+    "count": 89,
+    "totalExposure": 74400000,
+    "avgExposure": 835955.0561797753,
+    "minExposure": 300000,
+    "maxExposure": 2200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 89,
+        "totalExposure": 74400000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_62": {
+    "id": 62,
+    "name": "SPU 62",
+    "count": 145,
+    "totalExposure": 93791360,
+    "avgExposure": 646836.9655172414,
+    "minExposure": 300000,
+    "maxExposure": 2105280,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 145,
+        "totalExposure": 93791360
+      }
+    },
+    "byYear": {}
+  },
+  "spu_83": {
+    "id": 83,
+    "name": "SPU 83",
+    "count": 257,
+    "totalExposure": 155900000,
+    "avgExposure": 606614.785992218,
+    "minExposure": 300000,
+    "maxExposure": 1800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 257,
+        "totalExposure": 155900000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_12": {
+    "id": 12,
+    "name": "SPU 12",
+    "count": 1,
+    "totalExposure": 1200000,
+    "avgExposure": 1200000.0,
+    "minExposure": 1200000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 1,
+        "totalExposure": 1200000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_35": {
+    "id": 35,
+    "name": "SPU 35",
+    "count": 72,
+    "totalExposure": 58000000,
+    "avgExposure": 805555.5555555555,
+    "minExposure": 300000,
+    "maxExposure": 2200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 72,
+        "totalExposure": 58000000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_95": {
+    "id": 95,
+    "name": "SPU 95",
+    "count": 34,
+    "totalExposure": 17600000,
+    "avgExposure": 517647.0588235294,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 34,
+        "totalExposure": 17600000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_97": {
+    "id": 97,
+    "name": "SPU 97",
+    "count": 17,
+    "totalExposure": 13600000,
+    "avgExposure": 800000.0,
+    "minExposure": 300000,
+    "maxExposure": 1700000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 17,
+        "totalExposure": 13600000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_19": {
+    "id": 19,
+    "name": "SPU 19",
+    "count": 1,
+    "totalExposure": 1200000,
+    "avgExposure": 1200000.0,
+    "minExposure": 1200000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 1,
+        "totalExposure": 1200000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_43": {
+    "id": 43,
+    "name": "SPU 43",
+    "count": 1,
+    "totalExposure": 1200000,
+    "avgExposure": 1200000.0,
+    "minExposure": 1200000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 1,
+        "totalExposure": 1200000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_44": {
+    "id": 44,
+    "name": "SPU 44",
+    "count": 4,
+    "totalExposure": 3200000,
+    "avgExposure": 800000.0,
+    "minExposure": 800000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 3200000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_76": {
+    "id": 76,
+    "name": "SPU 76",
+    "count": 4,
+    "totalExposure": 3200000,
+    "avgExposure": 800000.0,
+    "minExposure": 800000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 3200000
+      }
+    },
+    "byYear": {}
+  },
+  "spu_91": {
+    "id": 91,
+    "name": "SPU 91",
+    "count": 4,
+    "totalExposure": 1200000,
+    "avgExposure": 300000.0,
+    "minExposure": 300000,
+    "maxExposure": 300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 1200000
+      }
+    },
+    "byYear": {}
+  }
+}

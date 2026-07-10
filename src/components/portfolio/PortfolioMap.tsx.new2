@@ -1,0 +1,1206 @@
+/**
+ * Enhanced Portfolio Map Component with Heatmap
+ * Features:
+ * - Heatmap visualization by exposure
+ * - Cluster markers
+ * - District boundaries overlay
+ * - Toggle between heatmap and markers
+ */
+
+'use client';
+
+import { useEffect, useState } from 'react';
+import { MapContainer, TileLayer, Marker, Popup, CircleMarker, LayersControl, useMap } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import 'leaflet-draw/dist/leaflet.draw.css';
+import '@/styles/map-controls.css';
+import L from 'leaflet';
+import { Card } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { MapPin, Flame, AlertCircle, Search, X, Filter, List, Download, Eye, EyeOff, TrendingUp, Building2, DollarSign } from 'lucide-react';
+import { GeoServerClickHandler } from './GeoServerLayers';
+import { WMSLayer } from './WMSLayer';
+import AreaSelectionTools from './AreaSelectionTools';
+
+// Fix for default marker icon
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+});
+
+interface LocationData {
+  lat: number;
+  lng: number;
+  sum_insured: number;
+  address: string;
+  region: string;
+  policy_id: string;
+  occupancy?: string;
+}
+
+interface SearchResult extends LocationData {
+  index: number;
+  matchType: 'address' | 'policy_id' | 'region';
+}
+
+interface FilterStats {
+  count: number;
+  totalExposure: number;
+  avgExposure: number;
+  minExposure: number;
+  maxExposure: number;
+  byOccupancy: Record<string, { count: number; total: number }>;
+  topPolicies: LocationData[];
+  searchTerm: string;
+}
+
+interface PortfolioMapProps {
+  selectedYear: number | null;
+  region: string;
+}
+
+// Heatmap Layer Component using CircleMarkers
+function HeatmapLayer({ data }: { data: LocationData[] }) {
+  const maxExposure = Math.max(...data.map(d => d.sum_insured));
+
+  // Calculate radius and color based on exposure
+  const getCircleStyle = (exposure: number) => {
+    const normalizedExposure = exposure / maxExposure;
+
+    // Radius: 5-30 pixels based on exposure
+    const radius = 5 + normalizedExposure * 25;
+
+    // Color gradient: blue (low) -> yellow (med) -> red (high)
+    let color;
+    if (normalizedExposure < 0.33) {
+      color = `rgb(59, 130, 246, ${0.3 + normalizedExposure * 0.4})`;
+    } else if (normalizedExposure < 0.67) {
+      color = `rgb(234, 179, 8, ${0.3 + normalizedExposure * 0.4})`;
+    } else {
+      color = `rgb(239, 68, 68, ${0.3 + normalizedExposure * 0.4})`;
+    }
+
+    return { radius, color };
+  };
+
+  return (
+    <>
+      {data.map((point, idx) => {
+        const style = getCircleStyle(point.sum_insured);
+
+        return (
+          <CircleMarker
+            key={idx}
+            center={[point.lat, point.lng]}
+            radius={style.radius}
+            fillColor={style.color}
+            color={style.color}
+            weight={1}
+            fillOpacity={0.6}
+          >
+            <Popup>
+              <div className="p-2 min-w-[200px]">
+                <h3 className="font-bold text-sm mb-1">{point.policy_id}</h3>
+                <p className="text-xs text-gray-600 mb-2">{point.address}</p>
+                <div className="space-y-1 text-xs">
+                  <div>
+                    <span className="font-semibold">Region:</span> {point.region}
+                  </div>
+                  <div>
+                    <span className="font-semibold">Sum Insured:</span>{' '}
+                    HKD {point.sum_insured.toLocaleString()}
+                  </div>
+                  {point.occupancy && (
+                    <div>
+                      <span className="font-semibold">Occupancy:</span> {point.occupancy}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </Popup>
+          </CircleMarker>
+        );
+      })}
+    </>
+  );
+}
+
+// Marker Layer Component
+function MarkerLayer({ data }: { data: LocationData[] }) {
+  return (
+    <>
+      {data.map((point, idx) => (
+        <Marker key={idx} position={[point.lat, point.lng]}>
+          <Popup>
+            <div className="p-2 min-w-[200px]">
+              <h3 className="font-bold text-sm mb-1">{point.policy_id}</h3>
+              <p className="text-xs text-gray-600 mb-2">{point.address}</p>
+              <div className="space-y-1 text-xs">
+                <div>
+                  <span className="font-semibold">Region:</span> {point.region}
+                </div>
+                <div>
+                  <span className="font-semibold">Sum Insured:</span>{' '}
+                  HKD {point.sum_insured.toLocaleString()}
+                </div>
+                {point.occupancy && (
+                  <div>
+                    <span className="font-semibold">Occupancy:</span> {point.occupancy}
+                  </div>
+                )}
+              </div>
+            </div>
+          </Popup>
+        </Marker>
+      ))}
+    </>
+  );
+}
+
+// Selected Result Highlight Component
+function SelectedMarker({ result }: { result: SearchResult }) {
+  const map = useMap();
+
+  // Auto zoom to selected location
+  useEffect(() => {
+    if (result) {
+      map.setView([result.lat, result.lng], 16, {
+        animate: true,
+        duration: 0.5,
+      });
+    }
+  }, [result, map]);
+
+  // Create a custom red icon for selected result
+  const redIcon = new L.Icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  });
+
+  return (
+    <Marker position={[result.lat, result.lng]} icon={redIcon}>
+      <Popup>
+        <div className="p-2 min-w-[200px]">
+          <div className="text-xs font-semibold text-red-600 mb-2">📍 Selected Location</div>
+          <h3 className="font-bold text-sm mb-1">{result.policy_id}</h3>
+          <p className="text-xs text-gray-600 mb-2">{result.address}</p>
+          <div className="space-y-1 text-xs">
+            <div>
+              <span className="font-semibold">Region:</span> {result.region}
+            </div>
+            <div>
+              <span className="font-semibold">Sum Insured:</span>{' '}
+              HKD {result.sum_insured.toLocaleString()}
+            </div>
+            {result.occupancy && (
+              <div>
+                <span className="font-semibold">Occupancy:</span> {result.occupancy}
+              </div>
+            )}
+          </div>
+        </div>
+      </Popup>
+    </Marker>
+  );
+}
+
+// Auto-zoom to fit all filtered locations
+function AutoZoomToFiltered({ locations }: { locations: LocationData[] }) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (locations.length > 0) {
+      const bounds = L.latLngBounds(locations.map(loc => [loc.lat, loc.lng]));
+      map.fitBounds(bounds, {
+        padding: [50, 50],
+        maxZoom: 15,
+        animate: true,
+        duration: 0.5,
+      });
+    }
+  }, [locations, map]);
+
+  return null;
+}
+
+export default function PortfolioMap({ selectedYear, region }: PortfolioMapProps) {
+  const [mounted, setMounted] = useState(false);
+  const [mapData, setMapData] = useState<LocationData[]>([]);
+  const [allLocations, setAllLocations] = useState<LocationData[]>([]); // Full dataset for search
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<'heatmap' | 'markers'>('heatmap');
+  const [sampleSize, setSampleSize] = useState(1000); // Limit points for performance
+  const [totalAvailable, setTotalAvailable] = useState(0); // Total records available
+
+  // Search functionality
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+  const [selectedResult, setSelectedResult] = useState<SearchResult | null>(null);
+  const [showSearchResults, setShowSearchResults] = useState(false);
+
+  // Filter functionality
+  const [isFilterActive, setIsFilterActive] = useState(false);
+  const [filterStats, setFilterStats] = useState<FilterStats | null>(null);
+  const [showDetailsList, setShowDetailsList] = useState(false);
+
+  // Overview KPI Stats
+  const [overviewStats, setOverviewStats] = useState({
+    totalPolicies: 0,
+    totalExposure: 0,
+    avgExposure: 0,
+    topDistrict: '',
+    topDistrictExposure: 0,
+  });
+
+  const defaultCenter: [number, number] = region === "mo" ? [22.1987, 113.5439] : [22.3193, 114.1694]; // Hong Kong
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Calculate overview statistics from loaded data
+  useEffect(() => {
+    if (allLocations.length > 0) {
+      // Calculate total exposure and policies
+      const totalPolicies = allLocations.length;
+      const totalExposure = allLocations.reduce((sum, loc) => sum + loc.sum_insured, 0);
+      const avgExposure = totalExposure / totalPolicies;
+
+      // Group by region/district to find top district
+      const districtMap = new Map<string, { count: number; exposure: number }>();
+      allLocations.forEach(loc => {
+        const district = loc.region || 'Unknown';
+        if (!districtMap.has(district)) {
+          districtMap.set(district, { count: 0, exposure: 0 });
+        }
+        const districtData = districtMap.get(district)!;
+        districtData.count++;
+        districtData.exposure += loc.sum_insured;
+      });
+
+      // Find top district by exposure
+      let topDistrict = '';
+      let topDistrictExposure = 0;
+      districtMap.forEach((data, district) => {
+        if (data.exposure > topDistrictExposure) {
+          topDistrict = district;
+          topDistrictExposure = data.exposure;
+        }
+      });
+
+      setOverviewStats({
+        totalPolicies,
+        totalExposure,
+        avgExposure,
+        topDistrict,
+        topDistrictExposure,
+      });
+    }
+  }, [allLocations]);
+
+  useEffect(() => {
+    async function fetchMapData() {
+      try {
+        setLoading(true);
+        setError(null);
+
+        let allData = [];
+
+        if (selectedYear) {
+          // Load year-specific file for better performance
+          try {
+            const response = await fetch(`/data/by-year/tphk-portfolio-${selectedYear}.json`);
+            if (!response.ok) throw new Error(`No data available for year ${selectedYear}`);
+            allData = await response.json();
+            console.log(`Loaded ${allData.length} records for year ${selectedYear}`);
+          } catch (yearError) {
+            console.error(`Failed to load data for year ${selectedYear}:`, yearError);
+            throw new Error(`Could not load portfolio data for ${selectedYear}. Please ensure the year file exists.`);
+          }
+        } else {
+          // No year selected - use subset file (full dataset is 377MB, too large for browser)
+          try {
+            const response = await fetch('/data/tphk_portfolio_subset_5000.json');
+            if (!response.ok) throw new Error(`Failed to load portfolio dataset (${response.status})`);
+            allData = await response.json();
+          } catch (error) {
+            console.error('Failed to load portfolio data:', error);
+            throw new Error('Could not load portfolio data. Please ensure data files exist in public/data.');
+          }
+        }
+
+        // Extract location data
+        const allLocs: LocationData[] = allData
+          .filter((item: any) => item.location && item.location.lat && item.location.lng)
+          .map((item: any) => ({
+            lat: item.location.lat,
+            lng: item.location.lng,
+            sum_insured: item.公司保額 || item.sum_insured || 0,
+            address: item.保險處所 || item.address || '',
+            region: item.分區 || item.region || '',
+            policy_id: item.保單號 || item.policy_id || '',
+            occupancy: item.佔用性質 || item.occupancy,
+          }))
+          .filter((loc: LocationData) => loc.sum_insured > 0); // Only show policies with exposure
+
+        // Store full dataset for searching
+        setAllLocations(allLocs);
+
+        // Set total available records
+        setTotalAvailable(allLocs.length);
+
+        // Apply sample limit (0 means show all)
+        const locations = sampleSize > 0 ? allLocs.slice(0, sampleSize) : allLocs;
+
+        setMapData(locations);
+      } catch (error: any) {
+        console.error('Failed to fetch map data:', error);
+        setError(error.message || 'An unexpected error occurred');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    if (mounted) {
+      fetchMapData();
+    }
+  }, [mounted, selectedYear, sampleSize]);
+
+  // Search functionality - searches in ALL locations, not just visible sample
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+
+    if (!query.trim()) {
+      setSearchResults([]);
+      setShowSearchResults(false);
+      setSelectedResult(null);
+      return;
+    }
+
+    const lowerQuery = query.toLowerCase();
+    const results: SearchResult[] = [];
+
+    // Search in ALL locations, not just mapData (sample)
+    allLocations.forEach((location, index) => {
+      let matchType: 'address' | 'policy_id' | 'region' | null = null;
+
+      if (location.address.toLowerCase().includes(lowerQuery)) {
+        matchType = 'address';
+      } else if (location.policy_id.toLowerCase().includes(lowerQuery)) {
+        matchType = 'policy_id';
+      } else if (location.region.toLowerCase().includes(lowerQuery)) {
+        matchType = 'region';
+      }
+
+      if (matchType) {
+        results.push({
+          ...location,
+          index,
+          matchType,
+        });
+      }
+    });
+
+    setSearchResults(results.slice(0, 50)); // Limit to 50 results
+    setShowSearchResults(true);
+  };
+
+  const handleSelectResult = (result: SearchResult) => {
+    setSelectedResult(result);
+    setShowSearchResults(false);
+    setSearchQuery(result.address);
+  };
+
+  const clearSearch = () => {
+    setSearchQuery('');
+    setSearchResults([]);
+    setShowSearchResults(false);
+    setSelectedResult(null);
+    // Also clear filter when clearing search
+    if (isFilterActive) {
+      handleClearFilter();
+    }
+  };
+
+  // Calculate statistics for filtered results
+  const calculateFilterStats = (locations: LocationData[], term: string): FilterStats => {
+    const exposures = locations.map(l => l.sum_insured);
+
+    // Group by occupancy
+    const byOccupancy: Record<string, { count: number; total: number }> = {};
+    locations.forEach(loc => {
+      const occ = loc.occupancy || 'Unknown';
+      if (!byOccupancy[occ]) {
+        byOccupancy[occ] = { count: 0, total: 0 };
+      }
+      byOccupancy[occ].count++;
+      byOccupancy[occ].total += loc.sum_insured;
+    });
+
+    // Get top 3 by exposure
+    const topPolicies = [...locations]
+      .sort((a, b) => b.sum_insured - a.sum_insured)
+      .slice(0, 3);
+
+    return {
+      count: locations.length,
+      totalExposure: exposures.reduce((sum, v) => sum + v, 0),
+      avgExposure: exposures.reduce((sum, v) => sum + v, 0) / locations.length,
+      minExposure: Math.min(...exposures),
+      maxExposure: Math.max(...exposures),
+      byOccupancy,
+      topPolicies,
+      searchTerm: term,
+    };
+  };
+
+  // Activate filter - show only search results on map
+  const handleFilterMap = () => {
+    if (searchResults.length === 0) return;
+
+    // Convert search results to LocationData array
+    const filteredLocs: LocationData[] = searchResults.map(r => ({
+      lat: r.lat,
+      lng: r.lng,
+      sum_insured: r.sum_insured,
+      address: r.address,
+      region: r.region,
+      policy_id: r.policy_id,
+      occupancy: r.occupancy,
+    }));
+
+    // Calculate statistics
+    const stats = calculateFilterStats(filteredLocs, searchQuery);
+    setFilterStats(stats);
+
+    // Update map data to show only filtered results
+    setMapData(filteredLocs);
+    setIsFilterActive(true);
+    setShowSearchResults(false);
+  };
+
+  // Clear filter - restore original view
+  const handleClearFilter = () => {
+    setIsFilterActive(false);
+    setFilterStats(null);
+
+    // Restore map data based on sample size
+    const locations = sampleSize > 0 ? allLocations.slice(0, sampleSize) : allLocations;
+    setMapData(locations);
+  };
+
+  // Export filtered results to CSV
+  const handleExportCSV = () => {
+    if (!filterStats || searchResults.length === 0) return;
+
+    // Create CSV content
+    const headers = ['Policy ID', 'Address', 'Region', 'Sum Insured (HKD)', 'Occupancy'];
+    const rows = searchResults.map(r => [
+      r.policy_id,
+      `"${r.address.replace(/"/g, '""')}"`, // Escape quotes in address
+      r.region,
+      r.sum_insured,
+      r.occupancy || 'N/A',
+    ]);
+
+    const csvContent = [
+      headers.join(','),
+      ...rows.map(row => row.join(','))
+    ].join('\n');
+
+    // Create download
+    const blob = new Blob(['\ufeff' + csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = `filtered-portfolio-${searchQuery.replace(/[^a-z0-9]/gi, '_')}-${new Date().toISOString().split('T')[0]}.csv`;
+    link.click();
+  };
+
+  // Format currency helper
+  const formatCurrency = (value: number) => {
+    if (value >= 1e9) {
+      return `HKD ${(value / 1e9).toFixed(2)}B`;
+    } else if (value >= 1e6) {
+      return `HKD ${(value / 1e6).toFixed(2)}M`;
+    } else {
+      return `HKD ${value.toLocaleString()}`;
+    }
+  };
+
+  if (!mounted) {
+    return (
+      <div className="h-[600px] w-full bg-gray-100 animate-pulse flex items-center justify-center">
+        Loading Map...
+      </div>
+    );
+  }
+
+  const totalExposure = mapData.reduce((sum, d) => sum + d.sum_insured, 0);
+  const maxExposure = mapData.length > 0 ? Math.max(...mapData.map(d => d.sum_insured)) : 0;
+
+  // Calculate thresholds for legend
+  const lowThreshold = maxExposure * 0.33;
+  const mediumThreshold = maxExposure * 0.67;
+
+  return (
+    <div className="flex flex-col h-full">
+      {/* Map Container */}
+      <div className="flex-1 w-full z-0 relative h-full">
+        {error ? (
+          <div className="h-full w-full bg-gray-50 flex items-center justify-center">
+            <div className="text-center p-6 max-w-md bg-white rounded-lg shadow-sm border border-red-100">
+              <div className="text-red-500 mb-2">
+                <AlertCircle className="h-8 w-8 mx-auto" />
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-1">Unable to Load Map Data</h3>
+              <p className="text-sm text-gray-500 mb-4">{error}</p>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                onClick={() => window.location.reload()}
+              >
+                Retry
+              </Button>
+            </div>
+          </div>
+        ) : loading ? (
+          <div className="h-full w-full bg-gray-100 animate-pulse flex items-center justify-center">
+            <div className="text-muted-foreground">Loading map data...</div>
+          </div>
+        ) : (
+          <>
+            <MapContainer
+              center={defaultCenter}
+              zoom={11}
+              style={{ height: '100%', width: '100%' }}
+              scrollWheelZoom={true}
+            >
+              <LayersControl position="topright" collapsed={true}>
+                <LayersControl.BaseLayer name="OpenStreetMap">
+                  <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  />
+                </LayersControl.BaseLayer>
+                <LayersControl.BaseLayer checked name="Carto Light (Asset Map)">
+                  <TileLayer
+                    url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+                  />
+                </LayersControl.BaseLayer>
+
+                {/* GeoServer WMS Overlays */}
+                <LayersControl.Overlay name="18 Districts">
+                  <WMSLayer
+                    url="http://10.253.22.15:8080/geoserver/wms"
+                    params={{
+                      layers: 'natcat_platform:Hong_Kong_18_Districts',
+                      format: 'image/png',
+                      transparent: true,
+                      version: '1.1.0',
+                    }}
+                    attribution="GeoServer - Nat Cat Platform"
+                  />
+                </LayersControl.Overlay>
+
+                <LayersControl.Overlay checked name="18 Districts Boundaries">
+                  <WMSLayer
+                    url="http://10.253.22.15:8080/geoserver/wms"
+                    params={{
+                      layers: 'natcat_platform:Hong_Kong_18_Districts_Lines',
+                      format: 'image/png',
+                      transparent: true,
+                      version: '1.1.0',
+                    }}
+                    attribution="GeoServer - Nat Cat Platform"
+                  />
+                </LayersControl.Overlay>
+
+                {/* Hong Kong Administrative Levels - NEW */}
+                <LayersControl.Overlay name="PPU (9) - Polygons">
+                  <WMSLayer
+                    url="http://10.253.22.15:8080/geoserver/wms"
+                    params={{
+                      layers: 'natcat_platform:HongKong_PPU_9_polygon',
+                      format: 'image/png',
+                      transparent: true,
+                      version: '1.1.0',
+                      styles: '',
+                      CQL_FILTER: '',
+                    }}
+                    attribution="GeoServer - Nat Cat Platform"
+                    opacity={0.4}
+                  />
+                </LayersControl.Overlay>
+
+                <LayersControl.Overlay name="PPU (9) - Boundaries">
+                  <WMSLayer
+                    url="http://10.253.22.15:8080/geoserver/wms"
+                    params={{
+                      layers: 'natcat_platform:HongKong_PPU_9_line',
+                      format: 'image/png',
+                      transparent: true,
+                      version: '1.1.0',
+                      styles: '',
+                    }}
+                    attribution="GeoServer - Nat Cat Platform"
+                    opacity={0.8}
+                  />
+                </LayersControl.Overlay>
+
+                <LayersControl.Overlay name="SPU (52) - Polygons">
+                  <WMSLayer
+                    url="http://10.253.22.15:8080/geoserver/wms"
+                    params={{
+                      layers: 'natcat_platform:HongKong_SPU_52_polygon',
+                      format: 'image/png',
+                      transparent: true,
+                      version: '1.1.0',
+                      styles: '',
+                    }}
+                    attribution="GeoServer - Nat Cat Platform"
+                    opacity={0.4}
+                  />
+                </LayersControl.Overlay>
+
+                <LayersControl.Overlay name="SPU (52) - Boundaries">
+                  <WMSLayer
+                    url="http://10.253.22.15:8080/geoserver/wms"
+                    params={{
+                      layers: 'natcat_platform:HongKong_SPU_52_line',
+                      format: 'image/png',
+                      transparent: true,
+                      version: '1.1.0',
+                      styles: '',
+                    }}
+                    attribution="GeoServer - Nat Cat Platform"
+                    opacity={0.8}
+                  />
+                </LayersControl.Overlay>
+
+                <LayersControl.Overlay name="TPU (292) - Polygons">
+                  <WMSLayer
+                    url="http://10.253.22.15:8080/geoserver/wms"
+                    params={{
+                      layers: 'natcat_platform:HongKong_TPU_292_polygon',
+                      format: 'image/png',
+                      transparent: true,
+                      version: '1.1.0',
+                      styles: '',
+                    }}
+                    attribution="GeoServer - Nat Cat Platform"
+                    opacity={0.3}
+                  />
+                </LayersControl.Overlay>
+
+                <LayersControl.Overlay name="TPU (292) - Boundaries">
+                  <WMSLayer
+                    url="http://10.253.22.15:8080/geoserver/wms"
+                    params={{
+                      layers: 'natcat_platform:HongKong_TPU_292_line',
+                      format: 'image/png',
+                      transparent: true,
+                      version: '1.1.0',
+                      styles: '',
+                    }}
+                    attribution="GeoServer - Nat Cat Platform"
+                    opacity={0.7}
+                  />
+                </LayersControl.Overlay>
+
+                <LayersControl.Overlay name="Subunit (4,916) - Polygons">
+                  <WMSLayer
+                    url="http://10.253.22.15:8080/geoserver/wms"
+                    params={{
+                      layers: 'natcat_platform:HongKong_Subunit_4916_polygon',
+                      format: 'image/png',
+                      transparent: true,
+                      version: '1.1.0',
+                      styles: '',
+                    }}
+                    attribution="GeoServer - Nat Cat Platform"
+                    opacity={0.25}
+                  />
+                </LayersControl.Overlay>
+
+                <LayersControl.Overlay name="Subunit (4,916) - Boundaries">
+                  <WMSLayer
+                    url="http://10.253.22.15:8080/geoserver/wms"
+                    params={{
+                      layers: 'natcat_platform:HongKong_Subunit_4916_line',
+                      format: 'image/png',
+                      transparent: true,
+                      version: '1.1.0',
+                      styles: '',
+                    }}
+                    attribution="GeoServer - Nat Cat Platform"
+                    opacity={0.6}
+                  />
+                </LayersControl.Overlay>
+              </LayersControl>
+
+              {viewMode === 'heatmap' ? (
+                <HeatmapLayer data={mapData} />
+              ) : (
+                <MarkerLayer data={mapData} />
+              )}
+
+              {/* Show selected search result marker */}
+              {selectedResult && <SelectedMarker result={selectedResult} />}
+
+              {/* Auto-zoom when filter is active */}
+              {isFilterActive && mapData.length > 0 && <AutoZoomToFiltered locations={mapData} />}
+
+              {/* Area Selection Tools */}
+              <AreaSelectionTools allLocations={allLocations} />
+
+              {/* GeoServer Click Handler for Statistics */}
+              <GeoServerClickHandler />
+            </MapContainer>
+
+            {/* Search Bar Overlay */}
+            <Card className="absolute top-4 left-16 z-[1000] w-96 bg-white/95 backdrop-blur-sm shadow-lg">
+              <div className="relative">
+                <div className="flex items-center gap-2 p-2">
+                  <Search className="h-4 w-4 text-muted-foreground ml-1" />
+                  <input
+                    type="text"
+                    placeholder="Search by address, policy ID, or region..."
+                    value={searchQuery}
+                    onChange={(e) => handleSearch(e.target.value)}
+                    onFocus={() => searchResults.length > 0 && setShowSearchResults(true)}
+                    className="flex-1 px-2 py-1 text-sm border-none outline-none bg-transparent"
+                    disabled={isFilterActive}
+                  />
+                  {searchQuery && !isFilterActive && (
+                    <button
+                      onClick={clearSearch}
+                      className="p-1 hover:bg-gray-100 rounded"
+                    >
+                      <X className="h-4 w-4 text-muted-foreground" />
+                    </button>
+                  )}
+                </div>
+
+                {/* Filter Active Status */}
+                {isFilterActive && filterStats && (
+                  <div className="px-3 py-2 bg-blue-50 border-t flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Eye className="h-4 w-4 text-blue-600" />
+                      <span className="text-xs font-medium text-blue-900">
+                        Filtering {filterStats.count} location{filterStats.count !== 1 ? 's' : ''}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => setShowDetailsList(true)}
+                        className="h-6 px-2 text-xs"
+                      >
+                        <List className="h-3 w-3 mr-1" />
+                        List
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={handleClearFilter}
+                        className="h-6 px-2 text-xs"
+                      >
+                        <EyeOff className="h-3 w-3 mr-1" />
+                        Show All
+                      </Button>
+                    </div>
+                  </div>
+                )}
+
+                {/* Search Results Dropdown */}
+                {showSearchResults && searchResults.length > 0 && !isFilterActive && (
+                  <div className="absolute top-full left-0 right-0 mt-1 bg-white border rounded-md shadow-lg max-h-80 overflow-y-auto z-[1001]">
+                    <div className="p-2 text-xs text-muted-foreground border-b bg-blue-50 flex items-center justify-between">
+                      <div>
+                        Found {searchResults.length} result{searchResults.length !== 1 ? 's' : ''}
+                        {searchResults.length === 50 && ' (showing first 50)'}
+                        <div className="text-[10px] mt-1">
+                          💡 Searching across all {totalAvailable.toLocaleString()} records
+                        </div>
+                      </div>
+                      <Button
+                        variant="default"
+                        size="sm"
+                        onClick={handleFilterMap}
+                        className="h-7 px-3 text-xs ml-2"
+                      >
+                        <Filter className="h-3 w-3 mr-1" />
+                        Filter Map
+                      </Button>
+                    </div>
+                    {searchResults.map((result, idx) => (
+                      <div
+                        key={idx}
+                        onClick={() => handleSelectResult(result)}
+                        className="p-3 hover:bg-gray-50 cursor-pointer border-b last:border-b-0"
+                      >
+                        <div className="flex items-start justify-between gap-2">
+                          <div className="flex-1 min-w-0">
+                            <div className="text-sm font-medium text-gray-900 truncate">
+                              {result.address}
+                            </div>
+                            <div className="text-xs text-muted-foreground mt-1">
+                              {result.policy_id} • {result.region}
+                            </div>
+                            <div className="text-xs text-blue-600 mt-1">
+                              HKD {result.sum_insured.toLocaleString()}
+                            </div>
+                          </div>
+                          <div className="flex-shrink-0">
+                            <span className="text-[10px] px-2 py-1 rounded-full bg-gray-100 text-gray-600">
+                              {result.matchType === 'address' ? 'Address' :
+                               result.matchType === 'policy_id' ? 'Policy' : 'Region'}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {showSearchResults && searchResults.length === 0 && searchQuery && (
+                  <div className="absolute top-full left-0 right-0 mt-1 bg-white border rounded-md shadow-lg z-[1001]">
+                    <div className="p-4 text-sm text-center text-muted-foreground">
+                      No results found for "{searchQuery}"
+                    </div>
+                  </div>
+                )}
+              </div>
+            </Card>
+
+            {/* Top Control Bar Overlay */}
+            <Card className="absolute top-4 left-1/2 -translate-x-1/2 z-[1000] p-2 bg-white/95 backdrop-blur-sm shadow-md flex items-center gap-4">
+              <div className="flex flex-col px-2">
+                <h3 className="font-semibold text-sm">Map Visualization</h3>
+                <p className="text-xs text-muted-foreground">
+                  Showing {mapData.length.toLocaleString()} of {totalAvailable.toLocaleString()} policies
+                  {selectedYear && ` (${selectedYear})`}
+                  {' '}| Exp: HKD {(totalExposure / 1e9).toFixed(2)}B
+                </p>
+              </div>
+
+              <div className="h-8 w-px bg-gray-200" />
+
+              <div className="flex gap-2">
+                <Button
+                  variant={viewMode === 'heatmap' ? 'default' : 'outline'}
+                  size="sm"
+                  className="h-8 text-xs"
+                  onClick={() => setViewMode('heatmap')}
+                >
+                  <Flame className="h-3 w-3 mr-1" />
+                  Heatmap
+                </Button>
+                <Button
+                  variant={viewMode === 'markers' ? 'default' : 'outline'}
+                  size="sm"
+                  className="h-8 text-xs"
+                  onClick={() => setViewMode('markers')}
+                >
+                  <MapPin className="h-3 w-3 mr-1" />
+                  Markers
+                </Button>
+
+                <select
+                  value={sampleSize}
+                  onChange={(e) => setSampleSize(parseInt(e.target.value))}
+                  className="px-2 py-1 text-xs border rounded-md h-8 bg-background"
+                >
+                  <option value={500}>500 pts</option>
+                  <option value={1000}>1k pts</option>
+                  <option value={2000}>2k pts</option>
+                  <option value={5000}>5k pts</option>
+                  <option value={10000}>10k pts</option>
+                  <option value={20000}>20k pts</option>
+                  <option value={0}>All ({totalAvailable.toLocaleString()} pts)</option>
+                </select>
+              </div>
+            </Card>
+
+            {/* Combined Overview and Legend Card - Left Bottom */}
+            <Card className="absolute bottom-6 left-6 z-[1000] p-4 bg-white/95 backdrop-blur-sm shadow-lg border-gray-200 w-80">
+              {/* Portfolio Overview Section */}
+              <div className="mb-4">
+                <h4 className="font-semibold mb-3 text-sm text-gray-700">Portfolio Overview</h4>
+                <div className="grid grid-cols-2 gap-3">
+                  {/* Total Policies */}
+                  <div className="bg-blue-50 rounded-lg p-3">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Building2 className="h-4 w-4 text-blue-600" />
+                      <span className="text-xs text-gray-600">Total Policies</span>
+                    </div>
+                    <div className="text-lg font-bold text-gray-900">
+                      {overviewStats.totalPolicies.toLocaleString()}
+                    </div>
+                    <p className="text-[10px] text-muted-foreground mt-0.5">
+                      {selectedYear ? `Year ${selectedYear}` : 'All Years'}
+                    </p>
+                  </div>
+
+                  {/* Total Exposure */}
+                  <div className="bg-green-50 rounded-lg p-3">
+                    <div className="flex items-center gap-2 mb-1">
+                      <DollarSign className="h-4 w-4 text-green-600" />
+                      <span className="text-xs text-gray-600">Total Exposure</span>
+                    </div>
+                    <div className="text-lg font-bold text-gray-900">
+                      {formatCurrency(overviewStats.totalExposure)}
+                    </div>
+                    <p className="text-[10px] text-muted-foreground mt-0.5">
+                      Company share
+                    </p>
+                  </div>
+
+                  {/* Average Exposure */}
+                  <div className="bg-purple-50 rounded-lg p-3">
+                    <div className="flex items-center gap-2 mb-1">
+                      <TrendingUp className="h-4 w-4 text-purple-600" />
+                      <span className="text-xs text-gray-600">Avg Exposure</span>
+                    </div>
+                    <div className="text-lg font-bold text-gray-900">
+                      {formatCurrency(overviewStats.avgExposure)}
+                    </div>
+                    <p className="text-[10px] text-muted-foreground mt-0.5">
+                      Per policy
+                    </p>
+                  </div>
+
+                  {/* Top District */}
+                  <div className="bg-orange-50 rounded-lg p-3">
+                    <div className="flex items-center gap-2 mb-1">
+                      <MapPin className="h-4 w-4 text-orange-600" />
+                      <span className="text-xs text-gray-600">Top District</span>
+                    </div>
+                    <div className="text-sm font-bold text-gray-900 truncate">
+                      {overviewStats.topDistrict || 'Loading...'}
+                    </div>
+                    <p className="text-[10px] text-muted-foreground mt-0.5 truncate">
+                      {formatCurrency(overviewStats.topDistrictExposure)}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Heatmap Legend Section - Only show when heatmap mode is active */}
+              {viewMode === 'heatmap' && (
+                <div className="border-t pt-4">
+                  <h4 className="font-semibold mb-3 text-sm">Heatmap Legend</h4>
+                  <div className="flex flex-col gap-2">
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between gap-3">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 rounded-full bg-blue-500 opacity-60"></div>
+                          <span className="text-xs font-medium text-gray-700">Low</span>
+                        </div>
+                        <span className="text-[10px] text-muted-foreground">
+                          &lt; HKD {(lowThreshold / 1e6).toFixed(1)}M
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between gap-3">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 rounded-full bg-yellow-500 opacity-60"></div>
+                          <span className="text-xs font-medium text-gray-700">Medium</span>
+                        </div>
+                        <span className="text-[10px] text-muted-foreground">
+                          HKD {(lowThreshold / 1e6).toFixed(1)}M - {(mediumThreshold / 1e6).toFixed(1)}M
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between gap-3">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 rounded-full bg-red-500 opacity-60"></div>
+                          <span className="text-xs font-medium text-gray-700">High</span>
+                        </div>
+                        <span className="text-[10px] text-muted-foreground">
+                          ≥ HKD {(mediumThreshold / 1e6).toFixed(1)}M
+                        </span>
+                      </div>
+                    </div>
+                    <div className="text-[10px] text-muted-foreground border-t pt-2 mt-1">
+                      * Based on max exposure: HKD {(maxExposure / 1e6).toFixed(1)}M<br/>
+                      * Circle size indicates exposure amount
+                    </div>
+                  </div>
+                </div>
+              )}
+            </Card>
+
+            {/* Filter Statistics Card - Top Right */}
+            {isFilterActive && filterStats && (
+              <Card className="absolute top-4 right-4 z-[1000] w-80 bg-white/95 backdrop-blur-sm shadow-lg border-gray-200">
+                <div className="p-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <h4 className="font-semibold text-sm flex items-center gap-2">
+                      <Filter className="h-4 w-4 text-blue-600" />
+                      Filter Statistics
+                    </h4>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={handleExportCSV}
+                      className="h-7 px-2"
+                    >
+                      <Download className="h-3 w-3" />
+                    </Button>
+                  </div>
+
+                  <div className="space-y-3">
+                    {/* Search Term */}
+                    <div className="bg-blue-50 p-2 rounded text-xs">
+                      <span className="font-semibold text-blue-900">"{filterStats.searchTerm}"</span>
+                    </div>
+
+                    {/* Basic Stats */}
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="bg-gray-50 p-2 rounded">
+                        <div className="text-[10px] text-muted-foreground">Policies</div>
+                        <div className="text-sm font-bold">{filterStats.count}</div>
+                      </div>
+                      <div className="bg-gray-50 p-2 rounded">
+                        <div className="text-[10px] text-muted-foreground">Total Exposure</div>
+                        <div className="text-sm font-bold">HKD {(filterStats.totalExposure / 1e6).toFixed(1)}M</div>
+                      </div>
+                      <div className="bg-gray-50 p-2 rounded">
+                        <div className="text-[10px] text-muted-foreground">Average</div>
+                        <div className="text-sm font-bold">HKD {(filterStats.avgExposure / 1e6).toFixed(1)}M</div>
+                      </div>
+                      <div className="bg-gray-50 p-2 rounded">
+                        <div className="text-[10px] text-muted-foreground">Range</div>
+                        <div className="text-[10px] font-semibold">
+                          {(filterStats.minExposure / 1e6).toFixed(1)}M - {(filterStats.maxExposure / 1e6).toFixed(1)}M
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* By Occupancy */}
+                    {Object.keys(filterStats.byOccupancy).length > 0 && (
+                      <div>
+                        <div className="text-xs font-semibold mb-2">By Occupancy</div>
+                        <div className="space-y-1">
+                          {Object.entries(filterStats.byOccupancy)
+                            .sort((a, b) => b[1].total - a[1].total)
+                            .slice(0, 3)
+                            .map(([occ, data]) => (
+                              <div key={occ} className="flex items-center justify-between text-xs">
+                                <span className="text-muted-foreground truncate flex-1">{occ}</span>
+                                <span className="font-medium ml-2">
+                                  {data.count} ({(data.total / 1e6).toFixed(1)}M)
+                                </span>
+                              </div>
+                            ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Top 3 Policies */}
+                    {filterStats.topPolicies.length > 0 && (
+                      <div>
+                        <div className="text-xs font-semibold mb-2">Top 3 by Exposure</div>
+                        <div className="space-y-1">
+                          {filterStats.topPolicies.map((policy, idx) => (
+                            <div key={idx} className="text-xs bg-gray-50 p-2 rounded">
+                              <div className="font-medium">
+                                {idx + 1}. HKD {(policy.sum_insured / 1e6).toFixed(1)}M
+                              </div>
+                              <div className="text-[10px] text-muted-foreground truncate">
+                                {policy.address}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </Card>
+            )}
+
+            {/* Details List Modal */}
+            {showDetailsList && filterStats && (
+              <div className="absolute inset-0 z-[2000] bg-black/50 flex items-center justify-center p-4">
+                <Card className="w-full max-w-4xl max-h-[80vh] bg-white flex flex-col">
+                  <div className="p-4 border-b flex items-center justify-between">
+                    <h3 className="font-semibold flex items-center gap-2">
+                      <List className="h-5 w-5" />
+                      Filtered Results: "{filterStats.searchTerm}" ({filterStats.count} policies)
+                    </h3>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => setShowDetailsList(false)}
+                    >
+                      <X className="h-4 w-4" />
+                    </Button>
+                  </div>
+
+                  <div className="flex-1 overflow-auto p-4">
+                    <table className="w-full text-xs">
+                      <thead className="sticky top-0 bg-gray-100">
+                        <tr className="border-b">
+                          <th className="text-left p-2">Policy ID</th>
+                          <th className="text-left p-2">Address</th>
+                          <th className="text-left p-2">Region</th>
+                          <th className="text-right p-2">Exposure (HKD)</th>
+                          <th className="text-left p-2">Occupancy</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {searchResults.map((result, idx) => (
+                          <tr key={idx} className="border-b hover:bg-gray-50">
+                            <td className="p-2 font-mono text-[10px]">{result.policy_id}</td>
+                            <td className="p-2 truncate max-w-xs">{result.address}</td>
+                            <td className="p-2">{result.region}</td>
+                            <td className="p-2 text-right font-medium">
+                              {result.sum_insured.toLocaleString()}
+                            </td>
+                            <td className="p-2">{result.occupancy || 'N/A'}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div className="p-4 border-t flex items-center justify-between bg-gray-50">
+                    <div className="text-sm text-muted-foreground">
+                      Total: {filterStats.count} policies | HKD {filterStats.totalExposure.toLocaleString()}
+                    </div>
+                    <div className="flex gap-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={handleExportCSV}
+                      >
+                        <Download className="h-4 w-4 mr-2" />
+                        Export CSV
+                      </Button>
+                      <Button
+                        variant="default"
+                        size="sm"
+                        onClick={() => setShowDetailsList(false)}
+                      >
+                        Close
+                      </Button>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+            )}
+          </>
+        )}
+      </div>
+    </div>
+  );
+}

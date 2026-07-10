@@ -1,0 +1,1254 @@
+{
+  "subunit_4": {
+    "id": 4,
+    "name": "SUBUNIT 4",
+    "count": 141,
+    "totalExposure": 121719773.43,
+    "avgExposure": 863260.8044680852,
+    "minExposure": 300000,
+    "maxExposure": 10000000,
+    "byOccupancy": {
+      "STORAGE": {
+        "count": 2,
+        "totalExposure": 14319773.43
+      },
+      "DWELLING": {
+        "count": 139,
+        "totalExposure": 107400000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_21": {
+    "id": 21,
+    "name": "SUBUNIT 21",
+    "count": 58,
+    "totalExposure": 47710724,
+    "avgExposure": 822598.6896551724,
+    "minExposure": 300000,
+    "maxExposure": 4010724,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 58,
+        "totalExposure": 47710724
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_12": {
+    "id": 12,
+    "name": "SUBUNIT 12",
+    "count": 102,
+    "totalExposure": 68953654,
+    "avgExposure": 676016.2156862745,
+    "minExposure": 300000,
+    "maxExposure": 1600000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 95,
+        "totalExposure": 61593654
+      },
+      "OFFICE": {
+        "count": 7,
+        "totalExposure": 7360000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_42": {
+    "id": 42,
+    "name": "SUBUNIT 42",
+    "count": 28,
+    "totalExposure": 90090348,
+    "avgExposure": 3217512.4285714286,
+    "minExposure": 300000,
+    "maxExposure": 11000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 28,
+        "totalExposure": 90090348
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_39": {
+    "id": 39,
+    "name": "SUBUNIT 39",
+    "count": 46,
+    "totalExposure": 30411000,
+    "avgExposure": 661108.695652174,
+    "minExposure": 300000,
+    "maxExposure": 5591000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 46,
+        "totalExposure": 30411000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_53": {
+    "id": 53,
+    "name": "SUBUNIT 53",
+    "count": 24,
+    "totalExposure": 39680000,
+    "avgExposure": 1653333.3333333333,
+    "minExposure": 300000,
+    "maxExposure": 3270000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 24,
+        "totalExposure": 39680000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_18": {
+    "id": 18,
+    "name": "SUBUNIT 18",
+    "count": 66,
+    "totalExposure": 58670000,
+    "avgExposure": 888939.3939393939,
+    "minExposure": 300000,
+    "maxExposure": 4200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 63,
+        "totalExposure": 55430000
+      },
+      "WAREHOUSE": {
+        "count": 3,
+        "totalExposure": 3240000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_2": {
+    "id": 2,
+    "name": "SUBUNIT 2",
+    "count": 138,
+    "totalExposure": 165201640,
+    "avgExposure": 1197113.3333333333,
+    "minExposure": 300000,
+    "maxExposure": 6036660,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 137,
+        "totalExposure": 162726640
+      },
+      "OFFICE": {
+        "count": 1,
+        "totalExposure": 2475000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_8": {
+    "id": 8,
+    "name": "SUBUNIT 8",
+    "count": 126,
+    "totalExposure": 124938000,
+    "avgExposure": 991571.4285714285,
+    "minExposure": 300000,
+    "maxExposure": 4200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 126,
+        "totalExposure": 124938000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_20": {
+    "id": 20,
+    "name": "SUBUNIT 20",
+    "count": 65,
+    "totalExposure": 47190000,
+    "avgExposure": 726000.0,
+    "minExposure": 300000,
+    "maxExposure": 1890000,
+    "byOccupancy": {
+      "WAREHOUSE": {
+        "count": 2,
+        "totalExposure": 1890000
+      },
+      "DWELLING": {
+        "count": 63,
+        "totalExposure": 45300000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_46": {
+    "id": 46,
+    "name": "SUBUNIT 46",
+    "count": 14,
+    "totalExposure": 17600000,
+    "avgExposure": 1257142.857142857,
+    "minExposure": 300000,
+    "maxExposure": 6000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 14,
+        "totalExposure": 17600000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_5": {
+    "id": 5,
+    "name": "SUBUNIT 5",
+    "count": 123,
+    "totalExposure": 97089644,
+    "avgExposure": 789346.6991869919,
+    "minExposure": 300000,
+    "maxExposure": 3822411,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 123,
+        "totalExposure": 97089644
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_17": {
+    "id": 17,
+    "name": "SUBUNIT 17",
+    "count": 74,
+    "totalExposure": 50400000,
+    "avgExposure": 681081.0810810811,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "WAREHOUSE": {
+        "count": 1,
+        "totalExposure": 0
+      },
+      "DWELLING": {
+        "count": 72,
+        "totalExposure": 49600000
+      },
+      "住宅": {
+        "count": 1,
+        "totalExposure": 800000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_14": {
+    "id": 14,
+    "name": "SUBUNIT 14",
+    "count": 116,
+    "totalExposure": 147979780,
+    "avgExposure": 1275687.7586206896,
+    "minExposure": 300000,
+    "maxExposure": 18000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 116,
+        "totalExposure": 147979780
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_15": {
+    "id": 15,
+    "name": "SUBUNIT 15",
+    "count": 100,
+    "totalExposure": 72250000,
+    "avgExposure": 722500.0,
+    "minExposure": 300000,
+    "maxExposure": 1800000,
+    "byOccupancy": {
+      "WAREHOUSE": {
+        "count": 2,
+        "totalExposure": 2650000
+      },
+      "DWELLING": {
+        "count": 98,
+        "totalExposure": 69600000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_1": {
+    "id": 1,
+    "name": "SUBUNIT 1",
+    "count": 178,
+    "totalExposure": 196155260,
+    "avgExposure": 1101995.8426966292,
+    "minExposure": 300000,
+    "maxExposure": 9900000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 175,
+        "totalExposure": 166455260
+      },
+      "SHOP": {
+        "count": 3,
+        "totalExposure": 29700000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_23": {
+    "id": 23,
+    "name": "SUBUNIT 23",
+    "count": 84,
+    "totalExposure": 62080000,
+    "avgExposure": 739047.619047619,
+    "minExposure": 300000,
+    "maxExposure": 2720000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 80,
+        "totalExposure": 51200000
+      },
+      "WAREHOUSE": {
+        "count": 4,
+        "totalExposure": 10880000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_37": {
+    "id": 37,
+    "name": "SUBUNIT 37",
+    "count": 13,
+    "totalExposure": 27600000,
+    "avgExposure": 2123076.923076923,
+    "minExposure": 300000,
+    "maxExposure": 3350000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 13,
+        "totalExposure": 27600000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_22": {
+    "id": 22,
+    "name": "SUBUNIT 22",
+    "count": 94,
+    "totalExposure": 84392004,
+    "avgExposure": 897787.2765957447,
+    "minExposure": 300000,
+    "maxExposure": 4446751,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 90,
+        "totalExposure": 83192004
+      },
+      "Unknown": {
+        "count": 4,
+        "totalExposure": 1200000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_7": {
+    "id": 7,
+    "name": "SUBUNIT 7",
+    "count": 145,
+    "totalExposure": 123300000,
+    "avgExposure": 850344.8275862068,
+    "minExposure": 300000,
+    "maxExposure": 4000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 145,
+        "totalExposure": 123300000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_25": {
+    "id": 25,
+    "name": "SUBUNIT 25",
+    "count": 65,
+    "totalExposure": 39100000,
+    "avgExposure": 601538.4615384615,
+    "minExposure": 300000,
+    "maxExposure": 2000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 65,
+        "totalExposure": 39100000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_16": {
+    "id": 16,
+    "name": "SUBUNIT 16",
+    "count": 141,
+    "totalExposure": 141947920,
+    "avgExposure": 1006722.8368794327,
+    "minExposure": 300000,
+    "maxExposure": 20000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 133,
+        "totalExposure": 127947920
+      },
+      "WAREHOUSE  ": {
+        "count": 4,
+        "totalExposure": 4000000
+      },
+      "SHOP": {
+        "count": 4,
+        "totalExposure": 10000000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_69": {
+    "id": 69,
+    "name": "SUBUNIT 69",
+    "count": 1,
+    "totalExposure": 1800000,
+    "avgExposure": 1800000.0,
+    "minExposure": 1800000,
+    "maxExposure": 1800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 1,
+        "totalExposure": 1800000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_3": {
+    "id": 3,
+    "name": "SUBUNIT 3",
+    "count": 160,
+    "totalExposure": 157290000,
+    "avgExposure": 983062.5,
+    "minExposure": 252000,
+    "maxExposure": 4548000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 152,
+        "totalExposure": 150122000
+      },
+      "車位": {
+        "count": 4,
+        "totalExposure": 1008000
+      },
+      "WAREHOUSE": {
+        "count": 4,
+        "totalExposure": 6160000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_36": {
+    "id": 36,
+    "name": "SUBUNIT 36",
+    "count": 61,
+    "totalExposure": 33625000,
+    "avgExposure": 551229.5081967213,
+    "minExposure": 300000,
+    "maxExposure": 1225000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 61,
+        "totalExposure": 33625000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_11": {
+    "id": 11,
+    "name": "SUBUNIT 11",
+    "count": 87,
+    "totalExposure": 80852000,
+    "avgExposure": 929333.3333333334,
+    "minExposure": 300000,
+    "maxExposure": 4000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 77,
+        "totalExposure": 68452000
+      },
+      "OFFICE": {
+        "count": 6,
+        "totalExposure": 8400000
+      },
+      "SHOP": {
+        "count": 4,
+        "totalExposure": 4000000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_9": {
+    "id": 9,
+    "name": "SUBUNIT 9",
+    "count": 123,
+    "totalExposure": 106515000,
+    "avgExposure": 865975.6097560975,
+    "minExposure": 300000,
+    "maxExposure": 3050000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 120,
+        "totalExposure": 99900000
+      },
+      "WAREHOUSE": {
+        "count": 3,
+        "totalExposure": 6615000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_13": {
+    "id": 13,
+    "name": "SUBUNIT 13",
+    "count": 96,
+    "totalExposure": 60600000,
+    "avgExposure": 631250.0,
+    "minExposure": 300000,
+    "maxExposure": 2200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 96,
+        "totalExposure": 60600000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_6": {
+    "id": 6,
+    "name": "SUBUNIT 6",
+    "count": 167,
+    "totalExposure": 114820000,
+    "avgExposure": 687544.9101796407,
+    "minExposure": 300000,
+    "maxExposure": 3000000,
+    "byOccupancy": {
+      "WAREHOUSE": {
+        "count": 2,
+        "totalExposure": 6000000
+      },
+      "OFFICE": {
+        "count": 5,
+        "totalExposure": 10720000
+      },
+      "SHOP": {
+        "count": 4,
+        "totalExposure": 10000000
+      },
+      "DWELLING": {
+        "count": 156,
+        "totalExposure": 88100000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_19": {
+    "id": 19,
+    "name": "SUBUNIT 19",
+    "count": 71,
+    "totalExposure": 55600000,
+    "avgExposure": 783098.5915492958,
+    "minExposure": 300000,
+    "maxExposure": 2000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 71,
+        "totalExposure": 55600000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_62": {
+    "id": 62,
+    "name": "SUBUNIT 62",
+    "count": 1,
+    "totalExposure": 2920000,
+    "avgExposure": 2920000.0,
+    "minExposure": 2920000,
+    "maxExposure": 2920000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 1,
+        "totalExposure": 2920000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_24": {
+    "id": 24,
+    "name": "SUBUNIT 24",
+    "count": 42,
+    "totalExposure": 55670000,
+    "avgExposure": 1325476.1904761905,
+    "minExposure": 300000,
+    "maxExposure": 5040000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 38,
+        "totalExposure": 35510000
+      },
+      "SHOP": {
+        "count": 4,
+        "totalExposure": 20160000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_51": {
+    "id": 51,
+    "name": "SUBUNIT 51",
+    "count": 8,
+    "totalExposure": 9200000,
+    "avgExposure": 1150000.0,
+    "minExposure": 300000,
+    "maxExposure": 2400000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 8,
+        "totalExposure": 9200000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_10": {
+    "id": 10,
+    "name": "SUBUNIT 10",
+    "count": 101,
+    "totalExposure": 62300000,
+    "avgExposure": 616831.6831683168,
+    "minExposure": 300000,
+    "maxExposure": 2400000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 101,
+        "totalExposure": 62300000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_33": {
+    "id": 33,
+    "name": "SUBUNIT 33",
+    "count": 26,
+    "totalExposure": 20635489,
+    "avgExposure": 793672.6538461539,
+    "minExposure": 300000,
+    "maxExposure": 1845163,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 26,
+        "totalExposure": 20635489
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_35": {
+    "id": 35,
+    "name": "SUBUNIT 35",
+    "count": 48,
+    "totalExposure": 43940000,
+    "avgExposure": 915416.6666666666,
+    "minExposure": 300000,
+    "maxExposure": 3080000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 48,
+        "totalExposure": 43940000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_28": {
+    "id": 28,
+    "name": "SUBUNIT 28",
+    "count": 57,
+    "totalExposure": 38400000,
+    "avgExposure": 673684.2105263158,
+    "minExposure": 300000,
+    "maxExposure": 1000000,
+    "byOccupancy": {
+      "WAREHOUSE": {
+        "count": 4,
+        "totalExposure": 4000000
+      },
+      "DWELLING": {
+        "count": 53,
+        "totalExposure": 34400000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_41": {
+    "id": 41,
+    "name": "SUBUNIT 41",
+    "count": 33,
+    "totalExposure": 26800000,
+    "avgExposure": 812121.2121212122,
+    "minExposure": 300000,
+    "maxExposure": 1600000,
+    "byOccupancy": {
+      "WAREHOUSE": {
+        "count": 4,
+        "totalExposure": 0
+      },
+      "DWELLING": {
+        "count": 29,
+        "totalExposure": 26800000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_30": {
+    "id": 30,
+    "name": "SUBUNIT 30",
+    "count": 33,
+    "totalExposure": 17800000,
+    "avgExposure": 539393.9393939395,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 33,
+        "totalExposure": 17800000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_52": {
+    "id": 52,
+    "name": "SUBUNIT 52",
+    "count": 18,
+    "totalExposure": 19200000,
+    "avgExposure": 1066666.6666666667,
+    "minExposure": 300000,
+    "maxExposure": 3000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 18,
+        "totalExposure": 19200000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_44": {
+    "id": 44,
+    "name": "SUBUNIT 44",
+    "count": 20,
+    "totalExposure": 26400000,
+    "avgExposure": 1320000.0,
+    "minExposure": 300000,
+    "maxExposure": 4000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 20,
+        "totalExposure": 26400000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_31": {
+    "id": 31,
+    "name": "SUBUNIT 31",
+    "count": 68,
+    "totalExposure": 44500000,
+    "avgExposure": 654411.7647058824,
+    "minExposure": 300000,
+    "maxExposure": 1400000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 68,
+        "totalExposure": 44500000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_55": {
+    "id": 55,
+    "name": "SUBUNIT 55",
+    "count": 35,
+    "totalExposure": 22600000,
+    "avgExposure": 645714.2857142857,
+    "minExposure": 300000,
+    "maxExposure": 1700000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 35,
+        "totalExposure": 22600000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_26": {
+    "id": 26,
+    "name": "SUBUNIT 26",
+    "count": 54,
+    "totalExposure": 32200000,
+    "avgExposure": 596296.2962962963,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "WAREHOUSE": {
+        "count": 4,
+        "totalExposure": 4000000
+      },
+      "DWELLING": {
+        "count": 50,
+        "totalExposure": 28200000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_49": {
+    "id": 49,
+    "name": "SUBUNIT 49",
+    "count": 35,
+    "totalExposure": 24500000,
+    "avgExposure": 700000.0,
+    "minExposure": 300000,
+    "maxExposure": 2400000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 35,
+        "totalExposure": 24500000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_43": {
+    "id": 43,
+    "name": "SUBUNIT 43",
+    "count": 21,
+    "totalExposure": 10900000,
+    "avgExposure": 519047.61904761905,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 21,
+        "totalExposure": 10900000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_27": {
+    "id": 27,
+    "name": "SUBUNIT 27",
+    "count": 21,
+    "totalExposure": 22500000,
+    "avgExposure": 1071428.5714285714,
+    "minExposure": 300000,
+    "maxExposure": 2200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 21,
+        "totalExposure": 22500000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_56": {
+    "id": 56,
+    "name": "SUBUNIT 56",
+    "count": 13,
+    "totalExposure": 10000000,
+    "avgExposure": 769230.7692307692,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 13,
+        "totalExposure": 10000000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_45": {
+    "id": 45,
+    "name": "SUBUNIT 45",
+    "count": 18,
+    "totalExposure": 11600000,
+    "avgExposure": 644444.4444444445,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 18,
+        "totalExposure": 11600000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_38": {
+    "id": 38,
+    "name": "SUBUNIT 38",
+    "count": 34,
+    "totalExposure": 20800000,
+    "avgExposure": 611764.7058823529,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 34,
+        "totalExposure": 20800000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_40": {
+    "id": 40,
+    "name": "SUBUNIT 40",
+    "count": 33,
+    "totalExposure": 17300000,
+    "avgExposure": 524242.42424242425,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 33,
+        "totalExposure": 17300000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_34": {
+    "id": 34,
+    "name": "SUBUNIT 34",
+    "count": 29,
+    "totalExposure": 18700000,
+    "avgExposure": 644827.5862068966,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 29,
+        "totalExposure": 18700000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_32": {
+    "id": 32,
+    "name": "SUBUNIT 32",
+    "count": 47,
+    "totalExposure": 33300000,
+    "avgExposure": 708510.6382978724,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 47,
+        "totalExposure": 33300000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_29": {
+    "id": 29,
+    "name": "SUBUNIT 29",
+    "count": 23,
+    "totalExposure": 14500000,
+    "avgExposure": 630434.7826086957,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 23,
+        "totalExposure": 14500000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_59": {
+    "id": 59,
+    "name": "SUBUNIT 59",
+    "count": 16,
+    "totalExposure": 8800000,
+    "avgExposure": 550000.0,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 16,
+        "totalExposure": 8800000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_47": {
+    "id": 47,
+    "name": "SUBUNIT 47",
+    "count": 5,
+    "totalExposure": 5600000,
+    "avgExposure": 1120000.0,
+    "minExposure": 800000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 5,
+        "totalExposure": 5600000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_58": {
+    "id": 58,
+    "name": "SUBUNIT 58",
+    "count": 16,
+    "totalExposure": 7700000,
+    "avgExposure": 481250.0,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 16,
+        "totalExposure": 7700000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_57": {
+    "id": 57,
+    "name": "SUBUNIT 57",
+    "count": 1,
+    "totalExposure": 800000,
+    "avgExposure": 800000.0,
+    "minExposure": 800000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 1,
+        "totalExposure": 800000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_70": {
+    "id": 70,
+    "name": "SUBUNIT 70",
+    "count": 5,
+    "totalExposure": 2000000,
+    "avgExposure": 400000.0,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 5,
+        "totalExposure": 2000000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_66": {
+    "id": 66,
+    "name": "SUBUNIT 66",
+    "count": 1,
+    "totalExposure": 1200000,
+    "avgExposure": 1200000.0,
+    "minExposure": 1200000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 1,
+        "totalExposure": 1200000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_54": {
+    "id": 54,
+    "name": "SUBUNIT 54",
+    "count": 12,
+    "totalExposure": 6500000,
+    "avgExposure": 541666.6666666666,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 12,
+        "totalExposure": 6500000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_91": {
+    "id": 91,
+    "name": "SUBUNIT 91",
+    "count": 5,
+    "totalExposure": 2400000,
+    "avgExposure": 480000.0,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 5,
+        "totalExposure": 2400000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_94": {
+    "id": 94,
+    "name": "SUBUNIT 94",
+    "count": 11,
+    "totalExposure": 3300000,
+    "avgExposure": 300000.0,
+    "minExposure": 300000,
+    "maxExposure": 300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 11,
+        "totalExposure": 3300000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_68": {
+    "id": 68,
+    "name": "SUBUNIT 68",
+    "count": 6,
+    "totalExposure": 4500000,
+    "avgExposure": 750000.0,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 6,
+        "totalExposure": 4500000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_97": {
+    "id": 97,
+    "name": "SUBUNIT 97",
+    "count": 1,
+    "totalExposure": 300000,
+    "avgExposure": 300000.0,
+    "minExposure": 300000,
+    "maxExposure": 300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 1,
+        "totalExposure": 300000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_88": {
+    "id": 88,
+    "name": "SUBUNIT 88",
+    "count": 4,
+    "totalExposure": 3200000,
+    "avgExposure": 800000.0,
+    "minExposure": 800000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 3200000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_63": {
+    "id": 63,
+    "name": "SUBUNIT 63",
+    "count": 7,
+    "totalExposure": 11600000,
+    "avgExposure": 1657142.857142857,
+    "minExposure": 800000,
+    "maxExposure": 2800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 7,
+        "totalExposure": 11600000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_65": {
+    "id": 65,
+    "name": "SUBUNIT 65",
+    "count": 7,
+    "totalExposure": 5700000,
+    "avgExposure": 814285.7142857143,
+    "minExposure": 300000,
+    "maxExposure": 1200000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 7,
+        "totalExposure": 5700000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_60": {
+    "id": 60,
+    "name": "SUBUNIT 60",
+    "count": 8,
+    "totalExposure": 4400000,
+    "avgExposure": 550000.0,
+    "minExposure": 300000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 8,
+        "totalExposure": 4400000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_50": {
+    "id": 50,
+    "name": "SUBUNIT 50",
+    "count": 4,
+    "totalExposure": 3200000,
+    "avgExposure": 800000.0,
+    "minExposure": 800000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 3200000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_93": {
+    "id": 93,
+    "name": "SUBUNIT 93",
+    "count": 4,
+    "totalExposure": 1200000,
+    "avgExposure": 300000.0,
+    "minExposure": 300000,
+    "maxExposure": 300000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 1200000
+      }
+    },
+    "byYear": {}
+  },
+  "subunit_78": {
+    "id": 78,
+    "name": "SUBUNIT 78",
+    "count": 4,
+    "totalExposure": 3200000,
+    "avgExposure": 800000.0,
+    "minExposure": 800000,
+    "maxExposure": 800000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 4,
+        "totalExposure": 3200000
+      }
+    },
+    "byYear": {}
+  }
+}

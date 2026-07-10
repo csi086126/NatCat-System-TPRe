@@ -1,0 +1,265 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2025-11-18T12:00:00Z",
+  "description": "Global datasets that span multiple regions (not tied to specific events)",
+  
+  "datasets": [
+    {
+      "id": "ibtracs-wp",
+      "name": "IBTrACS Western North Pacific",
+      "nameZh": "IBTrACS 西北太平洋台风路径",
+      "type": "TyphoonTracks",
+      "coverage": "Western North Pacific",
+      "temporalRange": {
+        "start": "1842-01-01",
+        "end": "2024-12-31"
+      },
+      "spatialBounds": [100.0, 0.0, 180.0, 60.0],
+      
+      "dataSource": {
+        "provider": "NOAA National Centers for Environmental Information",
+        "url": "https://www.ncei.noaa.gov/products/international-best-track-archive",
+        "version": "v04r01",
+        "lastUpdate": "2024-12-31",
+        "license": "Public Domain"
+      },
+      
+      "dataLayers": [
+        {
+          "id": "ibtracs-wp-lines",
+          "name": "Typhoon Tracks (Lines)",
+          "nameZh": "台风路径（线）",
+          "layerType": "WFS",
+          "dataFormat": "Shapefile",
+          "geometryType": "LineString",
+          
+          "geoserver": {
+            "workspace": "Global",
+            "layerName": "IBTrACS_WP_Lines",
+            "serviceUrl": "http://localhost:8080/geoserver/Global/wfs",
+            "wmsUrl": "http://localhost:8080/geoserver/Global/wms"
+          },
+          
+          "filePath": "D:/web-flood-insurance-model/Data/IBTracks/IBTrACS.WP.list.v04r01.lines",
+          "fileSize": null,
+          
+          "attributes": [
+            {"name": "SID", "type": "string", "description": "Storm ID (e.g., 2017238N16142)"},
+            {"name": "NAME", "type": "string", "description": "Storm name (e.g., HATO)"},
+            {"name": "SEASON", "type": "integer", "description": "Year of the storm"},
+            {"name": "BASIN", "type": "string", "description": "Basin code (WP = Western Pacific)"},
+            {"name": "ISO_TIME", "type": "string", "description": "ISO timestamp of track start"},
+            {"name": "USA_WIND", "type": "double", "description": "Maximum sustained wind (knots)"},
+            {"name": "USA_PRES", "type": "double", "description": "Minimum pressure (mb)"},
+            {"name": "USA_SSHS", "type": "integer", "description": "Saffir-Simpson scale category"},
+            {"name": "TRACK_TYPE", "type": "string", "description": "Track type (main, forecast, etc.)"}
+          ],
+          
+          "styling": {
+            "defaultStyle": "typhoon_track_category",
+            "colorField": "USA_SSHS",
+            "colorMap": {
+              "-1": "#CCCCCC",
+              "0": "#00FFFF",
+              "1": "#00CCFF",
+              "2": "#0099FF",
+              "3": "#FF9900",
+              "4": "#FF0000",
+              "5": "#CC0000"
+            }
+          },
+          
+          "queryExamples": [
+            {
+              "description": "Get all typhoons in 2017",
+              "cql": "SEASON=2017"
+            },
+            {
+              "description": "Get Typhoon Hato",
+              "cql": "NAME='HATO' AND SEASON=2017"
+            },
+            {
+              "description": "Get Category 5 typhoons",
+              "cql": "USA_SSHS=5"
+            },
+            {
+              "description": "Get typhoons near Macau (within 500km)",
+              "cql": "DWITHIN(geometry, POINT(113.5 22.2), 500, kilometers)"
+            }
+          ]
+        },
+        {
+          "id": "ibtracs-wp-points",
+          "name": "Typhoon Track Points (6-hourly)",
+          "nameZh": "台风路径点（6小时）",
+          "layerType": "WFS",
+          "dataFormat": "Shapefile",
+          "geometryType": "Point",
+          
+          "geoserver": {
+            "workspace": "Global",
+            "layerName": "IBTrACS_WP_Points",
+            "serviceUrl": "http://localhost:8080/geoserver/Global/wfs"
+          },
+          
+          "filePath": "D:/web-flood-insurance-model/Data/IBTracks/IBTrACS.WP.list.v04r01.points",
+          
+          "attributes": [
+            {"name": "SID", "type": "string", "description": "Storm ID"},
+            {"name": "NAME", "type": "string", "description": "Storm name"},
+            {"name": "SEASON", "type": "integer", "description": "Year"},
+            {"name": "ISO_TIME", "type": "string", "description": "Observation timestamp"},
+            {"name": "LAT", "type": "double", "description": "Latitude"},
+            {"name": "LON", "type": "double", "description": "Longitude"},
+            {"name": "USA_WIND", "type": "double", "description": "Wind speed (knots)"},
+            {"name": "USA_PRES", "type": "double", "description": "Pressure (mb)"},
+            {"name": "USA_SSHS", "type": "integer", "description": "Category"}
+          ],
+          
+          "temporalResolution": "6 hours",
+          "notes": "Each point represents the typhoon position at a specific time"
+        }
+      ],
+      
+      "usageNotes": [
+        "Use WFS to query specific typhoons by name, year, or spatial proximity",
+        "Can filter tracks that affected specific regions using spatial queries",
+        "Combine with event-specific flood simulations to show historical context",
+        "Color tracks by intensity (Saffir-Simpson category) for visualization"
+      ],
+      
+      "integrationStrategy": {
+        "displayMode": "background-layer",
+        "defaultVisibility": false,
+        "loadingStrategy": "on-demand",
+        "description": "Load as background reference layer, enable when user clicks 'Show Historical Typhoons'"
+      }
+    },
+    {
+      "id": "rainfall-event-set",
+      "name": "Stochastic Rainfall Event Set",
+      "nameZh": "随机降雨事件集",
+      "type": "RainfallSimulation",
+      "coverage": "Regional (To be defined)",
+      "temporalRange": {
+        "synthetic": true,
+        "scenarios": 10000,
+        "returnPeriods": [2, 5, 10, 20, 50, 100, 200, 500, 1000]
+      },
+      
+      "dataSource": {
+        "provider": "Internal Model",
+        "model": "Stochastic Weather Generator",
+        "generatedDate": "2024-01-15",
+        "validation": "Calibrated against historical rainfall records"
+      },
+      
+      "dataFormat": {
+        "primary": "Python Binary (NumPy .npy)",
+        "structure": {
+          "dimensions": ["event_id", "latitude", "longitude", "time"],
+          "variables": ["rainfall_mm", "duration_hours", "intensity_mm_h"]
+        },
+        "fileSize": "Multiple GB",
+        "notes": "Large binary arrays, requires API access or conversion to efficient format"
+      },
+      
+      "dataLayers": [
+        {
+          "id": "rainfall-scenarios-api",
+          "name": "Rainfall Scenarios (API Access)",
+          "nameZh": "降雨情景（API访问）",
+          "layerType": "API",
+          "dataFormat": "Binary (NumPy)",
+          
+          "apiEndpoint": {
+            "baseUrl": "http://localhost:5000/api/rainfall",
+            "endpoints": [
+              {
+                "path": "/scenarios",
+                "method": "GET",
+                "description": "List all available scenarios",
+                "params": ["return_period", "region"]
+              },
+              {
+                "path": "/scenarios/{id}",
+                "method": "GET",
+                "description": "Get specific scenario data",
+                "params": ["format", "bbox", "resolution"]
+              },
+              {
+                "path": "/scenarios/{id}/raster",
+                "method": "GET",
+                "description": "Get scenario as GeoTIFF",
+                "returns": "image/tiff"
+              }
+            ]
+          },
+          
+          "filePath": "D:/web-flood-insurance-model/Data/RainfallScenarios/*.npy",
+          
+          "conversionOptions": [
+            {
+              "format": "NetCDF",
+              "advantages": ["Standard format", "Metadata support", "CF-compliant"],
+              "tools": ["xarray", "netCDF4"]
+            },
+            {
+              "format": "Zarr",
+              "advantages": ["Cloud-optimized", "Chunked access", "Fast subsetting"],
+              "tools": ["zarr", "xarray"]
+            },
+            {
+              "format": "GeoTIFF (per scenario)",
+              "advantages": ["GIS-compatible", "GeoServer-ready"],
+              "tools": ["rasterio", "GDAL"],
+              "notes": "Convert each scenario to separate TIF, may create thousands of files"
+            }
+          ]
+        }
+      ],
+      
+      "integrationStrategy": {
+        "displayMode": "on-demand-api",
+        "defaultVisibility": false,
+        "loadingStrategy": "lazy-load",
+        "description": "Expose via Python FastAPI backend, convert to GeoTIFF on request, cache frequently accessed scenarios"
+      },
+      
+      "implementationSteps": [
+        "1. Create Python FastAPI service to read .npy files",
+        "2. Implement /scenarios endpoint to list available events",
+        "3. Implement /scenarios/{id}/raster to convert to GeoTIFF on-the-fly",
+        "4. Add caching layer for frequently accessed scenarios",
+        "5. Frontend: Add 'Rainfall Scenarios' selector in UI",
+        "6. Frontend: Fetch GeoTIFF via API and display as WMS overlay"
+      ],
+      
+      "usageNotes": [
+        "Too large to publish all scenarios to GeoServer",
+        "Use API-based approach: select scenario -> API converts to TIF -> display on map",
+        "Consider pre-computing representative scenarios (e.g., 10-year, 100-year return periods)",
+        "Cache converted TIFs to avoid repeated computation"
+      ]
+    }
+  ],
+  
+  "baseLayers": [
+    {
+      "id": "osm-standard",
+      "name": "OpenStreetMap Standard",
+      "type": "XYZ",
+      "url": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      "attribution": "© OpenStreetMap contributors",
+      "maxZoom": 19
+    },
+    {
+      "id": "esri-world-imagery",
+      "name": "Esri World Imagery",
+      "type": "XYZ",
+      "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+      "attribution": "Esri, DigitalGlobe, GeoEye, Earthstar Geographics",
+      "maxZoom": 19
+    }
+  ]
+}

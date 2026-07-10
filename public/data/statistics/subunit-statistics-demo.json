@@ -1,0 +1,1864 @@
+{
+  "subunit_30": {
+    "id": 30,
+    "name": "SUBUNIT 30",
+    "count": 100,
+    "totalExposure": 1219252955.0221167,
+    "avgExposure": 12192529.550221168,
+    "minExposure": 1219252.955022117,
+    "maxExposure": 121925295.50221168,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 60,
+        "totalExposure": 609626477.5110583
+      },
+      "COMMERCIAL": {
+        "count": 40,
+        "totalExposure": 609626477.5110583
+      }
+    }
+  },
+  "subunit_15": {
+    "id": 15,
+    "name": "SUBUNIT 15",
+    "count": 264,
+    "totalExposure": 2099200505.1788568,
+    "avgExposure": 7951517.065071427,
+    "minExposure": 795151.7065071427,
+    "maxExposure": 79515170.65071428,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 158,
+        "totalExposure": 1049600252.5894284
+      },
+      "COMMERCIAL": {
+        "count": 105,
+        "totalExposure": 1049600252.5894284
+      }
+    }
+  },
+  "subunit_8": {
+    "id": 8,
+    "name": "SUBUNIT 8",
+    "count": 201,
+    "totalExposure": 3644653206.6665673,
+    "avgExposure": 18132603.01824163,
+    "minExposure": 1813260.301824163,
+    "maxExposure": 181326030.1824163,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 120,
+        "totalExposure": 1822326603.3332837
+      },
+      "COMMERCIAL": {
+        "count": 80,
+        "totalExposure": 1822326603.3332837
+      }
+    }
+  },
+  "subunit_2": {
+    "id": 2,
+    "name": "SUBUNIT 2",
+    "count": 326,
+    "totalExposure": 2274164810.8545284,
+    "avgExposure": 6975965.677467879,
+    "minExposure": 697596.5677467879,
+    "maxExposure": 69759656.7746788,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 195,
+        "totalExposure": 1137082405.4272642
+      },
+      "COMMERCIAL": {
+        "count": 130,
+        "totalExposure": 1137082405.4272642
+      }
+    }
+  },
+  "subunit_7": {
+    "id": 7,
+    "name": "SUBUNIT 7",
+    "count": 414,
+    "totalExposure": 5506475797.530063,
+    "avgExposure": 13300666.177608848,
+    "minExposure": 1330066.6177608848,
+    "maxExposure": 133006661.77608848,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 248,
+        "totalExposure": 2753237898.7650313
+      },
+      "COMMERCIAL": {
+        "count": 165,
+        "totalExposure": 2753237898.7650313
+      }
+    }
+  },
+  "subunit_10": {
+    "id": 10,
+    "name": "SUBUNIT 10",
+    "count": 271,
+    "totalExposure": 1532813838.7700393,
+    "avgExposure": 5656139.62645771,
+    "minExposure": 565613.962645771,
+    "maxExposure": 56561396.2645771,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 162,
+        "totalExposure": 766406919.3850197
+      },
+      "COMMERCIAL": {
+        "count": 108,
+        "totalExposure": 766406919.3850197
+      }
+    }
+  },
+  "subunit_64": {
+    "id": 64,
+    "name": "SUBUNIT 64",
+    "count": 20,
+    "totalExposure": 419737756.55551964,
+    "avgExposure": 20986887.82777598,
+    "minExposure": 2098688.782777598,
+    "maxExposure": 209868878.27775982,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 12,
+        "totalExposure": 209868878.27775982
+      },
+      "COMMERCIAL": {
+        "count": 8,
+        "totalExposure": 209868878.27775982
+      }
+    }
+  },
+  "subunit_1": {
+    "id": 1,
+    "name": "SUBUNIT 1",
+    "count": 99,
+    "totalExposure": 2014188909.5193698,
+    "avgExposure": 20345342.520397674,
+    "minExposure": 2034534.2520397676,
+    "maxExposure": 203453425.20397675,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 59,
+        "totalExposure": 1007094454.7596849
+      },
+      "COMMERCIAL": {
+        "count": 39,
+        "totalExposure": 1007094454.7596849
+      }
+    }
+  },
+  "subunit_9": {
+    "id": 9,
+    "name": "SUBUNIT 9",
+    "count": 303,
+    "totalExposure": 5362627442.312627,
+    "avgExposure": 17698440.403672036,
+    "minExposure": 1769844.0403672038,
+    "maxExposure": 176984404.03672037,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 181,
+        "totalExposure": 2681313721.1563134
+      },
+      "COMMERCIAL": {
+        "count": 121,
+        "totalExposure": 2681313721.1563134
+      }
+    }
+  },
+  "subunit_3": {
+    "id": 3,
+    "name": "SUBUNIT 3",
+    "count": 316,
+    "totalExposure": 7201613664.293374,
+    "avgExposure": 22789916.659156248,
+    "minExposure": 2278991.6659156247,
+    "maxExposure": 227899166.59156248,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 189,
+        "totalExposure": 3600806832.146687
+      },
+      "COMMERCIAL": {
+        "count": 126,
+        "totalExposure": 3600806832.146687
+      }
+    }
+  },
+  "subunit_5": {
+    "id": 5,
+    "name": "SUBUNIT 5",
+    "count": 278,
+    "totalExposure": 6597197254.64172,
+    "avgExposure": 23730925.376409065,
+    "minExposure": 2373092.5376409064,
+    "maxExposure": 237309253.76409066,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 166,
+        "totalExposure": 3298598627.32086
+      },
+      "COMMERCIAL": {
+        "count": 111,
+        "totalExposure": 3298598627.32086
+      }
+    }
+  },
+  "subunit_6": {
+    "id": 6,
+    "name": "SUBUNIT 6",
+    "count": 407,
+    "totalExposure": 8474177638.483601,
+    "avgExposure": 20821075.278829485,
+    "minExposure": 2082107.5278829485,
+    "maxExposure": 208210752.78829485,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 244,
+        "totalExposure": 4237088819.2418003
+      },
+      "COMMERCIAL": {
+        "count": 162,
+        "totalExposure": 4237088819.2418003
+      }
+    }
+  },
+  "subunit_40": {
+    "id": 40,
+    "name": "SUBUNIT 40",
+    "count": 490,
+    "totalExposure": 9741663974.260792,
+    "avgExposure": 19880946.886246514,
+    "minExposure": 1988094.6886246514,
+    "maxExposure": 198809468.86246514,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 294,
+        "totalExposure": 4870831987.130396
+      },
+      "COMMERCIAL": {
+        "count": 196,
+        "totalExposure": 4870831987.130396
+      }
+    }
+  },
+  "subunit_38": {
+    "id": 38,
+    "name": "SUBUNIT 38",
+    "count": 70,
+    "totalExposure": 1616985152.7102032,
+    "avgExposure": 23099787.895860046,
+    "minExposure": 2309978.789586005,
+    "maxExposure": 230997878.95860046,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 42,
+        "totalExposure": 808492576.3551016
+      },
+      "COMMERCIAL": {
+        "count": 28,
+        "totalExposure": 808492576.3551016
+      }
+    }
+  },
+  "subunit_11": {
+    "id": 11,
+    "name": "SUBUNIT 11",
+    "count": 134,
+    "totalExposure": 2521088735.784499,
+    "avgExposure": 18814095.043167904,
+    "minExposure": 1881409.5043167905,
+    "maxExposure": 188140950.43167904,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 80,
+        "totalExposure": 1260544367.8922496
+      },
+      "COMMERCIAL": {
+        "count": 53,
+        "totalExposure": 1260544367.8922496
+      }
+    }
+  },
+  "subunit_12": {
+    "id": 12,
+    "name": "SUBUNIT 12",
+    "count": 315,
+    "totalExposure": 3752674681.882268,
+    "avgExposure": 11913252.958356407,
+    "minExposure": 1191325.2958356407,
+    "maxExposure": 119132529.58356407,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 189,
+        "totalExposure": 1876337340.941134
+      },
+      "COMMERCIAL": {
+        "count": 126,
+        "totalExposure": 1876337340.941134
+      }
+    }
+  },
+  "subunit_24": {
+    "id": 24,
+    "name": "SUBUNIT 24",
+    "count": 258,
+    "totalExposure": 5109935145.822475,
+    "avgExposure": 19805950.177606493,
+    "minExposure": 1980595.0177606493,
+    "maxExposure": 198059501.77606493,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 154,
+        "totalExposure": 2554967572.9112377
+      },
+      "COMMERCIAL": {
+        "count": 103,
+        "totalExposure": 2554967572.9112377
+      }
+    }
+  },
+  "subunit_42": {
+    "id": 42,
+    "name": "SUBUNIT 42",
+    "count": 463,
+    "totalExposure": 9944978973.199785,
+    "avgExposure": 21479436.22721336,
+    "minExposure": 2147943.6227213363,
+    "maxExposure": 214794362.2721336,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 277,
+        "totalExposure": 4972489486.599893
+      },
+      "COMMERCIAL": {
+        "count": 185,
+        "totalExposure": 4972489486.599893
+      }
+    }
+  },
+  "subunit_13": {
+    "id": 13,
+    "name": "SUBUNIT 13",
+    "count": 275,
+    "totalExposure": 4659583648.342262,
+    "avgExposure": 16943940.53942641,
+    "minExposure": 1694394.053942641,
+    "maxExposure": 169439405.3942641,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 165,
+        "totalExposure": 2329791824.171131
+      },
+      "COMMERCIAL": {
+        "count": 110,
+        "totalExposure": 2329791824.171131
+      }
+    }
+  },
+  "subunit_19": {
+    "id": 19,
+    "name": "SUBUNIT 19",
+    "count": 105,
+    "totalExposure": 1486299420.7058284,
+    "avgExposure": 14155232.578150747,
+    "minExposure": 1415523.2578150749,
+    "maxExposure": 141552325.78150746,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 63,
+        "totalExposure": 743149710.3529142
+      },
+      "COMMERCIAL": {
+        "count": 42,
+        "totalExposure": 743149710.3529142
+      }
+    }
+  },
+  "subunit_18": {
+    "id": 18,
+    "name": "SUBUNIT 18",
+    "count": 282,
+    "totalExposure": 5061783468.586421,
+    "avgExposure": 17949586.768036954,
+    "minExposure": 1794958.6768036955,
+    "maxExposure": 179495867.68036956,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 169,
+        "totalExposure": 2530891734.2932105
+      },
+      "COMMERCIAL": {
+        "count": 112,
+        "totalExposure": 2530891734.2932105
+      }
+    }
+  },
+  "subunit_35": {
+    "id": 35,
+    "name": "SUBUNIT 35",
+    "count": 246,
+    "totalExposure": 5343081732.635196,
+    "avgExposure": 21719844.441606488,
+    "minExposure": 2171984.444160649,
+    "maxExposure": 217198444.4160649,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 147,
+        "totalExposure": 2671540866.317598
+      },
+      "COMMERCIAL": {
+        "count": 98,
+        "totalExposure": 2671540866.317598
+      }
+    }
+  },
+  "subunit_16": {
+    "id": 16,
+    "name": "SUBUNIT 16",
+    "count": 345,
+    "totalExposure": 2806370212.054823,
+    "avgExposure": 8134406.411753111,
+    "minExposure": 813440.6411753111,
+    "maxExposure": 81344064.1175311,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 207,
+        "totalExposure": 1403185106.0274115
+      },
+      "COMMERCIAL": {
+        "count": 138,
+        "totalExposure": 1403185106.0274115
+      }
+    }
+  },
+  "subunit_14": {
+    "id": 14,
+    "name": "SUBUNIT 14",
+    "count": 435,
+    "totalExposure": 5976796207.742114,
+    "avgExposure": 13739761.397108307,
+    "minExposure": 1373976.1397108308,
+    "maxExposure": 137397613.97108307,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 261,
+        "totalExposure": 2988398103.871057
+      },
+      "COMMERCIAL": {
+        "count": 174,
+        "totalExposure": 2988398103.871057
+      }
+    }
+  },
+  "subunit_31": {
+    "id": 31,
+    "name": "SUBUNIT 31",
+    "count": 233,
+    "totalExposure": 2854045490.2711797,
+    "avgExposure": 12249122.275841974,
+    "minExposure": 1224912.2275841974,
+    "maxExposure": 122491222.75841974,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 139,
+        "totalExposure": 1427022745.1355898
+      },
+      "COMMERCIAL": {
+        "count": 93,
+        "totalExposure": 1427022745.1355898
+      }
+    }
+  },
+  "subunit_37": {
+    "id": 37,
+    "name": "SUBUNIT 37",
+    "count": 368,
+    "totalExposure": 6570304417.410247,
+    "avgExposure": 17854088.090788715,
+    "minExposure": 1785408.8090788715,
+    "maxExposure": 178540880.90788716,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 220,
+        "totalExposure": 3285152208.7051234
+      },
+      "COMMERCIAL": {
+        "count": 147,
+        "totalExposure": 3285152208.7051234
+      }
+    }
+  },
+  "subunit_28": {
+    "id": 28,
+    "name": "SUBUNIT 28",
+    "count": 253,
+    "totalExposure": 5489856533.440422,
+    "avgExposure": 21699037.681582697,
+    "minExposure": 2169903.7681582696,
+    "maxExposure": 216990376.81582695,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 151,
+        "totalExposure": 2744928266.720211
+      },
+      "COMMERCIAL": {
+        "count": 101,
+        "totalExposure": 2744928266.720211
+      }
+    }
+  },
+  "subunit_66": {
+    "id": 66,
+    "name": "SUBUNIT 66",
+    "count": 85,
+    "totalExposure": 1718156984.8782794,
+    "avgExposure": 20213611.586803287,
+    "minExposure": 2021361.1586803289,
+    "maxExposure": 202136115.86803287,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 51,
+        "totalExposure": 859078492.4391397
+      },
+      "COMMERCIAL": {
+        "count": 34,
+        "totalExposure": 859078492.4391397
+      }
+    }
+  },
+  "subunit_4": {
+    "id": 4,
+    "name": "SUBUNIT 4",
+    "count": 119,
+    "totalExposure": 2375698626.2877336,
+    "avgExposure": 19963854.00241793,
+    "minExposure": 1996385.4002417931,
+    "maxExposure": 199638540.02417928,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 71,
+        "totalExposure": 1187849313.1438668
+      },
+      "COMMERCIAL": {
+        "count": 47,
+        "totalExposure": 1187849313.1438668
+      }
+    }
+  },
+  "subunit_25": {
+    "id": 25,
+    "name": "SUBUNIT 25",
+    "count": 238,
+    "totalExposure": 3403305814.627946,
+    "avgExposure": 14299604.26314263,
+    "minExposure": 1429960.4263142631,
+    "maxExposure": 142996042.6314263,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 142,
+        "totalExposure": 1701652907.313973
+      },
+      "COMMERCIAL": {
+        "count": 95,
+        "totalExposure": 1701652907.313973
+      }
+    }
+  },
+  "subunit_82": {
+    "id": 82,
+    "name": "SUBUNIT 82",
+    "count": 218,
+    "totalExposure": 3480124798.1883636,
+    "avgExposure": 15963875.22104754,
+    "minExposure": 1596387.522104754,
+    "maxExposure": 159638752.2104754,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 130,
+        "totalExposure": 1740062399.0941818
+      },
+      "COMMERCIAL": {
+        "count": 87,
+        "totalExposure": 1740062399.0941818
+      }
+    }
+  },
+  "subunit_73": {
+    "id": 73,
+    "name": "SUBUNIT 73",
+    "count": 471,
+    "totalExposure": 11236183799.367409,
+    "avgExposure": 23856016.559166472,
+    "minExposure": 2385601.6559166475,
+    "maxExposure": 238560165.59166473,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 282,
+        "totalExposure": 5618091899.683704
+      },
+      "COMMERCIAL": {
+        "count": 188,
+        "totalExposure": 5618091899.683704
+      }
+    }
+  },
+  "subunit_21": {
+    "id": 21,
+    "name": "SUBUNIT 21",
+    "count": 59,
+    "totalExposure": 1311742938.0363748,
+    "avgExposure": 22232931.153158896,
+    "minExposure": 2223293.1153158895,
+    "maxExposure": 222329311.53158897,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 35,
+        "totalExposure": 655871469.0181874
+      },
+      "COMMERCIAL": {
+        "count": 23,
+        "totalExposure": 655871469.0181874
+      }
+    }
+  },
+  "subunit_20": {
+    "id": 20,
+    "name": "SUBUNIT 20",
+    "count": 338,
+    "totalExposure": 6612978084.421244,
+    "avgExposure": 19565023.918406047,
+    "minExposure": 1956502.3918406048,
+    "maxExposure": 195650239.18406045,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 202,
+        "totalExposure": 3306489042.210622
+      },
+      "COMMERCIAL": {
+        "count": 135,
+        "totalExposure": 3306489042.210622
+      }
+    }
+  },
+  "subunit_51": {
+    "id": 51,
+    "name": "SUBUNIT 51",
+    "count": 149,
+    "totalExposure": 1838617901.0972795,
+    "avgExposure": 12339717.457028722,
+    "minExposure": 1233971.7457028723,
+    "maxExposure": 123397174.57028723,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 89,
+        "totalExposure": 919308950.5486398
+      },
+      "COMMERCIAL": {
+        "count": 59,
+        "totalExposure": 919308950.5486398
+      }
+    }
+  },
+  "subunit_17": {
+    "id": 17,
+    "name": "SUBUNIT 17",
+    "count": 161,
+    "totalExposure": 3993676340.9170513,
+    "avgExposure": 24805443.111286033,
+    "minExposure": 2480544.3111286033,
+    "maxExposure": 248054431.11286032,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 96,
+        "totalExposure": 1996838170.4585257
+      },
+      "COMMERCIAL": {
+        "count": 64,
+        "totalExposure": 1996838170.4585257
+      }
+    }
+  },
+  "subunit_22": {
+    "id": 22,
+    "name": "SUBUNIT 22",
+    "count": 372,
+    "totalExposure": 4545045861.059511,
+    "avgExposure": 12217865.217901912,
+    "minExposure": 1221786.5217901913,
+    "maxExposure": 122178652.17901912,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 223,
+        "totalExposure": 2272522930.5297556
+      },
+      "COMMERCIAL": {
+        "count": 148,
+        "totalExposure": 2272522930.5297556
+      }
+    }
+  },
+  "subunit_27": {
+    "id": 27,
+    "name": "SUBUNIT 27",
+    "count": 189,
+    "totalExposure": 2562569719.3236685,
+    "avgExposure": 13558569.943511473,
+    "minExposure": 1355856.9943511474,
+    "maxExposure": 135585699.43511474,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 113,
+        "totalExposure": 1281284859.6618342
+      },
+      "COMMERCIAL": {
+        "count": 75,
+        "totalExposure": 1281284859.6618342
+      }
+    }
+  },
+  "subunit_23": {
+    "id": 23,
+    "name": "SUBUNIT 23",
+    "count": 257,
+    "totalExposure": 5865235848.958763,
+    "avgExposure": 22821929.3733804,
+    "minExposure": 2282192.93733804,
+    "maxExposure": 228219293.733804,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 154,
+        "totalExposure": 2932617924.4793816
+      },
+      "COMMERCIAL": {
+        "count": 102,
+        "totalExposure": 2932617924.4793816
+      }
+    }
+  },
+  "subunit_34": {
+    "id": 34,
+    "name": "SUBUNIT 34",
+    "count": 444,
+    "totalExposure": 6445036861.404457,
+    "avgExposure": 14515848.786946975,
+    "minExposure": 1451584.8786946975,
+    "maxExposure": 145158487.86946976,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 266,
+        "totalExposure": 3222518430.7022285
+      },
+      "COMMERCIAL": {
+        "count": 177,
+        "totalExposure": 3222518430.7022285
+      }
+    }
+  },
+  "subunit_41": {
+    "id": 41,
+    "name": "SUBUNIT 41",
+    "count": 303,
+    "totalExposure": 1971221062.2930915,
+    "avgExposure": 6505680.07357456,
+    "minExposure": 650568.007357456,
+    "maxExposure": 65056800.735745594,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 181,
+        "totalExposure": 985610531.1465458
+      },
+      "COMMERCIAL": {
+        "count": 121,
+        "totalExposure": 985610531.1465458
+      }
+    }
+  },
+  "subunit_45": {
+    "id": 45,
+    "name": "SUBUNIT 45",
+    "count": 252,
+    "totalExposure": 1352141213.9581797,
+    "avgExposure": 5365639.737929285,
+    "minExposure": 536563.9737929285,
+    "maxExposure": 53656397.379292846,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 151,
+        "totalExposure": 676070606.9790899
+      },
+      "COMMERCIAL": {
+        "count": 100,
+        "totalExposure": 676070606.9790899
+      }
+    }
+  },
+  "subunit_46": {
+    "id": 46,
+    "name": "SUBUNIT 46",
+    "count": 445,
+    "totalExposure": 8144408316.0317135,
+    "avgExposure": 18302041.159621827,
+    "minExposure": 1830204.1159621829,
+    "maxExposure": 183020411.5962183,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 267,
+        "totalExposure": 4072204158.0158567
+      },
+      "COMMERCIAL": {
+        "count": 178,
+        "totalExposure": 4072204158.0158567
+      }
+    }
+  },
+  "subunit_55": {
+    "id": 55,
+    "name": "SUBUNIT 55",
+    "count": 326,
+    "totalExposure": 6104502651.99,
+    "avgExposure": 18725468.257638037,
+    "minExposure": 1872546.825763804,
+    "maxExposure": 187254682.57638037,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 195,
+        "totalExposure": 3052251325.995
+      },
+      "COMMERCIAL": {
+        "count": 130,
+        "totalExposure": 3052251325.995
+      }
+    }
+  },
+  "subunit_57": {
+    "id": 57,
+    "name": "SUBUNIT 57",
+    "count": 32,
+    "totalExposure": 347742686.2563648,
+    "avgExposure": 10866958.9455114,
+    "minExposure": 1086695.89455114,
+    "maxExposure": 108669589.455114,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 19,
+        "totalExposure": 173871343.1281824
+      },
+      "COMMERCIAL": {
+        "count": 12,
+        "totalExposure": 173871343.1281824
+      }
+    }
+  },
+  "subunit_59": {
+    "id": 59,
+    "name": "SUBUNIT 59",
+    "count": 311,
+    "totalExposure": 2541462153.107604,
+    "avgExposure": 8171904.0292849,
+    "minExposure": 817190.4029284901,
+    "maxExposure": 81719040.292849,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 186,
+        "totalExposure": 1270731076.553802
+      },
+      "COMMERCIAL": {
+        "count": 124,
+        "totalExposure": 1270731076.553802
+      }
+    }
+  },
+  "subunit_29": {
+    "id": 29,
+    "name": "SUBUNIT 29",
+    "count": 66,
+    "totalExposure": 980878889.9549003,
+    "avgExposure": 14861801.362953035,
+    "minExposure": 1486180.1362953037,
+    "maxExposure": 148618013.62953034,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 39,
+        "totalExposure": 490439444.97745013
+      },
+      "COMMERCIAL": {
+        "count": 26,
+        "totalExposure": 490439444.97745013
+      }
+    }
+  },
+  "subunit_32": {
+    "id": 32,
+    "name": "SUBUNIT 32",
+    "count": 242,
+    "totalExposure": 1969241102.6496568,
+    "avgExposure": 8137359.928304367,
+    "minExposure": 813735.9928304367,
+    "maxExposure": 81373599.28304367,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 145,
+        "totalExposure": 984620551.3248284
+      },
+      "COMMERCIAL": {
+        "count": 96,
+        "totalExposure": 984620551.3248284
+      }
+    }
+  },
+  "subunit_36": {
+    "id": 36,
+    "name": "SUBUNIT 36",
+    "count": 117,
+    "totalExposure": 2020446482.2981927,
+    "avgExposure": 17268773.352976006,
+    "minExposure": 1726877.3352976006,
+    "maxExposure": 172687733.52976006,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 70,
+        "totalExposure": 1010223241.1490964
+      },
+      "COMMERCIAL": {
+        "count": 46,
+        "totalExposure": 1010223241.1490964
+      }
+    }
+  },
+  "subunit_39": {
+    "id": 39,
+    "name": "SUBUNIT 39",
+    "count": 275,
+    "totalExposure": 4010208236.724967,
+    "avgExposure": 14582575.406272607,
+    "minExposure": 1458257.5406272607,
+    "maxExposure": 145825754.06272608,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 165,
+        "totalExposure": 2005104118.3624835
+      },
+      "COMMERCIAL": {
+        "count": 110,
+        "totalExposure": 2005104118.3624835
+      }
+    }
+  },
+  "subunit_33": {
+    "id": 33,
+    "name": "SUBUNIT 33",
+    "count": 324,
+    "totalExposure": 3872197232.8193784,
+    "avgExposure": 11951226.027220303,
+    "minExposure": 1195122.6027220304,
+    "maxExposure": 119512260.27220303,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 194,
+        "totalExposure": 1936098616.4096892
+      },
+      "COMMERCIAL": {
+        "count": 129,
+        "totalExposure": 1936098616.4096892
+      }
+    }
+  },
+  "subunit_26": {
+    "id": 26,
+    "name": "SUBUNIT 26",
+    "count": 116,
+    "totalExposure": 2013381435.7986345,
+    "avgExposure": 17356736.51550547,
+    "minExposure": 1735673.6515505472,
+    "maxExposure": 173567365.1550547,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 69,
+        "totalExposure": 1006690717.8993173
+      },
+      "COMMERCIAL": {
+        "count": 46,
+        "totalExposure": 1006690717.8993173
+      }
+    }
+  },
+  "subunit_65": {
+    "id": 65,
+    "name": "SUBUNIT 65",
+    "count": 194,
+    "totalExposure": 4276840052.4990907,
+    "avgExposure": 22045567.280923147,
+    "minExposure": 2204556.7280923147,
+    "maxExposure": 220455672.80923146,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 116,
+        "totalExposure": 2138420026.2495453
+      },
+      "COMMERCIAL": {
+        "count": 77,
+        "totalExposure": 2138420026.2495453
+      }
+    }
+  },
+  "subunit_43": {
+    "id": 43,
+    "name": "SUBUNIT 43",
+    "count": 109,
+    "totalExposure": 1649424277.7208712,
+    "avgExposure": 15132332.823127259,
+    "minExposure": 1513233.282312726,
+    "maxExposure": 151323328.23127258,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 65,
+        "totalExposure": 824712138.8604356
+      },
+      "COMMERCIAL": {
+        "count": 43,
+        "totalExposure": 824712138.8604356
+      }
+    }
+  },
+  "subunit_44": {
+    "id": 44,
+    "name": "SUBUNIT 44",
+    "count": 47,
+    "totalExposure": 643984660.1712494,
+    "avgExposure": 13701801.28023935,
+    "minExposure": 1370180.128023935,
+    "maxExposure": 137018012.8023935,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 28,
+        "totalExposure": 321992330.0856247
+      },
+      "COMMERCIAL": {
+        "count": 18,
+        "totalExposure": 321992330.0856247
+      }
+    }
+  },
+  "subunit_47": {
+    "id": 47,
+    "name": "SUBUNIT 47",
+    "count": 63,
+    "totalExposure": 1351655149.4169977,
+    "avgExposure": 21454843.641539644,
+    "minExposure": 2145484.3641539644,
+    "maxExposure": 214548436.41539645,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 37,
+        "totalExposure": 675827574.7084988
+      },
+      "COMMERCIAL": {
+        "count": 25,
+        "totalExposure": 675827574.7084988
+      }
+    }
+  },
+  "subunit_48": {
+    "id": 48,
+    "name": "SUBUNIT 48",
+    "count": 207,
+    "totalExposure": 3131477798.9420457,
+    "avgExposure": 15127912.072183795,
+    "minExposure": 1512791.2072183797,
+    "maxExposure": 151279120.72183794,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 124,
+        "totalExposure": 1565738899.4710228
+      },
+      "COMMERCIAL": {
+        "count": 82,
+        "totalExposure": 1565738899.4710228
+      }
+    }
+  },
+  "subunit_49": {
+    "id": 49,
+    "name": "SUBUNIT 49",
+    "count": 82,
+    "totalExposure": 580242212.8781805,
+    "avgExposure": 7076124.547294884,
+    "minExposure": 707612.4547294885,
+    "maxExposure": 70761245.47294883,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 49,
+        "totalExposure": 290121106.43909025
+      },
+      "COMMERCIAL": {
+        "count": 32,
+        "totalExposure": 290121106.43909025
+      }
+    }
+  },
+  "subunit_50": {
+    "id": 50,
+    "name": "SUBUNIT 50",
+    "count": 88,
+    "totalExposure": 1380457687.4787467,
+    "avgExposure": 15687019.175894849,
+    "minExposure": 1568701.917589485,
+    "maxExposure": 156870191.7589485,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 52,
+        "totalExposure": 690228843.7393733
+      },
+      "COMMERCIAL": {
+        "count": 35,
+        "totalExposure": 690228843.7393733
+      }
+    }
+  },
+  "subunit_52": {
+    "id": 52,
+    "name": "SUBUNIT 52",
+    "count": 205,
+    "totalExposure": 1398769918.5346394,
+    "avgExposure": 6823267.895290923,
+    "minExposure": 682326.7895290924,
+    "maxExposure": 68232678.95290923,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 123,
+        "totalExposure": 699384959.2673197
+      },
+      "COMMERCIAL": {
+        "count": 82,
+        "totalExposure": 699384959.2673197
+      }
+    }
+  },
+  "subunit_53": {
+    "id": 53,
+    "name": "SUBUNIT 53",
+    "count": 426,
+    "totalExposure": 8135864478.739009,
+    "avgExposure": 19098273.424269974,
+    "minExposure": 1909827.3424269976,
+    "maxExposure": 190982734.24269974,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 255,
+        "totalExposure": 4067932239.3695045
+      },
+      "COMMERCIAL": {
+        "count": 170,
+        "totalExposure": 4067932239.3695045
+      }
+    }
+  },
+  "subunit_54": {
+    "id": 54,
+    "name": "SUBUNIT 54",
+    "count": 351,
+    "totalExposure": 4369773251.232232,
+    "avgExposure": 12449496.442257073,
+    "minExposure": 1244949.6442257073,
+    "maxExposure": 124494964.42257074,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 210,
+        "totalExposure": 2184886625.616116
+      },
+      "COMMERCIAL": {
+        "count": 140,
+        "totalExposure": 2184886625.616116
+      }
+    }
+  },
+  "subunit_56": {
+    "id": 56,
+    "name": "SUBUNIT 56",
+    "count": 200,
+    "totalExposure": 1618433046.50718,
+    "avgExposure": 8092165.2325359,
+    "minExposure": 809216.52325359,
+    "maxExposure": 80921652.325359,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 120,
+        "totalExposure": 809216523.25359
+      },
+      "COMMERCIAL": {
+        "count": 80,
+        "totalExposure": 809216523.25359
+      }
+    }
+  },
+  "subunit_58": {
+    "id": 58,
+    "name": "SUBUNIT 58",
+    "count": 29,
+    "totalExposure": 675700584.0634787,
+    "avgExposure": 23300020.140119955,
+    "minExposure": 2330002.0140119954,
+    "maxExposure": 233000201.40119955,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 17,
+        "totalExposure": 337850292.03173935
+      },
+      "COMMERCIAL": {
+        "count": 11,
+        "totalExposure": 337850292.03173935
+      }
+    }
+  },
+  "subunit_76": {
+    "id": 76,
+    "name": "SUBUNIT 76",
+    "count": 17,
+    "totalExposure": 409392347.28036803,
+    "avgExposure": 24081902.781198118,
+    "minExposure": 2408190.278119812,
+    "maxExposure": 240819027.81198117,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 10,
+        "totalExposure": 204696173.64018402
+      },
+      "COMMERCIAL": {
+        "count": 6,
+        "totalExposure": 204696173.64018402
+      }
+    }
+  },
+  "subunit_94": {
+    "id": 94,
+    "name": "SUBUNIT 94",
+    "count": 85,
+    "totalExposure": 750355136.711377,
+    "avgExposure": 8827707.490722083,
+    "minExposure": 882770.7490722083,
+    "maxExposure": 88277074.90722083,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 51,
+        "totalExposure": 375177568.3556885
+      },
+      "COMMERCIAL": {
+        "count": 34,
+        "totalExposure": 375177568.3556885
+      }
+    }
+  },
+  "subunit_83": {
+    "id": 83,
+    "name": "SUBUNIT 83",
+    "count": 435,
+    "totalExposure": 10758418376.656897,
+    "avgExposure": 24731996.268176775,
+    "minExposure": 2473199.6268176776,
+    "maxExposure": 247319962.68176776,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 261,
+        "totalExposure": 5379209188.328448
+      },
+      "COMMERCIAL": {
+        "count": 174,
+        "totalExposure": 5379209188.328448
+      }
+    }
+  },
+  "subunit_75": {
+    "id": 75,
+    "name": "SUBUNIT 75",
+    "count": 241,
+    "totalExposure": 3434714145.352477,
+    "avgExposure": 14251925.91432563,
+    "minExposure": 1425192.591432563,
+    "maxExposure": 142519259.1432563,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 144,
+        "totalExposure": 1717357072.6762385
+      },
+      "COMMERCIAL": {
+        "count": 96,
+        "totalExposure": 1717357072.6762385
+      }
+    }
+  },
+  "subunit_93": {
+    "id": 93,
+    "name": "SUBUNIT 93",
+    "count": 334,
+    "totalExposure": 2738888941.3299026,
+    "avgExposure": 8200266.291406894,
+    "minExposure": 820026.6291406895,
+    "maxExposure": 82002662.91406894,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 200,
+        "totalExposure": 1369444470.6649513
+      },
+      "COMMERCIAL": {
+        "count": 133,
+        "totalExposure": 1369444470.6649513
+      }
+    }
+  },
+  "subunit_62": {
+    "id": 62,
+    "name": "SUBUNIT 62",
+    "count": 507,
+    "totalExposure": 6774260494.942739,
+    "avgExposure": 13361460.54229337,
+    "minExposure": 1336146.054229337,
+    "maxExposure": 133614605.4229337,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 304,
+        "totalExposure": 3387130247.4713693
+      },
+      "COMMERCIAL": {
+        "count": 202,
+        "totalExposure": 3387130247.4713693
+      }
+    }
+  },
+  "subunit_72": {
+    "id": 72,
+    "name": "SUBUNIT 72",
+    "count": 172,
+    "totalExposure": 3214381222.116943,
+    "avgExposure": 18688262.919284552,
+    "minExposure": 1868826.2919284552,
+    "maxExposure": 186882629.19284552,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 103,
+        "totalExposure": 1607190611.0584714
+      },
+      "COMMERCIAL": {
+        "count": 68,
+        "totalExposure": 1607190611.0584714
+      }
+    }
+  },
+  "subunit_79": {
+    "id": 79,
+    "name": "SUBUNIT 79",
+    "count": 282,
+    "totalExposure": 5749335239.70703,
+    "avgExposure": 20387713.615982376,
+    "minExposure": 2038771.3615982377,
+    "maxExposure": 203877136.15982378,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 169,
+        "totalExposure": 2874667619.853515
+      },
+      "COMMERCIAL": {
+        "count": 112,
+        "totalExposure": 2874667619.853515
+      }
+    }
+  },
+  "subunit_81": {
+    "id": 81,
+    "name": "SUBUNIT 81",
+    "count": 429,
+    "totalExposure": 10639531128.850132,
+    "avgExposure": 24800771.86212152,
+    "minExposure": 2480077.186212152,
+    "maxExposure": 248007718.6212152,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 257,
+        "totalExposure": 5319765564.425066
+      },
+      "COMMERCIAL": {
+        "count": 171,
+        "totalExposure": 5319765564.425066
+      }
+    }
+  },
+  "subunit_78": {
+    "id": 78,
+    "name": "SUBUNIT 78",
+    "count": 118,
+    "totalExposure": 894081717.2314306,
+    "avgExposure": 7576963.705351107,
+    "minExposure": 757696.3705351107,
+    "maxExposure": 75769637.05351107,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 70,
+        "totalExposure": 447040858.6157153
+      },
+      "COMMERCIAL": {
+        "count": 47,
+        "totalExposure": 447040858.6157153
+      }
+    }
+  },
+  "subunit_77": {
+    "id": 77,
+    "name": "SUBUNIT 77",
+    "count": 355,
+    "totalExposure": 4457659172.389295,
+    "avgExposure": 12556786.401096605,
+    "minExposure": 1255678.6401096606,
+    "maxExposure": 125567864.01096605,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 213,
+        "totalExposure": 2228829586.1946473
+      },
+      "COMMERCIAL": {
+        "count": 142,
+        "totalExposure": 2228829586.1946473
+      }
+    }
+  },
+  "subunit_74": {
+    "id": 74,
+    "name": "SUBUNIT 74",
+    "count": 363,
+    "totalExposure": 8325618737.440039,
+    "avgExposure": 22935588.808374763,
+    "minExposure": 2293558.8808374763,
+    "maxExposure": 229355888.08374763,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 217,
+        "totalExposure": 4162809368.7200193
+      },
+      "COMMERCIAL": {
+        "count": 145,
+        "totalExposure": 4162809368.7200193
+      }
+    }
+  },
+  "subunit_61": {
+    "id": 61,
+    "name": "SUBUNIT 61",
+    "count": 474,
+    "totalExposure": 11577484378.802986,
+    "avgExposure": 24425072.529120225,
+    "minExposure": 2442507.2529120226,
+    "maxExposure": 244250725.29120225,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 284,
+        "totalExposure": 5788742189.401493
+      },
+      "COMMERCIAL": {
+        "count": 189,
+        "totalExposure": 5788742189.401493
+      }
+    }
+  },
+  "subunit_80": {
+    "id": 80,
+    "name": "SUBUNIT 80",
+    "count": 455,
+    "totalExposure": 8267560814.999957,
+    "avgExposure": 18170463.329670236,
+    "minExposure": 1817046.3329670236,
+    "maxExposure": 181704633.29670236,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 273,
+        "totalExposure": 4133780407.4999785
+      },
+      "COMMERCIAL": {
+        "count": 182,
+        "totalExposure": 4133780407.4999785
+      }
+    }
+  },
+  "subunit_67": {
+    "id": 67,
+    "name": "SUBUNIT 67",
+    "count": 81,
+    "totalExposure": 1512567320.653261,
+    "avgExposure": 18673670.6253489,
+    "minExposure": 1867367.0625348901,
+    "maxExposure": 186736706.253489,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 48,
+        "totalExposure": 756283660.3266305
+      },
+      "COMMERCIAL": {
+        "count": 32,
+        "totalExposure": 756283660.3266305
+      }
+    }
+  },
+  "subunit_60": {
+    "id": 60,
+    "name": "SUBUNIT 60",
+    "count": 434,
+    "totalExposure": 9384030288.747108,
+    "avgExposure": 21622189.605408084,
+    "minExposure": 2162218.9605408083,
+    "maxExposure": 216221896.05408084,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 260,
+        "totalExposure": 4692015144.373554
+      },
+      "COMMERCIAL": {
+        "count": 173,
+        "totalExposure": 4692015144.373554
+      }
+    }
+  },
+  "subunit_69": {
+    "id": 69,
+    "name": "SUBUNIT 69",
+    "count": 467,
+    "totalExposure": 3286406396.159234,
+    "avgExposure": 7037272.7969148485,
+    "minExposure": 703727.2796914849,
+    "maxExposure": 70372727.96914849,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 280,
+        "totalExposure": 1643203198.079617
+      },
+      "COMMERCIAL": {
+        "count": 186,
+        "totalExposure": 1643203198.079617
+      }
+    }
+  },
+  "subunit_68": {
+    "id": 68,
+    "name": "SUBUNIT 68",
+    "count": 83,
+    "totalExposure": 1602720800.3781388,
+    "avgExposure": 19309889.161182396,
+    "minExposure": 1930988.9161182398,
+    "maxExposure": 193098891.61182398,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 49,
+        "totalExposure": 801360400.1890694
+      },
+      "COMMERCIAL": {
+        "count": 33,
+        "totalExposure": 801360400.1890694
+      }
+    }
+  },
+  "subunit_70": {
+    "id": 70,
+    "name": "SUBUNIT 70",
+    "count": 410,
+    "totalExposure": 7354671259.286656,
+    "avgExposure": 17938222.58362599,
+    "minExposure": 1793822.2583625992,
+    "maxExposure": 179382225.8362599,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 246,
+        "totalExposure": 3677335629.643328
+      },
+      "COMMERCIAL": {
+        "count": 164,
+        "totalExposure": 3677335629.643328
+      }
+    }
+  },
+  "subunit_71": {
+    "id": 71,
+    "name": "SUBUNIT 71",
+    "count": 11,
+    "totalExposure": 199457115.10733384,
+    "avgExposure": 18132465.009757623,
+    "minExposure": 1813246.5009757625,
+    "maxExposure": 181324650.09757623,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 6,
+        "totalExposure": 99728557.55366692
+      },
+      "COMMERCIAL": {
+        "count": 4,
+        "totalExposure": 99728557.55366692
+      }
+    }
+  },
+  "subunit_91": {
+    "id": 91,
+    "name": "SUBUNIT 91",
+    "count": 63,
+    "totalExposure": 1401895702.951476,
+    "avgExposure": 22252312.745261524,
+    "minExposure": 2225231.2745261523,
+    "maxExposure": 222523127.45261523,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 37,
+        "totalExposure": 700947851.475738
+      },
+      "COMMERCIAL": {
+        "count": 25,
+        "totalExposure": 700947851.475738
+      }
+    }
+  },
+  "subunit_63": {
+    "id": 63,
+    "name": "SUBUNIT 63",
+    "count": 508,
+    "totalExposure": 4204164458.199661,
+    "avgExposure": 8275914.287794608,
+    "minExposure": 827591.4287794608,
+    "maxExposure": 82759142.87794608,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 304,
+        "totalExposure": 2102082229.0998304
+      },
+      "COMMERCIAL": {
+        "count": 203,
+        "totalExposure": 2102082229.0998304
+      }
+    }
+  },
+  "subunit_90": {
+    "id": 90,
+    "name": "SUBUNIT 90",
+    "count": 88,
+    "totalExposure": 2068350909.9611673,
+    "avgExposure": 23503987.613195084,
+    "minExposure": 2350398.7613195083,
+    "maxExposure": 235039876.13195086,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 52,
+        "totalExposure": 1034175454.9805837
+      },
+      "COMMERCIAL": {
+        "count": 35,
+        "totalExposure": 1034175454.9805837
+      }
+    }
+  },
+  "subunit_96": {
+    "id": 96,
+    "name": "SUBUNIT 96",
+    "count": 507,
+    "totalExposure": 11724630027.945026,
+    "avgExposure": 23125503.013698276,
+    "minExposure": 2312550.3013698277,
+    "maxExposure": 231255030.13698277,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 304,
+        "totalExposure": 5862315013.972513
+      },
+      "COMMERCIAL": {
+        "count": 202,
+        "totalExposure": 5862315013.972513
+      }
+    }
+  },
+  "subunit_92": {
+    "id": 92,
+    "name": "SUBUNIT 92",
+    "count": 376,
+    "totalExposure": 6701178120.546728,
+    "avgExposure": 17822282.235496618,
+    "minExposure": 1782228.223549662,
+    "maxExposure": 178222822.35496616,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 225,
+        "totalExposure": 3350589060.273364
+      },
+      "COMMERCIAL": {
+        "count": 150,
+        "totalExposure": 3350589060.273364
+      }
+    }
+  },
+  "subunit_99": {
+    "id": 99,
+    "name": "SUBUNIT 99",
+    "count": 471,
+    "totalExposure": 2533976347.926347,
+    "avgExposure": 5379992.246128125,
+    "minExposure": 537999.2246128125,
+    "maxExposure": 53799922.461281255,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 282,
+        "totalExposure": 1266988173.9631734
+      },
+      "COMMERCIAL": {
+        "count": 188,
+        "totalExposure": 1266988173.9631734
+      }
+    }
+  },
+  "subunit_98": {
+    "id": 98,
+    "name": "SUBUNIT 98",
+    "count": 456,
+    "totalExposure": 7996552720.187434,
+    "avgExposure": 17536299.824972443,
+    "minExposure": 1753629.9824972444,
+    "maxExposure": 175362998.24972445,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 273,
+        "totalExposure": 3998276360.093717
+      },
+      "COMMERCIAL": {
+        "count": 182,
+        "totalExposure": 3998276360.093717
+      }
+    }
+  },
+  "subunit_86": {
+    "id": 86,
+    "name": "SUBUNIT 86",
+    "count": 131,
+    "totalExposure": 1248112969.1162012,
+    "avgExposure": 9527579.916917566,
+    "minExposure": 952757.9916917566,
+    "maxExposure": 95275799.16917565,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 78,
+        "totalExposure": 624056484.5581006
+      },
+      "COMMERCIAL": {
+        "count": 52,
+        "totalExposure": 624056484.5581006
+      }
+    }
+  },
+  "subunit_89": {
+    "id": 89,
+    "name": "SUBUNIT 89",
+    "count": 47,
+    "totalExposure": 450263118.7847598,
+    "avgExposure": 9580066.35712255,
+    "minExposure": 958006.635712255,
+    "maxExposure": 95800663.5712255,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 28,
+        "totalExposure": 225131559.3923799
+      },
+      "COMMERCIAL": {
+        "count": 18,
+        "totalExposure": 225131559.3923799
+      }
+    }
+  },
+  "subunit_84": {
+    "id": 84,
+    "name": "SUBUNIT 84",
+    "count": 127,
+    "totalExposure": 732486800.1708379,
+    "avgExposure": 5767612.599770377,
+    "minExposure": 576761.2599770378,
+    "maxExposure": 57676125.997703776,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 76,
+        "totalExposure": 366243400.08541894
+      },
+      "COMMERCIAL": {
+        "count": 50,
+        "totalExposure": 366243400.08541894
+      }
+    }
+  },
+  "subunit_88": {
+    "id": 88,
+    "name": "SUBUNIT 88",
+    "count": 153,
+    "totalExposure": 1060127917.907783,
+    "avgExposure": 6928940.639920151,
+    "minExposure": 692894.0639920151,
+    "maxExposure": 69289406.39920151,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 91,
+        "totalExposure": 530063958.9538915
+      },
+      "COMMERCIAL": {
+        "count": 61,
+        "totalExposure": 530063958.9538915
+      }
+    }
+  },
+  "subunit_87": {
+    "id": 87,
+    "name": "SUBUNIT 87",
+    "count": 26,
+    "totalExposure": 627535179.1488714,
+    "avgExposure": 24135968.428802747,
+    "minExposure": 2413596.8428802746,
+    "maxExposure": 241359684.28802747,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 15,
+        "totalExposure": 313767589.5744357
+      },
+      "COMMERCIAL": {
+        "count": 10,
+        "totalExposure": 313767589.5744357
+      }
+    }
+  },
+  "subunit_97": {
+    "id": 97,
+    "name": "SUBUNIT 97",
+    "count": 96,
+    "totalExposure": 710053887.9879022,
+    "avgExposure": 7396394.666540647,
+    "minExposure": 739639.4666540647,
+    "maxExposure": 73963946.66540647,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 57,
+        "totalExposure": 355026943.9939511
+      },
+      "COMMERCIAL": {
+        "count": 38,
+        "totalExposure": 355026943.9939511
+      }
+    }
+  },
+  "subunit_85": {
+    "id": 85,
+    "name": "SUBUNIT 85",
+    "count": 109,
+    "totalExposure": 1008410837.8332025,
+    "avgExposure": 9251475.576451398,
+    "minExposure": 925147.5576451399,
+    "maxExposure": 92514755.76451398,
+    "byOccupancy": {
+      "RESIDENTIAL": {
+        "count": 65,
+        "totalExposure": 504205418.91660124
+      },
+      "COMMERCIAL": {
+        "count": 43,
+        "totalExposure": 504205418.91660124
+      }
+    }
+  }
+}

@@ -1,0 +1,1674 @@
+{
+  "青洲区": {
+    "id": 1,
+    "zona": 1,
+    "name": "Ilha Verde",
+    "nameCN": "青洲區",
+    "sname": "青洲区",
+    "count": 94,
+    "totalExposure": 2084882392.5,
+    "avgExposure": 22179599.920212764,
+    "minExposure": 228600,
+    "maxExposure": 365786455,
+    "byOccupancy": {
+      "工程險": {
+        "count": 94,
+        "totalExposure": 2084882392.5
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 7,
+        "totalExposure": 502040033.5
+      },
+      "2015": {
+        "count": 18,
+        "totalExposure": 36803547
+      },
+      "2016": {
+        "count": 6,
+        "totalExposure": 117953630
+      },
+      "2017": {
+        "count": 11,
+        "totalExposure": 171653645
+      },
+      "2018": {
+        "count": 9,
+        "totalExposure": 184241604
+      },
+      "2019": {
+        "count": 9,
+        "totalExposure": 88864437
+      },
+      "2020": {
+        "count": 9,
+        "totalExposure": 389496887
+      },
+      "2021": {
+        "count": 4,
+        "totalExposure": 13190390
+      },
+      "2022": {
+        "count": 5,
+        "totalExposure": 314284475
+      },
+      "2023": {
+        "count": 3,
+        "totalExposure": 25891439
+      },
+      "2024": {
+        "count": 8,
+        "totalExposure": 224549005
+      },
+      "2025": {
+        "count": 5,
+        "totalExposure": 15913300
+      }
+    }
+  },
+  "台山区": {
+    "id": 2,
+    "zona": 2,
+    "name": "Tamagnini Barbosa",
+    "nameCN": "台山區",
+    "sname": "台山区",
+    "count": 66,
+    "totalExposure": 1140772130.75,
+    "avgExposure": 17284426.223484848,
+    "minExposure": 216800,
+    "maxExposure": 533000000,
+    "byOccupancy": {
+      "工程險": {
+        "count": 66,
+        "totalExposure": 1140772130.75
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 3,
+        "totalExposure": 171116374
+      },
+      "2015": {
+        "count": 6,
+        "totalExposure": 20003151
+      },
+      "2016": {
+        "count": 5,
+        "totalExposure": 7969220
+      },
+      "2017": {
+        "count": 4,
+        "totalExposure": 24514966.75
+      },
+      "2018": {
+        "count": 11,
+        "totalExposure": 732203709
+      },
+      "2019": {
+        "count": 8,
+        "totalExposure": 36361030
+      },
+      "2020": {
+        "count": 6,
+        "totalExposure": 22719689
+      },
+      "2021": {
+        "count": 4,
+        "totalExposure": 13647740
+      },
+      "2022": {
+        "count": 5,
+        "totalExposure": 26222080
+      },
+      "2023": {
+        "count": 5,
+        "totalExposure": 66281448
+      },
+      "2024": {
+        "count": 6,
+        "totalExposure": 9533307
+      },
+      "2025": {
+        "count": 3,
+        "totalExposure": 10199416
+      }
+    }
+  },
+  "黑沙环及祐汉区": {
+    "id": 3,
+    "zona": 3,
+    "name": "Areia Preta e Iao Hon",
+    "nameCN": "黑沙環及祐漢區",
+    "sname": "黑沙环及祐汉区",
+    "count": 155,
+    "totalExposure": 20007989566.36,
+    "avgExposure": 129083803.65393549,
+    "minExposure": 320000,
+    "maxExposure": 4647966666,
+    "byOccupancy": {
+      "工程險": {
+        "count": 155,
+        "totalExposure": 20007989566.36
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 20,
+        "totalExposure": 762279804.73
+      },
+      "2015": {
+        "count": 24,
+        "totalExposure": 621858924.4
+      },
+      "2016": {
+        "count": 17,
+        "totalExposure": 141654111
+      },
+      "2017": {
+        "count": 17,
+        "totalExposure": 811612910.23
+      },
+      "2018": {
+        "count": 12,
+        "totalExposure": 578740951
+      },
+      "2019": {
+        "count": 9,
+        "totalExposure": 1799736534
+      },
+      "2020": {
+        "count": 7,
+        "totalExposure": 116957197
+      },
+      "2021": {
+        "count": 14,
+        "totalExposure": 9876281089
+      },
+      "2022": {
+        "count": 9,
+        "totalExposure": 78562092
+      },
+      "2023": {
+        "count": 8,
+        "totalExposure": 343860363
+      },
+      "2024": {
+        "count": 9,
+        "totalExposure": 162159391
+      },
+      "2025": {
+        "count": 9,
+        "totalExposure": 4714286199
+      }
+    }
+  },
+  "黑沙环新填海区": {
+    "id": 4,
+    "zona": 4,
+    "name": "Novos Aterros da Areia Preta",
+    "nameCN": "黑沙環新填海區",
+    "sname": "黑沙环新填海区",
+    "count": 24,
+    "totalExposure": 2294408506.05,
+    "avgExposure": 95600354.41875,
+    "minExposure": 400000,
+    "maxExposure": 1983629420.05,
+    "byOccupancy": {
+      "工程險": {
+        "count": 24,
+        "totalExposure": 2294408506.05
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 6,
+        "totalExposure": 55787500
+      },
+      "2015": {
+        "count": 2,
+        "totalExposure": 990000
+      },
+      "2017": {
+        "count": 2,
+        "totalExposure": 31712170
+      },
+      "2018": {
+        "count": 3,
+        "totalExposure": 26500000
+      },
+      "2019": {
+        "count": 2,
+        "totalExposure": 40394839
+      },
+      "2020": {
+        "count": 1,
+        "totalExposure": 1983629420.05
+      },
+      "2021": {
+        "count": 3,
+        "totalExposure": 41763456
+      },
+      "2022": {
+        "count": 1,
+        "totalExposure": 19193278
+      },
+      "2024": {
+        "count": 4,
+        "totalExposure": 94437843
+      }
+    }
+  },
+  "望厦及水塘区": {
+    "id": 5,
+    "zona": 5,
+    "name": "Móng Há e Reservatório",
+    "nameCN": "望廈及水塘區",
+    "sname": "望厦及水塘区",
+    "count": 63,
+    "totalExposure": 894462178.16,
+    "avgExposure": 14197812.351746032,
+    "minExposure": 263970,
+    "maxExposure": 235000000,
+    "byOccupancy": {
+      "工程險": {
+        "count": 63,
+        "totalExposure": 894462178.16
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 4,
+        "totalExposure": 18015970
+      },
+      "2015": {
+        "count": 6,
+        "totalExposure": 18052000
+      },
+      "2016": {
+        "count": 2,
+        "totalExposure": 2885022
+      },
+      "2017": {
+        "count": 6,
+        "totalExposure": 291354874
+      },
+      "2018": {
+        "count": 7,
+        "totalExposure": 15265770
+      },
+      "2019": {
+        "count": 5,
+        "totalExposure": 118343088.8
+      },
+      "2020": {
+        "count": 1,
+        "totalExposure": 17469890
+      },
+      "2021": {
+        "count": 9,
+        "totalExposure": 34205980
+      },
+      "2022": {
+        "count": 6,
+        "totalExposure": 34171336
+      },
+      "2023": {
+        "count": 7,
+        "totalExposure": 40319444
+      },
+      "2024": {
+        "count": 7,
+        "totalExposure": 47065808.36
+      },
+      "2025": {
+        "count": 3,
+        "totalExposure": 257312995
+      }
+    }
+  },
+  "筷子基区": {
+    "id": 6,
+    "zona": 6,
+    "name": "Fai Chi Kei",
+    "nameCN": "筷子基區",
+    "sname": "筷子基区",
+    "count": 33,
+    "totalExposure": 2982242369.9,
+    "avgExposure": 90370980.9060606,
+    "minExposure": 175000,
+    "maxExposure": 2090185158.47,
+    "byOccupancy": {
+      "工程險": {
+        "count": 33,
+        "totalExposure": 2982242369.9
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 3,
+        "totalExposure": 18409240
+      },
+      "2015": {
+        "count": 3,
+        "totalExposure": 540321990
+      },
+      "2016": {
+        "count": 3,
+        "totalExposure": 2107608658.47
+      },
+      "2017": {
+        "count": 7,
+        "totalExposure": 50211686.43
+      },
+      "2018": {
+        "count": 3,
+        "totalExposure": 18003555
+      },
+      "2019": {
+        "count": 5,
+        "totalExposure": 38491294
+      },
+      "2020": {
+        "count": 4,
+        "totalExposure": 46202020
+      },
+      "2021": {
+        "count": 1,
+        "totalExposure": 2140715
+      },
+      "2022": {
+        "count": 1,
+        "totalExposure": 2627511
+      },
+      "2023": {
+        "count": 2,
+        "totalExposure": 1933700
+      },
+      "2024": {
+        "count": 1,
+        "totalExposure": 156292000
+      }
+    }
+  },
+  "林茂塘区": {
+    "id": 7,
+    "zona": 7,
+    "name": "Lam Mau",
+    "nameCN": "林茂塘區",
+    "sname": "林茂塘区",
+    "count": 18,
+    "totalExposure": 403307585,
+    "avgExposure": 22405976.944444444,
+    "minExposure": 933780,
+    "maxExposure": 156000000,
+    "byOccupancy": {
+      "工程險": {
+        "count": 18,
+        "totalExposure": 403307585
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 2,
+        "totalExposure": 2068000
+      },
+      "2015": {
+        "count": 6,
+        "totalExposure": 186159779
+      },
+      "2016": {
+        "count": 2,
+        "totalExposure": 2590000
+      },
+      "2017": {
+        "count": 2,
+        "totalExposure": 32850000
+      },
+      "2018": {
+        "count": 1,
+        "totalExposure": 933780
+      },
+      "2020": {
+        "count": 1,
+        "totalExposure": 11810520
+      },
+      "2022": {
+        "count": 2,
+        "totalExposure": 9611906
+      },
+      "2023": {
+        "count": 1,
+        "totalExposure": 156000000
+      },
+      "2025": {
+        "count": 1,
+        "totalExposure": 1283600
+      }
+    }
+  },
+  "高士德及雅廉访区": {
+    "id": 8,
+    "zona": 8,
+    "name": "Horta e Costa e Ouvidor Arriaga",
+    "nameCN": "高士德及雅廉訪區",
+    "sname": "高士德及雅廉访区",
+    "count": 102,
+    "totalExposure": 902874740.69,
+    "avgExposure": 8851713.14401961,
+    "minExposure": 150000,
+    "maxExposure": 307987546.7,
+    "byOccupancy": {
+      "工程險": {
+        "count": 102,
+        "totalExposure": 902874740.69
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 20,
+        "totalExposure": 232718250.49
+      },
+      "2015": {
+        "count": 11,
+        "totalExposure": 335909406.7
+      },
+      "2016": {
+        "count": 16,
+        "totalExposure": 24123577.5
+      },
+      "2017": {
+        "count": 10,
+        "totalExposure": 29655670
+      },
+      "2018": {
+        "count": 6,
+        "totalExposure": 35717309
+      },
+      "2019": {
+        "count": 8,
+        "totalExposure": 40972282
+      },
+      "2020": {
+        "count": 5,
+        "totalExposure": 24901786
+      },
+      "2021": {
+        "count": 7,
+        "totalExposure": 18489008
+      },
+      "2022": {
+        "count": 4,
+        "totalExposure": 25578338
+      },
+      "2023": {
+        "count": 6,
+        "totalExposure": 41759486
+      },
+      "2024": {
+        "count": 5,
+        "totalExposure": 23643025
+      },
+      "2025": {
+        "count": 4,
+        "totalExposure": 69406602
+      }
+    }
+  },
+  "新桥区": {
+    "id": 9,
+    "zona": 9,
+    "name": "San Kio",
+    "nameCN": "新橋區",
+    "sname": "新桥区",
+    "count": 1,
+    "totalExposure": 330000,
+    "avgExposure": 330000,
+    "minExposure": 330000,
+    "maxExposure": 330000,
+    "byOccupancy": {
+      "工程險": {
+        "count": 1,
+        "totalExposure": 330000
+      }
+    },
+    "byYear": {
+      "2018": {
+        "count": 1,
+        "totalExposure": 330000
+      }
+    }
+  },
+  "沙梨头及大三巴区": {
+    "id": 10,
+    "zona": 10,
+    "name": "Patane e Ruínas de S. Paulo",
+    "nameCN": "沙梨頭及大三巴區",
+    "sname": "沙梨头及大三巴区",
+    "count": 115,
+    "totalExposure": 3639584175.7799993,
+    "avgExposure": 31648558.050260864,
+    "minExposure": 314000,
+    "maxExposure": 1455000000,
+    "byOccupancy": {
+      "工程險": {
+        "count": 115,
+        "totalExposure": 3639584175.7799993
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 18,
+        "totalExposure": 114141133
+      },
+      "2015": {
+        "count": 12,
+        "totalExposure": 125027384
+      },
+      "2016": {
+        "count": 21,
+        "totalExposure": 1630145208.61
+      },
+      "2017": {
+        "count": 11,
+        "totalExposure": 81315305
+      },
+      "2018": {
+        "count": 11,
+        "totalExposure": 46769603.93
+      },
+      "2019": {
+        "count": 9,
+        "totalExposure": 57648850
+      },
+      "2020": {
+        "count": 5,
+        "totalExposure": 39012411
+      },
+      "2021": {
+        "count": 10,
+        "totalExposure": 1103489479
+      },
+      "2022": {
+        "count": 3,
+        "totalExposure": 22175551
+      },
+      "2023": {
+        "count": 4,
+        "totalExposure": 75024415.5
+      },
+      "2024": {
+        "count": 6,
+        "totalExposure": 130138004.74
+      },
+      "2025": {
+        "count": 5,
+        "totalExposure": 214696830
+      }
+    }
+  },
+  "荷兰园区": {
+    "id": 11,
+    "zona": 11,
+    "name": "Flora",
+    "nameCN": "荷蘭園區",
+    "sname": "荷兰园区",
+    "count": 26,
+    "totalExposure": 116450523.3,
+    "avgExposure": 4478866.280769231,
+    "minExposure": 200000,
+    "maxExposure": 36500000,
+    "byOccupancy": {
+      "工程險": {
+        "count": 26,
+        "totalExposure": 116450523.3
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 7,
+        "totalExposure": 12122717
+      },
+      "2015": {
+        "count": 5,
+        "totalExposure": 16142000
+      },
+      "2018": {
+        "count": 4,
+        "totalExposure": 5421400
+      },
+      "2019": {
+        "count": 2,
+        "totalExposure": 2824467
+      },
+      "2020": {
+        "count": 1,
+        "totalExposure": 3666600
+      },
+      "2021": {
+        "count": 3,
+        "totalExposure": 5693072.5
+      },
+      "2023": {
+        "count": 2,
+        "totalExposure": 28558916.8
+      },
+      "2024": {
+        "count": 2,
+        "totalExposure": 42021350
+      }
+    }
+  },
+  "东望洋区(松山区)": {
+    "id": 12,
+    "zona": 12,
+    "name": "Guia",
+    "nameCN": "東望洋區(松山區)",
+    "sname": "东望洋区(松山区)",
+    "count": 54,
+    "totalExposure": 656772246.65,
+    "avgExposure": 12162449.012037037,
+    "minExposure": 483700,
+    "maxExposure": 285691867.85,
+    "byOccupancy": {
+      "工程險": {
+        "count": 54,
+        "totalExposure": 656772246.65
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 7,
+        "totalExposure": 134482870.7
+      },
+      "2015": {
+        "count": 6,
+        "totalExposure": 71832328.9
+      },
+      "2016": {
+        "count": 8,
+        "totalExposure": 8577491
+      },
+      "2017": {
+        "count": 7,
+        "totalExposure": 10122104
+      },
+      "2018": {
+        "count": 2,
+        "totalExposure": 2167700
+      },
+      "2019": {
+        "count": 3,
+        "totalExposure": 13428700
+      },
+      "2020": {
+        "count": 3,
+        "totalExposure": 289327367.85
+      },
+      "2021": {
+        "count": 6,
+        "totalExposure": 61651008
+      },
+      "2022": {
+        "count": 3,
+        "totalExposure": 5685000
+      },
+      "2023": {
+        "count": 2,
+        "totalExposure": 9535828
+      },
+      "2024": {
+        "count": 3,
+        "totalExposure": 7928318.2
+      },
+      "2025": {
+        "count": 4,
+        "totalExposure": 42033530
+      }
+    }
+  },
+  "新口岸区": {
+    "id": 13,
+    "zona": 13,
+    "name": "NAPE",
+    "nameCN": "新口岸區",
+    "sname": "新口岸区",
+    "count": 198,
+    "totalExposure": 4118906684.32,
+    "avgExposure": 20802559.011717174,
+    "minExposure": 139840,
+    "maxExposure": 1141044443.52,
+    "byOccupancy": {
+      "工程險": {
+        "count": 198,
+        "totalExposure": 4118906684.32
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 21,
+        "totalExposure": 152891596
+      },
+      "2015": {
+        "count": 26,
+        "totalExposure": 218362565.5
+      },
+      "2016": {
+        "count": 22,
+        "totalExposure": 450843733
+      },
+      "2017": {
+        "count": 19,
+        "totalExposure": 527173665
+      },
+      "2018": {
+        "count": 22,
+        "totalExposure": 1946012772.67
+      },
+      "2019": {
+        "count": 14,
+        "totalExposure": 163736202
+      },
+      "2020": {
+        "count": 18,
+        "totalExposure": 131616829
+      },
+      "2021": {
+        "count": 19,
+        "totalExposure": 150989983.39
+      },
+      "2022": {
+        "count": 10,
+        "totalExposure": 117339552
+      },
+      "2023": {
+        "count": 8,
+        "totalExposure": 81655394.75999999
+      },
+      "2024": {
+        "count": 9,
+        "totalExposure": 92934436
+      },
+      "2025": {
+        "count": 10,
+        "totalExposure": 85349955
+      }
+    }
+  },
+  "外港及南湾湖新填海区": {
+    "id": 14,
+    "zona": 14,
+    "name": "Porto Exterior e ZAPE",
+    "nameCN": "外港及南灣湖新填海區",
+    "sname": "外港及南湾湖新填海区",
+    "count": 132,
+    "totalExposure": 15294313815.38,
+    "avgExposure": 115866013.75287879,
+    "minExposure": 450000,
+    "maxExposure": 4858000000,
+    "byOccupancy": {
+      "工程險": {
+        "count": 132,
+        "totalExposure": 15294313815.38
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 15,
+        "totalExposure": 1263633124
+      },
+      "2015": {
+        "count": 14,
+        "totalExposure": 41851639.379999995
+      },
+      "2016": {
+        "count": 9,
+        "totalExposure": 252155350
+      },
+      "2017": {
+        "count": 8,
+        "totalExposure": 854370638.2
+      },
+      "2018": {
+        "count": 13,
+        "totalExposure": 185662829.3
+      },
+      "2019": {
+        "count": 7,
+        "totalExposure": 1344080672.76
+      },
+      "2020": {
+        "count": 9,
+        "totalExposure": 1414502608
+      },
+      "2021": {
+        "count": 14,
+        "totalExposure": 1296382725
+      },
+      "2022": {
+        "count": 9,
+        "totalExposure": 370366500
+      },
+      "2023": {
+        "count": 12,
+        "totalExposure": 5056446067
+      },
+      "2024": {
+        "count": 14,
+        "totalExposure": 1549344446.74
+      },
+      "2025": {
+        "count": 8,
+        "totalExposure": 1665517215
+      }
+    }
+  },
+  "中区": {
+    "id": 15,
+    "zona": 15,
+    "name": "Centro",
+    "nameCN": "中區",
+    "sname": "中区",
+    "count": 97,
+    "totalExposure": 2052702863.3899999,
+    "avgExposure": 21161885.189587627,
+    "minExposure": 145500,
+    "maxExposure": 462375409,
+    "byOccupancy": {
+      "工程險": {
+        "count": 97,
+        "totalExposure": 2052702863.3899999
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 8,
+        "totalExposure": 23310000
+      },
+      "2015": {
+        "count": 15,
+        "totalExposure": 141707830
+      },
+      "2016": {
+        "count": 17,
+        "totalExposure": 77975470
+      },
+      "2017": {
+        "count": 5,
+        "totalExposure": 146580434
+      },
+      "2018": {
+        "count": 14,
+        "totalExposure": 64527148.8
+      },
+      "2019": {
+        "count": 7,
+        "totalExposure": 77700993
+      },
+      "2020": {
+        "count": 6,
+        "totalExposure": 292723329
+      },
+      "2021": {
+        "count": 5,
+        "totalExposure": 184965212
+      },
+      "2022": {
+        "count": 2,
+        "totalExposure": 22365078
+      },
+      "2023": {
+        "count": 6,
+        "totalExposure": 117769568
+      },
+      "2024": {
+        "count": 6,
+        "totalExposure": 804772490.59
+      },
+      "2025": {
+        "count": 6,
+        "totalExposure": 98305310
+      }
+    }
+  },
+  "下环区": {
+    "id": 16,
+    "zona": 16,
+    "name": "Baixa da Cidade",
+    "nameCN": "下環區",
+    "sname": "下环区",
+    "count": 54,
+    "totalExposure": 4341732607.25,
+    "avgExposure": 80402455.68981482,
+    "minExposure": 689480,
+    "maxExposure": 1338000000,
+    "byOccupancy": {
+      "工程險": {
+        "count": 54,
+        "totalExposure": 4341732607.25
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 7,
+        "totalExposure": 33192787
+      },
+      "2015": {
+        "count": 6,
+        "totalExposure": 1356363830
+      },
+      "2016": {
+        "count": 10,
+        "totalExposure": 133066610
+      },
+      "2017": {
+        "count": 9,
+        "totalExposure": 620558216
+      },
+      "2018": {
+        "count": 2,
+        "totalExposure": 1219250000
+      },
+      "2019": {
+        "count": 1,
+        "totalExposure": 2480570
+      },
+      "2020": {
+        "count": 6,
+        "totalExposure": 80916515.25
+      },
+      "2021": {
+        "count": 4,
+        "totalExposure": 340203392
+      },
+      "2022": {
+        "count": 3,
+        "totalExposure": 44850000
+      },
+      "2023": {
+        "count": 2,
+        "totalExposure": 12132768.8
+      },
+      "2024": {
+        "count": 2,
+        "totalExposure": 479443782
+      },
+      "2025": {
+        "count": 2,
+        "totalExposure": 19274136.2
+      }
+    }
+  },
+  "南西湾及主教山区": {
+    "id": 17,
+    "zona": 17,
+    "name": "Praia Grande e Penha",
+    "nameCN": "南西灣及主教山區",
+    "sname": "南西湾及主教山区",
+    "count": 53,
+    "totalExposure": 472068579.8,
+    "avgExposure": 8906954.335849056,
+    "minExposure": 725500,
+    "maxExposure": 75000000,
+    "byOccupancy": {
+      "工程險": {
+        "count": 53,
+        "totalExposure": 472068579.8
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 5,
+        "totalExposure": 26416589
+      },
+      "2015": {
+        "count": 5,
+        "totalExposure": 11233500
+      },
+      "2016": {
+        "count": 7,
+        "totalExposure": 47580666
+      },
+      "2017": {
+        "count": 3,
+        "totalExposure": 30368200
+      },
+      "2018": {
+        "count": 5,
+        "totalExposure": 62788825.35
+      },
+      "2019": {
+        "count": 6,
+        "totalExposure": 37035626
+      },
+      "2020": {
+        "count": 6,
+        "totalExposure": 39351316.1
+      },
+      "2021": {
+        "count": 3,
+        "totalExposure": 13743578
+      },
+      "2022": {
+        "count": 5,
+        "totalExposure": 60090251.35
+      },
+      "2023": {
+        "count": 3,
+        "totalExposure": 30900000
+      },
+      "2024": {
+        "count": 2,
+        "totalExposure": 9860028
+      },
+      "2025": {
+        "count": 3,
+        "totalExposure": 102700000
+      }
+    }
+  },
+  "海洋及小潭山区": {
+    "id": 18,
+    "zona": 18,
+    "name": "Jardins do Oceano e Taipa Pequena",
+    "nameCN": "海洋及小潭山區",
+    "sname": "海洋及小潭山区",
+    "count": 37,
+    "totalExposure": 203301510.8,
+    "avgExposure": 5494635.427027027,
+    "minExposure": 135000,
+    "maxExposure": 44839205,
+    "byOccupancy": {
+      "工程險": {
+        "count": 37,
+        "totalExposure": 203301510.8
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 2,
+        "totalExposure": 44974205
+      },
+      "2015": {
+        "count": 2,
+        "totalExposure": 4585140
+      },
+      "2016": {
+        "count": 8,
+        "totalExposure": 17748800
+      },
+      "2017": {
+        "count": 4,
+        "totalExposure": 26919950.8
+      },
+      "2018": {
+        "count": 3,
+        "totalExposure": 7162000
+      },
+      "2019": {
+        "count": 2,
+        "totalExposure": 5793000
+      },
+      "2020": {
+        "count": 5,
+        "totalExposure": 33958200
+      },
+      "2021": {
+        "count": 3,
+        "totalExposure": 14342415
+      },
+      "2022": {
+        "count": 3,
+        "totalExposure": 15910000
+      },
+      "2023": {
+        "count": 2,
+        "totalExposure": 15933800
+      },
+      "2024": {
+        "count": 1,
+        "totalExposure": 1898000
+      },
+      "2025": {
+        "count": 2,
+        "totalExposure": 14076000
+      }
+    }
+  },
+  "氹仔中心区": {
+    "id": 19,
+    "zona": 19,
+    "name": "Baixa da Taipa",
+    "nameCN": "氹仔中心區",
+    "sname": "氹仔中心区",
+    "count": 71,
+    "totalExposure": 943071902.71,
+    "avgExposure": 13282702.855070423,
+    "minExposure": 190690,
+    "maxExposure": 112909700,
+    "byOccupancy": {
+      "工程險": {
+        "count": 71,
+        "totalExposure": 943071902.71
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 10,
+        "totalExposure": 186891952.88
+      },
+      "2015": {
+        "count": 4,
+        "totalExposure": 42676092.5
+      },
+      "2016": {
+        "count": 7,
+        "totalExposure": 30446600
+      },
+      "2017": {
+        "count": 5,
+        "totalExposure": 39256253
+      },
+      "2018": {
+        "count": 8,
+        "totalExposure": 129388724
+      },
+      "2019": {
+        "count": 12,
+        "totalExposure": 130496867.7
+      },
+      "2020": {
+        "count": 4,
+        "totalExposure": 15210339
+      },
+      "2021": {
+        "count": 7,
+        "totalExposure": 103703490
+      },
+      "2022": {
+        "count": 3,
+        "totalExposure": 134549931
+      },
+      "2023": {
+        "count": 7,
+        "totalExposure": 26793181.63
+      },
+      "2024": {
+        "count": 2,
+        "totalExposure": 100808471
+      },
+      "2025": {
+        "count": 2,
+        "totalExposure": 2850000
+      }
+    }
+  },
+  "大学及北安湾区": {
+    "id": 20,
+    "zona": 20,
+    "name": "Universidade e Baía de Pac On",
+    "nameCN": "大學及北安灣區",
+    "sname": "大学及北安湾区",
+    "count": 87,
+    "totalExposure": 1673557374.75,
+    "avgExposure": 19236291.663793102,
+    "minExposure": 149990,
+    "maxExposure": 299325062,
+    "byOccupancy": {
+      "工程險": {
+        "count": 87,
+        "totalExposure": 1673557374.75
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 9,
+        "totalExposure": 67046492
+      },
+      "2015": {
+        "count": 14,
+        "totalExposure": 283984286.74
+      },
+      "2016": {
+        "count": 6,
+        "totalExposure": 32612869
+      },
+      "2017": {
+        "count": 12,
+        "totalExposure": 72855244.5
+      },
+      "2018": {
+        "count": 15,
+        "totalExposure": 105628340
+      },
+      "2019": {
+        "count": 7,
+        "totalExposure": 248917874.51
+      },
+      "2020": {
+        "count": 5,
+        "totalExposure": 253262292
+      },
+      "2021": {
+        "count": 2,
+        "totalExposure": 301473592
+      },
+      "2022": {
+        "count": 4,
+        "totalExposure": 6603762
+      },
+      "2023": {
+        "count": 6,
+        "totalExposure": 98145562
+      },
+      "2024": {
+        "count": 6,
+        "totalExposure": 196081460
+      },
+      "2025": {
+        "count": 1,
+        "totalExposure": 6945600
+      }
+    }
+  },
+  "北安及大潭山区": {
+    "id": 21,
+    "zona": 21,
+    "name": "Pac On e Taipa Grande",
+    "nameCN": "北安及大潭山區",
+    "sname": "北安及大潭山区",
+    "count": 153,
+    "totalExposure": 15806191944.04,
+    "avgExposure": 103308444.07869282,
+    "minExposure": 284000,
+    "maxExposure": 4239967303.01,
+    "byOccupancy": {
+      "工程險": {
+        "count": 153,
+        "totalExposure": 15806191944.04
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 13,
+        "totalExposure": 297981167.5
+      },
+      "2015": {
+        "count": 5,
+        "totalExposure": 491607592.9
+      },
+      "2016": {
+        "count": 21,
+        "totalExposure": 1626148328
+      },
+      "2017": {
+        "count": 14,
+        "totalExposure": 446067874.09
+      },
+      "2018": {
+        "count": 15,
+        "totalExposure": 222242735.24
+      },
+      "2019": {
+        "count": 14,
+        "totalExposure": 925153209.6800001
+      },
+      "2020": {
+        "count": 7,
+        "totalExposure": 3067458914
+      },
+      "2021": {
+        "count": 13,
+        "totalExposure": 554843800
+      },
+      "2022": {
+        "count": 9,
+        "totalExposure": 345289140.75
+      },
+      "2023": {
+        "count": 11,
+        "totalExposure": 211222056.87
+      },
+      "2024": {
+        "count": 21,
+        "totalExposure": 1729616849
+      },
+      "2025": {
+        "count": 10,
+        "totalExposure": 5888560276.01
+      }
+    }
+  },
+  "氹仔旧城及马场区": {
+    "id": 22,
+    "zona": 22,
+    "name": "Vila da Taipa e Hipódromo",
+    "nameCN": "氹仔舊城及馬場區",
+    "sname": "氹仔旧城及马场区",
+    "count": 33,
+    "totalExposure": 246896894.43,
+    "avgExposure": 7481724.073636364,
+    "minExposure": 520000,
+    "maxExposure": 89640346,
+    "byOccupancy": {
+      "工程險": {
+        "count": 33,
+        "totalExposure": 246896894.43
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 2,
+        "totalExposure": 3648000
+      },
+      "2015": {
+        "count": 3,
+        "totalExposure": 28010424.43
+      },
+      "2016": {
+        "count": 6,
+        "totalExposure": 40237300
+      },
+      "2017": {
+        "count": 5,
+        "totalExposure": 10200210
+      },
+      "2018": {
+        "count": 3,
+        "totalExposure": 92895346
+      },
+      "2019": {
+        "count": 3,
+        "totalExposure": 20934219
+      },
+      "2020": {
+        "count": 1,
+        "totalExposure": 1006200
+      },
+      "2021": {
+        "count": 4,
+        "totalExposure": 37231605
+      },
+      "2022": {
+        "count": 4,
+        "totalExposure": 10074230
+      },
+      "2023": {
+        "count": 1,
+        "totalExposure": 1059360
+      },
+      "2025": {
+        "count": 1,
+        "totalExposure": 1600000
+      }
+    }
+  },
+  "路环区": {
+    "id": 23,
+    "zona": 23,
+    "name": "Coloane",
+    "nameCN": "路環區",
+    "sname": "路环区",
+    "count": 361,
+    "totalExposure": 19878362755.35,
+    "avgExposure": 55064716.77382271,
+    "minExposure": 130630,
+    "maxExposure": 7590017825.23,
+    "byOccupancy": {
+      "工程險": {
+        "count": 361,
+        "totalExposure": 19878362755.35
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 31,
+        "totalExposure": 118242827.5
+      },
+      "2015": {
+        "count": 40,
+        "totalExposure": 1234093556.4299998
+      },
+      "2016": {
+        "count": 40,
+        "totalExposure": 279433945
+      },
+      "2017": {
+        "count": 42,
+        "totalExposure": 1285614132.85
+      },
+      "2018": {
+        "count": 38,
+        "totalExposure": 412666097.65
+      },
+      "2019": {
+        "count": 31,
+        "totalExposure": 8937274443.619999
+      },
+      "2020": {
+        "count": 29,
+        "totalExposure": 1540052842.5
+      },
+      "2021": {
+        "count": 31,
+        "totalExposure": 1388744451.2
+      },
+      "2022": {
+        "count": 14,
+        "totalExposure": 383662915.65
+      },
+      "2023": {
+        "count": 21,
+        "totalExposure": 815682248.63
+      },
+      "2024": {
+        "count": 25,
+        "totalExposure": 2328807629.0099998
+      },
+      "2025": {
+        "count": 19,
+        "totalExposure": 1154087665.31
+      }
+    }
+  },
+  "路氹填海区": {
+    "id": 24,
+    "zona": 24,
+    "name": "Cotai",
+    "nameCN": "路氹填海區",
+    "sname": "路氹填海区",
+    "count": 1339,
+    "totalExposure": 43146790313.12001,
+    "avgExposure": 32223144.371262144,
+    "minExposure": 189955,
+    "maxExposure": 3922783417,
+    "byOccupancy": {
+      "工程險": {
+        "count": 1339,
+        "totalExposure": 43146790313.12001
+      }
+    },
+    "byYear": {
+      "2014": {
+        "count": 33,
+        "totalExposure": 473146204
+      },
+      "2015": {
+        "count": 151,
+        "totalExposure": 4846328222.300002
+      },
+      "2016": {
+        "count": 63,
+        "totalExposure": 2459385124.7200003
+      },
+      "2017": {
+        "count": 76,
+        "totalExposure": 7210676649.7300005
+      },
+      "2018": {
+        "count": 141,
+        "totalExposure": 3706876555.4500003
+      },
+      "2019": {
+        "count": 128,
+        "totalExposure": 3352534209.74
+      },
+      "2020": {
+        "count": 101,
+        "totalExposure": 3095053601.43
+      },
+      "2021": {
+        "count": 173,
+        "totalExposure": 5053283723.52
+      },
+      "2022": {
+        "count": 104,
+        "totalExposure": 3081973879.4900002
+      },
+      "2023": {
+        "count": 139,
+        "totalExposure": 3814806119.13
+      },
+      "2024": {
+        "count": 127,
+        "totalExposure": 3824308469.96
+      },
+      "2025": {
+        "count": 103,
+        "totalExposure": 2228417553.65
+      }
+    }
+  },
+  "新城A区及港珠澳大桥澳门口岸管理区": {
+    "id": 25,
+    "zona": 25,
+    "name": "Zona A",
+    "nameCN": "新城A區及港珠澳大橋澳門口岸管理區",
+    "sname": "新城A区及港珠澳大桥澳门口岸管理区",
+    "count": 49,
+    "totalExposure": 31591433348.23,
+    "avgExposure": 644723129.5557142,
+    "minExposure": 117840,
+    "maxExposure": 11050000000,
+    "byOccupancy": {
+      "工程險": {
+        "count": 49,
+        "totalExposure": 31591433348.23
+      }
+    },
+    "byYear": {
+      "2016": {
+        "count": 1,
+        "totalExposure": 11050000000
+      },
+      "2017": {
+        "count": 2,
+        "totalExposure": 160793093.12
+      },
+      "2018": {
+        "count": 2,
+        "totalExposure": 3997900
+      },
+      "2019": {
+        "count": 2,
+        "totalExposure": 36781796
+      },
+      "2020": {
+        "count": 8,
+        "totalExposure": 767645404.2
+      },
+      "2021": {
+        "count": 4,
+        "totalExposure": 523875867.36
+      },
+      "2022": {
+        "count": 7,
+        "totalExposure": 8051389426
+      },
+      "2023": {
+        "count": 8,
+        "totalExposure": 3827810311.75
+      },
+      "2024": {
+        "count": 10,
+        "totalExposure": 6823592389.8
+      },
+      "2025": {
+        "count": 5,
+        "totalExposure": 345547160
+      }
+    }
+  },
+  "Unknown": {
+    "id": 0,
+    "zona": 0,
+    "name": "Unknown",
+    "nameCN": "Unknown",
+    "sname": "Unknown",
+    "count": 3685,
+    "totalExposure": 91713895582.48601,
+    "avgExposure": 24888438.42129878,
+    "minExposure": 127300,
+    "maxExposure": 5370016283.69,
+    "byOccupancy": {
+      "工程險": {
+        "count": 3685,
+        "totalExposure": 91713895582.48601
+      }
+    },
+    "byYear": {
+      "2013": {
+        "count": 1,
+        "totalExposure": 1111000
+      },
+      "2014": {
+        "count": 379,
+        "totalExposure": 11776333222.366
+      },
+      "2015": {
+        "count": 377,
+        "totalExposure": 5459553509.450001
+      },
+      "2016": {
+        "count": 385,
+        "totalExposure": 6526259118
+      },
+      "2017": {
+        "count": 380,
+        "totalExposure": 6607450906.47
+      },
+      "2018": {
+        "count": 342,
+        "totalExposure": 6364710318.009999
+      },
+      "2019": {
+        "count": 310,
+        "totalExposure": 7722023315.35
+      },
+      "2020": {
+        "count": 315,
+        "totalExposure": 10427762989.1
+      },
+      "2021": {
+        "count": 303,
+        "totalExposure": 10364184910.39
+      },
+      "2022": {
+        "count": 196,
+        "totalExposure": 3314697583.57
+      },
+      "2023": {
+        "count": 280,
+        "totalExposure": 7161448895.28
+      },
+      "2024": {
+        "count": 234,
+        "totalExposure": 10610865927.65
+      },
+      "2025": {
+        "count": 183,
+        "totalExposure": 5377493886.849999
+      }
+    }
+  }
+}

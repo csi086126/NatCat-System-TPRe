@@ -1,0 +1,8 @@
+event_id,parent_peril,sub_perils,description
+1001,XTC,"WSS;OSF",Typhoon Mangkhut-like: surge + tropical rainfall pluvial (CORRELATED, same event_id)
+1002,XTC,"WSS;OSF",Typhoon Hato-like: surge + rainfall pluvial
+1003,XTC,"WSS",Weak typhoon: surge only (rainfall negligible)
+2001,,"OSF",Non-typhoon convective rainstorm (independent pluvial event)
+2002,,"OSF",Monsoon trough heavy rain (independent pluvial event)
+3001,,"ORF",Pearl River upstream flood (river/fluvial only)
+4001,,"ORF;OSF",Compound fluvial(ORF) + pluvial(OSF) during prolonged rainfall

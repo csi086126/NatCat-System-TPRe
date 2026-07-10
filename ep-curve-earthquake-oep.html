@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Earthquake OEP – EP Curve</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; margin: 24px; color: #1f1f1f; background:#fafafa; }
+  h1 { color:#5b21b6; margin:0 0 4px; }
+  .sub { color:#6b7280; margin-bottom:18px; }
+  .grid { display:grid; grid-template-columns: 1.4fr 1fr; gap:24px; align-items:start; }
+  .card { background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:14px 18px;
+          box-shadow:0 1px 2px rgba(0,0,0,.04); }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th, td { border-bottom:1px solid #eee; padding:6px 8px; text-align:right; }
+  th { background:#f5f3ff; color:#5b21b6; font-weight:600; }
+  td:first-child, th:first-child { text-align:left; }
+  .stats { margin-top:14px; padding-top:10px; border-top:2px solid #ddd6fe; font-size:13px; }
+  .stats div { display:flex; justify-content:space-between; padding:2px 0; }
+  .stats b { color:#5b21b6; }
+  #chart { width:100%; height:560px; }
+  .controls { margin: 8px 0 0; font-size:13px; }
+  label { margin-right: 14px; }
+</style>
+</head>
+<body>
+
+<h1>Earthquake OEP — Ground-Up & Gross Loss</h1>
+<div class="sub">Modelled Exposure: 32,187,860,889 &nbsp;|&nbsp; Currency units as provided</div>
+
+<div class="controls card">
+  <label><input type="radio" name="xaxis" value="rp" checked> X-axis: Return Period (years)</label>
+  <label><input type="radio" name="xaxis" value="prob"> X-axis: Exceedance Probability (%)</label>
+  <label><input type="checkbox" id="logx" checked> Log X</label>
+  <label><input type="checkbox" id="logy"> Log Y</label>
+</div>
+
+<div class="grid" style="margin-top:18px;">
+  <div class="card">
+    <div id="chart"></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0;color:#5b21b6;">Earthquake OEP Losses</h3>
+    <table>
+      <thead>
+        <tr><th>Prob.</th><th>RP (yr)</th><th>Ground Up</th><th>Gross Loss</th></tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <div class="stats">
+      <div><span>Average Annual Loss</span><b>GU 6,016,559 &nbsp;|&nbsp; Gross 5,049,758</b></div>
+      <div><span>Standard Deviation</span><b>GU 63,517,797 &nbsp;|&nbsp; Gross 62,176,490</b></div>
+      <div><span>Coefficient of Variation</span><b>GU 10.56 &nbsp;|&nbsp; Gross 12.31</b></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Data from Earthquake OEP table
+  const data = [
+    { prob: 0.01,  rp: 10000, gu: 2215370996, gross: 2204732213 },
+    { prob: 0.02,  rp:  5000, gu: 1894343516, gross: 1878792721 },
+    { prob: 0.05,  rp:  2000, gu: 1430074965, gross: 1414080788 },
+    { prob: 0.10,  rp:  1000, gu: 1067155977, gross: 1052537052 },
+    { prob: 0.20,  rp:   500, gu:  720115185, gross:  702465644 },
+    { prob: 0.40,  rp:   250, gu:  352115946, gross:  335206103 },
+    { prob: 0.50,  rp:   200, gu:  277168256, gross:  260088416 },
+    { prob: 1.00,  rp:   100, gu:  109585095, gross:   92144634 },
+    { prob: 2.00,  rp:    50, gu:   40799957, gross:   24176678 },
+    { prob: 4.00,  rp:    25, gu:   12033916, gross:    1278849 },
+    { prob: 10.00, rp:    10, gu:    1455693, gross:          0 },
+    { prob: 20.00, rp:     5, gu:     140438, gross:          0 },
+  ];
+
+  const fmt = n => n.toLocaleString();
+  const tbody = document.getElementById('tbody');
+  data.forEach(r => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${r.prob.toFixed(2)}%</td><td>${fmt(r.rp)}</td><td>${fmt(r.gu)}</td><td>${fmt(r.gross)}</td>`;
+    tbody.appendChild(tr);
+  });
+
+  function draw() {
+    const useRP = document.querySelector('input[name="xaxis"]:checked').value === 'rp';
+    const logX = document.getElementById('logx').checked;
+    const logY = document.getElementById('logy').checked;
+
+    // For RP we want ascending RP; for prob we want ascending prob (so descending RP)
+    const sorted = [...data].sort((a, b) => useRP ? a.rp - b.rp : a.prob - b.prob);
+    const xs = sorted.map(r => useRP ? r.rp : r.prob);
+    const gu = sorted.map(r => r.gu);
+    const gr = sorted.map(r => r.gross);
+
+    const traceGU = {
+      x: xs, y: gu, name: 'Ground Up',
+      mode: 'lines+markers',
+      line: { color: '#7c3aed', width: 3, shape: 'spline' },
+      marker: { size: 9, color: '#7c3aed' },
+      hovertemplate:
+        (useRP ? 'RP: %{x:,} yr<br>' : 'Exceedance: %{x}%<br>') +
+        'Ground Up: %{y:,.0f}<extra></extra>'
+    };
+    const traceGR = {
+      x: xs, y: gr, name: 'Gross Loss',
+      mode: 'lines+markers',
+      line: { color: '#f59e0b', width: 3, shape: 'spline' },
+      marker: { size: 9, color: '#f59e0b', symbol: 'square' },
+      hovertemplate:
+        (useRP ? 'RP: %{x:,} yr<br>' : 'Exceedance: %{x}%<br>') +
+        'Gross Loss: %{y:,.0f}<extra></extra>'
+    };
+
+    const layout = {
+      title: { text: 'Earthquake OEP — Exceedance Probability Curve', font: { size: 17, color: '#5b21b6' } },
+      xaxis: {
+        title: useRP ? 'Return Period (years)' : 'Annual Exceedance Probability (%)',
+        type: logX ? 'log' : 'linear',
+        gridcolor: '#eee',
+      },
+      yaxis: {
+        title: 'Loss',
+        type: logY ? 'log' : 'linear',
+        tickformat: ',.0s',
+        gridcolor: '#eee',
+      },
+      legend: { x: useRP ? 0.02 : 0.65, y: 0.98, bgcolor: 'rgba(255,255,255,0.7)' },
+      margin: { l: 80, r: 30, t: 60, b: 60 },
+      plot_bgcolor: '#fff',
+      paper_bgcolor: '#fff',
+      hovermode: 'x unified',
+    };
+
+    Plotly.newPlot('chart', [traceGU, traceGR], layout, { responsive: true, displaylogo: false });
+  }
+
+  document.querySelectorAll('input[name="xaxis"], #logx, #logy').forEach(el => el.addEventListener('change', draw));
+  draw();
+</script>
+
+</body>
+</html>

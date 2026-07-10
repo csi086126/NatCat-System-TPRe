@@ -1,0 +1,18 @@
+{
+  "keys_data_path": ".",
+  "step_definition": {
+    "areaperil": {
+      "type": "merge",
+      "columns": ["lon", "lat", "peril_id"],
+      "source": "areaperil_dict.csv",
+      "id_column": "areaperil_id"
+    },
+    "vulnerability": {
+      "type": "merge",
+      "columns": ["occupancycode", "peril_id"],
+      "source": "vulnerability_dict.csv",
+      "id_column": "vulnerability_id"
+    }
+  },
+  "strategy": ["areaperil", "vulnerability"]
+}

@@ -1,0 +1,28 @@
+{
+  "generated": "2026-01-19T10:00:00.000Z",
+  "portfolioFile": "tpmo-portfolio-enhanced-FULL-v2.json",
+  "totalPolicies": 7100,
+  "levels": [
+    {
+      "name": "Parishes (7)",
+      "code": "parishes",
+      "count": 8,
+      "file": "macau-district-statistics.json",
+      "description": "Macau administrative parishes (堂区)"
+    },
+    {
+      "name": "Statistical Areas (25)",
+      "code": "statistical_areas",
+      "count": 26,
+      "file": "macau-statistical-area-statistics.json",
+      "description": "Macau statistical areas (统计区)"
+    }
+  ],
+  "summary": {
+    "totalPolicies": 7100,
+    "matchedToParishes": 4918,
+    "matchedToStatisticalAreas": 3415,
+    "unmatchedParishes": 2182,
+    "unmatchedStatisticalAreas": 3685
+  }
+}

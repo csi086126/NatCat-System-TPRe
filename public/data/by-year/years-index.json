@@ -1,0 +1,33 @@
+{
+  "generatedAt": "2025-12-16T01:53:56.314Z",
+  "sourceFile": "tphk-geocoded-portfolio.json",
+  "totalRecords": 194506,
+  "recordsWithYear": 194506,
+  "recordsMissingYear": 0,
+  "years": [
+    {
+      "year": 2021,
+      "recordCount": 3649,
+      "fileName": "tphk-portfolio-2021.json",
+      "url": "/data/by-year/tphk-portfolio-2021.json"
+    },
+    {
+      "year": 2022,
+      "recordCount": 46834,
+      "fileName": "tphk-portfolio-2022.json",
+      "url": "/data/by-year/tphk-portfolio-2022.json"
+    },
+    {
+      "year": 2023,
+      "recordCount": 101135,
+      "fileName": "tphk-portfolio-2023.json",
+      "url": "/data/by-year/tphk-portfolio-2023.json"
+    },
+    {
+      "year": 2024,
+      "recordCount": 42888,
+      "fileName": "tphk-portfolio-2024.json",
+      "url": "/data/by-year/tphk-portfolio-2024.json"
+    }
+  ]
+}

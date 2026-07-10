@@ -1,0 +1,194 @@
+[
+  {
+    "id": "TY2017-HATO",
+    "name": "Typhoon Hato (天鸽)",
+    "nameEn": "Typhoon Hato",
+    "nameCn": "台风天鸽",
+    "type": "Typhoon",
+    "date": "2017-08-23",
+    "year": 2017,
+    "region": "Macau",
+    "maxWindSpeed": "185 km/h",
+    "maxWindSpeedCategory": "Severe Typhoon",
+    "totalRainfall": "320 mm",
+    "peakStormSurge": "2.5 m",
+    "estimatedLoss": "$1.65 Billion USD",
+    "affectedPopulation": "680,000",
+    "affectedAreas": ["Macau Peninsula", "Taipa", "Coloane"],
+    "insuranceData": {
+      "totalPolicies": null,
+      "claimsCount": null,
+      "totalClaimAmount": null,
+      "dataSource": "TPRe Macau Insurance Data"
+    },
+    "floodSimulation": {
+      "availableLayers": [
+        {
+          "name": "Macau Peninsula Flood Extent",
+          "wmsLayer": "Macau:Hato_MacauPeninsula",
+          "tifFile": "Hato_MacauPeninsula.tif",
+          "area": "Macau Peninsula"
+        },
+        {
+          "name": "Taipa Flood Extent",
+          "wmsLayer": "Macau:Hato_Taipa",
+          "tifFile": "Hato_Taipa.tif",
+          "area": "Taipa"
+        }
+      ],
+      "simulationMethod": "2D Hydraulic Model",
+      "resolution": "High Resolution (TIF)"
+    },
+    "geoserverLayers": [
+      {
+        "name": "Macau Peninsula Flood Depth",
+        "layerName": "Hato_MacauPeninsula",
+        "workspace": "Macau",
+        "area": "Macau Peninsula"
+      },
+      {
+        "name": "Taipa Flood Depth",
+        "layerName": "Hato_Taipa",
+        "workspace": "Macau",
+        "area": "Taipa"
+      }
+    ],
+    "geometry": {
+      "type": "Point",
+      "coordinates": [113.5439, 22.1987]
+    },
+    "impactSummary": "Typhoon Hato was the strongest typhoon to hit Macau in 53 years. It caused massive flooding across Macau Peninsula and Taipa, with significant damage to residential and commercial properties.",
+    "references": [
+      "SMG (Macao Meteorological and Geophysical Bureau)",
+      "TPRe Insurance Claims Database"
+    ]
+  },
+  {
+    "id": "TY2018-MANGKHUT",
+    "name": "Typhoon Mangkhut (山竹)",
+    "nameEn": "Typhoon Mangkhut",
+    "nameCn": "台风山竹",
+    "type": "Typhoon",
+    "date": "2018-09-16",
+    "year": 2018,
+    "region": "Macau",
+    "maxWindSpeed": "215 km/h",
+    "maxWindSpeedCategory": "Super Typhoon",
+    "totalRainfall": "450 mm",
+    "peakStormSurge": "3.2 m",
+    "estimatedLoss": "$2.83 Billion USD",
+    "affectedPopulation": "680,000",
+    "affectedAreas": ["Macau Peninsula", "Taipa", "Coloane", "Cotai"],
+    "insuranceData": {
+      "totalPolicies": null,
+      "claimsCount": null,
+      "totalClaimAmount": null,
+      "dataSource": "TPRe Macau Insurance Data"
+    },
+    "floodSimulation": {
+      "availableLayers": [
+        {
+          "name": "Macau Peninsula Flood Extent",
+          "wmsLayer": "Macau:Mangkhut_MacauPeninsula",
+          "tifFile": "Mangkhut_MacauPeninsula.tif",
+          "area": "Macau Peninsula"
+        },
+        {
+          "name": "Taipa Flood Extent",
+          "wmsLayer": "Macau:Mangkhut_Taipa",
+          "tifFile": "Mangkhut_Taipa.tif",
+          "area": "Taipa"
+        }
+      ],
+      "simulationMethod": "2D Hydraulic Model",
+      "resolution": "High Resolution (TIF)"
+    },
+    "geoserverLayers": [
+      {
+        "name": "Macau Peninsula Flood Depth",
+        "layerName": "Mangkhut_MacauPeninsula",
+        "workspace": "Macau",
+        "area": "Macau Peninsula"
+      },
+      {
+        "name": "Taipa Flood Depth",
+        "layerName": "Mangkhut_Taipa",
+        "workspace": "Macau",
+        "area": "Taipa"
+      }
+    ],
+    "geometry": {
+      "type": "Point",
+      "coordinates": [113.5439, 22.1987]
+    },
+    "impactSummary": "Super Typhoon Mangkhut was one of the most powerful storms to affect Macau. It caused extensive flooding, particularly in low-lying coastal areas, with severe damage to infrastructure and properties.",
+    "references": [
+      "SMG (Macao Meteorological and Geophysical Bureau)",
+      "TPRe Insurance Claims Database"
+    ]
+  },
+  {
+    "id": "TY2023-RAGASA",
+    "name": "Typhoon Ragasa (桦加沙)",
+    "nameEn": "Typhoon Ragasa",
+    "nameCn": "台风桦加沙",
+    "type": "Typhoon",
+    "date": "2023-09-02",
+    "year": 2023,
+    "region": "Macau",
+    "maxWindSpeed": "165 km/h",
+    "maxWindSpeedCategory": "Typhoon",
+    "totalRainfall": "280 mm",
+    "peakStormSurge": "1.8 m",
+    "estimatedLoss": "$950 Million USD",
+    "affectedPopulation": "680,000",
+    "affectedAreas": ["Macau Peninsula", "Taipa"],
+    "insuranceData": {
+      "totalPolicies": null,
+      "claimsCount": null,
+      "totalClaimAmount": null,
+      "dataSource": "TPRe Macau Insurance Data"
+    },
+    "floodSimulation": {
+      "availableLayers": [
+        {
+          "name": "Macau Peninsula Flood Extent",
+          "wmsLayer": "Macau:Ragasa_MacauPeninsula",
+          "tifFile": "Ragasa_MacauPeninsula.tif",
+          "area": "Macau Peninsula"
+        },
+        {
+          "name": "Taipa Flood Extent",
+          "wmsLayer": "Macau:Ragasa_Taipa",
+          "tifFile": "Ragasa_Taipa.tif",
+          "area": "Taipa"
+        }
+      ],
+      "simulationMethod": "2D Hydraulic Model",
+      "resolution": "High Resolution (TIF)"
+    },
+    "geoserverLayers": [
+      {
+        "name": "Macau Peninsula Flood Depth",
+        "layerName": "Ragasa_MacauPeninsula",
+        "workspace": "Macau",
+        "area": "Macau Peninsula"
+      },
+      {
+        "name": "Taipa Flood Depth",
+        "layerName": "Ragasa_Taipa",
+        "workspace": "Macau",
+        "area": "Taipa"
+      }
+    ],
+    "geometry": {
+      "type": "Point",
+      "coordinates": [113.5439, 22.1987]
+    },
+    "impactSummary": "Typhoon Ragasa brought significant rainfall and storm surge to Macau, causing flooding in several districts. The event resulted in substantial property damage and business interruption.",
+    "references": [
+      "SMG (Macao Meteorological and Geophysical Bureau)",
+      "TPRe Insurance Claims Database"
+    ]
+  }
+]

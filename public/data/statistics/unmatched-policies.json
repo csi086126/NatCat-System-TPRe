@@ -1,0 +1,726 @@
+[
+  {
+    "policyId": "060101012022001555",
+    "reason": "No geographic match",
+    "lat": 55.378051,
+    "lng": -3.435973
+  },
+  {
+    "policyId": "060101012022001617",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012022001737",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012022001759",
+    "reason": "No geographic match",
+    "lat": -19.4914108,
+    "lng": 132.5509603
+  },
+  {
+    "policyId": "060101012022001760",
+    "reason": "No geographic match",
+    "lat": -19.4914108,
+    "lng": 132.5509603
+  },
+  {
+    "policyId": "060101012022001792",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012022001849",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012022001849",
+    "reason": "No geographic match",
+    "lat": 8.9149922,
+    "lng": 78.1804996
+  },
+  {
+    "policyId": "060101012022001849",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012022001849",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012022001849",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012022001849",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012022001849",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012022001849",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012022001849",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012022001849",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012022001849",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012022001877",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012022001896",
+    "reason": "No geographic match",
+    "lat": -19.4914108,
+    "lng": 132.5509603
+  },
+  {
+    "policyId": "060101012022001940",
+    "reason": "No geographic match",
+    "lat": 22.2921625,
+    "lng": 114.1819732
+  },
+  {
+    "policyId": "060101012022001957",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012022002043",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012022002067",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012022002276",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012022002340",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012022002415",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012022002475",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012022002665",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012022002673",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012022002715",
+    "reason": "No geographic match",
+    "lat": 23.129895,
+    "lng": 113.373671
+  },
+  {
+    "policyId": "060101012022002723",
+    "reason": "No geographic match",
+    "lat": -19.4914108,
+    "lng": 132.5509603
+  },
+  {
+    "policyId": "060101012023000003",
+    "reason": "No geographic match",
+    "lat": -19.4914108,
+    "lng": 132.5509603
+  },
+  {
+    "policyId": "060101012023000031",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000033",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000034",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000077",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000078",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000101",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000131",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000131",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000134",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000136",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000139",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000261",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000276",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000375",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000403",
+    "reason": "No geographic match",
+    "lat": 43.5708006,
+    "lng": -116.0308866
+  },
+  {
+    "policyId": "060101012023000404",
+    "reason": "No geographic match",
+    "lat": 43.5708006,
+    "lng": -116.0308866
+  },
+  {
+    "policyId": "060101012023000434",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000593",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000595",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000596",
+    "reason": "No geographic match",
+    "lat": 56.260204,
+    "lng": 25.7861052
+  },
+  {
+    "policyId": "060101012023000600",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000627",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000642",
+    "reason": "No geographic match",
+    "lat": 51.4829902,
+    "lng": -0.1772834
+  },
+  {
+    "policyId": "060101012023000648",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000710",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000770",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000786",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000901",
+    "reason": "No geographic match",
+    "lat": 23.012486,
+    "lng": 114.099644
+  },
+  {
+    "policyId": "060101012023000903",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000942",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000943",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000947",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000951",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000951",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000951",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023000979",
+    "reason": "No geographic match",
+    "lat": 36.5972925,
+    "lng": -121.8977688
+  },
+  {
+    "policyId": "060101012023001018",
+    "reason": "No geographic match",
+    "lat": 40.6331249,
+    "lng": -89.3985283
+  },
+  {
+    "policyId": "060101012023001070",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023001256",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023001317",
+    "reason": "No geographic match",
+    "lat": 22.3605662,
+    "lng": 113.9508005
+  },
+  {
+    "policyId": "060101012023001385",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023001396",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023001396",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023001406",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023001441",
+    "reason": "No geographic match",
+    "lat": 1.3263003,
+    "lng": 103.445131
+  },
+  {
+    "policyId": "060101012023001535",
+    "reason": "No geographic match",
+    "lat": 55.378051,
+    "lng": -3.435973
+  },
+  {
+    "policyId": "060101012023001545",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023001741",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023001758",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023001882",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023002042",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023002051",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023002051",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023002166",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023002169",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101012023002256",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101062022000193",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101062022000203",
+    "reason": "No geographic match",
+    "lat": 22.2921625,
+    "lng": 114.1819732
+  },
+  {
+    "policyId": "060101062022000206",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101062022000213",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101062023000009",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101062023000011",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101062023000066",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101062023000078",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101062023000100",
+    "reason": "No geographic match",
+    "lat": 23.012486,
+    "lng": 114.099644
+  },
+  {
+    "policyId": "060101062023000103",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101062023000110",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101062023000113",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101062023000118",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101062023000156",
+    "reason": "No geographic match",
+    "lat": 1.3263003,
+    "lng": 103.445131
+  },
+  {
+    "policyId": "060101062023000180",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072022000120",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072022000133",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072022000144",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072022000148",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072022000150",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072023000002",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072023000015",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072023000016",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072023000025",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072023000026",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072023000040",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072023000041",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072023000055",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072023000057",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072023000059",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072023000063",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072023000065",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072023000077",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072023000087",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072023000088",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072023000089",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072023000090",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072023000091",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072023000106",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072023000108",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101072023000129",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101082022000259",
+    "reason": "No geographic match",
+    "lat": 40.6331249,
+    "lng": -89.3985283
+  },
+  {
+    "policyId": "060101082022000289",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101082022000303",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101082022000304",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101082022000307",
+    "reason": "No geographic match",
+    "lat": -19.4914108,
+    "lng": 132.5509603
+  },
+  {
+    "policyId": "060101082023000035",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101082023000036",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101082023000048",
+    "reason": "No geographic match",
+    "lat": 21.711625,
+    "lng": 109.626189
+  },
+  {
+    "policyId": "060101082023000154",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101082023000182",
+    "reason": "No geographic match",
+    "lat": 34.748142,
+    "lng": 116.831839
+  },
+  {
+    "policyId": "060101082023000223",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101132022000030",
+    "reason": "No geographic match",
+    "lat": -19.4914108,
+    "lng": 132.5509603
+  },
+  {
+    "policyId": "060101132023000005",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101132023000008",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101132023000010",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101152006000001",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101152021015857",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101152021019578",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101152021019634",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101152021019891",
+    "reason": "No geographic match",
+    "lat": 43.4728358,
+    "lng": 11.1467374
+  },
+  {
+    "policyId": "060101152022002587",
+    "reason": "No geographic match",
+    "lat": 33.7478598,
+    "lng": 72.7808269
+  },
+  {
+    "policyId": "060101152022008192",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101152022009327",
+    "reason": "No geographic match",
+    "lat": -12.4468114,
+    "lng": 130.8330451
+  },
+  {
+    "policyId": "060101152022009455",
+    "reason": "No geographic match",
+    "lat": -19.4914108,
+    "lng": 132.5509603
+  },
+  {
+    "policyId": "060101152022009509",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101152022010203",
+    "reason": "No geographic match",
+    "lat": 28.5481017,
+    "lng": 77.2686771
+  },
+  {
+    "policyId": "060101152022010357",
+    "reason": "No geographic match",
+    "lat": 24.9275783,
+    "lng": 67.10454589999999
+  },
+  {
+    "policyId": "060101152022010417",
+    "reason": "No geographic match",
+    "lat": 22.838682,
+    "lng": 114.167265
+  },
+  {
+    "policyId": "060101152022010658",
+    "reason": "No geographic match",
+    "lat": -19.4914108,
+    "lng": 132.5509603
+  },
+  {
+    "policyId": "060101152022010681",
+    "reason": "No geographic match",
+    "lat": -19.4914108,
+    "lng": 132.5509603
+  },
+  {
+    "policyId": "060101152022010720",
+    "reason": "No geographic match",
+    "lat": 23.129895,
+    "lng": 113.373671
+  },
+  {
+    "policyId": "060101152022011163",
+    "reason": "No coordinates"
+  },
+  {
+    "policyId": "060101152022011542",
+    "reason": "No geographic match",
+    "lat": -19.4914108,
+    "lng": 132.5509603
+  }
+]

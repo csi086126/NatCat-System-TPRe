@@ -36,8 +36,9 @@ export default function OasisLMFPage() {
       // Get the current host (either localhost or the actual IP address like 10.253.22.15)
       const currentHost = typeof window !== 'undefined' ? window.location.hostname : 'localhost'
       
-      // Try common OasisLMF ports (8088 is the current OasisUI port)
-      const ports = [8088, 8080, 8000, 8888, 3000]
+      // Try common OasisLMF ports. 8081 is where coreoasis/oasisui_app maps 3838 by default.
+      // 8088 was an older mapping; 8080 is usually GeoServer (skip first to avoid false positive).
+      const ports = [8081, 8088, 3838, 8000, 8888, 3000, 8080]
       for (const port of ports) {
         try {
           const response = await fetch(`http://${currentHost}:${port}`, { 

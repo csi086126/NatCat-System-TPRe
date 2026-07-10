@@ -7,16 +7,18 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Home, Map, Activity, Building2, Puzzle, LogOut } from "lucide-react";
 import { RegionSelector } from "@/components/RegionSelector";
+import { useRegion } from "@/contexts/RegionContext";
 
 const navs = [
   { href: "/riskmap", label: "Risk Map", icon: <Map size={18} /> },
   { href: "/model", label: "Catastrophe Model", icon: <Activity size={18} /> },
-  { href: "/asset", label: "Portfolio Management", icon: <Building2 size={18} /> },
+  { href: "/portfolio", label: "Portfolio Management", icon: <Building2 size={18} /> },
   { href: "/fuzhu", label: "Extensions", icon: <Puzzle size={18} /> },
 ];
 
 export default function AppHeader() {
   const pathname = usePathname();
+  const { switchRegion } = useRegion();
 
   const handleLogout = () => {
     localStorage.removeItem("isLoggedIn");
@@ -47,6 +49,11 @@ export default function AppHeader() {
             <Link href={nav.href} key={nav.href}>
               <Button
                 variant="ghost"
+                onClick={() => {
+                  if (nav.href === "/riskmap" || nav.href === "/portfolio") {
+                    switchRegion("worldwide");
+                  }
+                }}
                 className={`gap-2 ${
                   pathname === nav.href || 
                   (nav.href === "/model" && (pathname === "/oasis" || pathname === "/oasislmf")) // Cat Model includes both models

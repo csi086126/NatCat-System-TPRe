@@ -1,0 +1,381 @@
+{
+  "ppu_7": {
+    "id": 7,
+    "name": "New Territories Southwest",
+    "nameCN": "新界西南",
+    "count": 270,
+    "totalExposure": 210747773.43,
+    "avgExposure": 780547.31,
+    "minExposure": 252000,
+    "maxExposure": 10000000,
+    "byOccupancy": {
+      "STORAGE": {
+        "count": 2,
+        "totalExposure": 14319773.43
+      },
+      "WAREHOUSE": {
+        "count": 3,
+        "totalExposure": 3240000
+      },
+      "DWELLING": {
+        "count": 257,
+        "totalExposure": 188180000
+      },
+      "WAREHOUSE  ": {
+        "count": 4,
+        "totalExposure": 4000000
+      },
+      "車位": {
+        "count": 4,
+        "totalExposure": 1008000
+      }
+    },
+    "byYear": {
+      "1977": {
+        "count": 1,
+        "totalExposure": 800000
+      },
+      "1978": {
+        "count": 4,
+        "totalExposure": 1200000
+      },
+      "1981": {
+        "count": 5,
+        "totalExposure": 4500000
+      },
+      "1984": {
+        "count": 4,
+        "totalExposure": 3200000
+      },
+      "1987": {
+        "count": 16,
+        "totalExposure": 15200000
+      }
+    }
+  },
+  "ppu_2": {
+    "id": 2,
+    "name": "Kowloon East",
+    "nameCN": "九龍東",
+    "count": 458,
+    "totalExposure": 289805724,
+    "avgExposure": 632763.59,
+    "minExposure": 300000,
+    "maxExposure": 4010724,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 432,
+        "totalExposure": 257450724
+      },
+      "WAREHOUSE": {
+        "count": 18,
+        "totalExposure": 21155000
+      },
+      "SHOP": {
+        "count": 4,
+        "totalExposure": 10000000
+      },
+      "Unknown": {
+        "count": 4,
+        "totalExposure": 1200000
+      }
+    },
+    "byYear": {
+      "1972": {
+        "count": 4,
+        "totalExposure": 1200000
+      },
+      "1976": {
+        "count": 4,
+        "totalExposure": 3200000
+      },
+      "1977": {
+        "count": 32,
+        "totalExposure": 15600000
+      },
+      "1980": {
+        "count": 4,
+        "totalExposure": 1200000
+      },
+      "1981": {
+        "count": 5,
+        "totalExposure": 2000000
+      },
+      "1983": {
+        "count": 9,
+        "totalExposure": 4700000
+      },
+      "1985": {
+        "count": 6,
+        "totalExposure": 4300000
+      }
+    }
+  },
+  "ppu_9": {
+    "id": 9,
+    "name": "Islands",
+    "nameCN": "離島",
+    "count": 85,
+    "totalExposure": 63731654,
+    "avgExposure": 749784.16,
+    "minExposure": 300000,
+    "maxExposure": 3558000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 85,
+        "totalExposure": 63731654
+      }
+    },
+    "byYear": {}
+  },
+  "ppu_1": {
+    "id": 1,
+    "name": "Hong Kong Island",
+    "nameCN": "港島",
+    "count": 902,
+    "totalExposure": 853176837,
+    "avgExposure": 945872.32,
+    "minExposure": 300000,
+    "maxExposure": 18000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 896,
+        "totalExposure": 830776837
+      },
+      "OFFICE": {
+        "count": 1,
+        "totalExposure": 1440000
+      },
+      "SHOP": {
+        "count": 4,
+        "totalExposure": 20160000
+      },
+      "住宅": {
+        "count": 1,
+        "totalExposure": 800000
+      }
+    },
+    "byYear": {
+      "1966": {
+        "count": 12,
+        "totalExposure": 10000000
+      },
+      "1967": {
+        "count": 13,
+        "totalExposure": 10100000
+      },
+      "1968": {
+        "count": 13,
+        "totalExposure": 19525000
+      },
+      "1972": {
+        "count": 3,
+        "totalExposure": 900000
+      },
+      "1973": {
+        "count": 4,
+        "totalExposure": 3200000
+      },
+      "1975": {
+        "count": 15,
+        "totalExposure": 12100000
+      },
+      "1976": {
+        "count": 8,
+        "totalExposure": 8000000
+      },
+      "1977": {
+        "count": 7,
+        "totalExposure": 5600000
+      },
+      "1978": {
+        "count": 9,
+        "totalExposure": 3200000
+      },
+      "1979": {
+        "count": 8,
+        "totalExposure": 4400000
+      },
+      "1980": {
+        "count": 10,
+        "totalExposure": 6000000
+      },
+      "1981": {
+        "count": 17,
+        "totalExposure": 15100000
+      },
+      "1982": {
+        "count": 3,
+        "totalExposure": 5535489
+      },
+      "1983": {
+        "count": 4,
+        "totalExposure": 1200000
+      },
+      "1985": {
+        "count": 35,
+        "totalExposure": 35000000
+      },
+      "1986": {
+        "count": 7,
+        "totalExposure": 3600000
+      },
+      "1987": {
+        "count": 11,
+        "totalExposure": 11600000
+      }
+    }
+  },
+  "ppu_3": {
+    "id": 3,
+    "name": "Kowloon West",
+    "nameCN": "九龍西",
+    "count": 584,
+    "totalExposure": 615211648,
+    "avgExposure": 1053444.6,
+    "minExposure": 300000,
+    "maxExposure": 20000000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 562,
+        "totalExposure": 583696648
+      },
+      "OFFICE": {
+        "count": 18,
+        "totalExposure": 27515000
+      },
+      "SHOP": {
+        "count": 4,
+        "totalExposure": 4000000
+      }
+    },
+    "byYear": {
+      "1964": {
+        "count": 1,
+        "totalExposure": 800000
+      },
+      "1966": {
+        "count": 4,
+        "totalExposure": 19800000
+      },
+      "1981": {
+        "count": 2,
+        "totalExposure": 1600000
+      }
+    }
+  },
+  "ppu_6": {
+    "id": 6,
+    "name": "New Territories Southeast",
+    "nameCN": "新界東南",
+    "count": 302,
+    "totalExposure": 243730000,
+    "avgExposure": 807052.98,
+    "minExposure": 300000,
+    "maxExposure": 9900000,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 299,
+        "totalExposure": 214030000
+      },
+      "SHOP": {
+        "count": 3,
+        "totalExposure": 29700000
+      }
+    },
+    "byYear": {}
+  },
+  "ppu_8": {
+    "id": 8,
+    "name": "New Territories Central",
+    "nameCN": "新界中",
+    "count": 314,
+    "totalExposure": 273850640,
+    "avgExposure": 872135.8,
+    "minExposure": 300000,
+    "maxExposure": 6036660,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 306,
+        "totalExposure": 263690640
+      },
+      "WAREHOUSE": {
+        "count": 8,
+        "totalExposure": 10160000
+      }
+    },
+    "byYear": {
+      "1981": {
+        "count": 13,
+        "totalExposure": 10400000
+      },
+      "1982": {
+        "count": 3,
+        "totalExposure": 3600000
+      },
+      "1983": {
+        "count": 7,
+        "totalExposure": 4100000
+      },
+      "1985": {
+        "count": 10,
+        "totalExposure": 4000000
+      },
+      "1986": {
+        "count": 8,
+        "totalExposure": 2400000
+      },
+      "1987": {
+        "count": 10,
+        "totalExposure": 4000000
+      }
+    }
+  },
+  "ppu_5": {
+    "id": 5,
+    "name": "New Territories Northwest",
+    "nameCN": "新界西北",
+    "count": 476,
+    "totalExposure": 393751920,
+    "avgExposure": 827209.92,
+    "minExposure": 300000,
+    "maxExposure": 6010129,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 472,
+        "totalExposure": 382871920
+      },
+      "WAREHOUSE": {
+        "count": 4,
+        "totalExposure": 10880000
+      }
+    },
+    "byYear": {}
+  },
+  "ppu_4": {
+    "id": 4,
+    "name": "New Territories Northeast",
+    "nameCN": "新界東北",
+    "count": 258,
+    "totalExposure": 209521040,
+    "avgExposure": 812097.05,
+    "minExposure": 300000,
+    "maxExposure": 4407420,
+    "byOccupancy": {
+      "DWELLING": {
+        "count": 254,
+        "totalExposure": 199521040
+      },
+      "SHOP": {
+        "count": 4,
+        "totalExposure": 10000000
+      }
+    },
+    "byYear": {
+      "1986": {
+        "count": 9,
+        "totalExposure": 7200000
+      }
+    }
+  }
+}
