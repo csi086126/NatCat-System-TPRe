@@ -290,7 +290,7 @@ def main():
     regions_config = [
         {
             "name": "Macau",
-            "path": "D:/web-flood-insurance-model/Data/Typhoon_FloodResult_Macau/WGS84"
+            "path": os.getenv("MACAU_DATA_DIR", "D:/web-flood-insurance-model/Data/Typhoon_FloodResult_Macau/WGS84")
         },
         # 添加更多地区...
         # {

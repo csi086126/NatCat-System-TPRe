@@ -8,7 +8,7 @@ print(f"Executable: {sys.executable}")
 print(f"CWD: {os.getcwd()}")
 print()
 
-base_path = Path("D:/Nat Cat Platform/Data/Insurance_data_Taiping/TPHK")
+base_path = Path(os.getenv("TPHK_DATA_DIR", "D:/Nat Cat Platform/Data/Insurance_data_Taiping/TPHK"))
 print(f"Base path: {base_path}")
 print(f"Exists: {base_path.exists()}")
 print()

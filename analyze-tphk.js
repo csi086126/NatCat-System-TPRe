@@ -9,7 +9,7 @@ const XLSX = require('xlsx');
 const fs = require('fs');
 const path = require('path');
 
-const BASE_PATH = 'D:/Nat Cat Platform/Data/Insurance_data_Taiping/TPHK';
+const BASE_PATH = process.env.TPHK_DATA_DIR || 'D:/Nat Cat Platform/Data/Insurance_data_Taiping/TPHK';
 const OUTPUT_FILE = path.join(__dirname, 'tphk-analysis-result.json');
 
 function analyzeExcelFile(filepath) {

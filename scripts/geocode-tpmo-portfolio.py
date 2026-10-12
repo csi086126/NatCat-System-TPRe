@@ -61,9 +61,9 @@ logger = logging.getLogger(__name__)
 load_dotenv()
 
 # File paths
-DATA_DIR = Path(r"D:\Nat Cat Platform\Data\Insurance_data_Taiping\TPMO")
+DATA_DIR = Path(os.getenv("TPMO_DATA_DIR", r"D:\Nat Cat Platform\Data\Insurance_data_Taiping\TPMOr"))
 POLICY_FILE = DATA_DIR / "承保信息.xlsx"
-OUTPUT_DIR = Path(r"D:\Nat Cat Platform\UI_system\public\data\macau")
+OUTPUT_DIR = Path(os.getenv("PUBLIC_DATA_DIR", r"D:\Nat Cat Platform\UI_system\public\data") + r"\macau")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # Column names for Macau data

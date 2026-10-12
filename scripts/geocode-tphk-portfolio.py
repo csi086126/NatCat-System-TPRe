@@ -35,10 +35,10 @@ logger = logging.getLogger(__name__)
 load_dotenv()
 
 # File paths
-DATA_DIR = Path(r"D:\Nat Cat Platform\Data\Insurance_data_Taiping\TPHK")
+DATA_DIR = Path(os.getenv("TPHK_DATA_DIR", r"D:\Nat Cat Platform\Data\Insurance_data_Taiping\TPHKr"))
 POLICY_FILE = DATA_DIR / "2412 巨災統計-承保信息 (香港地區).xlsx"
 CLAIM_FILE = DATA_DIR / "2412 巨災統計-理赔信息 (香港地區).xlsx"
-OUTPUT_DIR = Path(r"D:\Nat Cat Platform\UI_system\public\data")
+OUTPUT_DIR = Path(os.getenv("PUBLIC_DATA_DIR", r"D:\Nat Cat Platform\UI_system\public\datar"))
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 

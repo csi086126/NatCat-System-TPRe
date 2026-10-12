@@ -4,6 +4,7 @@ Uses geospatial matching (Point-in-Polygon) to assign policies to geographic uni
 """
 
 import json
+import os
 import geopandas as gpd
 from pathlib import Path
 from shapely.geometry import Point
@@ -19,7 +20,7 @@ stats_dir = data_dir / "statistics"
 by_year_dir = data_dir / "by-year"
 
 # Load shapefiles from main Data directory
-shapefile_base = Path("D:/Nat Cat Platform/Data/Shapefile/HongKong_Administrative_Levels")
+shapefile_base = Path(os.getenv("SHAPEFILE_DIR", "")) / "HongKong_Administrative_Levels"
 shapefiles = {
     'spu': shapefile_base / "HongKong_SPU_52_polygon.shp",
     'tpu': shapefile_base / "HongKong_TPU_292_polygon.shp",

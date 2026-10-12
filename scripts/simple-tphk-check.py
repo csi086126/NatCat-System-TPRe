@@ -1,7 +1,8 @@
+import os
 import pandas as pd
 from pathlib import Path
 
-base_path = Path("D:/Nat Cat Platform/Data/Insurance_data_Taiping/TPHK")
+base_path = Path(os.getenv("TPHK_DATA_DIR", "D:/Nat Cat Platform/Data/Insurance_data_Taiping/TPHK"))
 
 # File 1
 file1 = "2412 巨災統計-承保信息 (香港地區).xlsx"

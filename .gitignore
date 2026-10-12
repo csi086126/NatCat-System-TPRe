@@ -119,4 +119,4 @@ next-env.d.ts
 /scripts/migration_out/
 /scripts/MO_DEM_TIF_clipped_*.tif
 /scripts/cdrom_c_wgs84_data/
-/scripts/generated/macau-flood-hazard/
+/scripts/generated/

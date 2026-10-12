@@ -2,6 +2,7 @@
 Test geospatial processing
 """
 import json
+import os
 from pathlib import Path
 
 print("Testing geospatial setup...\n")
@@ -22,7 +23,7 @@ except ImportError as e:
     exit(1)
 
 # Check shapefile
-shapefile_path = Path("D:/Nat Cat Platform/Data/Shapefile/HongKong_Administrative_Levels/HongKong_SPU_52_polygon.shp")
+shapefile_path = Path(os.getenv("SHAPEFILE_DIR", "D:/Nat Cat Platform/Data/Shapefile") + "/HongKong_Administrative_Levels/HongKong_SPU_52_polygon.shp")
 print(f"\nChecking shapefile: {shapefile_path}")
 print(f"Exists: {shapefile_path.exists()}")
 
@@ -37,7 +38,7 @@ if shapefile_path.exists():
         exit(1)
 
 # Check portfolio data
-portfolio_path = Path("D:/Nat Cat Platform/UI_system/public/data/by-year/tphk-portfolio-2024.json")
+portfolio_path = Path(os.getenv("PUBLIC_DATA_DIR", "D:/Nat Cat Platform/UI_system/public/data") + "/by-year/tphk-portfolio-2024.json")
 print(f"\nChecking portfolio: {portfolio_path}")
 print(f"Exists: {portfolio_path.exists()}")
 

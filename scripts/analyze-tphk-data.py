@@ -1,10 +1,12 @@
+import os
 import pandas as pd
 import json
 import sys
+from pathlib import Path
 
 # 文件路径
-policy_file = r"D:\Nat Cat Platform\Data\Insurance_data_Taiping\TPHK\2412 巨災統計-承保信息 (香港地區).xlsx"
-claim_file = r"D:\Nat Cat Platform\Data\Insurance_data_Taiping\TPHK\2412 巨災統計-理赔信息 (香港地區).xlsx"
+policy_file = Path(os.getenv("TPHK_DATA_DIR", "")) / "2412 巨災統計-承保信息 (香港地區).xlsx"
+claim_file = Path(os.getenv("TPHK_DATA_DIR", "")) / "2412 巨災統計-理赔信息 (香港地區).xlsx"
 
 print("="*60)
 print("TPHK 数据结构分析")

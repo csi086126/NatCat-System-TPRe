@@ -5,6 +5,7 @@ TPHK Insurance Data Structure Inspector
 
 import pandas as pd
 import sys
+import os
 from pathlib import Path
 import json
 
@@ -72,7 +73,7 @@ def main():
     print("   太平香港保险数据结构检查")
     print("=" * 100)
 
-    base_path = Path("D:/Nat Cat Platform/Data/Insurance_data_Taiping/TPHK")
+    base_path = Path(os.getenv("TPHK_DATA_DIR", "D:/Nat Cat Platform/Data/Insurance_data_Taiping/TPHK"))
 
     # 查找所有Excel文件
     excel_files = list(base_path.glob("*.xlsx"))

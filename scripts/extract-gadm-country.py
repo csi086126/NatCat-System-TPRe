@@ -8,6 +8,7 @@ python extract-gadm-country.py --country "China" --level 1 --output china_provin
 """
 
 import argparse
+import os
 import geopandas as gpd
 import json
 from pathlib import Path
@@ -103,7 +104,7 @@ def list_layers(gpkg_path):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='从 GADM GeoPackage 提取国家边界')
-    parser.add_argument('--gpkg', default=r'D:\web-flood-insurance-model\Data\Shapefile\gadm_410.gpkg',
+    parser.add_argument('--gpkg', default=os.getenv('GADM_DATA_DIR', r'D:\web-flood-insurance-model\Data\Shapefile') + r'\gadm_410.gpkg',
                        help='GeoPackage 文件路径')
     parser.add_argument('--country', type=str, help='国家名称 (如: China, Japan, Taiwan)')
     parser.add_argument('--level', type=int, default=1,

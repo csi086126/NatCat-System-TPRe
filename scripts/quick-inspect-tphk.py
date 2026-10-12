@@ -1,8 +1,9 @@
+import os
 import pandas as pd
 from pathlib import Path
 import glob
 
-base_path = "D:/Nat Cat Platform/Data/Insurance_data_Taiping/TPHK"
+base_path = os.getenv("TPHK_DATA_DIR", "D:/Nat Cat Platform/Data/Insurance_data_Taiping/TPHK")
 
 # 查找Excel文件
 excel_pattern = str(Path(base_path) / "*.xlsx")

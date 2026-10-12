@@ -1,13 +1,15 @@
 """
 Quick test to verify pandas and openpyxl can read the Excel files
 """
+import os
 import pandas as pd
 import json
 from pathlib import Path
 
 # Test file paths
-policies_file = Path("D:/web-flood-insurance-model/Data/Insurance_data/承保信息.xlsx")
-claims_file = Path("D:/web-flood-insurance-model/Data/Insurance_data/理賠信息(巨災).xlsx")
+insurance_dir = os.getenv("INSURANCE_DATA_DIR", "D:/web-flood-insurance-model/Data/Insurance_data")
+policies_file = Path(insurance_dir) / "承保信息.xlsx"
+claims_file = Path(insurance_dir) / "理賠信息(巨災).xlsx"
 
 result = {
     "policies_file_exists": policies_file.exists(),

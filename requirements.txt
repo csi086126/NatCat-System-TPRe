@@ -3,4 +3,5 @@ requests>=2.31.0
 
 # Shapefile处理 (选择其一)
 pyshp>=2.3.1              # 轻量级,快速
+pyproj>=3.6.0             # 澳门本地网格转换为 WGS84
 # geopandas>=0.14.0       # 功能强大,需要额外依赖 (fiona, shapely, pyproj)

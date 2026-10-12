@@ -224,7 +224,7 @@ def main():
     GEOSERVER_PASS = os.getenv('GEOSERVER_PASS', '')  # 从 .env 读取
     
     # IBTracks数据目录
-    IBTRACS_DATA_DIR = Path("D:/web-flood-insurance-model/Data/IBTracks")
+    IBTRACS_DATA_DIR = Path(os.getenv("IBTRACS_DATA_DIR", "D:/web-flood-insurance-model/Data/IBTracks"))
     
     # GeoServer工作空间
     WORKSPACE = "Global"

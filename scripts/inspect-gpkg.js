@@ -7,7 +7,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const gpkgPath = 'D:\\web-flood-insurance-model\\Data\\Shapefile\\gadm_410.gpkg';
+const gpkgPath = process.env.GADM_DATA_DIR || 'D:\\web-flood-insurance-model\\Data\\Shapefile\\gadm_410.gpkg';
 
 console.log('📦 GeoPackage 文件分析工具\n');
 console.log('文件路径:', gpkgPath);

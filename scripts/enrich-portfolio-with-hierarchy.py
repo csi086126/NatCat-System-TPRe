@@ -4,6 +4,7 @@ Uses spatial matching to add geographic unit IDs to each policy record
 """
 
 import json
+import os
 import geopandas as gpd
 from pathlib import Path
 from shapely.geometry import Point
@@ -17,7 +18,7 @@ data_dir = base_dir / "public" / "data"
 by_year_dir = data_dir / "by-year"
 
 # Load shapefiles
-shapefile_base = Path("D:/Nat Cat Platform/Data/Shapefile/HongKong_Administrative_Levels")
+shapefile_base = Path(os.getenv("SHAPEFILE_DIR", "")) / "HongKong_Administrative_Levels"
 shapefiles = {
     'spu': shapefile_base / "HongKong_SPU_52_polygon.shp",
     'tpu': shapefile_base / "HongKong_TPU_292_polygon.shp",

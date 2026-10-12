@@ -11,7 +11,7 @@ const path = require('path');
 const https = require('https');
 
 // 配置
-const INPUT_FILE = 'D:/Nat Cat Platform/Data/Insurance_data_Taiping/TPMO/承保信息.xlsx';
+const INPUT_FILE = process.env.TPMO_DATA_DIR ? require("path").join(process.env.TPMO_DATA_DIR, '承保信息.xlsx') : 'D:/承保信息.xlsx';
 const OUTPUT_DIR = path.join(__dirname, 'public', 'data', 'macau');
 const CACHE_FILE = path.join(OUTPUT_DIR, 'tpmo-geocoding-cache-full.json');
 const OUTPUT_FILE = path.join(OUTPUT_DIR, 'tpmo-portfolio-full.json');

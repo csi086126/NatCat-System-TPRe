@@ -25,7 +25,7 @@ MACAU_GIS_COORD_API = "https://api.gis.gov.mo/Coordinate/ToLatLng"
 
 # Data paths
 BASE_DIR = Path(__file__).parent.parent
-INSURANCE_DATA_DIR = Path("D:/web-flood-insurance-model/Data/Insurance_data")
+INSURANCE_DATA_DIR = Path(os.getenv("INSURANCE_DATA_DIR", "D:/web-flood-insurance-model/Data/Insurance_data"))
 OUTPUT_DIR = BASE_DIR / "public" / "data"
 
 # Ensure output directory exists

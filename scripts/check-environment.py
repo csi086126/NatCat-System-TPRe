@@ -1,4 +1,5 @@
 import sys
+import os
 print("Python version:", sys.version)
 print("Python executable:", sys.executable)
 
@@ -18,7 +19,7 @@ except ImportError:
 
 if pandas_available:
     from pathlib import Path
-    base_path = Path("D:/Nat Cat Platform/Data/Insurance_data_Taiping/TPHK")
+    base_path = Path(os.getenv("TPHK_DATA_DIR", "D:/Nat Cat Platform/Data/Insurance_data_Taiping/TPHK"))
     excel_files = list(base_path.glob("*.xlsx"))
     print(f"\nFound {len(excel_files)} Excel files:")
     for f in excel_files:

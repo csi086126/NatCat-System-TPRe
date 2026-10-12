@@ -30,13 +30,14 @@ WORKSPACE = "macau"                                # 工作空间名称
 DATASTORE = "macau_shapefiles"                      # 数据存储名称
 
 # 源数据路径
+_SHAPEFILE_BASE = os.getenv("SHAPEFILE_DIR", r"D:\Nat Cat Platform\Data\Shapefile")
 SHAPEFILE_PATHS = {
-    "macau_district_boundary": r"D:\Nat Cat Platform\Data\Shapefile\澳门区划边界数据_WGS84坐标",
-    "macau_statistical_area": r"D:\Nat Cat Platform\Data\Shapefile\澳门统计区_WGS84坐标"
+    "macau_district_boundary": _SHAPEFILE_BASE + r"\澳门区划边界数据_WGS84坐标",
+    "macau_statistical_area": _SHAPEFILE_BASE + r"\澳门统计区_WGS84坐标"
 }
 
 # 输出路径
-OUTPUT_DIR = r"D:\Nat Cat Platform\Data\Shapefile\processed"
+OUTPUT_DIR = _SHAPEFILE_BASE + r"\processed"
 
 
 # ============================================

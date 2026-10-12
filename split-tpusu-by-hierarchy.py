@@ -11,6 +11,7 @@ python split-tpusu-by-hierarchy.py
 """
 
 import geopandas as gpd
+import os
 from pathlib import Path
 from shapely.ops import unary_union
 import sys
@@ -235,8 +236,9 @@ def main():
     """主函数"""
 
     # 配置路径
-    INPUT_PATH = Path(r"D:\Nat Cat Platform\Data\Shapefile\BoundariesofTertiaryPlanningUnitsSubunitsfor2021PopulationCensus_SHP\TPUSU_2021\TPUSU_2021.shp")
-    OUTPUT_DIR = Path(r"D:\Nat Cat Platform\Data\Shapefile\HongKong_Administrative_Levels")
+    _SHAPEFILE_BASE = os.getenv("SHAPEFILE_DIR", r"D:\Nat Cat Platform\Data\Shapefile")
+    INPUT_PATH = Path(_SHAPEFILE_BASE + r"\BoundariesofTertiaryPlanningUnitsSubunitsfor2021PopulationCensus_SHP\TPUSU_2021\TPUSU_2021.shp")
+    OUTPUT_DIR = Path(_SHAPEFILE_BASE + r"\HongKong_Administrative_Levels")
 
     # 检查输入文件
     if not INPUT_PATH.exists():

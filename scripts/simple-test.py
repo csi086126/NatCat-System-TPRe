@@ -6,6 +6,8 @@ print("Python version:", sys.version)
 print("Current working directory:", sys.path)
 
 try:
+    import os
+    from pathlib import Path
     import pandas as pd
     print("✓ pandas imported successfully")
     print(f"  pandas version: {pd.__version__}")
