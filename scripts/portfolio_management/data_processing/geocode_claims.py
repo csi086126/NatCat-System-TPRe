@@ -37,7 +37,7 @@ failed_logger.addHandler(failed_handler)
 
 # Paths
 OUTPUT_DIR = Path(__file__).parent.parent / 'output'
-DATA_FILE = Path(r"D:\Nat Cat Platform\Data\Insurance_data_Taiping\TPHK\2412 巨災統計-理赔信息 (香港地區).xlsx")
+DATA_FILE = Path(os.getenv("TPHK_DATA_DIR", "")) / r"2412 巨災統計-理赔信息 (香港地區).xlsx"
 CACHE_FILE = OUTPUT_DIR / 'tphk-geocoding-cache.json'  # 复用承保数据的缓存
 
 def main():

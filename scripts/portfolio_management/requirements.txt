@@ -1,29 +1,28 @@
-# Portfolio Management Dependencies (Python 3.13 Compatible)
+# Portfolio Management & Auth API dependencies
+# 安装: pip install -r requirements.txt
 
-# Core Framework
-fastapi>=0.104.0
-uvicorn[standard]>=0.24.0
-sqlalchemy>=2.0.23
-geoalchemy2>=0.14.2
+# Web framework
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+python-multipart==0.0.20
 
-# Database - IMPORTANT: Install this first
-psycopg2-binary>=2.9.9
+# Database
+psycopg2-binary==2.9.10
+python-dotenv==1.0.1
 
-# Data Processing (compatible with Python 3.13)
-pandas>=2.2.0
-numpy>=1.26.0
-openpyxl>=3.1.2
+# Validation
+pydantic==2.10.3
 
-# Geocoding
-requests>=2.31.0
-python-dotenv>=1.0.0
+# Authentication (Phase 1.1 新增)
+bcrypt==4.2.1
+PyJWT==2.10.1
 
-# Geospatial (will install dependencies)
-shapely>=2.0.0
+# Optional: geospatial support for hazard stats routes
+# (already provided by project root environment; listed here for clarity)
+# shapely==2.0.6
+# geopandas==1.0.1
 
-# API
-pydantic>=2.5.0
-python-multipart>=0.0.6
-
-# Utilities
-python-dateutil>=2.8.2
+# PDF report backend (Phase 2)
+reportlab==4.2.5
+oss2==2.18.4
+Pillow==11.0.0

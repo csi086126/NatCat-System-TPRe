@@ -39,7 +39,7 @@ DB_CONFIG = {
 }
 
 # Output directory
-PUBLIC_DATA_DIR = Path(r"D:\Nat Cat Platform\UI_system\public\data")
+PUBLIC_DATA_DIR = Path(os.getenv("PUBLIC_DATA_DIR", r"D:\Nat Cat Platform\UI_system\public\datar"))
 PUBLIC_DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 

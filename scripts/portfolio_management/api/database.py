@@ -5,11 +5,15 @@ Database connection module
 """
 
 import os
+from pathlib import Path
+
 import psycopg2
 from psycopg2.extras import RealDictCursor
 from dotenv import load_dotenv
 
-load_dotenv()
+# 锁定 .env 路径为脚本相对位置,避免依赖启动时 CWD。
+# override=False 保证外部环境变量优先于 .env(容器/生产场景可控)。
+load_dotenv(Path(__file__).resolve().parent.parent / ".env", override=False)
 
 # Database configuration
 DB_CONFIG = {

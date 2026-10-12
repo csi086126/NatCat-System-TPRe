@@ -33,7 +33,6 @@ echo Starting FastAPI server with auto-reload...
 echo Press Ctrl+C to stop the server
 echo.
 
-cd api
-python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
+python -m uvicorn api.main:app --reload --host 0.0.0.0 --port 8000
 
 pause

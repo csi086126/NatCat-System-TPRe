@@ -5,8 +5,9 @@
 """
 import pandas as pd
 from pathlib import Path
+import os
 
-data_file = Path(r"D:\Nat Cat Platform\Data\Insurance_data_Taiping\TPHK\2412 巨災統計-理赔信息 (香港地區).xlsx")
+data_file = Path(os.getenv("TPHK_DATA_DIR", "")) / r"2412 巨災統計-理赔信息 (香港地區).xlsx"
 
 print("=" * 80)
 print("TPHK 理赔数据结构分析")

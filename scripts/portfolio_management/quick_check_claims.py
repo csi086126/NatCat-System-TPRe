@@ -1,7 +1,12 @@
+import os
+from pathlib import Path
+
 import pandas as pd
 
 # 读取理赔数据
-df = pd.read_excel(r"D:\Nat Cat Platform\Data\Insurance_data_Taiping\TPHK\2412 巨災統計-理赔信息 (香港地區).xlsx")
+df = pd.read_excel(
+    Path(os.getenv("TPHK_DATA_DIR", "")) / "2412 巨災統計-理赔信息 (香港地區).xlsx"
+)
 
 print(f"总记录数: {len(df)}")
 print(f"\n字段列表:")
