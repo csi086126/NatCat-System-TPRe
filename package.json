@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/ensure-dev-port.ps1",
     "dev": "next dev --turbopack -p 3004",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate:macau-flood-hazard": "node scripts/generate-macau-flood-hazard-products.mjs"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.1.3",
@@ -22,6 +24,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
+    "geotiff": "^3.0.5",
     "html2canvas": "^1.4.1",
     "jspdf": "^3.0.3",
     "jszip": "^3.10.1",

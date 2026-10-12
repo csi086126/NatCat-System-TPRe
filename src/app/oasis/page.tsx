@@ -1,4 +1,6 @@
 //typescriptreact type="react" project="Flood Catastrophe Insurance System" file="disaster-map.tsx"
+// 本页面职责:组合/账户层面的项目管理界面(老 Oasis 平台入口),含 Shapefile 上传、表单提交、
+// 项目状态管理。**与 `oasislmf/page.tsx`(Oasis LMF 后端可视化)功能不同,二者并存,不要合并**。
 //[v0-no-op-code-block-prefix]
 "use client"
 

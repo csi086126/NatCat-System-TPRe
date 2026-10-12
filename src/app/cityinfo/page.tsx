@@ -13,6 +13,7 @@ import { Home, MapPin, AlertTriangle, Map, Building2, Activity, Puzzle, User, Lo
 import { RegionSelector } from '@/components/RegionSelector';
 import { useRegion } from '@/contexts/RegionContext';
 import dynamic from 'next/dynamic';
+import { GEOSERVER_GEOSPATIAL_URL } from '@/features/risk-map/config/geoserver';
 import "leaflet/dist/leaflet.css";
 
 // 2. 动态导入 (Lazy Load) Leaflet 地图组件

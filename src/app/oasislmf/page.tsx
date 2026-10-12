@@ -1,5 +1,9 @@
 "use client"
 
+// 本页面职责:Oasis LMF(损失建模框架)后端的 Web UI 容器页面,负责检测 Oasis 运行状态、
+// 通过 iframe 加载 OasisUI、并提供 Taiping 主题代理(/api/oasis-proxy)。
+// **与 `oasis/page.tsx`(老 Oasis 平台项目状态管理)功能不同,二者并存,不要合并**。
+
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import AppHeader from '@/components/AppHeader'
@@ -33,27 +37,12 @@ export default function OasisLMFPage() {
   const checkOasisStatus = async () => {
     setCheckingStatus(true)
     try {
-      // Get the current host (either localhost or the actual IP address like 10.253.22.15)
       const currentHost = typeof window !== 'undefined' ? window.location.hostname : 'localhost'
-      
-      // Try common OasisLMF ports. 8081 is where coreoasis/oasisui_app maps 3838 by default.
-      // 8088 was an older mapping; 8080 is usually GeoServer (skip first to avoid false positive).
-      const ports = [8081, 8088, 3838, 8000, 8888, 3000, 8080]
-      for (const port of ports) {
-        try {
-          const response = await fetch(`http://${currentHost}:${port}`, { 
-            mode: 'no-cors'
-          })
-          // If we get here without error, the port is accessible
-          setOasisUrl(`http://${currentHost}:${port}`)
-          setIsOasisRunning(true)
-          setCheckingStatus(false)
-          return
-        } catch (e) {
-          continue
-        }
-      }
-      setIsOasisRunning(false)
+      const response = await fetch('/api/oasis-status', { cache: 'no-store' })
+      const result = await response.json()
+      if (!response.ok || !result.running) throw new Error(result.error || 'OasisUI is not available')
+      setOasisUrl(`http://${currentHost}:8088`)
+      setIsOasisRunning(true)
     } catch (error) {
       console.error('Error checking Oasis status:', error)
       setIsOasisRunning(false)
@@ -280,7 +269,7 @@ export default function OasisLMFPage() {
                         Navigate to OasisLMF Directory
                       </h3>
                       <div className="ml-8 p-3 bg-gray-100 rounded font-mono text-sm">
-                        cd /mnt/d/web-flood-insurance-model/OasisEvaluation
+                        cd /home/sichen/OasisEvaluation
                       </div>
                     </div>
                     
@@ -290,7 +279,7 @@ export default function OasisLMFPage() {
                         Start Docker Services
                       </h3>
                       <div className="ml-8 p-3 bg-gray-100 rounded font-mono text-sm">
-                        docker-compose up -d
+                        docker compose -f oasis-platform.yml -f oasis-ui-standalone.yml up -d
                       </div>
                       <p className="ml-8 text-sm text-gray-600">
                         This will start all OasisLMF services in the background.
@@ -309,9 +298,9 @@ export default function OasisLMFPage() {
                         All services should show status "Up". The web UI is typically available at:
                       </p>
                       <ul className="ml-12 text-sm text-gray-600 list-disc">
-                        <li>http://localhost:8088 (OasisUI - current)</li>
-                        <li>http://localhost:8080 (GeoServer)</li>
-                        <li>http://localhost:8000 (OasisLMF API)</li>
+                        <li>{process.env.NEXT_PUBLIC_OASIS_UI_URL || 'http://localhost:8088'} (OasisUI - current)</li>
+                        <li>{process.env.NEXT_PUBLIC_GEOSERVER_URL || 'http://localhost:8080'} (GeoServer)</li>
+                        <li>{process.env.NEXT_PUBLIC_OASISLMF_API_URL || 'http://localhost:8000'} (OasisLMF API)</li>
                         <li>Check your docker-compose.yml for other ports</li>
                       </ul>
                     </div>
@@ -343,7 +332,7 @@ export default function OasisLMFPage() {
                     <ul className="list-disc list-inside space-y-1 ml-2">
                       <li>WSL Ubuntu must be installed and running</li>
                       <li>Docker Desktop must be running with WSL integration enabled</li>
-                      <li>OasisLMF must be downloaded to: <code className="text-xs bg-white px-1 py-0.5 rounded">D:\web-flood-insurance-model\OasisEvaluation</code></li>
+                      <li>OasisLMF must be downloaded to: <code className="text-xs bg-white px-1 py-0.5 rounded">{process.env.NEXT_PUBLIC_OASIS_LMF_DIR || 'D:\\web-flood-insurance-model\\OasisEvaluation'}</code></li>
                     </ul>
                     
                     <p className="mt-4">

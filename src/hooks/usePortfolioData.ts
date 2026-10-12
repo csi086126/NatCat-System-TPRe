@@ -316,7 +316,7 @@ async function loadDirectSample() {
 async function loadDirectFull(year?: number | null) {
   // Load full data from database API
   // TODO: Python analytics script not yet available, temporarily using sample data
-  // Path: D:\Nat Cat Platform\scripts\portfolio_management\analytics\portfolio_analytics.py
+  // Path: portfolio_management/data_processing/portfolio_analytics.py(默认相对仓库根;可通过 PORTFOLIO_ANALYTICS_SCRIPT 环境变量覆盖)
 
   console.warn('⚠️ Full mode: Python analytics script not available, using sample data');
 

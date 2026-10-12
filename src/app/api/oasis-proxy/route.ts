@@ -6,7 +6,7 @@ export async function GET(request: NextRequest) {
     const path = searchParams.get('path') || ''
     
     // Fetch from OasisUI
-    const oasisUrl = `http://localhost:8080${path}`
+    const oasisUrl = `http://localhost:8088${path}`
     console.log(`[Proxy] Fetching: ${oasisUrl}`)
     
     const response = await fetch(oasisUrl, {

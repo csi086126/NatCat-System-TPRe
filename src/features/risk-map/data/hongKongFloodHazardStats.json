@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-31T09:04:49.288Z",
+  "thresholdMeters": 0.15,
+  "returnPeriods": [
+    2,
+    5,
+    10,
+    20,
+    25,
+    50,
+    100,
+    200,
+    250,
+    500,
+    1000
+  ],
+  "probabilityMethod": "Log-log interpolation between the two adjacent return periods straddling depth = threshold; probability = 1 / RP*. Lower-bounded at 1 / R1000, upper-bounded at 1.0.",
+  "annualizedMethod": "Trapezoidal integration in probability space: ΔE = (P_i - P_{i+1}) · (e_i + e_{i+1}) / 2 over [R2, R1000] with e = max(depth - threshold, 0).",
+  "grid": {
+    "crs": "EPSG:2326",
+    "bbox": [
+      801018.5,
+      801754.0023992322,
+      863513.4976007678,
+      846907.6132437619
+    ],
+    "width": 2084,
+    "height": 1506,
+    "pixelSize": 30.002399232245683,
+    "tiepointX": 801018.5,
+    "tiepointY": 846907.6132437619
+  },
+  "families": {
+    "non-typhoon-rainfall": {
+      "family": "non-typhoon-rainfall",
+      "sourceLayers": [
+        "natcat_platform:HK_Flood_NONTC_R002",
+        "natcat_platform:HK_Flood_NONTC_R005",
+        "natcat_platform:HK_Flood_NONTC_R010",
+        "natcat_platform:HK_Flood_NONTC_R020",
+        "natcat_platform:HK_Flood_NONTC_R025",
+        "natcat_platform:HK_Flood_NONTC_R050",
+        "natcat_platform:HK_Flood_NONTC_R100",
+        "natcat_platform:HK_Flood_NONTC_R200",
+        "natcat_platform:HK_Flood_NONTC_R250",
+        "natcat_platform:HK_Flood_NONTC_R500",
+        "natcat_platform:HK_Flood_NONTC_R1000"
+      ],
+      "probabilityLayer": "natcat_platform:HK_Flood_NONTC_AnnualProbability_GT015m",
+      "annualizedLayer": "natcat_platform:HK_Flood_NONTC_AnnualizedExcessDepth_GT015m",
+      "probabilityRaster": "scripts/generated/hk-flood-hazard/HK_Flood_NONTC_AnnualProbability_GT015m.tif",
+      "annualizedRaster": "scripts/generated/hk-flood-hazard/HK_Flood_NONTC_AnnualizedExcessDepth_GT015m.tif",
+      "validCellCount": 1236894,
+      "totalCellCount": 3138504,
+      "meanProbability": 0.041448,
+      "maxProbability": 1,
+      "meanAnnualized": 0.004073,
+      "maxAnnualized": 1.419188
+    },
+    "typhoon-compound": {
+      "family": "typhoon-compound",
+      "sourceLayers": [
+        "natcat_platform:HK_Flood_Compound_R002",
+        "natcat_platform:HK_Flood_Compound_R005",
+        "natcat_platform:HK_Flood_Compound_R010",
+        "natcat_platform:HK_Flood_Compound_R020",
+        "natcat_platform:HK_Flood_Compound_R025",
+        "natcat_platform:HK_Flood_Compound_R050",
+        "natcat_platform:HK_Flood_Compound_R100",
+        "natcat_platform:HK_Flood_Compound_R200",
+        "natcat_platform:HK_Flood_Compound_R250",
+        "natcat_platform:HK_Flood_Compound_R500",
+        "natcat_platform:HK_Flood_Compound_R1000"
+      ],
+      "probabilityLayer": "natcat_platform:HK_Flood_Compound_AnnualProbability_GT015m",
+      "annualizedLayer": "natcat_platform:HK_Flood_Compound_AnnualizedExcessDepth_GT015m",
+      "probabilityRaster": "scripts/generated/hk-flood-hazard/HK_Flood_Compound_AnnualProbability_GT015m.tif",
+      "annualizedRaster": "scripts/generated/hk-flood-hazard/HK_Flood_Compound_AnnualizedExcessDepth_GT015m.tif",
+      "validCellCount": 1230422,
+      "totalCellCount": 3138504,
+      "meanProbability": 0.031089,
+      "maxProbability": 1,
+      "meanAnnualized": 0.004131,
+      "maxAnnualized": 2.378712
+    }
+  }
+}

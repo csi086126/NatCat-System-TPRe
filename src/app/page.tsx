@@ -6,35 +6,29 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { 
+import {
   AlertTriangle, User, LogOut,
   TrendingUp, Shield, BarChart3, MapPin, ChevronDown, ChevronUp
 } from 'lucide-react';
 import { useRegion } from "@/contexts/RegionContext";
 import { platformModules } from '@/config/platformModules';
+import { useAuth } from '@/lib/AuthContext';
 
 export default function HomePage() {
   const router = useRouter();
   const { switchRegion } = useRegion();
-  const [username, setUsername] = useState('');
+  const { user, isLoading, logout } = useAuth();
   const [showStats, setShowStats] = useState(false); // 控制统计信息的显示/隐藏
 
   useEffect(() => {
-    // 检查是否已登录
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    
-    if (isLoggedIn !== 'true') {
-      // 未登录，跳转到登录页
+    if (isLoading) return;
+    if (!user) {
       router.push('/login');
-    } else {
-      // 获取用户名
-      setUsername(localStorage.getItem('username') || 'User');
     }
-  }, [router]);
+  }, [isLoading, user, router]);
 
-  const handleLogout = () => {
-    localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('username');
+  const handleLogout = async () => {
+    await logout();
     router.push('/login');
   };
 
@@ -68,7 +62,7 @@ export default function HomePage() {
             <Link href="/usercenter">
               <Button variant="ghost" className="gap-2">
                 <User size={18} />
-                User
+                {user?.display_name || user?.email || 'User'}
               </Button>
             </Link>
             <Button variant="outline" onClick={handleLogout} className="gap-2">

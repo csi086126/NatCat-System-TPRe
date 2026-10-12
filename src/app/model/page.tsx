@@ -89,7 +89,7 @@ export default function Component() {
                     <strong>Status:</strong> Installed on WSL Ubuntu
                   </p>
                   <p className="text-xs text-green-700 mt-1">
-                    Running at <span className="font-mono">http://localhost:8080/</span>
+                    Running at <span className="font-mono">{process.env.NEXT_PUBLIC_GEOSERVER_URL || 'http://localhost:8080/'}</span>
                   </p>
                 </div>
               </CardContent>

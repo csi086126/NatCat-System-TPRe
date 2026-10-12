@@ -331,7 +331,15 @@ export default function PortfolioStatisticsPage() {
                 <Button
                   variant="outline"
                   size="sm"
-                  onClick={() => window.open('http://localhost:8000/docs', '_blank')}
+                  disabled={!process.env.NEXT_PUBLIC_PORTFOLIO_API_URL}
+                  onClick={() => {
+                    const url = process.env.NEXT_PUBLIC_PORTFOLIO_API_URL;
+                    if (!url) {
+                      console.warn('Portfolio API URL 未配置 (NEXT_PUBLIC_PORTFOLIO_API_URL)');
+                      return;
+                    }
+                    window.open(`${url.replace(/\/$/, '')}/docs`, '_blank');
+                  }}
                   className="justify-start"
                 >
                   🔧 API Documentation

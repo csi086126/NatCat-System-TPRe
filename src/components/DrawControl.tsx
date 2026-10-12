@@ -15,6 +15,13 @@ export default function DrawControl({ onShapeDrawn, onDrawStart, enabled }: Draw
   const map = useMap();
   const drawControlRef = useRef<L.Control.Draw | null>(null);
   const drawnItemsRef = useRef<L.FeatureGroup>(new L.FeatureGroup());
+  const onShapeDrawnRef = useRef(onShapeDrawn);
+  const onDrawStartRef = useRef(onDrawStart);
+
+  useEffect(() => {
+    onShapeDrawnRef.current = onShapeDrawn;
+    onDrawStartRef.current = onDrawStart;
+  }, [onShapeDrawn, onDrawStart]);
 
   useEffect(() => {
     if (!map || !enabled) return;
@@ -69,7 +76,7 @@ export default function DrawControl({ onShapeDrawn, onDrawStart, enabled }: Draw
     drawControlRef.current = drawControl;
 
     // Handle shape creation
-    map.on(L.Draw.Event.CREATED, (e: any) => {
+    const handleCreated = (e: L.DrawEvents.Created) => {
       const layer = e.layer;
       const type = e.layerType;
       
@@ -83,13 +90,17 @@ export default function DrawControl({ onShapeDrawn, onDrawStart, enabled }: Draw
       const bounds = layer.getBounds ? layer.getBounds() : layer.getLatLng().toBounds(1000);
       
       // Callback
-      onShapeDrawn(layer, type, bounds);
-    });
+      onShapeDrawnRef.current(layer, type, bounds);
+    };
+
+    const handleDrawStart = () => {
+      onDrawStartRef.current?.();
+    };
+
+    map.on(L.Draw.Event.CREATED, handleCreated);
 
     // Handle draw start
-    if (onDrawStart) {
-      map.on(L.Draw.Event.DRAWSTART, onDrawStart);
-    }
+    map.on(L.Draw.Event.DRAWSTART, handleDrawStart);
 
     // Cleanup
     return () => {
@@ -97,12 +108,10 @@ export default function DrawControl({ onShapeDrawn, onDrawStart, enabled }: Draw
         map.removeControl(drawControlRef.current);
       }
       map.removeLayer(drawnItemsRef.current);
-      map.off(L.Draw.Event.CREATED);
-      if (onDrawStart) {
-        map.off(L.Draw.Event.DRAWSTART);
-      }
+      map.off(L.Draw.Event.CREATED, handleCreated);
+      map.off(L.Draw.Event.DRAWSTART, handleDrawStart);
     };
-  }, [map, enabled, onShapeDrawn, onDrawStart]);
+  }, [map, enabled]);
 
   return null;
 }
