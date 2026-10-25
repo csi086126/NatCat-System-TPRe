@@ -1,0 +1,8 @@
+node_modules
+.next
+.next-dev
+.git
+.env
+data
+scripts/portfolio_management/.env
+*.log

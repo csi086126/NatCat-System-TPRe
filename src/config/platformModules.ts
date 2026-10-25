@@ -28,9 +28,9 @@ export const platformModules: PlatformModule[] = [
     id: 'cat-model',
     title: 'Catastrophe Model',
     description: 'Run catastrophe models, scenario analysis, and loss estimation',
-    href: '/model',
+    href: '/oasisui',
     icon: Activity,
-    childRoutes: ['/oasis', '/oasislmf'],
+    childRoutes: ['/model', '/oasis', '/oasislmf'],
     cardClassName: 'from-slate-600 to-slate-700',
     iconClassName: 'text-slate-600',
   },
@@ -56,5 +56,6 @@ export const platformModules: PlatformModule[] = [
 ];
 
 export function isModuleActive(pathname: string, module: PlatformModule): boolean {
-  return pathname === module.href || Boolean(module.childRoutes?.includes(pathname));
+  const isWithin = (route: string) => pathname === route || pathname.startsWith(`${route}/`);
+  return isWithin(module.href) || Boolean(module.childRoutes?.some(isWithin));
 }

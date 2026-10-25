@@ -324,7 +324,7 @@ export default function Component() {
               Risk Map
             </Button>
           </Link>
-          <Link href="/model">
+          <Link href="/oasisui">
             <Button variant="ghost" size="sm" className="gap-2">
               <AlertTriangle size={16} />
               Catastrophe Model

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/ensure-dev-port.ps1",
+    "predev": "node scripts/ensure-dev-port.mjs",
     "dev": "next dev --turbopack -p 3004",
     "build": "next build",
     "start": "next start",
