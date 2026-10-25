@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 body {
-  font-family: "DengXian Light", "等线 Light", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans", "Noto Sans SC", "Noto Sans TC", sans-serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "wdth" 100;
 }
 
 @layer base {
@@ -65,10 +67,19 @@ body {
 @layer base {
   * {
     @apply border-border;
-    font-family: "DengXian Light", "等线 Light", "Microsoft YaHei", "微软雅黑", sans-serif;
+    font-family: "Noto Sans", "Noto Sans SC", "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+    font-variation-settings: "wdth" 100;
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .oasis-action-row > button,
+  .oasis-action-row > a {
+    min-width: 10rem;
   }
 }
 

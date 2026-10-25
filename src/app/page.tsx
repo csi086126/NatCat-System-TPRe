@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -13,6 +12,7 @@ import {
 import { useRegion } from "@/contexts/RegionContext";
 import { platformModules } from '@/config/platformModules';
 import { useAuth } from '@/lib/AuthContext';
+import { ResponsiveLogo } from '@/components/ResponsiveLogo';
 
 export default function HomePage() {
   const router = useRouter();
@@ -48,26 +48,21 @@ export default function HomePage() {
       {/* Content overlay */}
       <div className="relative z-10">
       {/* Header */}
-      <header className="bg-white shadow-md">
-        <div className="mx-auto px-6 py-4 flex justify-between items-center">
+      <header className="relative z-[1100] overflow-visible bg-white shadow-md">
+        <div className="mx-auto flex w-full min-w-0 flex-nowrap items-center justify-between gap-3 px-3 py-3 sm:px-4 lg:px-6">
           <div className="flex items-center">
-            <Image
-              src="/taipinglogo.png"
-              alt="China Taiping Logo"
-              width={280}
-              height={31}
-            />
+            <ResponsiveLogo />
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex shrink-0 items-center gap-2">
             <Link href="/usercenter">
-              <Button variant="ghost" className="gap-2">
+              <Button variant="ghost" className="h-9 w-9 gap-2 px-0 sm:w-auto sm:px-4" aria-label="User" title="User">
                 <User size={18} />
-                {user?.display_name || user?.email || 'User'}
+                <span className="hidden sm:inline">User</span>
               </Button>
             </Link>
-            <Button variant="outline" onClick={handleLogout} className="gap-2">
-              <LogOut size={18} />
-              Logout
+            <Button variant="outline" onClick={handleLogout} className="h-9 w-9 gap-2 px-0 sm:w-auto sm:px-4" aria-label="Logout" title="Logout">
+                <LogOut size={18} />
+                <span className="hidden sm:inline">Logout</span>
             </Button>
           </div>
         </div>

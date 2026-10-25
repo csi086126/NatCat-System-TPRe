@@ -17,6 +17,12 @@ are obtained with the server-side service account configured by
 browser. Descriptions, model metadata and the 30-second Portfolio/Analysis
 cache are stored in the `oasis_ui` PostgreSQL schema.
 
+The old platform's header behavior is also merged into the new shell: the
+three fixed-size Logo assets switch at the `sm`/`xl` breakpoints, module labels
+collapse to icons below `xl`, the region selector shows only its abbreviation,
+and the User dropdown is kept above the header stacking context. The new
+platform's AuthContext and module routes remain the source of truth.
+
 ## Local development
 
 Set these values in the root `.env`:
