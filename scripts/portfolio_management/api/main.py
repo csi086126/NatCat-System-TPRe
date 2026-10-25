@@ -14,7 +14,7 @@ from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 import os
 
-from .routes import policies, zones, events, stats, query_history, auth, reports
+from .routes import policies, zones, events, stats, query_history, auth, reports, oasis_ui
 from .auth_utils import ensure_auth_schema
 from .database import get_db_connection
 
@@ -44,6 +44,12 @@ async def lifespan(app: FastAPI):
         conn.close()
     except Exception as e:
         print(f"[Reports] Could not ensure table at startup: {e}")
+    try:
+        conn = get_db_connection()
+        oasis_ui.ensure_table(conn)
+        conn.close()
+    except Exception as e:
+        print(f"[Oasis UI] Could not ensure table at startup: {e}")
     yield
 
 
@@ -105,6 +111,7 @@ app.include_router(events.router, prefix="/api/events", tags=["Events"])
 app.include_router(stats.router, prefix="/api/stats", tags=["Statistics"])
 app.include_router(query_history.router, prefix="/api/query-history", tags=["Query History"])
 app.include_router(reports.router, prefix="/api/reports", tags=["Reports"])
+app.include_router(oasis_ui.router, prefix="/api/oasis-ui", tags=["Oasis UI"])
 
 
 if __name__ == "__main__":

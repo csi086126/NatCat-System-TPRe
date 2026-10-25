@@ -10,7 +10,7 @@ import { Label } from '@/components/ui/label';
 import {
   Copy, Check, Users, AlertCircle,
   Power, Trash2, RotateCw, KeyRound,
-  X,
+  X, UserPlus,
 } from 'lucide-react';
 
 interface AdminUserItem {
@@ -42,11 +42,18 @@ type DialogState =
   | { kind: 'confirm_delete'; user: AdminUserItem }
   | { kind: 'resend_result'; result: ResendResult };
 
-export default function AdminUsersPage() {
+export interface AdminUsersPanelProps {
+  /** Render inside User Center without adding another full-page shell. */
+  embedded?: boolean;
+}
+
+export function AdminUsersPanel({ embedded = false }: AdminUsersPanelProps) {
   const router = useRouter();
   const { user, isLoading: authLoading } = useAuth();
 
-  // 表单状态
+  const [showAddUser, setShowAddUser] = useState(false);
+
+  // Form state
   const [email, setEmail] = useState('');
   const [displayName, setDisplayName] = useState('');
   const [organization, setOrganization] = useState('');
@@ -54,23 +61,22 @@ export default function AdminUsersPage() {
   const [creating, setCreating] = useState(false);
   const [createError, setCreateError] = useState('');
 
-  // 创建结果
+  // Creation result
   const [createResult, setCreateResult] = useState<CreateResult | null>(null);
   const [copied, setCopied] = useState(false);
 
-  // 用户列表
+  // User list
   const [users, setUsers] = useState<AdminUserItem[]>([]);
-  const [total, setTotal] = useState(0);
   const [search, setSearch] = useState('');
   const [loadingList, setLoadingList] = useState(false);
   const [actionError, setActionError] = useState('');
   const [busyUserId, setBusyUserId] = useState<number | null>(null);
 
-  // 弹窗
+  // Dialogs
   const [dialog, setDialog] = useState<DialogState>({ kind: 'none' });
   const [resendCopied, setResendCopied] = useState(false);
 
-  // 守卫:非 admin 跳走
+  // Redirect non-admin users.
   useEffect(() => {
     if (authLoading) return;
     if (!user || user.role !== 'admin') {
@@ -92,7 +98,6 @@ export default function AdminUsersPage() {
       }
       const data = await res.json();
       setUsers(data.items);
-      setTotal(data.total);
     } finally {
       setLoadingList(false);
     }
@@ -120,19 +125,19 @@ export default function AdminUsersPage() {
       });
       const data = await res.json();
       if (!res.ok) {
-        setCreateError(typeof data.detail === 'string' ? data.detail : `创建失败 (HTTP ${res.status})`);
+        setCreateError(typeof data.detail === 'string' ? data.detail : `Failed to create user (HTTP ${res.status})`);
         return;
       }
       setCreateResult(data);
-      // 清空表单
+      // Clear the form for the next user.
       setEmail('');
       setDisplayName('');
       setOrganization('');
       setRole('user');
-      // 刷新列表
+      // Refresh the list.
       fetchUsers();
     } catch (e) {
-      setCreateError(e instanceof Error ? e.message : '网络错误');
+      setCreateError(e instanceof Error ? e.message : 'Network error');
     } finally {
       setCreating(false);
     }
@@ -144,7 +149,7 @@ export default function AdminUsersPage() {
       onCopied();
       setTimeout(onCopied, 2000);
     } catch {
-      // 浏览器没开 clipboard API
+      // Clipboard access may be unavailable in some browsers.
     }
   };
 
@@ -219,23 +224,25 @@ export default function AdminUsersPage() {
   if (authLoading || !user || user.role !== 'admin') {
     return (
       <div className="min-h-screen flex items-center justify-center text-gray-500">
-        加载中…
+        Loading…
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-6xl mx-auto space-y-6">
-        {/* 标题 */}
-        <div className="flex items-center gap-3">
-          <Users size={28} className="text-blue-600" />
-          <div>
-            <h1 className="text-2xl font-bold text-gray-800">用户管理</h1>
-            <p className="text-sm text-gray-500">
-              管理员手动开通账号,共 <strong>{total}</strong> 个用户
-            </p>
+    <div className={embedded ? "space-y-6" : "min-h-screen bg-gray-50 p-6"}>
+      <div className={embedded ? "space-y-6" : "max-w-6xl mx-auto space-y-6"}>
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <Users size={28} className="text-blue-600" />
+            <h1 className="text-2xl font-bold text-gray-800">User management</h1>
           </div>
+          {!showAddUser && (
+            <Button type="button" onClick={() => { setCreateError(''); setCreateResult(null); setShowAddUser(true); }}>
+              <UserPlus size={16} className="mr-2" />
+              Add user
+            </Button>
+          )}
         </div>
 
         {actionError && (
@@ -248,16 +255,21 @@ export default function AdminUsersPage() {
           </div>
         )}
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* 创建用户表单 */}
+        <div className="space-y-6">
+          {showAddUser && (
           <Card>
             <CardHeader>
-              <CardTitle>开通新账号</CardTitle>
+              <div className="flex items-center justify-between gap-3">
+                <CardTitle>Add user</CardTitle>
+                <Button type="button" variant="outline" onClick={() => setShowAddUser(false)}>
+                  Back to users
+                </Button>
+              </div>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleCreate} className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="email">邮箱 *</Label>
+                  <Label htmlFor="email">Email *</Label>
                   <Input
                     id="email"
                     type="email"
@@ -271,11 +283,11 @@ export default function AdminUsersPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="displayName">显示名</Label>
+                  <Label htmlFor="displayName">Display name</Label>
                   <Input
                     id="displayName"
                     type="text"
-                    placeholder="张三 /"
+                    placeholder="Jane Doe"
                     value={displayName}
                     onChange={(e) => setDisplayName(e.target.value)}
                     disabled={creating}
@@ -285,11 +297,11 @@ export default function AdminUsersPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="organization">所在单位</Label>
+                  <Label htmlFor="organization">Organization</Label>
                   <Input
                     id="organization"
                     type="text"
-                    placeholder="中国太平保险(香港) /"
+                    placeholder="Company or institution"
                     value={organization}
                     onChange={(e) => setOrganization(e.target.value)}
                     disabled={creating}
@@ -299,7 +311,7 @@ export default function AdminUsersPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="role">角色</Label>
+                  <Label htmlFor="role">Role</Label>
                   <select
                     id="role"
                     value={role}
@@ -307,8 +319,8 @@ export default function AdminUsersPage() {
                     disabled={creating}
                     className="w-full h-11 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
-                    <option value="user">普通用户</option>
-                    <option value="admin">管理员</option>
+                    <option value="user">User</option>
+                    <option value="admin">Administrator</option>
                   </select>
                 </div>
 
@@ -320,19 +332,19 @@ export default function AdminUsersPage() {
                 )}
 
                 <Button type="submit" className="w-full h-11" disabled={creating}>
-                  {creating ? '创建中…' : '开通账号'}
+                  {creating ? 'Creating…' : 'Create user'}
                 </Button>
               </form>
 
-              {/* 创建成功后显示设置密码链接 */}
+              {/* Show the password setup link after creation. */}
               {createResult && (
                 <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-md space-y-3">
                   <p className="text-sm font-medium text-green-800">
-                    ✓ 账号已创建:{createResult.user.email}
+                    ✓ User created: {createResult.user.email}
                   </p>
                   <p className="text-xs text-green-700">
-                    把下面的「设置密码」链接发给用户(微信 / 企业邮箱 / 钉钉),用户点链接设置密码后即可登录。
-                    链接 <strong>{createResult.expires_in_hours} 小时</strong>内有效。
+                    Send the password setup link below to the user. The link expires in{' '}
+                    <strong>{createResult.expires_in_hours} hours</strong>.
                   </p>
                   <div className="flex gap-2">
                     <Input
@@ -347,7 +359,7 @@ export default function AdminUsersPage() {
                       size="icon"
                       onClick={() => copyLink(createResult.set_password_url, () => setCopied(true))}
                       className="h-10 w-10"
-                      title="复制链接"
+                      title="Copy link"
                     >
                       {copied ? <Check size={16} className="text-green-600" /> : <Copy size={16} />}
                     </Button>
@@ -356,17 +368,18 @@ export default function AdminUsersPage() {
               )}
             </CardContent>
           </Card>
+          )}
 
-          {/* 用户列表 */}
+          {!showAddUser && (
           <Card>
             <CardHeader>
-              <CardTitle>已有用户</CardTitle>
+              <CardTitle>Users</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
                 <Input
                   type="search"
-                  placeholder="搜索邮箱 / 显示名 / 单位"
+                  placeholder="Search email, display name, or organization"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   className="h-10"
@@ -374,18 +387,18 @@ export default function AdminUsersPage() {
 
                 <div className="border rounded-md max-h-[500px] overflow-y-auto">
                   {loadingList ? (
-                    <div className="p-6 text-center text-sm text-gray-500">加载中…</div>
+                    <div className="p-6 text-center text-sm text-gray-500">Loading…</div>
                   ) : users.length === 0 ? (
-                    <div className="p-6 text-center text-sm text-gray-500">暂无用户</div>
+                    <div className="p-6 text-center text-sm text-gray-500">No users found</div>
                   ) : (
                     <table className="w-full text-sm">
                       <thead className="bg-gray-50 sticky top-0">
                         <tr>
-                          <th className="text-left p-2 font-medium text-gray-600">邮箱</th>
-                          <th className="text-left p-2 font-medium text-gray-600">单位</th>
-                          <th className="text-left p-2 font-medium text-gray-600">角色</th>
-                          <th className="text-left p-2 font-medium text-gray-600">状态</th>
-                          <th className="text-right p-2 font-medium text-gray-600">操作</th>
+                          <th className="text-left p-2 font-medium text-gray-600">Email</th>
+                          <th className="text-left p-2 font-medium text-gray-600">Organization</th>
+                          <th className="text-left p-2 font-medium text-gray-600">Role</th>
+                          <th className="text-left p-2 font-medium text-gray-600">Status</th>
+                          <th className="text-right p-2 font-medium text-gray-600">Actions</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -400,7 +413,7 @@ export default function AdminUsersPage() {
                                   <div className="text-xs text-gray-500">{u.display_name}</div>
                                 )}
                                 {isMe && (
-                                  <div className="text-[10px] text-blue-600">(你)</div>
+                                  <div className="text-[10px] text-blue-600">(you)</div>
                                 )}
                               </td>
                               <td className="p-2 text-gray-600">
@@ -437,7 +450,7 @@ export default function AdminUsersPage() {
                                     className="h-7 w-7"
                                     disabled={busy || isMe}
                                     onClick={() => handleResend(u)}
-                                    title={isMe ? '不能给自己重发链接' : '重发设置密码链接'}
+                                    title={isMe ? 'Cannot resend a link to yourself' : 'Resend password setup link'}
                                   >
                                     <RotateCw size={12} />
                                   </Button>
@@ -450,10 +463,10 @@ export default function AdminUsersPage() {
                                     onClick={() => handleToggleStatus(u)}
                                     title={
                                       isMe
-                                        ? '不能修改自己状态'
+                                        ? 'Cannot change your own status'
                                         : u.status === 'suspended'
-                                        ? '解禁此用户'
-                                        : '禁用此用户'
+                                        ? 'Reactivate user'
+                                        : 'Suspend user'
                                     }
                                   >
                                     <Power size={12} />
@@ -465,7 +478,7 @@ export default function AdminUsersPage() {
                                     className="h-7 w-7 text-red-600"
                                     disabled={busy || isMe}
                                     onClick={() => setDialog({ kind: 'confirm_delete', user: u })}
-                                    title={isMe ? '不能删除自己' : '删除此用户'}
+                                    title={isMe ? 'Cannot delete yourself' : 'Delete user'}
                                   >
                                     <Trash2 size={12} />
                                   </Button>
@@ -481,28 +494,29 @@ export default function AdminUsersPage() {
               </div>
             </CardContent>
           </Card>
+          )}
         </div>
       </div>
 
-      {/* 删除确认弹窗 */}
+      {/* Delete confirmation dialog */}
       {dialog.kind === 'confirm_delete' && (
         <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center p-4">
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6 space-y-4">
             <div className="flex items-start gap-3">
               <AlertCircle size={24} className="text-red-600 flex-shrink-0 mt-0.5" />
               <div>
-                <h2 className="text-lg font-bold text-gray-800">确认删除用户?</h2>
+                <h2 className="text-lg font-bold text-gray-800">Delete user?</h2>
                 <p className="text-sm text-gray-600 mt-1">
-                  将永久删除 <strong className="text-gray-900">{dialog.user.email}</strong>。
+                  This will permanently delete <strong className="text-gray-900">{dialog.user.email}</strong>.
                 </p>
                 <p className="text-xs text-gray-500 mt-2">
-                  该用户的登录会话、查询历史关联将一并清理。此操作不可撤销。
+                  The user&apos;s sessions and associated query history will also be removed. This action cannot be undone.
                 </p>
               </div>
             </div>
             <div className="flex justify-end gap-2">
               <Button variant="outline" onClick={() => setDialog({ kind: 'none' })}>
-                取消
+                Cancel
               </Button>
               <Button
                 variant="destructive"
@@ -510,23 +524,23 @@ export default function AdminUsersPage() {
                 disabled={busyUserId === dialog.user.id}
                 className="bg-red-600 hover:bg-red-700 text-white"
               >
-                {busyUserId === dialog.user.id ? '删除中…' : '确认删除'}
+                {busyUserId === dialog.user.id ? 'Deleting…' : 'Delete user'}
               </Button>
             </div>
           </div>
         </div>
       )}
 
-      {/* 重发链接结果弹窗 */}
+      {/* Resend link result dialog */}
       {dialog.kind === 'resend_result' && (
         <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center p-4">
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6 space-y-4">
             <div className="flex items-start gap-3">
               <KeyRound size={24} className="text-blue-600 flex-shrink-0 mt-0.5" />
               <div>
-                <h2 className="text-lg font-bold text-gray-800">新的设置密码链接</h2>
+                <h2 className="text-lg font-bold text-gray-800">New password setup link</h2>
                 <p className="text-sm text-gray-600 mt-1">
-                  给 <strong>{dialog.result.user.email}</strong> 重发,旧链接已失效。
+                  A new link was generated for <strong>{dialog.result.user.email}</strong>. The previous link is no longer valid.
                 </p>
               </div>
             </div>
@@ -538,7 +552,7 @@ export default function AdminUsersPage() {
                 onClick={(e) => e.currentTarget.select()}
               />
               <p className="text-xs text-gray-500">
-                链接 <strong>{dialog.result.expires_in_hours} 小时</strong>内有效。
+                This link expires in <strong>{dialog.result.expires_in_hours} hours</strong>.
               </p>
             </div>
             <div className="flex justify-end gap-2">
@@ -546,13 +560,18 @@ export default function AdminUsersPage() {
                 variant="outline"
                 onClick={() => copyLink(dialog.result.set_password_url, () => setResendCopied(true))}
               >
-                {resendCopied ? <><Check size={14} className="mr-1 text-green-600" />已复制</> : <><Copy size={14} className="mr-1" />复制链接</>}
+                {resendCopied ? <><Check size={14} className="mr-1 text-green-600" />Copied</> : <><Copy size={14} className="mr-1" />Copy link</>}
               </Button>
-              <Button onClick={() => setDialog({ kind: 'none' })}>关闭</Button>
+              <Button onClick={() => setDialog({ kind: 'none' })}>Close</Button>
             </div>
           </div>
         </div>
       )}
     </div>
   );
+}
+
+/** Backward-compatible standalone admin route. */
+export default function AdminUsersPage() {
+  return <AdminUsersPanel />;
 }

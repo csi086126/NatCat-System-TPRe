@@ -7,7 +7,9 @@ import Link from 'next/link';
 import { Button } from "@/components/ui/button"; // 假设这是来自 shadcn/ui 的按钮
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { MapPin, AlertTriangle, Map, Building2, Activity, Puzzle, User, LogOut, Home, Globe } from 'lucide-react';
+import { useAuth } from '@/lib/AuthContext';
+import { AdminUsersPanel } from '@/app/admin/users/page';
+import { MapPin, AlertTriangle, Map, Building2, Activity, Puzzle, User, LogOut, Home, Globe, ShieldCheck } from 'lucide-react';
 
 // 2. Header 组件 (保持不变)
 const Header = ({ onLogout, activePage }: { onLogout: () => void; activePage?: string }) => {
@@ -28,7 +30,7 @@ const Header = ({ onLogout, activePage }: { onLogout: () => void; activePage?: s
             <li><Link href="/"><Button variant="ghost" className={`gap-2 ${activePage === 'home' ? 'text-blue-900 font-bold text-lg' : ''}`}><Home size={18} />Home</Button></Link></li>
             {/* <li className="ml-auto"><Link href="/disasterinfo"><Button variant="ghost" className={`gap-2 ${activePage === 'disasterinfo' ? 'text-blue-900 font-bold text-lg' : ''}`}><AlertTriangle size={18} />Disaster repository</Button></Link></li> */}
             <li className="ml-auto"><Link href="/riskmap"><Button variant="ghost" className={`gap-2 ${activePage === 'riskmap' ? 'text-blue-900 font-bold text-lg' : ''}`}><Map size={18} />Risk map</Button></Link></li>
-            <li><Link href="/model"><Button variant="ghost" className={`gap-2 ${activePage === 'model' ? 'text-blue-900 font-bold text-lg' : ''}`}><Activity size={18} />Catastrophe model</Button></Link></li>
+            <li><Link href="/oasisui"><Button variant="ghost" className={`gap-2 ${activePage === 'model' ? 'text-blue-900 font-bold text-lg' : ''}`}><Activity size={18} />Catastrophe model</Button></Link></li>
             <li className="ml-auto"><Link href="/asset"><Button variant="ghost" className={`gap-2 ${activePage === 'asset' ? 'text-blue-900 font-bold text-lg' : ''}`}><Building2 size={18} />Portfolio management</Button></Link></li>
             <li><Link href="/fuzhu"><Button variant="ghost" className={`gap-2 ${activePage === 'fuzhu' ? 'text-blue-900 font-bold text-lg' : ''}`}><Puzzle size={18} />Extensions</Button></Link></li>
             <li><Link href="/usercenter"><Button variant="ghost" className={`gap-2 ${activePage === 'usercenter' ? 'text-blue-900 font-bold text-lg' : ''}`}><User size={18} />User</Button></Link></li>
@@ -76,6 +78,7 @@ const ActivityIcon = (props) => (
 const UserCenterPage = () => {
   // 使用 state 来管理当前活动的标签页
   const [activeTab, setActiveTab] = useState('profile');
+  const { user } = useAuth();
 
   const renderContent = () => {
     switch (activeTab) {
@@ -87,6 +90,8 @@ const UserCenterPage = () => {
         return <NotificationsSection />;
       case 'activity':
         return <ActivityLogSection />;
+      case 'admin':
+        return user?.role === 'admin' ? <AdminUsersPanel embedded /> : <ProfileSection />;
       default:
         return <ProfileSection />;
     }
@@ -133,6 +138,16 @@ const UserCenterPage = () => {
                 <ActivityIcon className={`flex-shrink-0 -ml-1 mr-3 h-6 w-6 ${activeTab === 'activity' ? 'text-gray-600' : 'text-gray-400 group-hover:text-gray-500'}`} />
                 <span className="truncate">Activity Log</span>
               </a>
+              {user?.role === 'admin' && (
+                <a
+                  href="#"
+                  onClick={(e) => { e.preventDefault(); setActiveTab('admin'); }}
+                  className={`group rounded-md px-3 py-2 flex items-center text-sm font-medium ${activeTab === 'admin' ? 'bg-gray-200 text-gray-900' : 'text-gray-700 hover:bg-gray-100'}`}
+                >
+                  <ShieldCheck className={`flex-shrink-0 -ml-1 mr-3 h-6 w-6 ${activeTab === 'admin' ? 'text-gray-600' : 'text-gray-400 group-hover:text-gray-500'}`} />
+                  <span className="truncate">User Management</span>
+                </a>
+              )}
             </nav>
           </aside>
 
